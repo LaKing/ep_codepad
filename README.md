@@ -13,10 +13,10 @@ This etherpad-lite plugin merges functionality of simple plugins, and adds some 
 
 Special URI's:
 
-/files - filetree
-/log - logview
-/v[/folder]/file - quick view-only with syntaxhighlighting
-/p[/folder]/file - open pad for editing
+- /files - filetree
+- /log - logview
+- /v[/folder]/file - quick view-only with syntaxhighlighting
+- /p[/folder]/file - open pad for editing
 
 Currently the following codepad parameters are supported in etherpad's settings.json:
 - default theme
