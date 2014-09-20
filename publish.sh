@@ -55,10 +55,10 @@ echo '{
     "engines": {
         "node": "*"
     },
-    "readmeFilename": "README.md"
+    "readmeFilename": "README.md",
     "dist": {
         "shasum": "a8f8e9afb5f219265ffb696ca5cf4cf9c1d778c8"
-    },
+    }
 }' > $g
             
 git add .

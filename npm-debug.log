@@ -4,7 +4,7 @@
 3 info using node@v0.10.30
 4 verbose publish [ '.' ]
 5 error Failed to parse json
-5 error Unexpected token }
+5 error Unexpected string
 6 error File: /srv/etherpad-lite/node_modules/ep_codepad/package.json
 7 error Failed to parse package.json data.
 7 error package.json must be actual JSON, not just JavaScript.
