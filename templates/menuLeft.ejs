@@ -1,0 +1,37 @@
+<li class="acl-write separator"></li>
+<li data-type="button" data-key="undo"><a class="grouped-left"><span class=" buttonicon buttonicon-undo" data-l10n-id="pad.toolbar.undo.title"></span></a>
+</li>
+<li data-type="button" data-key="redo"><a class="grouped-right"><span class=" buttonicon buttonicon-redo" data-l10n-id="pad.toolbar.redo.title"></span></a>
+</li>
+<li class="acl-write separator"></li>
+<li class="acl-write" id="button_padmin" onclick="window.open('/files', 'files');"><a data-l10n-id="pad.toolbar.codepad_buttons.title" title="Files"><span class="buttonicon buttonicon-codepad_buttons_padmin"></span></a>
+</li>
+<li class="acl-write" id="button_padmin" onclick="window.open('/admin/pads', 'padmin');"><a data-l10n-id="pad.toolbar.codepad_buttons.title" title="Padmin"><span class="buttonicon buttonicon-codepad_buttons_padmin"></span></a>
+</li>
+<li class="acl-write separator"></li>
+<li class="acl-write" id="button_write" onclick="sendWriteMessage()">
+    <a class="grouped-left" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Write!">
+    <span class="buttonicon buttonicon-codepad_buttons_push"></span>
+    </a>
+    </li>
+<li class="acl-write" id="button_push" onclick="sendPushMessage() ">
+    <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Push!">
+        <span class="buttonicon buttonicon-codepad_buttons_push"></span>
+    </a>
+</li>
+<li class="acl-write" id="button_play" onclick="sendPushMessage(); window.open( '/play', '_blank');">
+    <a class="grouped-right" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Play">
+        <span class="buttonicon buttonicon-codepad_buttons_play">
+    </span>
+    </a>
+</li>
+<li class="acl-write separator"></li>
+<li id="status" style="status"><span></span>
+</li>
+<li class="acl-write separator"></li>
+
+
+
+
+
+

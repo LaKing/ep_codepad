@@ -1,0 +1,18 @@
+#innerdocbody {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+#innerdocbody a:visited {
+    color: #607AFA;
+}
+
+
+#innerdocbody a:link {
+    color: #657BFF;
+}
+
+body {
+    font-family: monospace;
+}
+

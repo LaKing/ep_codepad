@@ -1,0 +1,7 @@
+.syntaxhighlighter .warn {background-color:#550000; color:#FFFFFF;}
+.syntaxhighlighter .error {background-color:#440000; color:#FFFFFF; font-weight:bold;}
+/*
+.syntaxhighlighter .warn {background-color:#550000; color:#FF9999; opacity:0.9;} 
+.syntaxhighlighter .error {background-color:#440000; color:#FFCCCC; font-weight:bold;opacity: 0.9;}
+*/
+

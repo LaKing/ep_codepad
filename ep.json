@@ -1,0 +1,93 @@
+{
+    "parts": [{
+        "name": "ep_hash_auth",
+        "hooks": {
+            "authenticate": "ep_codepad/ep_hash_auth"
+        }
+    }, {
+        "name": "ep_codepad_foldersupport",
+        "hooks": {
+            "expressCreateServer": "ep_codepad:expressCreateFolderServer"
+        }
+    }, {
+        "name": "ep_codepad_play",
+        "hooks": {
+            "expressCreateServer": "ep_codepad:expressCreatePlayServer"
+        }
+    }, {
+        "name": "ep_codepad_filetree",
+        "hooks": {
+            "expressCreateServer": "ep_codepad:expressCreateFileTreeServer"
+        }
+    }, {
+        "name": "ep_codepad_fileview",
+        "hooks": {
+            "expressCreateServer": "ep_codepad:expressCreateFileViewServer"
+        }
+    }, {
+        "name": "ep_codepad_page",
+        "hooks": {
+            "expressCreateServer": "ep_codepad:expressCreateCodepadServer"
+        }
+    }, {
+        "name": "ep_codepad_fileload",
+        "hooks": {
+            "padCreate": "ep_codepad:padCreate"
+        }
+    }, {
+        "name": "ep_codepad_linkcolor",
+        "client_hooks": {
+            "aceEditorCSS": "ep_codepad/static/js/ace.js"
+        }
+    }, {
+        "name": "ep_codepad_defaults",
+        "client_hooks": {
+            "postAceInit": "ep_codepad/static/js/codepad_defaults:postAceInit"
+        }
+    }, {
+        "name": "ep_disable_format_buttons",
+        "client_hooks": {
+            "documentReady": "ep_codepad/static/js/disable_format:disableFormat"
+        }
+    }, {
+        "name": "ep_codepad_buttons",
+        "client_hooks": {
+            "handleClientMessage_CUSTOM": "ep_codepad/static/js/message:handleClientMessage_CUSTOM"
+        },
+        "hooks": {
+            "handleMessage": "ep_codepad/handleButtonMessage",
+            "eejsBlock_scripts": "ep_codepad/buttons",
+            "eejsBlock_styles": "ep_codepad/buttons"
+        }
+    }, {
+        "name": "ep_codepad_admin",
+        "hooks": {
+            "expressCreateServer": "ep_codepad/admin_index:registerRoute",
+            "socketio": "ep_codepad/admin_index:socketio",
+            "padRemove": "ep_codepad/admin_index:updatePads",
+            "padCreate": "ep_codepad/admin_index:updatePads",
+            "eejsBlock_adminMenu": "ep_codepad/admin_index"
+        },
+        "client_hooks": {
+            "documentReady": "ep_codepad/static/js/admin/pads"
+        }
+    }, {
+        "name": "ep_codepad_themed_syntaxhighlighting",
+        "hooks": {
+            "eejsBlock_scripts": "ep_codepad/themes_index:eejsBlock_scripts",
+            "eejsBlock_styles": "ep_codepad/themes_index:eejsBlock_styles",
+            "eejsBlock_timesliderStyles": "ep_codepad/themes_index:eejsBlock_timesliderStyles",
+            "eejsBlock_editbarMenuRight": "ep_codepad/themes_index:eejsBlock_editbarMenuRight",
+            "eejsBlock_editbarMenuLeft": "ep_codepad/themes_index:eejsBlock_editbarMenuLeft",
+            "eejsBlock_mySettings.dropdowns": "ep_codepad/themes_index:eejsBlock_mySettings_dropdowns",
+            "clientVars": "ep_codepad/themes_index:clientVars"
+        },
+        "client_hooks": {
+            "aceKeyEvent": "ep_codepad/static/js/syntax:aceKeyEvent",
+            "aceEditorCSS": "ep_codepad/static/js/aceTheme.js",
+            "acePostWriteDomLineHTML": "ep_codepad/static/js/syntax:acePostWriteDomLineHTML",
+            "aceInitInnerdocbodyHead": "ep_codepad/static/js/syntax:aceInitInnerdocbodyHead",
+            "disableAuthorColorsForThisLine": "ep_codepad/static/js/syntax:disableAuthorColorsForThisLine"
+        }
+    }]
+}

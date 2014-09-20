@@ -1,0 +1,299 @@
+/*
+I think this file is not used
+
+colors used are:
+
+#000000
+#ffffff
+#f7f7f7
+#f4f4f4
+#f1f1f1
+#eeeeee
+#cccccc
+#aaaaaa
+#777777
+#444444
+#333333
+
+*/
+
+body {
+    background-color: #f7f7f7;
+    font-family: monospace;
+}
+
+#outerdocbody {
+    background-color: #f1f1f1;
+}
+
+#innerdocbody {
+    background-color: #f4f4f4;
+}
+
+#sidediv {
+    background-color: #eeeeee;
+}
+
+.sidedivdelayed {
+    color: #F0F0F0 !important;
+}
+
+.toolbar {
+    background-color: #444444;
+}
+
+/* extracted from pad.css */
+
+#users {
+  background: #f7f7f7;
+  background: -webkit-linear-gradient( #f7f7f7,#eeeeee);
+  background: -moz-linear-gradient( #f7f7f7,#eeeeee);
+  background: -ms-linear-gradient( #f7f7f7,#eeeeee);
+  background: -o-linear-gradient( #f7f7f7,#eeeeee);
+  background: linear-gradient( #f7f7f7,#eeeeee);
+  color: #ffffff;
+  border: 1px solid #cccccc;
+}
+
+.toolbar {
+  background: #f7f7f7;
+  background: -webkit-linear-gradient(#f7f7f7, #f1f1f1 80%);
+  background: -moz-linear-gradient(#f7f7f7, #f1f1f1 80%);
+  background: -o-linear-gradient(#f7f7f7, #f1f1f1 80%);
+  background: -ms-linear-gradient(#f7f7f7, #f1f1f1 80%);
+  background: linear-gradient(#f7f7f7, #f1f1f1 80%);
+  border-bottom: 1px solid #cccccc;
+}
+
+#usericon a #online_count {
+  color: #777777;
+}
+
+#editorloadingbox {
+  color: #aaaaaa;
+}
+
+#myswatchbox {
+  border: 1px solid #000000;
+}
+
+#mycolorpicker {
+  background: #f7f7f7;
+  border: 1px solid #cccccc;
+}
+
+#mycolorpickersave,
+#mycolorpickercancel {
+  background: #ffffff;
+  background: -webkit-linear-gradient(#fff, #ccc);
+  background: -moz-linear-gradient(#fff, #ccc);
+  background: -o-linear-gradient(#fff, #ccc);
+  background: -ms-linear-gradient(#fff, #ccc);
+  background: linear-gradient(#fff, #ccc);
+  border: 1px solid #cccccc;
+  color: #000000;
+}
+#mycolorpickerpreview {
+  color: #ffffff;
+}
+
+#myusernameedit {
+  color: #ffffff;
+}
+#myusernameform input.editable {
+  border: 1px solid #444444
+}
+#myuser .myusernameedithoverable:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+#mystatusedit {
+  color: #777777;
+  border: 1px solid #cccccc;
+}
+#myusernameform .editactive,
+#myusernameform .editempty {
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  color: #000000;
+}
+#myusernameform .editempty {
+  background: #ffffff;
+  color: #333333
+}
+#myswatchbox, #myusernameedit, #otheruserstable .swatch {
+  border: 1px solid #ccc !important;
+  color: #333333;
+}
+
+#nootherusers {
+  color: #eeeeee;
+}
+#nootherusers a {
+  color: #777777
+}
+#otheruserstable td {
+  color: #333333;
+}
+#otheruserstable .swatch {
+  border: 1px solid #000000;
+}
+.usertdname {
+  color: #444444;
+}
+.usertdstatus {
+  color: #aaaaaa;
+}
+.usertdactivity {
+  color: #777777;
+}
+.usertdname input {
+  border: 1px solid #cccccc;
+}
+
+.usertdname input.editactive,
+.usertdname input.editempty {
+  background: #ffffff;
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
+.usertdname input.editempty {
+  color: #777777;
+}
+
+#chatbox {
+  background-color: #f7f7f7;
+  border-left: 1px solid #aaaaaa;
+  border-right: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
+}
+#chattext {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+#chatlabel {
+  color: #444444;
+}
+#chatinput {
+  border: 1px solid #cccccc;
+}
+#chaticon {
+  border-left: 1px solid #aaaaaa;
+  border-right: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
+  background-color: #ffffff;
+}
+
+#chatcounter {
+  color: #777777;
+}
+#titlebar {
+  color: #444444;
+}
+
+#titlesticky{
+  color: #444444;
+}
+#titlecross {
+  color: #444444;
+}
+.time {
+  color: #333333;
+}
+
+.exporttype {
+  color: #333333;
+}
+
+#importmessageabiword {
+  color: #aaaaaa;
+}
+
+#chatthrob {
+  background-color: #000000;
+  color: #ffffff;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.7);
+}
+#focusprotector {
+  background-color: #ffffff;
+}
+#online_count {
+  color: #777777;
+}
+
+.popup {
+  border: 1px solid #cccccc;
+  background: #f7f7f7;
+  background: -webkit-linear-gradient(#f7f7f7, #eeeeee);
+  background: -moz-linear-gradient(#f7f7f7, #eeeeee);
+  background: -ms-linear-gradient(#f7f7f7, #eeeeee);
+  background: -o-linear-gradient(#f7f7f7, #eeeeee);
+  background: linear-gradient(#f7f7f7, #eeeeee);
+  -webkit-box-shadow: 0 0 8px #777777;
+  -moz-box-shadow: 0 0 8px #777777;
+  box-shadow: 0 2px 4px #dddddd;
+  color: #333333;
+}
+
+.popup h1 {
+  color: #444444;
+}
+.popup h2 {
+  color: #777777;
+}
+
+.stickyChat {
+  background-color: #f1f1f1 !important;
+  border-left: 1px solid #cccccc !important;
+}
+
+@media all and (max-width: 400px){
+  #gritter-notice-wrapper{
+    background-color: #cccccc;
+    color:#000000;
+  } 
+  .gritter-item p{
+    color:#000000;
+  }
+  .gritter-title{
+    color:#000000;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
+    .toolbar ul.menu_right {
+      background: #f7f7f7;
+      background: -webkit-linear-gradient(#f7f7f7, #f1f1f1 80%);
+      background: -moz-linear-gradient(#f7f7f7, #f1f1f1 80%);
+      background: -o-linear-gradient(#f7f7f7, #f1f1f1 80%);
+      background: -ms-linear-gradient(#f7f7f7, #f1f1f1 80%);
+      background: linear-gradient(#f7f7f7, #f1f1f1 80%);
+      border-top: 1px solid #cccccc;
+    }
+
+}
+
+.gritter-item {
+  color:#eeeeee;
+}
+.gritter-title {
+  text-shadow:1px 1px 0 #000000; /* Not supported by IE :( */
+}
+.gritter-close {
+  color: #333333;
+}
+.activeButton{
+  background: #eeeeee;
+  background: -webkit-linear-gradient(#dddddd, #ffffff);
+  background: -moz-linear-gradient(#dddddd, #ffffff);
+  background: -o-linear-gradient(#dddddd, #ffffff);
+  background: -ms-linear-gradient(#dddddd, #ffffff);
+  background: linear-gradient(#dddddd, #ffffff);
+}
+

@@ -1,0 +1,544 @@
+
+/*
+colors used are:
+
+#808080
+#484848
+#2C2C2C
+#1E1E1E
+#171717
+#131313
+#111111
+#101010
+
+*/
+
+body {
+
+    background-color: #000000;
+
+    color: #808080;
+
+}
+
+#outerdocbody {
+
+    background-color: #000000;
+
+}
+
+#innerdocbody {
+
+    background-color: #000000;
+
+}
+
+#sidediv {
+
+    background-color: #111111;
+
+}
+
+.sidedivdelayed {
+
+    color: #484848 !important;
+
+}
+
+.toolbar {
+
+    background-color: #131313;
+
+}
+
+/* extracted from pad.css */
+
+#users {
+
+    background: #131313;
+
+    background: -webkit-linear-gradient(#1E1E1E, #171717);
+
+    background: -moz-linear-gradient(#1E1E1E, #171717);
+
+    background: -ms-linear-gradient(#1E1E1E, #171717);
+
+    background: -o-linear-gradient(#1E1E1E, #171717);
+
+    background: linear-gradient(#1E1E1E, #171717);
+
+    color: #808080;
+
+    border: 1px solid #1E1E1E;
+
+}
+
+.toolbar {
+
+    background: #131313;
+
+    background: -webkit-linear-gradient(#1E1E1E, #171717 80%);
+
+    background: -moz-linear-gradient(#1E1E1E, #171717 80%);
+
+    background: -o-linear-gradient(#1E1E1E, #171717 80%);
+
+    background: -ms-linear-gradient(#1E1E1E, #171717 80%);
+
+    background: linear-gradient(#1E1E1E, #171717 80%);
+
+    border-bottom: 1px solid #1E1E1E;
+
+}
+
+#usericon a #online_count {
+
+    color: #171717;
+
+}
+
+#editorloadingbox {
+
+    color: #1E1E1E;
+
+}
+
+#myswatchbox {
+
+    border: 1px solid #101010;
+
+}
+
+#mycolorpicker {
+
+    background: #484848;
+
+    border: 1px solid #2C2C2C;
+
+}
+
+#mycolorpickersave,
+
+#mycolorpickercancel {
+
+    background: #1E1E1E;
+
+    background: -webkit-linear-gradient(#2C2C2C, #1E1E1E);
+
+    background: -moz-linear-gradient(#2C2C2C, #1E1E1E);
+
+    background: -o-linear-gradient(#2C2C2C, #1E1E1E);
+
+    background: -ms-linear-gradient(#2C2C2C, #1E1E1E);
+
+    background: linear-gradient(#2C2C2C, #1E1E1E);
+
+    border: 1px solid #2C2C2C;
+
+    color: #808080;
+
+}
+
+#mycolorpickerpreview {
+
+    color: #808080;
+
+}
+
+#myusernameedit {
+
+    color: #808080;
+
+}
+
+#myusernameform input.editable {
+
+    border: 1px solid #131313
+
+}
+
+#myuser .myusernameedithoverable:hover {
+
+    background: #808080;
+
+    color: #101010;
+
+}
+
+#mystatusedit {
+
+    color: #171717;
+
+    border: 1px solid #2C2C2C;
+
+}
+
+#myusernameform .editactive,
+
+#myusernameform .editempty {
+
+    border-left: 1px solid #2C2C2C;
+
+    border-top: 1px solid #2C2C2C;
+
+    border-right: 1px solid #171717;
+
+    border-bottom: 1px solid #171717;
+
+    color: #101010;
+
+}
+
+#myusernameform .editempty {
+
+    background: #808080;
+
+    color: #111111
+
+}
+
+#myswatchbox,
+
+#myusernameedit,
+
+#otheruserstable .swatch {
+
+    border: 1px solid #131313 !important;
+
+    color: #111111;
+
+}
+
+#nootherusers {
+
+    color: #171717;
+
+}
+
+#nootherusers a {
+
+    color: #171717
+
+}
+
+#otheruserstable td {
+
+    color: #FFFFFF;
+
+}
+
+#otheruserstable .swatch {
+
+    border: 1px solid #101010;
+
+}
+
+.usertdname {
+
+    color: #131313;
+
+}
+
+.usertdstatus {
+
+    color: #1E1E1E;
+
+}
+
+.usertdactivity {
+
+    color: #171717;
+
+}
+
+.usertdname input {
+
+    border: 1px solid #2C2C2C;
+
+}
+
+.usertdname input.editactive,
+
+.usertdname input.editempty {
+
+    background: #808080;
+
+    border-left: 1px solid #2C2C2C;
+
+    border-top: 1px solid #2C2C2C;
+
+    border-right: 1px solid #171717;
+
+    border-bottom: 1px solid #171717;
+
+}
+
+.usertdname input.editempty {
+
+    color: #171717;
+
+}
+
+#chatbox {
+
+    background-color: #484848;
+
+    border-left: 1px solid #1E1E1E;
+
+    border-right: 1px solid #1E1E1E;
+
+    border-top: 1px solid #1E1E1E;
+
+}
+
+#chattext {
+
+    background-color: #171717;
+
+    border: 1px solid #171717;
+
+    color: #808080;
+
+}
+
+#chatlabel {
+
+    color: #131313;
+
+}
+
+#chatinput {
+
+    border: 1px solid #2C2C2C;
+
+}
+
+#chaticon {
+
+    border-left: 1px solid #1E1E1E;
+
+    border-right: 1px solid #1E1E1E;
+
+    border-top: 1px solid #1E1E1E;
+
+    background-color: #808080;
+
+}
+
+#chatcounter {
+
+    color: #171717;
+
+}
+
+#titlebar {
+
+    color: #131313;
+
+}
+
+#titlesticky {
+
+    color: #131313;
+
+}
+
+#titlecross {
+
+    color: #131313;
+
+}
+
+.time {
+
+    color: #111111;
+
+}
+
+.exporttype {
+
+    color: #111111;
+
+}
+
+#importmessageabiword {
+
+    color: #1E1E1E;
+
+}
+
+#chatthrob {
+
+    background-color: #101010;
+
+    color: #808080;
+
+    background-color: rgb(0, 0, 0);
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+#focusprotector {
+
+    background-color: #808080;
+
+}
+
+#online_count {
+
+    color: #171717;
+
+}
+
+.popup {
+
+    border: 1px solid #171717;
+
+    background: #131313;
+
+    background: -webkit-linear-gradient(#2C2C2C, #1E1E1E);
+
+    background: -moz-linear-gradient(#2C2C2C, #1E1E1E);
+
+    background: -ms-linear-gradient(#2C2C2C, #1E1E1E);
+
+    background: -o-linear-gradient(#2C2C2C, #1E1E1E);
+
+    background: linear-gradient(#2C2C2C, #1E1E1E);
+
+    -webkit-box-shadow: 0 0 8px #171717;
+
+    -moz-box-shadow: 0 0 8px #171717;
+
+    box-shadow: 0 2px 4px #131313;
+
+    color: #808080;
+
+}
+
+.popup h1 {
+
+    color: #484848;
+
+}
+
+.popup h2 {
+
+    color: #484848;
+
+}
+
+.stickyChat {
+
+    background-color: #1E1E1E !important;
+
+    border-left: 1px solid #2C2C2C !important;
+
+}
+
+@media all and (max-width: 400px) {
+
+    #gritter-notice-wrapper {
+
+        background-color: #2C2C2C;
+
+        color: #101010;
+
+    }
+
+    .gritter-item p {
+
+        color: #101010;
+
+    }
+
+    .gritter-title {
+
+        color: #101010;
+
+    }
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
+
+    .toolbar ul.menu_right {
+
+        background: #171717;
+
+        background: -webkit-linear-gradient(#171717, #1E1E1E 80%);
+
+        background: -moz-linear-gradient(#171717, #1E1E1E 80%);
+
+        background: -o-linear-gradient(#171717, #1E1E1E 80%);
+
+        background: -ms-linear-gradient(#171717, #1E1E1E 80%);
+
+        background: linear-gradient(#171717, #1E1E1E 80%);
+
+        border-top: 1px solid #171717;
+
+    }
+
+}
+
+.gritter-item {
+
+    color: #171717;
+
+}
+
+.gritter-title {
+
+    text-shadow: 1px 1px 0 #101010;
+
+    /* Not supported by IE :( */
+
+}
+
+.gritter-close {
+
+    color: #111111;
+
+}
+
+.activeButton {
+
+    background: #171717;
+
+    background: -webkit-linear-gradient(#171717, #1E1E1E);
+
+    background: -moz-linear-gradient(#171717, #1E1E1E);
+
+    background: -o-linear-gradient(#171717, #1E1E1E);
+
+    background: -ms-linear-gradient(#171717, #1E1E1E);
+
+    background: linear-gradient(#171717, #1E1E1E);
+
+}
+
+#status {
+
+    color: #FFFFFF;
+
+    background-color: #440000;
+
+    font-size: 2em;
+
+}
+
+UL.jqueryFileTree A {
+
+    color: #808080;
+
+}
+
+UL.jqueryFileTree A:hover {
+
+    color: #FFFFFF;
+
+    background: #000000;
+
+}

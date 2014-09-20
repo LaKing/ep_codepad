@@ -1,0 +1,19 @@
+/* ep_codepad theme  */
+.syntaxhighlighter .plain,.syntaxhighlighter .plain a{color:#C5BCBD;}
+.syntaxhighlighter .comments,.syntaxhighlighter .comments a{color:#C8B6AD;}
+.syntaxhighlighter .string,.syntaxhighlighter .string a{color:#C6C897;}
+.syntaxhighlighter .keyword{color:#C2AFC6;}
+.syntaxhighlighter .preprocessor{color:#C2A3A0;}
+.syntaxhighlighter .variable{color:#C6A4B4;}
+.syntaxhighlighter .value{color:#C7C09F;}
+.syntaxhighlighter .functions{color:#C0C29C;}
+.syntaxhighlighter .constants{color:#C6C5AF;}
+.syntaxhighlighter .script{font-weight:bold;color:#C3ADAA;background-color:none;}
+.syntaxhighlighter .color1,.syntaxhighlighter .color1 a{color:#BFC0BA;}
+.syntaxhighlighter .color2,.syntaxhighlighter .color2 a{color:#C2B19C;}
+.syntaxhighlighter .color3,.syntaxhighlighter .color3 a{color:#C0B698;}
+.syntaxhighlighter .keyword{font-weight:bold;}
+.syntaxhighlighter .xml .keyword{color:#C0C09E;font-weight:normal;}
+.syntaxhighlighter .xml .color1,.syntaxhighlighter .xml .color1 a{color:#C4A5C8;}
+.syntaxhighlighter .xml .string{font-style:italic;color:#C6BC9E;}
+

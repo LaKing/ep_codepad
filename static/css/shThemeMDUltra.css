@@ -1,0 +1,46 @@
+body {
+    color: lime;
+}
+.syntaxhighlighter .comments,
+.syntaxhighlighter .comments a {
+    color: #428bdd;
+}
+.syntaxhighlighter .string,
+.syntaxhighlighter .string a {
+    color: lime;
+}
+.syntaxhighlighter .keyword {
+    color: #aaaaff;
+}
+.syntaxhighlighter .preprocessor {
+    color: #8aa6c1;
+}
+.syntaxhighlighter .variable {
+    color: cyan;
+}
+.syntaxhighlighter .value {
+    color: #f7e741;
+}
+.syntaxhighlighter .functions {
+    color: #ff8000;
+}
+.syntaxhighlighter .constants {
+    color: yellow;
+}
+.syntaxhighlighter .script {
+    font-weight: bold;
+    color: #aaaaff;
+    background-color: none;
+}
+.syntaxhighlighter .color1,
+.syntaxhighlighter .color1 a {
+    color: red;
+}
+.syntaxhighlighter .color2,
+.syntaxhighlighter .color2 a {
+    color: yellow;
+}
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a {
+    color: #ffaa3e;
+}

@@ -1,0 +1,19 @@
+#codepadbody {
+    padding: 0;
+    margin: 0;
+}
+.codepaddiv {
+    float: left;
+    width: 13%;
+    height: 99%;
+    overflow: none;
+    margin: 0;
+    padding: 0;
+}
+.logView {
+    float: right;
+    width: 87%;
+    height: 100%;
+    border: none;
+    padding: 0px 0px 0px 0px;
+}

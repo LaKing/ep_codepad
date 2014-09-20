@@ -1,0 +1,53 @@
+body {
+    color: white;
+}
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a {
+    color: white;
+}
+.syntaxhighlighter .comments,
+.syntaxhighlighter .comments a {
+    color: #696854;
+}
+.syntaxhighlighter .string,
+.syntaxhighlighter .string a {
+    color: #e3e658;
+}
+.syntaxhighlighter .keyword {
+    color: #d01d33;
+}
+.syntaxhighlighter .preprocessor {
+    color: #435a5f;
+}
+.syntaxhighlighter .variable {
+    color: #898989;
+}
+.syntaxhighlighter .value {
+    color: #009900;
+}
+.syntaxhighlighter .functions {
+    color: #aaaaaa;
+}
+.syntaxhighlighter .constants {
+    color: #96daff;
+}
+.syntaxhighlighter .script {
+    font-weight: bold;
+    color: #d01d33;
+    background-color: none;
+}
+.syntaxhighlighter .color1,
+.syntaxhighlighter .color1 a {
+    color: #ffc074;
+}
+.syntaxhighlighter .color2,
+.syntaxhighlighter .color2 a {
+    color: #4a8cdb;
+}
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a {
+    color: #96daff;
+}
+.syntaxhighlighter .functions {
+    font-weight: bold;
+}

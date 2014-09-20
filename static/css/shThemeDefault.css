@@ -1,0 +1,14 @@
+.syntaxhighlighter .plain,.syntaxhighlighter .plain a{color:black;}
+.syntaxhighlighter .comments,.syntaxhighlighter .comments a{color:#008200;}
+.syntaxhighlighter .string,.syntaxhighlighter .string a{color:blue;}
+.syntaxhighlighter .keyword{color:#006699;}
+.syntaxhighlighter .preprocessor{color:grey;}
+.syntaxhighlighter .variable{color:#aa7700;}
+.syntaxhighlighter .value{color:#009900;}
+.syntaxhighlighter .functions{color:deeppink;}
+.syntaxhighlighter .constants{color:#0066cc;}
+.syntaxhighlighter .script{font-weight:bold;color:#006699;background-color:none;}
+.syntaxhighlighter .color1,.syntaxhighlighter .color1 a{color:grey;}
+.syntaxhighlighter .color2,.syntaxhighlighter .color2 a{color:deeppink;}
+.syntaxhighlighter .color3,.syntaxhighlighter .color3 a{color:red;}
+.syntaxhighlighter .keyword{font-weight:bold;}

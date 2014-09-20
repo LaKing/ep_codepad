@@ -1,0 +1,67 @@
+body {
+    color: #D3E2CD;
+}
+/* ep_codepad theme  */
+
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a {
+    color: #BAE1A2;
+}
+.syntaxhighlighter .comments,
+.syntaxhighlighter .comments a {
+    color: #D0EEAD;
+}
+.syntaxhighlighter .string,
+.syntaxhighlighter .string a {
+    color: #D3E2CD;
+}
+.syntaxhighlighter .keyword {
+    color: #99F1B6;
+}
+.syntaxhighlighter .preprocessor {
+    color: #98E9C8;
+}
+.syntaxhighlighter .variable {
+    color: #C4EAD2;
+}
+.syntaxhighlighter .value {
+    color: #97DFB8;
+}
+.syntaxhighlighter .functions {
+    color: #9FF7CF;
+}
+.syntaxhighlighter .constants {
+    color: #ABDFC1;
+}
+.syntaxhighlighter .script {
+    font-weight: bold;
+    color: #9BEEB3;
+    background-color: none;
+}
+.syntaxhighlighter .color1,
+.syntaxhighlighter .color1 a {
+    color: #B2FAAA;
+}
+.syntaxhighlighter .color2,
+.syntaxhighlighter .color2 a {
+    color: #D0FAD9;
+}
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a {
+    color: #99E2B8;
+}
+.syntaxhighlighter .keyword {
+    font-weight: bold;
+}
+.syntaxhighlighter .xml .keyword {
+    color: #BFE0DC;
+    font-weight: normal;
+}
+.syntaxhighlighter .xml .color1,
+.syntaxhighlighter .xml .color1 a {
+    color: #C5F7A5;
+}
+.syntaxhighlighter .xml .string {
+    font-style: italic;
+    color: #B7F1C7;
+}

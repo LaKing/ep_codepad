@@ -1,0 +1,550 @@
+
+/*
+colors used are:
+
+#C8FEC8
+#425F4A
+#20372A
+#182D22
+#162B20
+#152A20
+#152A20
+#152A20
+
+#0A2B1D
+
+*/
+
+body {
+
+    background-color: #182D22;
+
+    color: #C8FEC8;
+
+}
+
+#outerdocbody {
+
+    background-color: #0A2B1D;
+
+}
+
+#innerdocbody {
+
+    background-color: #0A2B1D;
+
+}
+
+#sidediv {
+
+    background-color: #162B20;
+
+}
+
+.sidedivdelayed {
+
+    color: #425F4A !important;
+
+}
+
+.toolbar {
+
+    background-color: #152A20;
+
+}
+
+/* extracted from pad.css */
+
+#users {
+
+    background: #152A20;
+
+    background: -webkit-linear-gradient(#182D22, #162B20);
+
+    background: -moz-linear-gradient(#182D22, #162B20);
+
+    background: -ms-linear-gradient(#182D22, #162B20);
+
+    background: -o-linear-gradient(#182D22, #162B20);
+
+    background: linear-gradient(#182D22, #162B20);
+
+    color: #C8FEC8;
+
+    border: 1px solid #182D22;
+
+}
+
+.toolbar {
+
+    background: #152A20;
+
+    background: -webkit-linear-gradient(#182D22, #162B20 80%);
+
+    background: -moz-linear-gradient(#182D22, #162B20 80%);
+
+    background: -o-linear-gradient(#182D22, #162B20 80%);
+
+    background: -ms-linear-gradient(#182D22, #162B20 80%);
+
+    background: linear-gradient(#182D22, #162B20 80%);
+
+    border-bottom: 1px solid #182D22;
+
+}
+
+#usericon a #online_count {
+
+    color: #162B20;
+
+}
+
+#editorloadingbox {
+
+    color: #182D22;
+
+}
+
+#myswatchbox {
+
+    border: 1px solid #152A20;
+
+}
+
+#mycolorpicker {
+
+    background: #425F4A;
+
+    border: 1px solid #20372A;
+
+}
+
+#mycolorpickersave,
+
+#mycolorpickercancel {
+
+    background: #182D22;
+
+    background: -webkit-linear-gradient(#20372A, #182D22);
+
+    background: -moz-linear-gradient(#20372A, #182D22);
+
+    background: -o-linear-gradient(#20372A, #182D22);
+
+    background: -ms-linear-gradient(#20372A, #182D22);
+
+    background: linear-gradient(#20372A, #182D22);
+
+    border: 1px solid #20372A;
+
+    color: #C8FEC8;
+
+}
+
+#mycolorpickerpreview {
+
+    color: #C8FEC8;
+
+}
+
+#myusernameedit {
+
+    color: #C8FEC8;
+
+}
+
+#myusernameform input.editable {
+
+    border: 1px solid #152A20
+
+}
+
+#myuser .myusernameedithoverable:hover {
+
+    background: #C8FEC8;
+
+    color: #152A20;
+
+}
+
+#mystatusedit {
+
+    color: #162B20;
+
+    border: 1px solid #20372A;
+
+}
+
+#myusernameform .editactive,
+
+#myusernameform .editempty {
+
+    border-left: 1px solid #20372A;
+
+    border-top: 1px solid #20372A;
+
+    border-right: 1px solid #162B20;
+
+    border-bottom: 1px solid #162B20;
+
+    color: #152A20;
+
+}
+
+#myusernameform .editempty {
+
+    background: #C8FEC8;
+
+    color: #152A20
+
+}
+
+#myswatchbox,
+
+#myusernameedit,
+
+#otheruserstable .swatch {
+
+    border: 1px solid #152A20 !important;
+
+    color: #152A20;
+
+}
+
+#nootherusers {
+
+    color: #162B20;
+
+}
+
+#nootherusers a {
+
+    color: #162B20
+
+}
+
+#otheruserstable td {
+
+    color: #FFFFFF;
+
+}
+
+#otheruserstable .swatch {
+
+    border: 1px solid #152A20;
+
+}
+
+.usertdname {
+
+    color: #152A20;
+
+}
+
+.usertdstatus {
+
+    color: #182D22;
+
+}
+
+.usertdactivity {
+
+    color: #162B20;
+
+}
+
+.usertdname input {
+
+    border: 1px solid #20372A;
+
+}
+
+.usertdname input.editactive,
+
+.usertdname input.editempty {
+
+    background: #C8FEC8;
+
+    border-left: 1px solid #20372A;
+
+    border-top: 1px solid #20372A;
+
+    border-right: 1px solid #162B20;
+
+    border-bottom: 1px solid #162B20;
+
+}
+
+.usertdname input.editempty {
+
+    color: #162B20;
+
+}
+
+#chatbox {
+
+    background-color: #425F4A;
+
+    border-left: 1px solid #182D22;
+
+    border-right: 1px solid #182D22;
+
+    border-top: 1px solid #182D22;
+
+}
+
+#chattext {
+
+    background-color: #162B20;
+
+    border: 1px solid #162B20;
+
+    color: #C8FEC8;
+
+}
+
+#chatlabel {
+
+    color: #152A20;
+
+}
+
+#chatinput {
+
+    border: 1px solid #20372A;
+
+}
+
+#chaticon {
+
+    border-left: 1px solid #182D22;
+
+    border-right: 1px solid #182D22;
+
+    border-top: 1px solid #182D22;
+
+    background-color: #C8FEC8;
+
+}
+
+#chatcounter {
+
+    color: #162B20;
+
+}
+
+#titlebar {
+
+    color: #152A20;
+
+}
+
+#titlesticky {
+
+    color: #152A20;
+
+}
+
+#titlecross {
+
+    color: #152A20;
+
+}
+
+.time {
+
+    color: #152A20;
+
+}
+
+.exporttype {
+
+    color: #152A20;
+
+}
+
+#importmessageabiword {
+
+    color: #182D22;
+
+}
+
+#chatthrob {
+
+    background-color: #152A20;
+
+    color: #C8FEC8;
+
+    background-color: rgb(0, 0, 0);
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+#focusprotector {
+
+    background-color: #C8FEC8;
+
+}
+
+#online_count {
+
+    color: #162B20;
+
+}
+
+.popup {
+
+    border: 1px solid #162B20;
+
+    background: #152A20;
+
+    background: -webkit-linear-gradient(#20372A, #182D22);
+
+    background: -moz-linear-gradient(#20372A, #182D22);
+
+    background: -ms-linear-gradient(#20372A, #182D22);
+
+    background: -o-linear-gradient(#20372A, #182D22);
+
+    background: linear-gradient(#20372A, #182D22);
+
+    -webkit-box-shadow: 0 0 8px #162B20;
+
+    -moz-box-shadow: 0 0 8px #162B20;
+
+    box-shadow: 0 2px 4px #152A20;
+
+    color: #C8FEC8;
+
+}
+
+.popup h1 {
+
+    color: #425F4A;
+
+}
+
+.popup h2 {
+
+    color: #425F4A;
+
+}
+
+.stickyChat {
+
+    background-color: #182D22 !important;
+
+    border-left: 1px solid #20372A !important;
+
+}
+
+@media all and (max-width: 400px) {
+
+    #gritter-notice-wrapper {
+
+        background-color: #20372A;
+
+        color: #152A20;
+
+    }
+
+    .gritter-item p {
+
+        color: #152A20;
+
+    }
+
+    .gritter-title {
+
+        color: #152A20;
+
+    }
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
+
+    .toolbar ul.menu_right {
+
+        background: #162B20;
+
+        background: -webkit-linear-gradient(#162B20, #182D22 80%);
+
+        background: -moz-linear-gradient(#162B20, #182D22 80%);
+
+        background: -o-linear-gradient(#162B20, #182D22 80%);
+
+        background: -ms-linear-gradient(#162B20, #182D22 80%);
+
+        background: linear-gradient(#162B20, #182D22 80%);
+
+        border-top: 1px solid #162B20;
+
+    }
+
+}
+
+.gritter-item {
+
+    color: #162B20;
+
+}
+
+.gritter-title {
+
+    text-shadow: 1px 1px 0 #152A20;
+
+    /* Not supported by IE :( */
+
+}
+
+.gritter-close {
+
+    color: #152A20;
+
+}
+
+.activeButton {
+
+    background: #162B20;
+
+    background: -webkit-linear-gradient(#162B20, #182D22);
+
+    background: -moz-linear-gradient(#162B20, #182D22);
+
+    background: -o-linear-gradient(#162B20, #182D22);
+
+    background: -ms-linear-gradient(#162B20, #182D22);
+
+    background: linear-gradient(#162B20, #182D22);
+
+}
+
+#status {
+
+    color: #FFFFFF;
+
+    background-color: #440000;
+
+    font-size: 2em;
+
+}
+
+.fileTree {
+
+    color: #C8FEC8;
+
+}
+
+UL.jqueryFileTree A {
+
+    color: #C8FEC8;
+
+}
+
+UL.jqueryFileTree A:hover {
+
+    background: #425F4A;
+
+}
