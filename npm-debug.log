@@ -1,0 +1,21 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/bin/npm', 'publish' ]
+2 info using npm@1.4.26
+3 info using node@v0.10.30
+4 verbose publish [ '.' ]
+5 error Failed to parse json
+5 error Unexpected token }
+6 error File: /srv/etherpad-lite/node_modules/ep_codepad/package.json
+7 error Failed to parse package.json data.
+7 error package.json must be actual JSON, not just JavaScript.
+7 error
+7 error This is not a bug in npm.
+7 error Tell the package author to fix their package.json file. JSON.parse
+8 error System Linux 3.15.6-200.fc20.x86_64
+9 error command "node" "/usr/bin/npm" "publish"
+10 error cwd /srv/etherpad-lite/node_modules/ep_codepad
+11 error node -v v0.10.30
+12 error npm -v 1.4.26
+13 error file /srv/etherpad-lite/node_modules/ep_codepad/package.json
+14 error code EJSONPARSE
+15 verbose exit [ 1, true ]
