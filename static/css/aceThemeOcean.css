@@ -1,4 +1,3 @@
-
 /*
 colors used are:
 
@@ -14,531 +13,272 @@ colors used are:
 */
 
 body {
-
     background-color: #162163;
-
     color: #FEFEFE;
-
 }
-
 #outerdocbody {
-
     background-color: #162163;
-
 }
-
 #innerdocbody {
-
     background-color: #162163;
-
 }
-
 #sidediv {
-
     background-color: #162163;
-
 }
-
 .sidedivdelayed {
-
     color: #95A0E2 !important;
-
 }
-
 .toolbar {
-
     background-color: #162163;
-
 }
-
 /* extracted from pad.css */
 
 #users {
-
     background: #3247C7;
-
     background: -webkit-linear-gradient(#4659CD, #394DC9);
-
     background: -moz-linear-gradient(#4659CD, #394DC9);
-
     background: -ms-linear-gradient(#4659CD, #394DC9);
-
     background: -o-linear-gradient(#4659CD, #394DC9);
-
     background: linear-gradient(#4659CD, #394DC9);
-
     color: #FEFEFE;
-
     border: 1px solid #4659CD;
-
 }
-
 .toolbar {
-
     background: #162163;
-
     background: -webkit-linear-gradient(#394DC9, #162163 80%);
-
     background: -moz-linear-gradient(#394DC9, #162163 80%);
-
     background: -o-linear-gradient(#394DC9, #162163 80%);
-
     background: -ms-linear-gradient(#394DC9, #162163 80%);
-
     background: linear-gradient(#394DC9, #162163 80%);
-
     border-bottom: 1px solid #162163;
-
 }
-
 #usericon a #online_count {
-
     color: #394DC9;
-
 }
-
 #editorloadingbox {
-
     color: #4659CD;
-
 }
-
 #myswatchbox {
-
     border: 1px solid #2D43C6;
-
 }
-
 #mycolorpicker {
-
     background: #95A0E2;
-
     border: 1px solid #6071D4;
-
 }
-
 #mycolorpickersave,
-
 #mycolorpickercancel {
-
     background: #4659CD;
-
     background: -webkit-linear-gradient(#6071D4, #4659CD);
-
     background: -moz-linear-gradient(#6071D4, #4659CD);
-
     background: -o-linear-gradient(#6071D4, #4659CD);
-
     background: -ms-linear-gradient(#6071D4, #4659CD);
-
     background: linear-gradient(#6071D4, #4659CD);
-
     border: 1px solid #6071D4;
-
     color: #FEFEFE;
-
 }
-
 #mycolorpickerpreview {
-
     color: #FEFEFE;
-
 }
-
 #myusernameedit {
-
     color: #FEFEFE;
-
 }
-
 #myusernameform input.editable {
-
     border: 1px solid #3247C7
-
 }
-
+#myuser .myusernameedithoverable {
+    background: #2D43C6;
+    color: #FEFEFE;
+}
 #myuser .myusernameedithoverable:hover {
-
     background: #FEFEFE;
-
     color: #2D43C6;
-
 }
-
 #mystatusedit {
-
     color: #394DC9;
-
     border: 1px solid #6071D4;
-
 }
-
 #myusernameform .editactive,
-
 #myusernameform .editempty {
-
     border-left: 1px solid #6071D4;
-
     border-top: 1px solid #6071D4;
-
     border-right: 1px solid #394DC9;
-
     border-bottom: 1px solid #394DC9;
-
     color: #2D43C6;
-
 }
-
 #myusernameform .editempty {
-
     background: #FEFEFE;
-
     color: #2F44C6
-
 }
-
 #myswatchbox,
-
 #myusernameedit,
-
 #otheruserstable .swatch {
-
     border: 1px solid #3247C7 !important;
-
     color: #2F44C6;
-
 }
-
 #nootherusers {
-
     color: #394DC9;
-
 }
-
 #nootherusers a {
-
     color: #394DC9
-
 }
-
 #otheruserstable td {
-
     color: #FFFFFF;
-
 }
-
 #otheruserstable .swatch {
-
     border: 1px solid #2D43C6;
-
 }
-
 .usertdname {
-
     color: #3247C7;
-
 }
-
 .usertdstatus {
-
     color: #4659CD;
-
 }
-
 .usertdactivity {
-
     color: #394DC9;
-
 }
-
 .usertdname input {
-
     border: 1px solid #6071D4;
-
 }
-
 .usertdname input.editactive,
-
 .usertdname input.editempty {
-
     background: #FEFEFE;
-
     border-left: 1px solid #6071D4;
-
     border-top: 1px solid #6071D4;
-
     border-right: 1px solid #394DC9;
-
     border-bottom: 1px solid #394DC9;
-
 }
-
 .usertdname input.editempty {
-
     color: #394DC9;
-
 }
-
 #chatbox {
-
     background-color: #95A0E2;
-
     border-left: 1px solid #4659CD;
-
     border-right: 1px solid #4659CD;
-
     border-top: 1px solid #4659CD;
-
 }
-
 #chattext {
-
     background-color: #394DC9;
-
     border: 1px solid #394DC9;
-
     color: #FEFEFE;
-
 }
-
 #chatlabel {
-
     color: #3247C7;
-
 }
-
 #chatinput {
-
     border: 1px solid #6071D4;
-
 }
-
 #chaticon {
-
     border-left: 1px solid #4659CD;
-
     border-right: 1px solid #4659CD;
-
     border-top: 1px solid #4659CD;
-
     background-color: #FEFEFE;
-
 }
-
 #chatcounter {
-
     color: #394DC9;
-
 }
-
 #titlebar {
-
     color: #3247C7;
-
 }
-
 #titlesticky {
-
     color: #3247C7;
-
 }
-
 #titlecross {
-
     color: #3247C7;
-
 }
-
 .time {
-
     color: #2F44C6;
-
 }
-
 .exporttype {
-
-    color: #2F44C6;
-
+    color: #FEFEFE;
 }
-
 #importmessageabiword {
-
     color: #4659CD;
-
 }
-
 #chatthrob {
-
     background-color: #2D43C6;
-
     color: #FEFEFE;
-
     background-color: rgb(0, 0, 0);
-
     background-color: rgba(0, 0, 0, 0.7);
-
 }
-
 #focusprotector {
-
     background-color: #FEFEFE;
-
 }
-
 #online_count {
-
     color: #394DC9;
-
 }
-
 .popup {
-
     border: 1px solid #394DC9;
-
     background: #3247C7;
-
     background: -webkit-linear-gradient(#6071D4, #4659CD);
-
     background: -moz-linear-gradient(#6071D4, #4659CD);
-
     background: -ms-linear-gradient(#6071D4, #4659CD);
-
     background: -o-linear-gradient(#6071D4, #4659CD);
-
     background: linear-gradient(#6071D4, #4659CD);
-
     -webkit-box-shadow: 0 0 8px #394DC9;
-
     -moz-box-shadow: 0 0 8px #394DC9;
-
     box-shadow: 0 2px 4px #3247C7;
-
     color: #FEFEFE;
-
 }
-
 .popup h1 {
-
     color: #95A0E2;
-
 }
-
 .popup h2 {
-
     color: #95A0E2;
-
 }
-
 .stickyChat {
-
     background-color: #4659CD !important;
-
     border-left: 1px solid #6071D4 !important;
-
 }
-
 @media all and (max-width: 400px) {
-
     #gritter-notice-wrapper {
-
         background-color: #6071D4;
-
         color: #2D43C6;
-
     }
-
     .gritter-item p {
-
         color: #2D43C6;
-
     }
-
     .gritter-title {
-
         color: #2D43C6;
-
     }
-
 }
-
 @media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
-
     .toolbar ul.menu_right {
-
         background: #394DC9;
-
         background: -webkit-linear-gradient(#394DC9, #4659CD 80%);
-
         background: -moz-linear-gradient(#394DC9, #4659CD 80%);
-
         background: -o-linear-gradient(#394DC9, #4659CD 80%);
-
         background: -ms-linear-gradient(#394DC9, #4659CD 80%);
-
         background: linear-gradient(#394DC9, #4659CD 80%);
-
         border-top: 1px solid #394DC9;
-
     }
-
 }
-
 .gritter-item {
-
-    color: #394DC9;
-
+    color: #FEFEFE;
 }
-
 .gritter-title {
-
     text-shadow: 1px 1px 0 #2D43C6;
-
     /* Not supported by IE :( */
-
 }
-
 .gritter-close {
-
     color: #2F44C6;
-
 }
-
 .activeButton {
-
     background: #394DC9;
-
     background: -webkit-linear-gradient(#394DC9, #4659CD);
-
     background: -moz-linear-gradient(#394DC9, #4659CD);
-
     background: -o-linear-gradient(#394DC9, #4659CD);
-
     background: -ms-linear-gradient(#394DC9, #4659CD);
-
     background: linear-gradient(#394DC9, #4659CD);
-
 }
-
 #status {
-
     color: #FFFFFF;
-
     background-color: #440000;
-
     font-size: 2em;
-
 }
-
 UL.jqueryFileTree A {
-
     color: #95A0E2;
-
 }
-
 UL.jqueryFileTree A:hover {
-
     color: #FFFFFF;
-
     background: #000000;
-
 }

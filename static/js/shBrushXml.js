@@ -14,7 +14,7 @@
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
-;
+
 (function() {
     // CommonJS
     SyntaxHighlighter = SyntaxHighlighter || (typeof require !== 'undefined' ? require('shCore').SyntaxHighlighter : null);
@@ -25,29 +25,32 @@
                 code = match[0],
                 //tag = XRegExp.exec(code, XRegExp('(&lt;|<)[\\s\\/\\?!]*(?<name>[:\\w-\\.]+)', 'xg')),
                 // TODO bug! <t> turns to something weird!
-                tag = XRegExp.exec(code, XRegExp('(&lt;|<)[\\s\\/\\?!]*(?<name>[:\\w-\\.]+)', 'xg')),
+                // azért cseréli le a <t> mert túl rövid....
+                //(&lt;|<)*(?<name>[\\s\\S]+$)
+                //  .. ez most így mindent 2 színűvé tesz
+                //valamiért a t már nem jut el a második forduláshoz
+                //Array [ "&lt;t", "&lt;", "t" ]
+                tag = XRegExp.exec(code, XRegExp('(?:&lt;|<)[\\s\\/\\?!]*(?<name>[\\w\\.]+)', 'xg')),
                 result = [];
+                console.log(tag);
 
-            if (match.attributes != null) {
+            if (match.attributes !== null) {
                 var attributes,
                     pos = 0,
-                    regex = XRegExp('(?<name> [\\w:.-]+)' +
-                        '\\s*=\\s*' +
-                        '(?<value> ".*?"|\'.*?\'|\\w+)',
-                        'xg');
+                    regex = XRegExp('(?<name> [\\w:.-]+)\\s*=\\s*(?<value> ".*?"|\'.*?\'|\\w+)', 'xg');
 
-                while ((attributes = XRegExp.exec(code, regex, pos)) != null) {
+                while ((attributes = XRegExp.exec(code, regex, pos)) !== null) {
                     result.push(new constructor(attributes.name, match.index + attributes.index, 'color1'));
                     result.push(new constructor(attributes.value, match.index + attributes.index + attributes[0].indexOf(attributes.value), 'string'));
                     pos = attributes.index + attributes[0].length;
                 }
             }
-
-            if (tag != null)
+            //itt történik meg a kiiratás
+            if (tag !== null)
                 result.push(
                     new constructor(tag.name, match.index + tag[0].indexOf(tag.name), 'keyword')
                 );
-
+                    
             return result;
         }
 
@@ -60,8 +63,10 @@
                 css: 'comments'
             }, // <!-- ... -->
             {
-                regex: XRegExp('(&lt;|<)[\\s\\/\\?!]*(\\w+)(?<attributes>.*?)[\\s\\/\\?]*(&gt;|>)', 'sg'),
+
+                regex: XRegExp('(?:&lt;|<)[\\s\\/\\?!]*(\\w+)(?<attributes>.*?)[\\s\\/\\?]*(&gt;|>)', 'sg'),
                 func: process
+                //(&lt;|<)[\\s\\/\\?!]*(\\w+)(?<attributes>.*?)[\\s\\/\\?]*(&gt;|>)
             }
         ];
     };
@@ -74,3 +79,4 @@
     // CommonJS
     typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();
+

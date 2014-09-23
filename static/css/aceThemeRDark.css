@@ -1,4 +1,3 @@
-
 /*
 colors used are:
 
@@ -14,531 +13,272 @@ colors used are:
 */
 
 body {
-
     background-color: #0d1618;
-
     color: #DCDCE6;
-
 }
-
 #outerdocbody {
-
     background-color: #0d1618;
-
 }
-
 #innerdocbody {
-
     background-color: #0d1618;
-
 }
-
 #sidediv {
-
     background-color: #121518;
-
 }
-
 .sidedivdelayed {
-
     color: #55575C !important;
-
 }
-
 .toolbar {
-
     background-color: #121518;
-
 }
-
 /* extracted from pad.css */
 
 #users {
-
     background: #121518;
-
     background: -webkit-linear-gradient(#191C1F, #14171A);
-
     background: -moz-linear-gradient(#191C1F, #14171A);
-
     background: -ms-linear-gradient(#191C1F, #14171A);
-
     background: -o-linear-gradient(#191C1F, #14171A);
-
     background: linear-gradient(#191C1F, #14171A);
-
     color: #DCDCE6;
-
     border: 1px solid #191C1F;
-
 }
-
 .toolbar {
-
     background: #121518;
-
     background: -webkit-linear-gradient(#191C1F, #14171A 80%);
-
     background: -moz-linear-gradient(#191C1F, #14171A 80%);
-
     background: -o-linear-gradient(#191C1F, #14171A 80%);
-
     background: -ms-linear-gradient(#191C1F, #14171A 80%);
-
     background: linear-gradient(#191C1F, #14171A 80%);
-
     border-bottom: 1px solid #191C1F;
-
 }
-
 #usericon a #online_count {
-
     color: #14171A;
-
 }
-
 #editorloadingbox {
-
     color: #191C1F;
-
 }
-
 #myswatchbox {
-
     border: 1px solid #121518;
-
 }
-
 #mycolorpicker {
-
     background: #55575C;
-
     border: 1px solid #282B2E;
-
 }
-
 #mycolorpickersave,
-
 #mycolorpickercancel {
-
     background: #191C1F;
-
     background: -webkit-linear-gradient(#282B2E, #191C1F);
-
     background: -moz-linear-gradient(#282B2E, #191C1F);
-
     background: -o-linear-gradient(#282B2E, #191C1F);
-
     background: -ms-linear-gradient(#282B2E, #191C1F);
-
     background: linear-gradient(#282B2E, #191C1F);
-
     border: 1px solid #282B2E;
-
     color: #DCDCE6;
-
 }
-
 #mycolorpickerpreview {
-
     color: #DCDCE6;
-
 }
-
 #myusernameedit {
-
     color: #DCDCE6;
-
 }
-
 #myusernameform input.editable {
-
     border: 1px solid #121518
-
 }
-
-#myuser .myusernameedithoverable:hover {
-
-    background: #DCDCE6;
-
-    color: #121518;
-
-}
-
-#mystatusedit {
-
-    color: #14171A;
-
-    border: 1px solid #282B2E;
-
-}
-
-#myusernameform .editactive,
-
-#myusernameform .editempty {
-
-    border-left: 1px solid #282B2E;
-
-    border-top: 1px solid #282B2E;
-
-    border-right: 1px solid #14171A;
-
-    border-bottom: 1px solid #14171A;
-
-    color: #121518;
-
-}
-
-#myusernameform .editempty {
-
-    background: #DCDCE6;
-
-    color: #121518
-
-}
-
-#myswatchbox,
-
-#myusernameedit,
-
-#otheruserstable .swatch {
-
-    border: 1px solid #121518 !important;
-
-    color: #121518;
-
-}
-
-#nootherusers {
-
-    color: #14171A;
-
-}
-
-#nootherusers a {
-
-    color: #14171A
-
-}
-
-#otheruserstable td {
-
-    color: #FFFFFF;
-
-}
-
-#otheruserstable .swatch {
-
-    border: 1px solid #121518;
-
-}
-
-.usertdname {
-
-    color: #121518;
-
-}
-
-.usertdstatus {
-
-    color: #191C1F;
-
-}
-
-.usertdactivity {
-
-    color: #14171A;
-
-}
-
-.usertdname input {
-
-    border: 1px solid #282B2E;
-
-}
-
-.usertdname input.editactive,
-
-.usertdname input.editempty {
-
-    background: #DCDCE6;
-
-    border-left: 1px solid #282B2E;
-
-    border-top: 1px solid #282B2E;
-
-    border-right: 1px solid #14171A;
-
-    border-bottom: 1px solid #14171A;
-
-}
-
-.usertdname input.editempty {
-
-    color: #14171A;
-
-}
-
-#chatbox {
-
-    background-color: #55575C;
-
-    border-left: 1px solid #191C1F;
-
-    border-right: 1px solid #191C1F;
-
-    border-top: 1px solid #191C1F;
-
-}
-
-#chattext {
-
-    background-color: #14171A;
-
-    border: 1px solid #14171A;
-
-    color: #DCDCE6;
-
-}
-
-#chatlabel {
-
-    color: #121518;
-
-}
-
-#chatinput {
-
-    border: 1px solid #282B2E;
-
-}
-
-#chaticon {
-
-    border-left: 1px solid #191C1F;
-
-    border-right: 1px solid #191C1F;
-
-    border-top: 1px solid #191C1F;
-
-    background-color: #DCDCE6;
-
-}
-
-#chatcounter {
-
-    color: #14171A;
-
-}
-
-#titlebar {
-
-    color: #121518;
-
-}
-
-#titlesticky {
-
-    color: #121518;
-
-}
-
-#titlecross {
-
-    color: #121518;
-
-}
-
-.time {
-
-    color: #121518;
-
-}
-
-.exporttype {
-
-    color: #121518;
-
-}
-
-#importmessageabiword {
-
-    color: #191C1F;
-
-}
-
-#chatthrob {
-
-    background-color: #121518;
-
-    color: #DCDCE6;
-
-    background-color: rgb(0, 0, 0);
-
-    background-color: rgba(0, 0, 0, 0.7);
-
-}
-
-#focusprotector {
-
-    background-color: #DCDCE6;
-
-}
-
-#online_count {
-
-    color: #14171A;
-
-}
-
-.popup {
-
-    border: 1px solid #14171A;
-
+#myuser .myusernameedithoverable {
     background: #121518;
-
-    background: -webkit-linear-gradient(#282B2E, #191C1F);
-
-    background: -moz-linear-gradient(#282B2E, #191C1F);
-
-    background: -ms-linear-gradient(#282B2E, #191C1F);
-
-    background: -o-linear-gradient(#282B2E, #191C1F);
-
-    background: linear-gradient(#282B2E, #191C1F);
-
-    -webkit-box-shadow: 0 0 8px #14171A;
-
-    -moz-box-shadow: 0 0 8px #14171A;
-
-    box-shadow: 0 2px 4px #121518;
-
     color: #DCDCE6;
-
 }
-
-.popup h1 {
-
-    color: #55575C;
-
-}
-
-.popup h2 {
-
-    color: #55575C;
-
-}
-
-.stickyChat {
-
-    background-color: #191C1F !important;
-
-    border-left: 1px solid #282B2E !important;
-
-}
-
-@media all and (max-width: 400px) {
-
-    #gritter-notice-wrapper {
-
-        background-color: #282B2E;
-
-        color: #121518;
-
-    }
-
-    .gritter-item p {
-
-        color: #121518;
-
-    }
-
-    .gritter-title {
-
-        color: #121518;
-
-    }
-
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
-
-    .toolbar ul.menu_right {
-
-        background: #14171A;
-
-        background: -webkit-linear-gradient(#14171A, #191C1F 80%);
-
-        background: -moz-linear-gradient(#14171A, #191C1F 80%);
-
-        background: -o-linear-gradient(#14171A, #191C1F 80%);
-
-        background: -ms-linear-gradient(#14171A, #191C1F 80%);
-
-        background: linear-gradient(#14171A, #191C1F 80%);
-
-        border-top: 1px solid #14171A;
-
-    }
-
-}
-
-.gritter-item {
-
-    color: #14171A;
-
-}
-
-.gritter-title {
-
-    text-shadow: 1px 1px 0 #121518;
-
-    /* Not supported by IE :( */
-
-}
-
-.gritter-close {
-
+#myuser .myusernameedithoverable:hover {
+    background: #DCDCE6;
     color: #121518;
-
 }
-
-.activeButton {
-
-    background: #14171A;
-
-    background: -webkit-linear-gradient(#14171A, #191C1F);
-
-    background: -moz-linear-gradient(#14171A, #191C1F);
-
-    background: -o-linear-gradient(#14171A, #191C1F);
-
-    background: -ms-linear-gradient(#14171A, #191C1F);
-
-    background: linear-gradient(#14171A, #191C1F);
-
+#mystatusedit {
+    color: #14171A;
+    border: 1px solid #282B2E;
 }
-
-#status {
-
+#myusernameform .editactive,
+#myusernameform .editempty {
+    border-left: 1px solid #282B2E;
+    border-top: 1px solid #282B2E;
+    border-right: 1px solid #14171A;
+    border-bottom: 1px solid #14171A;
+    color: #121518;
+}
+#myusernameform .editempty {
+    background: #DCDCE6;
+    color: #121518
+}
+#myswatchbox,
+#myusernameedit,
+#otheruserstable .swatch {
+    border: 1px solid #121518 !important;
+    color: #121518;
+}
+#nootherusers {
+    color: #14171A;
+}
+#nootherusers a {
+    color: #14171A
+}
+#otheruserstable td {
     color: #FFFFFF;
-
-    background-color: #440000;
-
-    font-size: 2em;
-
 }
-
-UL.jqueryFileTree A {
-
+#otheruserstable .swatch {
+    border: 1px solid #121518;
+}
+.usertdname {
+    color: #121518;
+}
+.usertdstatus {
+    color: #191C1F;
+}
+.usertdactivity {
+    color: #14171A;
+}
+.usertdname input {
+    border: 1px solid #282B2E;
+}
+.usertdname input.editactive,
+.usertdname input.editempty {
+    background: #DCDCE6;
+    border-left: 1px solid #282B2E;
+    border-top: 1px solid #282B2E;
+    border-right: 1px solid #14171A;
+    border-bottom: 1px solid #14171A;
+}
+.usertdname input.editempty {
+    color: #14171A;
+}
+#chatbox {
+    background-color: #55575C;
+    border-left: 1px solid #191C1F;
+    border-right: 1px solid #191C1F;
+    border-top: 1px solid #191C1F;
+}
+#chattext {
+    background-color: #14171A;
+    border: 1px solid #14171A;
     color: #DCDCE6;
-
 }
-
-UL.jqueryFileTree A:hover {
-
+#chatlabel {
+    color: #121518;
+}
+#chatinput {
+    border: 1px solid #282B2E;
+}
+#chaticon {
+    border-left: 1px solid #191C1F;
+    border-right: 1px solid #191C1F;
+    border-top: 1px solid #191C1F;
+    background-color: #DCDCE6;
+}
+#chatcounter {
+    color: #14171A;
+}
+#titlebar {
+    color: #121518;
+}
+#titlesticky {
+    color: #121518;
+}
+#titlecross {
+    color: #121518;
+}
+.time {
+    color: #121518;
+}
+.exporttype {
+    color: #DCDCE6;
+}
+#importmessageabiword {
+    color: #191C1F;
+}
+#chatthrob {
+    background-color: #121518;
+    color: #DCDCE6;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#focusprotector {
+    background-color: #DCDCE6;
+}
+#online_count {
+    color: #14171A;
+}
+.popup {
+    border: 1px solid #14171A;
+    background: #121518;
+    background: -webkit-linear-gradient(#282B2E, #191C1F);
+    background: -moz-linear-gradient(#282B2E, #191C1F);
+    background: -ms-linear-gradient(#282B2E, #191C1F);
+    background: -o-linear-gradient(#282B2E, #191C1F);
+    background: linear-gradient(#282B2E, #191C1F);
+    -webkit-box-shadow: 0 0 8px #14171A;
+    -moz-box-shadow: 0 0 8px #14171A;
+    box-shadow: 0 2px 4px #121518;
+    color: #DCDCE6;
+}
+.popup h1 {
+    color: #55575C;
+}
+.popup h2 {
+    color: #55575C;
+}
+.stickyChat {
+    background-color: #191C1F !important;
+    border-left: 1px solid #282B2E !important;
+}
+@media all and (max-width: 400px) {
+    #gritter-notice-wrapper {
+        background-color: #282B2E;
+        color: #121518;
+    }
+    .gritter-item p {
+        color: #121518;
+    }
+    .gritter-title {
+        color: #121518;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
+    .toolbar ul.menu_right {
+        background: #14171A;
+        background: -webkit-linear-gradient(#14171A, #191C1F 80%);
+        background: -moz-linear-gradient(#14171A, #191C1F 80%);
+        background: -o-linear-gradient(#14171A, #191C1F 80%);
+        background: -ms-linear-gradient(#14171A, #191C1F 80%);
+        background: linear-gradient(#14171A, #191C1F 80%);
+        border-top: 1px solid #14171A;
+    }
+}
+.gritter-item {
+    color: #DCDCE6;
+}
+.gritter-title {
+    text-shadow: 1px 1px 0 #121518;
+    /* Not supported by IE :( */
+}
+.gritter-close {
+    color: #121518;
+}
+.activeButton {
+    background: #14171A;
+    background: -webkit-linear-gradient(#14171A, #191C1F);
+    background: -moz-linear-gradient(#14171A, #191C1F);
+    background: -o-linear-gradient(#14171A, #191C1F);
+    background: -ms-linear-gradient(#14171A, #191C1F);
+    background: linear-gradient(#14171A, #191C1F);
+}
+#status {
     color: #FFFFFF;
-
+    background-color: #440000;
+    font-size: 2em;
+}
+UL.jqueryFileTree A {
+    color: #DCDCE6;
+}
+UL.jqueryFileTree A:hover {
+    color: #FFFFFF;
     background: #000000;
-
 }

@@ -16,7 +16,11 @@ if (!settings.ep_codepad) {
     } else project_path = settings.ep_codepad.project_path + "/";
 }
 
-//
+// messages constants
+var msg_push = 'PUSH_TO_FILESYSTEM';
+var msg_write = 'WRITE_TO_FILESYSTEM';
+var msg_read = 'READ_FROM_FILESYSTEM';
+
 // code beutifier
 var beautify = require('js-beautify').js_beautify;
 var beautify_css = require('js-beautify').css;
@@ -37,7 +41,7 @@ exports.handleMessage = function(hook_name, context, callback) {
 
         var msg = context.message.data.type;
 
-        if (msg == 'READ_FROM_FILESYSTEM') {
+        if (msg == msg_read) {
             padManager.getPad(context.message.data.padId, null, function(err, value) {
                 var hash = crypto.createHash('md5').update(context.message.data.padId).digest("hex");
 
@@ -65,7 +69,7 @@ exports.handleMessage = function(hook_name, context, callback) {
             callback([null]);
         }
 
-        if (msg == 'WRITE_TO_FILESYSTEM' || msg == 'PUSH_TO_FILESYSTEM') {
+        if (msg == msg_write || msg == msg_push) {
 
             padManager.getPad(context.message.data.padId, null, function(err, value) {
 
@@ -76,7 +80,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                 // create subfolders
                 while (padsi > 0) {
                     folder = padid.substring(0, padsi);
-                    fs.mkdir(project_path + folder, function(err) {});
+                    fs.mkdir(project_path + folder);
                     padsi = padid.indexOf('/', 1 + folder.length);
                 }
 
@@ -84,12 +88,16 @@ exports.handleMessage = function(hook_name, context, callback) {
                 var path = project_path + padid;
                 // get the file extension/brush
                 var ext = getBrush(padid);
+
                 // the beutified text of the pad
-                var beat = value.atext.text;
+
+                // remove two newline characters from the end of the string.
+                var beat = value.atext.text.slice(0, -2);
+
 
                 // if .js file beautify
-                if (ext == 'js' && msg == 'PUSH_TO_FILESYSTEM') {
-                    beat = beautify(value.atext.text, {
+                if (ext == 'js') {
+                    if (msg == msg_push) beat = beautify(beat, {
                         indent_size: 4
                     });
 
@@ -173,8 +181,8 @@ exports.handleMessage = function(hook_name, context, callback) {
                 }
 
                 // if .css file beautify
-                if (ext == 'css' && msg == 'PUSH_TO_FILESYSTEM') {
-                    beat = beautify_css(value.atext.text, {
+                if (ext == 'css' && msg == msg_push) {
+                    beat = beautify_css(beat, {
                         indent_size: 4
                     });
                     value.setText(beat);
@@ -182,17 +190,18 @@ exports.handleMessage = function(hook_name, context, callback) {
                 }
 
                 // if .html file beautify
-                if (ext == 'xml' && msg == 'PUSH_TO_FILESYSTEM') {
-                    beat = beautify_html(value.atext.text, {
+                if (ext == 'xml' && msg == msg_push) {
+                    beat = beautify_html(beat, {
                         indent_size: 4
                     });
                     value.setText(beat);
                     padMessageHandler.updatePadClients(value, callback);
                 }
 
+                // WRITE to the FILE
                 fs.writeFile(path, beat, function(err) {
                     if (err) {
-                        console.log(" Failed to write text to " + path);
+                        console.log("Failed to write text to " + path);
                         var err_msg = {
                             type: 'COLLABROOM',
                             data: {
@@ -206,7 +215,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                         };
                         padMessageHandler.handleCustomObjectMessage(err_msg, undefined, callback);
                     } else {
-                        console.log(" Wrote pad contents to " + path);
+                        console.log("Wrote pad contents to " + path);
                         var ok_msg = {
                             type: 'COLLABROOM',
                             data: {
@@ -220,11 +229,11 @@ exports.handleMessage = function(hook_name, context, callback) {
                         };
                         padMessageHandler.handleCustomObjectMessage(ok_msg, undefined, callback);
                         // if push_action is defined in settings.json, it will run here, use it for git/svn/hg ... or whatever.
-                        if (settings.ep_codepad && msg == 'PUSH_TO_FILESYSTEM') {
+                        if (settings.ep_codepad && msg == msg_push) {
                             if (settings.ep_codepad.push_action) {
                                 exec(settings.ep_codepad.push_action, function(exec_err, stdout, stderr) {
                                     if (exec_err) {
-                                        console.log(' push-error: ', exec_err);
+                                        console.log('codepad-push-error: ', exec_err);
                                         var err_msg = {
                                             type: 'COLLABROOM',
                                             data: {
@@ -238,8 +247,8 @@ exports.handleMessage = function(hook_name, context, callback) {
                                         };
                                         padMessageHandler.handleCustomObjectMessage(err_msg, undefined, callback);
                                     }
-                                    console.log(" push: " + stdout);
-                                    console.log(" push: " + stderr);
+                                    if (stdout) console.log("codepad-push-stdout: " + stdout);
+                                    if (stderr) console.log("codepad-push-stderr: " + stderr);
                                 });
                             }
                         }
@@ -265,4 +274,3 @@ exports.handleMessage = function(hook_name, context, callback) {
                     "reason": "Missing semicolon."
 
            */
-

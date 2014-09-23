@@ -1,8 +1,9 @@
 {
     "parts": [{
-        "name": "ep_hash_auth",
+        "name": "ep_codepad_auth",
         "hooks": {
-            "authenticate": "ep_codepad/ep_hash_auth"
+            "authenticate": "ep_codepad/ep_hash_auth",
+            "handleMessage": "ep_codepad/ep_hash_auth:handleMessage"
         }
     }, {
         "name": "ep_codepad_foldersupport",

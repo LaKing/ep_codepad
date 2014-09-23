@@ -374,7 +374,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
 exports.padCreate = function(hook, context) {
 
     // get the full path
-    var path = abs + '/' + context.pad.id;
+    var path = abs + '/' + context.pad.id; //'
 
     try {
         fs.exists(path, function(exists) {

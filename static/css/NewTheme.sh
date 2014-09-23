@@ -188,11 +188,14 @@ body {
 #myusernameform input.editable {
   border: 1px solid #'$colorF'
 }
+#myuser .myusernameedithoverable {
+  background: #'$colorH';
+  color: #'$colorA';
+}
 #myuser .myusernameedithoverable:hover {
   background: #'$colorA';
   color: #'$colorH';
 }
-
 #mystatusedit {
   color: #'$colorE';
   border: 1px solid #'$colorC';
@@ -294,7 +297,7 @@ body {
 }
 
 .exporttype {
-  color: #'$colorG';
+  color: #'$colorA';
 }
 
 #importmessageabiword {
@@ -366,7 +369,7 @@ body {
 }
 
 .gritter-item {
-  color:#'$colorE';
+  color:#'$colorA';
 }
 .gritter-title {
   text-shadow:1px 1px 0 #'$colorH'; /* Not supported by IE :( */
