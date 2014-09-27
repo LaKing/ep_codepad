@@ -279,9 +279,22 @@ body {
 .fileTree {
     color: #C8FEC8;
 }
+.line {
+    color: #425F4A;
+}
+.term {
+    color: #96dd3b;
+}
+a:link {
+    color: #9df39f;
+    background-color: transparent;
+}
+a:hover {
+    background: #425F4A
+}
 UL.jqueryFileTree A {
     color: #C8FEC8;
 }
 UL.jqueryFileTree A:hover {
-    background: #425F4A;
+    background: #425F4A
 }

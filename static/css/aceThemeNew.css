@@ -275,6 +275,19 @@ body {
     background-color: #440000;
     font-size: 2em;
 }
+.line {
+    color: #D0EEAD;
+}
+.term {
+    color: #99F1B6;
+}
+a:link {
+    color: #DCDCE6;
+}
+a:hover {
+    color: #FFFFFF;
+    background: #000000;
+}
 UL.jqueryFileTree A {
     color: #DCDCE6;
 }

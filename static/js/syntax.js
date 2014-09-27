@@ -201,9 +201,6 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
     //console.log(args.evt.type + "evt: " + JSON.stringify(args.evt));
     //console.log(check + "?=" + type + " " + keyCode + " " + charCode + " " + which);
 
-    // is syntax highlighting is on proceed, other wise exit here...
-    if (shBrush == 'none') return false;
-
     // firefox:  "keydown 9 0 9"  "keypress 9 0 0"  "keyup 9 0 9"
     // chrome:  keydown 9 0 9, keyup 9 0 9 
 
@@ -211,6 +208,7 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
     if (keyCode === 9 && charCode === 0 && type == check) {
 
         console.log("TAB");
+
         args.evt.preventDefault();
         // We should use /t for tab, but that does not work well. So, we use 4 spaces.
         args.editorInfo.ace_performDocumentReplaceRange(args.rep.selStart, args.rep.selEnd, "    ");
@@ -225,8 +223,9 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
 
     // if F2 was pressed, push action,..
     if (keyCode === 113 && charCode === 0 && type == check) {
+        console.log("F2-Event @ " + args.editorInfo.ace_caretLine() + ":" + args.editorInfo.ace_caretColumn() + ":" + args.editorInfo.ace_caretDocChar());
+        //console.log("F2!");
 
-        console.log("F2!");
         var message = {};
         message.type = 'WRITE_TO_FILESYSTEM';
         message.padId = pad.getPadId();

@@ -40,28 +40,35 @@
                 document.getElementById("fileView").src = param;
             });
         });
+
+        function searchAction() {
+
+            var sr = encodeURIComponent(document.getElementById("search").value);
+            var of = encodeURIComponent(document.getElementById("offer").value);
+            console.log(sr + of);
+            if (sr != '')
+                if (of != '') $('#fileView').attr('src', '/sr?search=' + sr + '&offer=' + of);
+                else $('#fileView').attr('src', '/sr?search=' + sr);
+
+        }
+         //<button onclick="return searchAction();">s</button><input id="search" type="text" class="srs" placeholder="  replace to" onkeydown="if (event.keyCode == 13) return replaceAction();">
     </script>
 
 </head>
 
 <body id="filebody">
-    <div id="fileTree" class="fileTree"></div>
+    <div id="bal" class="bal">
+        <div id="sr" class="sr">
+            <input id="search" type="text" class="search" placeholder="  find in files" onkeydown="if (event.keyCode == 13) return searchAction();">
+            <input id="offer" type="text" class="offer" placeholder=" replace offer" onkeydown="if (event.keyCode == 13) return searchAction();">
+        </div>
+        <div id='ball' class="ball">
+            <div id="fileTree" class="fileTree"></div>
+        </div>
+    </div>
     <iframe id="fileView" class="fileView" src="/log"></iframe>
-</body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

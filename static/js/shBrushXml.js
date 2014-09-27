@@ -27,10 +27,10 @@
                 // TODO bug! <t> turns to something weird!
                 // azért cseréli le a <t> mert túl rövid....
                 //(&lt;|<)*(?<name>[\\s\\S]+$)
-                //  .. ez most így mindent 2 színűvé tesz
+                //  .. ez most így mindent 2 szín?vé tesz
                 //valamiért a t már nem jut el a második forduláshoz
                 //Array [ "&lt;t", "&lt;", "t" ]
-                tag = XRegExp.exec(code, XRegExp('(?:&lt;|<)[\\s\\/\\?!]*(?<name>[\\w\\.]+)', 'xg')),
+                tag = XRegExp.exec(code, XRegExp('(&lt;|<)[\\s\\/\\?!]*(?<name>[:\\w-\\.]+)', 'sg')),
                 result = [];
                 console.log(tag);
 
@@ -67,6 +67,9 @@
                 regex: XRegExp('(?:&lt;|<)[\\s\\/\\?!]*(\\w+)(?<attributes>.*?)[\\s\\/\\?]*(&gt;|>)', 'sg'),
                 func: process
                 //(&lt;|<)[\\s\\/\\?!]*(\\w+)(?<attributes>.*?)[\\s\\/\\?]*(&gt;|>)
+                //valószín? itt d?l el, hogy mi legyen kijelölve és mi ne.
+                //Er?s hátrány, hogy különbség van regExp és XregExp között... Így nem minden megoldás m?ködik.
+                //De rajta vagyok a problémán... :)
             }
         ];
     };
@@ -79,4 +82,3 @@
     // CommonJS
     typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();
-

@@ -1,5 +1,5 @@
 var findExtension = function(ext) {
-    
+
     // Diff
     if (['diff', 'patch'].indexOf(ext) > -1) return 'diff';
     // TAP
@@ -57,9 +57,10 @@ var findExtension = function(ext) {
 
     // plain text
     if (['txt', 'text', 'md', 'htaccess', 'log', 'err', 'nfo'].indexOf(ext) > -1) return 'plain';
+    if (ext === '') return 'plain';
 
     return false;
-}
+};
 
 
 exports.getExtension = function(filename) {
@@ -76,4 +77,3 @@ exports.getBrush = function(filename) {
     var ext = (i < 0) ? '' : filename.substr(i + 1).toLowerCase();
     return findExtension(ext);
 };
-

@@ -1,8 +1,9 @@
 exports.handleClientMessage_CUSTOM = function(hook, context) {
 
+    console.log("&&& " + JSON.stringify(context));
     // TODO if from jsHint
     var hint = ''; //= $('#status').html();
-    console.log("START HINT: " + hint);
+
     if (context.payload.from == 'jshint') {
 
         jsHintErrors = undefined;
@@ -33,20 +34,16 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
             console.log("jshint: OK");
             hint += 'OK';
         }
-
     }
-
-
 
     if (context.payload.from == 'fs') {
         if (context.payload.errors) {
-            console.log("fs: Error!" + JSON.stringify(context.payload.errors));
+            console.log("fs: Error! " + JSON.stringify(context.payload.errors));
             hint += 'File Write failed! ' + JSON.stringify(context.payload.errors);
         } else {
             console.log("fs: OK");
         }
     }
-    console.log("DISPLAY HINT: " + hint);
     if (hint !== '') $('#status').html(hint);
     setTimeout(function() {
         $("#status").html('');
@@ -55,4 +52,4 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
 
 // to test periodically, I used this test
 // while true; do ssh root@d250.hu "ssh pad.d250.hu rc" && sleep 2 && firefox --private https://dev.pad.d250.hu/p/test.js; done
-//  while true; do ssh root@d250.hu "ssh pad.d250.hu rc" && sleep 2 && firefox --private -jsconsole https://dev.pad.d250.hu/p/test.js; done
+//  while true; do ssh root@d250.hu "ssh pad.d250.hu rc" && sleep 2 && firefox --private -jsconsole https://dev.pad.d250.hu/p/test.js; do

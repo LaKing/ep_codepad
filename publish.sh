@@ -22,7 +22,6 @@ echo $cv" > "$nv
 echo '{
     "name": "ep_codepad",
     "description": "Turn etherpad-lite into a realtime collaborative development environment",
-    "url": "https://github.com/LaKing/ep_codepad",
     "keywords": [
         "sourcecode",
             "edit",
@@ -54,6 +53,10 @@ echo '{
     "optionalDependencies": {},
     "engines": {
         "node": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LaKing/ep_codepad"   
     },
     "readmeFilename": "README.md",
     "dist": {

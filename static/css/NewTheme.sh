@@ -391,7 +391,19 @@ body {
  background-color: #440000;
  font-size: 2em;
 }
-
+.line {
+    color: #'$colorE';
+}
+.term {
+    color: #'$colorB';
+}
+a:link {
+    color: #'$colorD';
+}
+a:hover {
+    color: #'$colorF'
+    background: #'$colorA';
+}
 UL.jqueryFileTree A {
     color: #'$colorD';
 }
@@ -438,4 +450,3 @@ chown codepad:codepad shTheme$name.css
 
 echo "$core" > shCore$name.css
 chown codepad:codepad shCore$name.css
-

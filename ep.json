@@ -36,9 +36,9 @@
             "padCreate": "ep_codepad:padCreate"
         }
     }, {
-        "name": "ep_codepad_linkcolor",
+        "name": "ep_codepad_editorfixes",
         "client_hooks": {
-            "aceEditorCSS": "ep_codepad/static/js/ace.js"
+            "aceEditorCSS": "ep_codepad/static/js/ace:aceEditorCSS"
         }
     }, {
         "name": "ep_codepad_defaults",

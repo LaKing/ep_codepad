@@ -125,7 +125,7 @@ exports.expressCreateFileTreeServer = function(hook_name, args, cb) {
                 r += '</ul>';
             }
         } catch (e) {
-            console.log(" FileTreeServer error: " + e);
+            console.log("FileTreeServer error: " + e);
             r += 'ERR: ' + e;
             r += '</ul>';
         }
@@ -149,27 +149,21 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
         var file = decodeURIComponent(fps);
         var path = abs + '/' + file;
 
-        console.log(" FileViewServer path: " + path);
-
         try {
             fs.exists(path, function(exists) {
                 if (exists) {
-                    console.log(" FileViewServer path-exists! : " + path);
 
                     //var regex = '/png|jpg|jpeg|gif|bmp/';
                     //var match = regex.test(getExtension(file));
                     //if (['png', 'jpg', 'jpeg', 'gif'].indexOf(ext.getExtension(file)) >= 0) {
                     if (!ext.getBrush(path)) {
-                        console.log(" CONETNT " + mime.lookup(path));
                         fs.readFile(path, function(err, data) {
                             if (err) throw err;
-                            console.log(" CONETNT " + mime.lookup(path));
                             res.set('Content-Type', mime.lookup(path));
                             res.send(data);
                         });
 
                     } else {
-                        console.log(" CONETXT " + mime.lookup(path));
                         fs.readFile(path, {
                             encoding: 'utf-8'
                         }, function(err, data) {
@@ -196,7 +190,7 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
                 }
             });
         } catch (e) {
-            console.log(" FileViewServer error: " + e);
+            console.log("FileViewServer error: " + e);
             res.send("An error occured. " + e);
         }
     });
@@ -318,6 +312,13 @@ function term2html(text, options) {
     return text.replace(/\u001B\[.*?[A-Za-z]/g, '');
 }
 
+var exec = require("child_process").exec;
+
+function zeroPad(num, places) {
+    var zero = places - num.toString().length + 1;
+    return Array(+(zero > 0 && zero)).join("&nbsp;") + num;
+}
+
 exports.expressCreateCodepadServer = function(hook_name, args, cb) {
 
     args.app.get('/codepad', function(req, res) {
@@ -329,7 +330,6 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
 
     args.app.get('/log', function(req, res) {
 
-        var path = '/var/log/node-project/log';
         try {
             fs.exists(log_path, function(exists) {
                 if (exists && canRead(log_path)) {
@@ -351,7 +351,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
                         res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
                         res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/aceTheme\'+theme+\'.css">\');';
                         res_send += '</script></head><body>';
-                        if (data.length > 50000) res_send += term2html(" Truncated ... " + data.substr(data.length - 50000)).replace(/[\r\n]/g, "<br />");
+                        if (data.length > 50000) res_send += " Truncated ... <br />" + term2html(data.substr(data.length - 50000)).replace(/[\r\n]/g, "<br />");
                         else res_send += term2html(data).replace(/[\r\n]/g, "<br />");
                         res_send += '</body></html>';
                         res.send(res_send);
@@ -367,6 +367,133 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
         }
     });
 
+    args.app.get('/sr', function(req, res) {
+
+        //res.writeHead(200, {
+        //    "Content-Type": "text/plain"
+        //});
+
+        //check params
+        if (req.query.search === '' || typeof req.query.search === 'undefined') {
+            res.send("Error. No search term.");
+            return;
+        }
+
+        var offer = '';
+        var hasOffer = false;
+        if (req.query.offer !== '' && typeof req.query.offer !== 'undefined') {
+            hasOffer = true;
+            offer = req.query.offer;
+        }
+
+        var doReplace = false;
+        var replace_file = '';
+        var replace_term = '';
+        if (req.query.replace !== '' && typeof req.query.replace !== 'undefined' && req.query.file !== '' && typeof req.query.file !== 'undefined') {
+            replace_file = req.query.file;
+            replace_term = req.query.replace;
+            offer = req.query.replace;
+            doReplace = true;
+            hasOffer = true;
+        }
+
+        var execterm = '';
+
+        if (doReplace) execterm = "sed -i 's/" + req.query.search + "/" + replace_term + "/g' " + abs + "/" + replace_file + " && ";
+        execterm += "cd " + abs + " && find . | grep -irnF '" + req.query.search + "' *";
+
+
+
+        console.log("/sr $ " + execterm);
+        exec(execterm, function(err, data, stderr) {
+            //exec(' grep -rnw ' + abs + ' -e "' + req.query.search + '"', function(err, data, stderr) {
+
+            if (err) {
+                console.log('sr-err: ', err);
+            }
+
+            //Print stdout/stderr to console
+            //console.log(stdout);
+            console.log(stderr);
+            //res.write(stdout);
+            //res.end();
+
+
+            // eejs templates encode < & > therefore we assemble the html here and send it directly. 
+            var res_send = '';
+            res_send += '<!DOCTYPE html><head><title>log</title>';
+            res_send += '<script src="/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
+            res_send += '<link href="/static/plugins/ep_codepad/static/css/logcolors.css" rel="stylesheet" type="text/css" media="screen" />';
+            res_send += '<script type="text/javascript">';
+            res_send += 'window.onload=toBottom;';
+            res_send += 'function toBottom(){window.scrollTo(0, document.body.scrollHeight);}';
+            res_send += 'var theme = "' + theme + '";';
+            res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
+            res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/aceTheme\'+theme+\'.css">\');';
+            res_send += '</script></head><body>';
+            //if (data.length > 50000) DATA += " Truncated ... " + data.substr(data.length - 50000).replace(/[\r\n]/g, "<br />");
+            //else DATA += data.replace(/[\r\n]/g, "<br />");
+
+            //DATA = DATA.replace(/[\r\n]/g, "");
+
+            var lines = data.split('\n');
+            if (lines.length === '0') res_send += "<b>" + req.query.search + " not found.</b>";
+            var i_s = 0;
+            if (lines.length > 350) {
+                i_s = lines.length - 250;
+                res_send += lines.length + " matches. Truncated ...<br />";
+            }
+
+            // current folder+file
+            var c = '';
+
+            for (var i = i_s; i < lines.length; i++) {
+                // current line
+                var l = lines[i];
+                if (l.length < 2) continue;
+                // index of folder+file|#+text seperation
+                var v = l.indexOf(':');
+                // index of line-counter
+                var w = l.substring(v + 1).indexOf(':');
+                // index of folder|filename seperaion
+                var g = l.substring(0, v).lastIndexOf('/');
+
+                if (isNaN(parseInt(l.substring(v + 1, v + w + 2)))) continue;
+                // line indicator
+                var tt = '<b><span class="line">' + zeroPad(parseInt(l.substring(v + 1, v + w + 2)), 5) + ': </span></b>';
+
+                //current text
+                var re = new RegExp(req.query.search, 'g');
+                var sw = '<b><span class="term">' + req.query.search + '</span></b>';
+                var t = l.substring(v + w + 2, 250).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(re, sw);
+
+                // actual folder+file
+                var ff = l.substring(0, v);
+
+                if (c !== ff) {
+                    res_send += '<br /><a href="/v/' + ff + '">' + ff.substring(0, g) + '<b>' + ff.substring(g) + '</b></a> - ' + sw;
+
+                    // offer the replace action
+                    if (hasOffer) res_send += ' - <a href="/sr?&search=' + req.query.search + '&replace=' + offer + '&file=' + ff + '">REPLACE ALL TO:</a> <span class="term">' + offer + '</span>';
+
+                    res_send += '<br /><br />' + tt + t + '<br />';
+                    c = ff;
+
+                } else {
+                    res_send += tt + t + '<br />';
+                }
+
+
+
+            }
+
+            res_send += '</div></body></html>';
+            res.send(res_send);
+            //res.end();
+        });
+
+        //res.send("req.query: " + req.query.search);
+    });
 };
 
 //var padManager = require("../ep_etherpad-lite/node/db/PadManager");

@@ -2,13 +2,33 @@
      padding: 0;
      margin: 0;
  }
- .fileTree {
+ .bal {
      float: left;
      width: 13%;
-     height: 99%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+ }
+ .fileTree {
+     height: 97%;
+     width: 100%;
+     float: left;
      overflow: auto;
      margin: 0;
      padding: 0;
+ }
+ .srs {
+     width: 100%;
+ }
+ .sr .search {
+     float: left;
+     width: 60%;
+     height: 3%;
+ }
+ .sr .offer {
+     float: right;
+     width: 40%;
+     height: 3%;
  }
  .fileView {
      float: right;

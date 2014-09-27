@@ -5,7 +5,7 @@ This etherpad-lite plugin merges functionality of simple plugins, and adds some 
 - Adds tons of themes, properly implemented with css, and a theme generator
 - beutify html/css/javascript code with jsBeutify 
 - Syntax-check javascipt with jsHint, and display results
-- save/commit/push and play
+- save/commit/push (F2) and play
 
 - It sets some reasonable defaults and customizes buttons
 - Admin interface based on adminpads
@@ -25,7 +25,9 @@ Currently the following codepad parameters are supported in etherpad's settings.
 - log_path for displaying logs (parent dir needs execute right)
 - button to open a browser to the project
 - action to perform when pushing files
-- authentication password-hash, custom color with these defaults
+- authentication password-hash, custom colors
+
+The use of authentication and https recommended.
 
 ```
   "ep_codepad": { 

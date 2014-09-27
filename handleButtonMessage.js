@@ -6,6 +6,9 @@ var crypto = require('crypto'),
 
 // read base project folder from settings.json
 var settings = require('ep_etherpad-lite/node/utils/Settings');
+var authorManager = require('ep_etherpad-lite/node/db/AuthorManager');
+var sessionManager = require('ep_etherpad-lite/node/db/SessionManager');
+
 var project_path = '/tmp/';
 
 if (!settings.ep_codepad) {
@@ -37,9 +40,13 @@ var padMessageHandler = require("ep_etherpad-lite/node/handler/PadMessageHandler
 
 
 exports.handleMessage = function(hook_name, context, callback) {
+
     if (context.message && context.message.data) {
 
+        var cb = function() {};
+
         var msg = context.message.data.type;
+        console.log("MSG: " + msg);
 
         if (msg == msg_read) {
             padManager.getPad(context.message.data.padId, null, function(err, value) {
@@ -66,9 +73,8 @@ exports.handleMessage = function(hook_name, context, callback) {
                     }
                 });
             });
-            callback([null]);
+            callback(null);
         }
-
         if (msg == msg_write || msg == msg_push) {
 
             padManager.getPad(context.message.data.padId, null, function(err, value) {
@@ -77,10 +83,14 @@ exports.handleMessage = function(hook_name, context, callback) {
                 var padsi = padid.indexOf('/');
                 var folder = '';
 
+                // since EEXISTS is an error, we skip that error
+                // TODO, use mkdirP ?
+                mkdir_err = function(err) {};
+
                 // create subfolders
                 while (padsi > 0) {
                     folder = padid.substring(0, padsi);
-                    fs.mkdir(project_path + folder);
+                    fs.mkdir(project_path + folder, mkdir_err);
                     padsi = padid.indexOf('/', 1 + folder.length);
                 }
 
@@ -91,8 +101,8 @@ exports.handleMessage = function(hook_name, context, callback) {
 
                 // the beutified text of the pad
 
-                // remove two newline characters from the end of the string.
-                var beat = value.atext.text.slice(0, -2);
+                // remove newline character from the end of the string.
+                var beat = value.atext.text.slice(0, -1);
 
 
                 // if .js file beautify
@@ -102,7 +112,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                     });
 
 
-                    //padMessageHandler.updatePadClients(value, callback);
+                    //padMessageHandler.updatePadClients(value, cb);
 
                     if (!jshint(beat)) {
 
@@ -159,7 +169,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                                 }
                             }
                         };
-                        padMessageHandler.handleCustomObjectMessage(err_msg, undefined, callback);
+                        padMessageHandler.handleCustomObjectMessage(err_msg, undefined, cb);
 
                     } else {
                         var ok_msg = {
@@ -173,11 +183,11 @@ exports.handleMessage = function(hook_name, context, callback) {
                                 }
                             }
                         };
-                        padMessageHandler.handleCustomObjectMessage(ok_msg, undefined, callback);
+                        padMessageHandler.handleCustomObjectMessage(ok_msg, undefined, cb);
                     }
 
-                    value.setText(beat);
-                    padMessageHandler.updatePadClients(value, callback);
+                    if (msg == msg_push) value.setText(beat);
+                    padMessageHandler.updatePadClients(value, cb);
                 }
 
                 // if .css file beautify
@@ -186,7 +196,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                         indent_size: 4
                     });
                     value.setText(beat);
-                    padMessageHandler.updatePadClients(value, callback);
+                    padMessageHandler.updatePadClients(value, cb);
                 }
 
                 // if .html file beautify
@@ -195,7 +205,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                         indent_size: 4
                     });
                     value.setText(beat);
-                    padMessageHandler.updatePadClients(value, callback);
+                    padMessageHandler.updatePadClients(value, cb);
                 }
 
                 // WRITE to the FILE
@@ -213,7 +223,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                                 }
                             }
                         };
-                        padMessageHandler.handleCustomObjectMessage(err_msg, undefined, callback);
+                        padMessageHandler.handleCustomObjectMessage(err_msg, undefined, cb);
                     } else {
                         console.log("Wrote pad contents to " + path);
                         var ok_msg = {
@@ -227,7 +237,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                                 }
                             }
                         };
-                        padMessageHandler.handleCustomObjectMessage(ok_msg, undefined, callback);
+                        padMessageHandler.handleCustomObjectMessage(ok_msg, undefined, cb);
                         // if push_action is defined in settings.json, it will run here, use it for git/svn/hg ... or whatever.
                         if (settings.ep_codepad && msg == msg_push) {
                             if (settings.ep_codepad.push_action) {
@@ -245,7 +255,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                                                 }
                                             }
                                         };
-                                        padMessageHandler.handleCustomObjectMessage(err_msg, undefined, callback);
+                                        padMessageHandler.handleCustomObjectMessage(err_msg, undefined, cb);
                                     }
                                     if (stdout) console.log("codepad-push-stdout: " + stdout);
                                     if (stderr) console.log("codepad-push-stderr: " + stderr);
@@ -255,11 +265,11 @@ exports.handleMessage = function(hook_name, context, callback) {
                     }
                 });
             });
-            callback([null]);
-        }
-    }
+            callback(null);
+        } //END if (msg == msg_write || msg == msg_push)
+    } //END if (context.message && context.message.data)
     callback();
-};
+}; //END exports.handleMessage
 
 /// jshint - quickhelp
 /* An example from err.
@@ -273,4 +283,4 @@ exports.handleMessage = function(hook_name, context, callback) {
                     "scope": "(main)",
                     "reason": "Missing semicolon."
 
-           */
+           *****/
