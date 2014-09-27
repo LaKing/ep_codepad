@@ -458,7 +458,9 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
                 // index of folder|filename seperaion
                 var g = l.substring(0, v).lastIndexOf('/');
 
+                // skip binary files (where line number is NaN)
                 if (isNaN(parseInt(l.substring(v + 1, v + w + 2)))) continue;
+
                 // line indicator
                 var tt = '<b><span class="line">' + zeroPad(parseInt(l.substring(v + 1, v + w + 2)), 5) + ': </span></b>';
 
