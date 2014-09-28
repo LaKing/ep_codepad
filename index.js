@@ -318,7 +318,23 @@ function zeroPad(num, places) {
     var zero = places - num.toString().length + 1;
     return Array(+(zero > 0 && zero)).join("&nbsp;") + num;
 }
+/*
+function countMatches(search_term, file) {
+    padManager.getPad(file, null, function(err, value) {
+        if (err) {
+            //console.log('sr-err: ', err);
+            return 0;
+        } else {
 
+            var text = value.atext.text;
+            var rex = new RegExp(search_term, 'g');
+            var matches = text.match(rex);
+
+            return 1; //matches.length;
+        }
+    });
+}
+*/
 exports.expressCreateCodepadServer = function(hook_name, args, cb) {
 
     args.app.get('/codepad', function(req, res) {
@@ -397,30 +413,49 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
             hasOffer = true;
         }
 
+        // do some things in the pads
+        if (doReplace)
+            padManager.getPad(replace_file, null, function(err, value) {
+                if (err) {
+                    //console.log('sr-err: ', err);
+                }
+
+                var text = value.atext.text;
+
+                var rex = new RegExp(req.query.search, 'g');
+
+                var matches = text.match(rex);
+
+                //console.log("[REPLACE IN PAD]: " + text);
+                value.setText(text.replace(rex, replace_term));
+
+                padMessageHandler.updatePadClients(value, cb);
+            });
+
         var execterm = '';
+        // replace in files
 
         if (doReplace) execterm = "sed -i 's/" + req.query.search + "/" + replace_term + "/g' " + abs + "/" + replace_file + " && ";
         execterm += "cd " + abs + " && find . | grep -irnF '" + req.query.search + "' *";
-
-
 
         console.log("/sr $ " + execterm);
         exec(execterm, function(err, data, stderr) {
             //exec(' grep -rnw ' + abs + ' -e "' + req.query.search + '"', function(err, data, stderr) {
 
             if (err) {
-                console.log('sr-err: ', err);
+                //console.log('sr-err: ', err);
+
             }
 
             //Print stdout/stderr to console
             //console.log(stdout);
-            console.log(stderr);
+            //console.log(stderr);
             //res.write(stdout);
             //res.end();
 
 
-            // eejs templates encode < & > therefore we assemble the html here and send it directly. 
-            var res_send = '';
+            // we assemble the html here and send it directly. 
+            var res_send = ''; //'
             res_send += '<!DOCTYPE html><head><title>log</title>';
             res_send += '<script src="/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
             res_send += '<link href="/static/plugins/ep_codepad/static/css/logcolors.css" rel="stylesheet" type="text/css" media="screen" />';
@@ -431,10 +466,6 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
             res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
             res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/aceTheme\'+theme+\'.css">\');';
             res_send += '</script></head><body>';
-            //if (data.length > 50000) DATA += " Truncated ... " + data.substr(data.length - 50000).replace(/[\r\n]/g, "<br />");
-            //else DATA += data.replace(/[\r\n]/g, "<br />");
-
-            //DATA = DATA.replace(/[\r\n]/g, "");
 
             var lines = data.split('\n');
             if (lines.length === '0') res_send += "<b>" + req.query.search + " not found.</b>";
