@@ -385,21 +385,19 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
 
     args.app.get('/sr', function(req, res) {
 
-        //res.writeHead(200, {
-        //    "Content-Type": "text/plain"
-        //});
+        var search_term = req.query.search;
 
         //check params
-        if (req.query.search === '' || typeof req.query.search === 'undefined') {
+        if (search_term === '' || typeof search_term === 'undefined') {
             res.send("Error. No search term.");
             return;
         }
 
-        var offer = '';
+        var offer_term = '';
         var hasOffer = false;
         if (req.query.offer !== '' && typeof req.query.offer !== 'undefined') {
             hasOffer = true;
-            offer = req.query.offer;
+            offer_term = req.query.offer;
         }
 
         var doReplace = false;
@@ -408,7 +406,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
         if (req.query.replace !== '' && typeof req.query.replace !== 'undefined' && req.query.file !== '' && typeof req.query.file !== 'undefined') {
             replace_file = req.query.file;
             replace_term = req.query.replace;
-            offer = req.query.replace;
+            offer_term = req.query.replace;
             doReplace = true;
             hasOffer = true;
         }
@@ -422,7 +420,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
 
                 var text = value.atext.text;
 
-                var rex = new RegExp(req.query.search, 'g');
+                var rex = new RegExp(search_term, 'g');
 
                 var matches = text.match(rex);
 
@@ -435,12 +433,12 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
         var execterm = '';
         // replace in files
 
-        if (doReplace) execterm = "sed -i 's/" + req.query.search + "/" + replace_term + "/g' " + abs + "/" + replace_file + " && ";
-        execterm += "cd " + abs + " && find . | grep -irnF '" + req.query.search + "' *";
+        if (doReplace) execterm = "sed -i 's/" + search_term + "/" + replace_term + "/g' " + abs + "/" + replace_file + " && ";
+        execterm += "cd " + abs + " && find . | grep -irnF '" + search_term + "' *";
 
         console.log("/sr $ " + execterm);
         exec(execterm, function(err, data, stderr) {
-            //exec(' grep -rnw ' + abs + ' -e "' + req.query.search + '"', function(err, data, stderr) {
+            //exec(' grep -rnw ' + abs + ' -e "' + search_term + '"', function(err, data, stderr) {
 
             if (err) {
                 //console.log('sr-err: ', err);
@@ -468,7 +466,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
             res_send += '</script></head><body>';
 
             var lines = data.split('\n');
-            if (lines.length === '0') res_send += "<b>" + req.query.search + " not found.</b>";
+            if (lines.length === '0') res_send += "<b>" + search_term + " not found.</b>";
             var i_s = 0;
             if (lines.length > 350) {
                 i_s = lines.length - 250;
@@ -496,8 +494,8 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
                 var tt = '<b><span class="line">' + zeroPad(parseInt(l.substring(v + 1, v + w + 2)), 5) + ': </span></b>';
 
                 //current text
-                var re = new RegExp(req.query.search, 'g');
-                var sw = '<b><span class="term">' + req.query.search + '</span></b>';
+                var re = new RegExp(search_term, 'g');
+                var sw = '<b><span class="term">' + search_term + '</span></b>';
                 var t = l.substring(v + w + 2, 250).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(re, sw);
 
                 // actual folder+file
@@ -506,8 +504,8 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
                 if (c !== ff) {
                     res_send += '<br /><a href="/v/' + ff + '">' + ff.substring(0, g) + '<b>' + ff.substring(g) + '</b></a> - ' + sw;
 
-                    // offer the replace action
-                    if (hasOffer) res_send += ' - <a href="/sr?&search=' + req.query.search + '&replace=' + offer + '&file=' + ff + '">REPLACE ALL TO:</a> <span class="term">' + offer + '</span>';
+                    // offer_term the replace action
+                    if (hasOffer) res_send += ' - <a href="/sr?&search=' + search_term + '&replace=' + offer_term + '&file=' + ff + '">REPLACE ALL TO:</a> <span class="term">' + offer_term + '</span>';
 
                     res_send += '<br /><br />' + tt + t + '<br />';
                     c = ff;
@@ -525,7 +523,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
             //res.end();
         });
 
-        //res.send("req.query: " + req.query.search);
+        //res.send("req.query: " + search_term);
     });
 };
 

@@ -1,4 +1,8 @@
-This etherpad-lite plugin merges functionality of simple plugins, and adds some functionality on its own.
+Turn etherpad into codepad - a collaborative open development enviroment. 
+
+Status: Beta - ~bugfixes only until 1.0.0
+
+This etherpad-lite plugin merges functionality of a few simple plugins, and adds tons of functionality on its own.
 
 - File Tree view, open files into pads and save them back.
 - Syntaxhighlighting for 27 popular lanuges - based on alexgorbatchev/syntaxhighlighter
@@ -52,10 +56,13 @@ Codepad is designed to work together with fedora "srvctl", an LXC container and 
 https://githubub.com/LaKing/Fedora-scripts
 
 Known issues:
-- multiline comments don't get highlighted
+- multiline comments in pads don't get highlighted, codepad processes everything line-by-line
+- ejs stops etherpad sometimes with an error complaining about missing toolbar
+- log-view can crash after a while
 
-Features in progress:
-- search and replace in files
+Syntaxhighlighter bugs:
+- <t> and <l> tags with the XML brush break the pad
+- view does not always work as it should be
 
-Close to the final beta, under heavy development.
-Please feel free to test, and contact me with issues.
+Please feel free to send comments, bug-reports, ...
+.. and/or in case of professional, or commercial use please donate to support open source software developers.

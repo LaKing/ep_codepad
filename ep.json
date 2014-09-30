@@ -1,5 +1,10 @@
 {
     "parts": [{
+        "name": "ep_codepad_index_page",
+        "hooks": {
+            "eejsBlock_indexWrapper": "ep_codepad/index_page"
+        }
+    }, {
         "name": "ep_codepad_auth",
         "hooks": {
             "authenticate": "ep_codepad/ep_hash_auth",

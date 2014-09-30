@@ -7,6 +7,7 @@ exports.eejsBlock_scripts = function(hook_name, args, cb) {
 };
 
 exports.eejsBlock_styles = function(hook_name, args, cb) {
-    args.content = args.content + "<link href='../static/plugins/ep_codepad/static/css/button.css' rel='stylesheet'>";
+    args.content += "<link href='../static/plugins/ep_codepad/static/css/button.css' rel='stylesheet'>";
+    args.content += "<link rel='stylesheet' href='/static/plugins/ep_codepad/static/css/font-awesome.min.css'>";
     return cb();
 };

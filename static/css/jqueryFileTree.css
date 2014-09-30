@@ -1,3 +1,4 @@
+ /* codepad rules */
  #filebody {
      padding: 0;
      margin: 0;
@@ -9,26 +10,35 @@
      margin: 0;
      padding: 0;
  }
- .fileTree {
-     height: 97%;
-     width: 100%;
-     float: left;
-     overflow: auto;
+ .nav {
+     height: 36px;
      margin: 0;
      padding: 0;
  }
+ .fileTree {
+     width: 100%;
+     overflow: auto;
+     margin: 0;
+     padding: 0;
+     height: calc(100% - 64px);
+     /* opera */
+     height: -o-calc(100% - 64px);
+     /* google, safari */
+     height: -webkit-calc(100% - 64px);
+     /* firefox */
+     height: -moz-calc(100% - 64px);
+ }
  .srs {
      width: 100%;
+     height: 28px;
  }
  .sr .search {
      float: left;
      width: 60%;
-     height: 3%;
  }
  .sr .offer {
      float: right;
      width: 40%;
-     height: 3%;
  }
  .fileView {
      float: right;
@@ -37,6 +47,31 @@
      border: none;
      padding: 0px 0px 0px 0px;
  }
+ .buttonicon-codepad_nav_log:before {
+     content: "\f022";
+     font-family: FontAwesome;
+     color: #666;
+     font-size: 14px;
+ }
+ .buttonicon-codepad_nav_padmin:before {
+     content: "\f013";
+     font-family: FontAwesome;
+     color: #666;
+     font-size: 14px;
+ }
+ .buttonicon-codepad_nav_search:before {
+     content: "\f002";
+     font-family: FontAwesome;
+     color: #666;
+     font-size: 14px;
+ }
+ .buttonicon-codepad_nav_play:before {
+     content: "\f144";
+     font-family: FontAwesome;
+     color: #666;
+     font-size: 14px;
+ }
+ /* the standard rules */
  UL.jqueryFileTree {
      font-family: Verdana, sans-serif;
      font-size: 12px;

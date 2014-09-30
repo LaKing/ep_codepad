@@ -1,18 +1,22 @@
-.buttonicon-codepad_buttons_write {
-    background-image: url('/static/plugins/ep_codepad/static/img/write.png');
+.buttonicon-codepad_buttons_read:before {
+    content: "\f0aa";
+    font-family: FontAwesome;
+    color: #666;
+    font-size: 14px;
 }
-.buttonicon-codepad_buttons_push {
-    background-image: url('/static/plugins/ep_codepad/static/img/push.png');
-    background-position: 1px 2px;
+.buttonicon-codepad_buttons_write:before {
+    content: "\f0ab";
+    font-family: FontAwesome;
+    color: #666;
+    font-size: 14px;
 }
-.buttonicon-codepad_buttons_play {
-    background-image: url('/static/plugins/ep_codepad/static/img/play.png');
-    background-position: 1px 2px;
+.buttonicon-codepad_buttons_push:before {
+    content: "\f058";
+    font-family: FontAwesome;
+    color: #666;
+    font-size: 14px;
 }
-.buttonicon-codepad_buttons_padmin {
-    background-image: url('/static/plugins/ep_codepad/static/img/test.png');
-    background-position: 1px 2px;
-}
+
 /* this makes monospace the default for real .. should be defined somwhere else */
 
 body {

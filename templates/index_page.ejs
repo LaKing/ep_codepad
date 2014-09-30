@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/static/plugins/ep_codepad/static/css/font-awesome.min.css">
+<style type="text/css">
+    #codepad-inner {
+        position: relative;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 15px;
+    }
+</style>
+
+<div id="codepad-inner">
+    <br />
+    <div id="button" onclick="window.location='/files'" data-l10n-id="index.codepad "><i class="fa fa-files-o"></i> files
+    </div>
+    <br />Choose your theme!
+    <select id="themesmenu" onchange="setCookie('codepad_theme',this.options[this.selectedIndex].value); window.location.reload();">
+        <option value="Default">Default</option>
+        <option value="Eclipse">Eclipse</option>
+        <option value="Cobalt">Cobalt</option>
+        <option value="Bordoux">Bordoux</option>
+        <option value="Ocean">Ocean</option>
+        <option value="Django">Django</option>
+        <option value="Emacs">Emacs</option>
+        <option value="FadeToGrey">FadeToGrey</option>
+        <option value="MDUltra">MDUltra</option>
+        <option value="Midnight">Midnight</option>
+        <option value="RDark">R_Dark</option>
+        <option value="BlackMonday">BlackMonday</option>
+        <option value="New">New</option>
+    </select>
+
+</div>
+<script src="/static/plugins/ep_codepad/static/js/jquery.js " type="text/javascript "></script>
+<script src="/static/plugins/ep_codepad/static/js/cookies.js " type="text/javascript "></script>
+<script type="text/javascript">
+    var theme = "<%=theme%>";
+    if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
+    $(document).ready(function() {
+        var thb = document.getElementById("themesmenu");
+        for (var k = 1; k < thb.options.length; k++) {
+            if (theme == thb.options[k].value) thb.options[k].selected = true;
+        }
+    });
+</script>
+</div>
