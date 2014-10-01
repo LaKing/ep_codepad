@@ -40,10 +40,18 @@
             $('#fileTree').fileTree({}, function(param) {
                 document.getElementById("fileView").src = param;
             });
+            var hash = window.location.hash;
+            if (hash) {
+                var v = '/v';
+                var s = hash.substring(1).trim();
+                if (s.charAt(0) != '/') v += '/';
+
+                $('#fileView').attr('src', v + s);
+
+            } else $('#fileView').attr('src', '/log');
         });
 
         function searchAction() {
-
             var sr = encodeURIComponent(document.getElementById("search").value);
             var of = encodeURIComponent(document.getElementById("offer").value);
             console.log(sr + of);
@@ -63,23 +71,28 @@
         <div id='nav' class="nav">
             <div id='toolbar' class='toolbar enabledtoolbar'>
                 <ul class="menu_left">
+                    <li class="acl-write" id="button_home" onclick="window.location.href='/'">
+                        <a class="grouped-left" data-l10n-id="pad.toolbar.codepad_nav_home.title" title="Home">
+                            <span class="buttonicon buttonicon-codepad_nav_home"></span>
+                        </a>
+                    </li>
                     <li class="acl-write" id="button_play" onclick="$('#fileView').attr('src', '/play');">
-                        <a class="grouped-left" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Play">
+                        <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons_play.title" title="Play">
                             <span class="buttonicon buttonicon-codepad_nav_play"></span>
                         </a>
                     </li>
                     <li class="acl-write" id="button_log" onclick="$('#fileView').attr('src', '/log');">
-                        <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Read">
+                        <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_nav_log.title" title="Log">
                             <span class="buttonicon buttonicon-codepad_nav_log"></span>
                         </a>
                     </li>
                     <li class="acl-write" id="button_pads" onclick="$('#fileView').attr('src', '/admin/pads');">
-                        <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Write">
+                        <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_nav_pads.title" title="Pads">
                             <span class="buttonicon buttonicon-codepad_nav_padmin"></span>
                         </a>
                     </li>
                     <li class="acl-write" id="button_search" onclick="searchAction() ">
-                        <a class="grouped-right" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Push">
+                        <a class="grouped-right" data-l10n-id="pad.toolbar.codepad_nav_search.title" title="Search">
                             <span class="buttonicon buttonicon-codepad_nav_search"></span>
                         </a>
                     </li>
@@ -95,6 +108,6 @@
             <input id="offer" type="text" class="offer" placeholder=".. replace offer" onkeydown="if (event.keyCode == 13) return searchAction();">
         </div>
     </div>
-    <iframe id="fileView" class="fileView" src="/log"></iframe>
+    <iframe id="fileView" class="fileView"></iframe>
 
 </html>

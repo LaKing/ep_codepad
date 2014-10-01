@@ -33,14 +33,6 @@
 // Modification for ep_codepad, .. use get instead of post parameters.
 // Use different prefix for simple and doubleclick
 //
-/*                root: '/',
-                script: '/files_connector',
-                folderEvent: 'ep_codepad_customized!',
-                expandSpeed: 750,
-                collapseSpeed: 750,
-                multiFolder: false
-
-*/
 if (jQuery)(function($) {
 
     $.extend($.fn, {
@@ -55,7 +47,7 @@ if (jQuery)(function($) {
             o.collapseSpeed = 800;
             o.expandEasing = null;
             o.collapseEasing = null;
-            o.multiFolder = true;
+            o.multiFolder = false;
             o.loadMessage = 'Loading...';
 
             $(this).each(function() {
@@ -108,7 +100,7 @@ if (jQuery)(function($) {
                             $('#fileTree').find('LI A').css("text-decoration", "none").css("font-weight", "normal");
                             $(this).css("text-decoration", "underline").css("font-weight", "bold");
                             // make the changes trackable
-                            parent.location.hash = "   " + v;
+                            parent.location.hash = v;
                             document.title = v.substr(v.lastIndexOf('/') + 1);
                         }
                         return false;

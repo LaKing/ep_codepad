@@ -15,5 +15,13 @@
             pad.collabClient.sendMessage(message);
         }
     };
+    var sendReadMessage = function() {
+        var message = {};
+        message.type = 'READ_FROM_FILESYSTEM';
+        message.padId = pad.getPadId();
+        if (message) {
+            pad.collabClient.sendMessage(message);
+        }
+    };
 </script>
 

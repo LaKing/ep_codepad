@@ -113,12 +113,12 @@ exports.expressCreateFileTreeServer = function(hook_name, args, cb) {
                     var ff = dir + f;
                     if (canRead(abs + ff)) {
                         var stats = fs.statSync(abs + ff);
+                        var ft = f;
+                        if (ft.length > 25) ft = f.substring(0, 22) + "...";
                         if (stats.isDirectory()) {
-                            r += '<li class="directory collapsed"><a href="/files" rel="' + ff + '/">' + f + '</a></li>';
+                            r += '<li class="directory collapsed"><a href="/files" rel="' + ff + '/" title="' + ff + '">' + ft + '</a></li>';
                         } else {
-                            var href = '/p' + ff;
-                            if (!ext.extensionBrush(f)) href = '/v' + ff;
-                            r += '<li class="file ext_' + ext.getExtension(f) + '"><a href="' + href + '" rel=' + ff + '>' + f + '</a></li>';
+                            r += '<li class="file ext_' + ext.getBrush(f) + '"><a href="/v' + ff + '" rel=' + ff + ' title="' + ff + '">' + ft + '</a></li>';
                         }
                     }
                 });
@@ -152,11 +152,8 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
         try {
             fs.exists(path, function(exists) {
                 if (exists) {
-
-                    //var regex = '/png|jpg|jpeg|gif|bmp/';
-                    //var match = regex.test(getExtension(file));
-                    //if (['png', 'jpg', 'jpeg', 'gif'].indexOf(ext.getExtension(file)) >= 0) {
-                    if (!ext.getBrush(path)) {
+                    console.log("MIME: " + mime.lookup(path) + " " + path);
+                    if (!ext.getBrush(path) && mime.lookup(path) !== 'application/octet-stream') {
                         fs.readFile(path, function(err, data) {
                             if (err) throw err;
                             res.set('Content-Type', mime.lookup(path));

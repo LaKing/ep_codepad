@@ -1,7 +1,7 @@
-var crypto = require('crypto'),
-    padManager = require("ep_etherpad-lite/node/db/PadManager"),
-    fs = require('fs'),
-    md5sum = crypto.createHash('md5');
+var crypto = require('crypto');
+var padManager = require("ep_etherpad-lite/node/db/PadManager");
+var fs = require('fs');
+
 
 
 // read base project folder from settings.json
@@ -50,26 +50,21 @@ exports.handleMessage = function(hook_name, context, callback) {
 
         if (msg == msg_read) {
             padManager.getPad(context.message.data.padId, null, function(err, value) {
-                var hash = crypto.createHash('md5').update(context.message.data.padId).digest("hex");
 
-                var path = "/tmp/" + context.message.data.padId;
-
-                console.log(" READ");
+                var padid = context.message.data.padId;
+                var path = project_path + padid;
+                // remove newline character from the end of the string.
+                var text = value.atext.text.slice(0, -1);
 
                 fs.readFile(path, function(err, data) {
                     if (err) {
-                        console.log(" Failed to read text of " + path);
-                    } else {
-                        console.log(" Readed pad contents of " + path);
-                        console.log(" data:" + data);
+                        console.log("codepad-read-error " + path);
                     }
 
-                    console.log(" text:" + value.atext.text);
-
-                    if (data == value.atext.text) {
-                        console.log(" READ EQUALS PAD DATA");
-                    } else {
-                        console.log(" READ IS NOT PAD DATA");
+                    var adat = data.toString();
+                    if (adat !== text) {
+                        value.setText(adat);
+                        padMessageHandler.updatePadClients(value, cb);
                     }
                 });
             });

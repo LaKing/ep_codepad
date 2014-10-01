@@ -47,6 +47,12 @@
      border: none;
      padding: 0px 0px 0px 0px;
  }
+ .buttonicon-codepad_nav_home:before {
+     content: "\f015";
+     font-family: FontAwesome;
+     color: #666;
+     font-size: 14px;
+ }
  .buttonicon-codepad_nav_log:before {
      content: "\f022";
      font-family: FontAwesome;
@@ -82,7 +88,7 @@
  UL.jqueryFileTree LI {
      list-style: none;
      padding: 0px;
-     padding-left: 20px;
+     padding-left: 8px;
      margin: 0px;
      white-space: nowrap;
  }
@@ -92,190 +98,149 @@
      padding: 0px 2px;
  }
  /* Core Styles */
- .jqueryFileTree LI.directory {
+ /* .jqueryFileTree LI.directory {
      background: url(/static/plugins/ep_codepad/static/img/directory.png) left top no-repeat;
  }
- .jqueryFileTree LI.expanded {
+  .jqueryFileTree LI.expanded {
      background: url(/static/plugins/ep_codepad/static/img/folder_open.png) left top no-repeat;
  }
- .jqueryFileTree LI.file {
-     background: url(/static/plugins/ep_codepad/static/img/file.png) left top no-repeat;
+ 
+*/
+ .jqueryFileTree LI:before {
+     font-family: FontAwesome;
+     font-size: 14px;
+     padding-right: 7px;
+     cursor: pointer;
+     float: left;
+     background: left top no-repeat;
+     text-shadow: 0.5px 0.5px 1px #222;
  }
- .jqueryFileTree LI.wait {
-     background: url(/static/plugins/ep_codepad/static/img/spinner.gif) left top no-repeat;
+ .jqueryFileTree LI.directory:before {
+     content: "\f07b";
+     color: #FC0;
+ }
+ .jqueryFileTree LI.expanded:before {
+     content: "\f07c";
+     color: #FE0;
+ }
+ .jqueryFileTree LI.file:before {
+     content: "\f15b";
+     color: #888;
+ }
+ .jqueryFileTree LI.wait:before {
+     content: "\f07b";
+     color: #FD0;
  }
  /* File Extensions*/
- .jqueryFileTree LI.ext_3gp {
-     background: url(/static/plugins/ep_codepad/static/img/film.png) left top no-repeat;
+ .jqueryFileTree LI.ext_diff:before {
+     content: "\f15c";
+     color: #0DD;
  }
- .jqueryFileTree LI.ext_afp {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_tap:before {
+     content: "\f15c";
+     color: #D0D;
  }
- .jqueryFileTree LI.ext_afpa {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_scala:before {
+     content: "\f15c";
+     color: #D0D;
  }
- .jqueryFileTree LI.ext_asp {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_groovy:before {
+     content: "\f15c";
+     color: #5DD;
  }
- .jqueryFileTree LI.ext_aspx {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_erlang:before {
+     content: "\f15c";
+     color: #D5D;
  }
- .jqueryFileTree LI.ext_avi {
-     background: url(/static/plugins/ep_codepad/static/img/film.png) left top no-repeat;
+ .jqueryFileTree LI.ext_vb:before {
+     content: "\f15c";
+     color: #DD5;
  }
- .jqueryFileTree LI.ext_bat {
-     background: url(/static/plugins/ep_codepad/static/img/application.png) left top no-repeat;
+ .jqueryFileTree LI.ext_jfx:before {
+     content: "\f15c";
+     color: #8DD;
  }
- .jqueryFileTree LI.ext_bmp {
-     background: url(/static/plugins/ep_codepad/static/img/picture.png) left top no-repeat;
+ .jqueryFileTree LI.ext_csharp:before {
+     content: "\f15c";
+     color: #D8D;
  }
- .jqueryFileTree LI.ext_c {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_python:before {
+     content: "\f15c";
+     color: #DD8;
  }
- .jqueryFileTree LI.ext_cfm {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_php:before {
+     content: "\f15c";
+     color: #ADD;
  }
- .jqueryFileTree LI.ext_cgi {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_css:before {
+     content: "\f15c";
+     color: #DAD;
  }
- .jqueryFileTree LI.ext_com {
-     background: url(/static/plugins/ep_codepad/static/img/application.png) left top no-repeat;
+ .jqueryFileTree LI.ext_haxe:before {
+     content: "\f15c";
+     color: #DDA;
  }
- .jqueryFileTree LI.ext_cpp {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_typescript:before {
+     content: "\f15c";
+     color: #FDD;
  }
- .jqueryFileTree LI.ext_css {
-     background: url(/static/plugins/ep_codepad/static/img/css.png) left top no-repeat;
+ .jqueryFileTree LI.ext_cpp:before {
+     content: "\f15c";
+     color: #DFD;
  }
- .jqueryFileTree LI.ext_doc {
-     background: url(/static/plugins/ep_codepad/static/img/doc.png) left top no-repeat;
+ .jqueryFileTree LI.ext_applescript:before {
+     content: "\f15c";
+     color: #DDF;
  }
- .jqueryFileTree LI.ext_exe {
-     background: url(/static/plugins/ep_codepad/static/img/application.png) left top no-repeat;
+ .jqueryFileTree LI.ext_as3:before {
+     content: "\f15c";
+     color: #33D;
  }
- .jqueryFileTree LI.ext_gif {
-     background: url(/static/plugins/ep_codepad/static/img/picture.png) left top no-repeat;
+ .jqueryFileTree LI.ext_bash:before {
+     content: "\f15c";
+     color: #D33;
  }
- .jqueryFileTree LI.ext_fla {
-     background: url(/static/plugins/ep_codepad/static/img/flash.png) left top no-repeat;
+ .jqueryFileTree LI.ext_java:before {
+     content: "\f15c";
+     color: #3D3;
  }
- .jqueryFileTree LI.ext_h {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_powershell:before {
+     content: "\f15c";
+     color: #55D;
  }
- .jqueryFileTree LI.ext_htm {
-     background: url(/static/plugins/ep_codepad/static/img/html.png) left top no-repeat;
+ .jqueryFileTree LI.ext_perl:before {
+     content: "\f15c";
+     color: #D55;
  }
- .jqueryFileTree LI.ext_html {
-     background: url(/static/plugins/ep_codepad/static/img/html.png) left top no-repeat;
+ .jqueryFileTree LI.ext_js:before {
+     content: "\f15c";
+     color: #DE8;
  }
- .jqueryFileTree LI.ext_jar {
-     background: url(/static/plugins/ep_codepad/static/img/java.png) left top no-repeat;
+ .jqueryFileTree LI.ext_sql:before {
+     content: "\f15c";
+     color: #99D;
  }
- .jqueryFileTree LI.ext_jpg {
-     background: url(/static/plugins/ep_codepad/static/img/picture.png) left top no-repeat;
+ .jqueryFileTree LI.ext_sass:before {
+     content: "\f15c";
+     color: #D99;
  }
- .jqueryFileTree LI.ext_jpeg {
-     background: url(/static/plugins/ep_codepad/static/img/picture.png) left top no-repeat;
+ .jqueryFileTree LI.ext_delphi:before {
+     content: "\f15c";
+     color: #9D9;
  }
- .jqueryFileTree LI.ext_js {
-     background: url(/static/plugins/ep_codepad/static/img/script.png) left top no-repeat;
+ .jqueryFileTree LI.ext_coldfusion:before {
+     content: "\f15c";
+     color: #66E;
  }
- .jqueryFileTree LI.ext_lasso {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
+ .jqueryFileTree LI.ext_ruby:before {
+     content: "\f15c";
+     color: #E66;
  }
- .jqueryFileTree LI.ext_log {
-     background: url(/static/plugins/ep_codepad/static/img/txt.png) left top no-repeat;
+ .jqueryFileTree LI.ext_xml:before {
+     content: "\f15c";
+     color: #CCF;
  }
- .jqueryFileTree LI.ext_m4p {
-     background: url(/static/plugins/ep_codepad/static/img/music.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_mov {
-     background: url(/static/plugins/ep_codepad/static/img/film.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_mp3 {
-     background: url(/static/plugins/ep_codepad/static/img/music.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_mp4 {
-     background: url(/static/plugins/ep_codepad/static/img/film.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_mpg {
-     background: url(/static/plugins/ep_codepad/static/img/film.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_mpeg {
-     background: url(/static/plugins/ep_codepad/static/img/film.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_ogg {
-     background: url(/static/plugins/ep_codepad/static/img/music.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_pcx {
-     background: url(/static/plugins/ep_codepad/static/img/picture.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_pdf {
-     background: url(/static/plugins/ep_codepad/static/img/pdf.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_php {
-     background: url(/static/plugins/ep_codepad/static/img/php.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_png {
-     background: url(/static/plugins/ep_codepad/static/img/picture.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_ppt {
-     background: url(/static/plugins/ep_codepad/static/img/ppt.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_psd {
-     background: url(/static/plugins/ep_codepad/static/img/psd.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_pl {
-     background: url(/static/plugins/ep_codepad/static/img/script.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_py {
-     background: url(/static/plugins/ep_codepad/static/img/script.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_rb {
-     background: url(/static/plugins/ep_codepad/static/img/ruby.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_rbx {
-     background: url(/static/plugins/ep_codepad/static/img/ruby.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_rhtml {
-     background: url(/static/plugins/ep_codepad/static/img/ruby.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_rpm {
-     background: url(/static/plugins/ep_codepad/static/img/linux.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_ruby {
-     background: url(/static/plugins/ep_codepad/static/img/ruby.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_sql {
-     background: url(/static/plugins/ep_codepad/static/img/db.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_swf {
-     background: url(/static/plugins/ep_codepad/static/img/flash.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_tif {
-     background: url(/static/plugins/ep_codepad/static/img/picture.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_tiff {
-     background: url(/static/plugins/ep_codepad/static/img/picture.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_txt {
-     background: url(/static/plugins/ep_codepad/static/img/txt.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_vb {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_wav {
-     background: url(/static/plugins/ep_codepad/static/img/music.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_wmv {
-     background: url(/static/plugins/ep_codepad/static/img/film.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_xls {
-     background: url(/static/plugins/ep_codepad/static/img/xls.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_xml {
-     background: url(/static/plugins/ep_codepad/static/img/code.png) left top no-repeat;
- }
- .jqueryFileTree LI.ext_zip {
-     background: url(/static/plugins/ep_codepad/static/img/zip.png) left top no-repeat;
+ .jqueryFileTree LI.ext_plain:before {
+     content: "\f15c";
+     color: #999;
  }

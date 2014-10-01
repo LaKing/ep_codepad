@@ -56,7 +56,7 @@ var findExtension = function(ext) {
     if (['xml', 'xhtml', 'xslt', 'html', 'htm', 'plist', 'ejs'].indexOf(ext) > -1) return 'xml';
 
     // plain text
-    if (['txt', 'text', 'md', 'htaccess', 'log', 'err', 'nfo'].indexOf(ext) > -1) return 'plain';
+    if (['txt', 'text', 'md', 'htaccess', 'log', 'err', 'nfo', 'bak', "coffee", "npmignore", "gitignore", "yml"].indexOf(ext) > -1) return 'plain';
     if (ext === '') return 'plain';
 
     return false;
@@ -74,6 +74,6 @@ exports.extensionBrush = function(ext) {
 
 exports.getBrush = function(filename) {
     var i = filename.lastIndexOf('.');
-    var ext = (i < 0) ? '' : filename.substr(i + 1).toLowerCase();
+    var ext = (i < 0) ? 'plain' : filename.substr(i + 1).toLowerCase();
     return findExtension(ext);
 };
