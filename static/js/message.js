@@ -1,55 +1,75 @@
 exports.handleClientMessage_CUSTOM = function(hook, context) {
 
-    console.log("&&& " + JSON.stringify(context));
-    // TODO if from jsHint
-    var hint = ''; //= $('#status').html();
+    var hint = '';
+    var hint_title = '';
 
     if (context.payload.from == 'jshint') {
-
-        jsHintErrors = undefined;
-        var status = null;
-
         if (context.payload.errors) {
 
-            jsHintErrors = context.payload.errors;
-            jsHintProcessLine = 0;
+            var status = false;
+            var idb = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody');
 
-            //context.payload.errors.
-            jsHintErrors.forEach(function(err) {
+            context.payload.errors.forEach(function(err) {
                 if (err) {
-                    //console.log("@err "+err);
+
+                    // brief console error log - presistent in the browser
+                    console.info(" !: " + context.payload.padid + ":" + err.line + ":" + err.character + " " + err.reason + "|" + err.evidence);
+                    // and on mouse over
+                    hint_title += err.line + ":" + err.character + " " + err.reason + '\n';
 
                     if (!status) {
-                        // display the first error
-                        status = err.line + ":" + err.character + " " + err.reason;
-                        hint += status + ' ';
+                        // display the first error on the top hint status bar
+                        status = true;
+                        hint = "js: " + err.line + ":" + err.character + " " + err.reason;
                     }
 
-                    console.info(" !: " + err.line + ":" + err.character + " " + err.reason + "|" + err.evidence);
+                    // a little delay, so the push-reply can refresh the text first
+                    setTimeout(function() {
+                        div = idb.find("div:nth-child(" + err.line + ")");
+                        div.addClass("warn");
+                        if (typeof div.attr("title") == "undefined") div.attr("title", err.reason);
+                    }, 100);
+
+                    // setTimeout(function() {
+                    // clear
+                    //  $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody').find("*").removeClass('warn');
+                    //  // and remove the attr title
+                    // }, 10000);
+
                     // more detailed if you wish
                     //console.info(" ! " + padid + ":" + err.line + ":" + err.character + " " + err.reason + " !" + err.scope + "|" + err.evidence + "|" + err.id + "|" + err.code + "|" + err.raw);
                 }
             });
-        } else {
-            console.log("jshint: OK");
-            hint += 'OK';
         }
     }
 
     if (context.payload.from == 'fs') {
         if (context.payload.errors) {
-            console.log("fs: Error! " + JSON.stringify(context.payload.errors));
+            console.log(context.payload.padid + " fs: Error! " + JSON.stringify(context.payload.errors));
             hint += 'File Write failed! ' + JSON.stringify(context.payload.errors);
-        } else {
-            console.log("fs: OK");
         }
     }
-    if (hint !== '') $('#status').html(hint);
-    setTimeout(function() {
-        $("#status").html('');
-    }, 5000);
-};
 
-// to test periodically, I used this test
-// while true; do ssh root@d250.hu "ssh pad.d250.hu rc" && sleep 2 && firefox --private https://dev.pad.d250.hu/p/test.js; done
-//  while true; do ssh root@d250.hu "ssh pad.d250.hu rc" && sleep 2 && firefox --private -jsconsole https://dev.pad.d250.hu/p/test.js; do
+    if (context.payload.from == 'exec') {
+        if (context.payload.errors) {
+            console.log(context.payload.padid + " exec: Error! " + JSON.stringify(context.payload.errors));
+            hint += 'Push action failed! ' + JSON.stringify(context.payload.errors);
+        }
+    }
+
+    if (context.payload.from == 'codepad') {
+        hint = "OK!";
+        $('#status').addClass("ok");
+
+        setTimeout(function() {
+            $("#status").html('');
+            $("#status").removeClass("ok");
+            $("#status").removeClass("error");
+        }, 5000);
+
+
+    } else $('#status').addClass("error");
+
+    if (hint !== '') $('#status').html(hint);
+    if (hint_title !== '') $('#status').prop('title', hint_title);
+};

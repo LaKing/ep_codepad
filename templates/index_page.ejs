@@ -8,38 +8,32 @@
     }
 </style>
 
+<script src="/static/plugins/ep_codepad/static/js/jquery.js " type="text/javascript "></script>
+<script src="/static/plugins/ep_codepad/static/js/cookies.js " type="text/javascript "></script>
+<script type="text/javascript">
+    var theme = "<%=theme%>";
+    var themes = "<%= themes %>".split(',');;
+    if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
+    
+    $(document).ready(function() {
+        var select = $('#themesmenu');
+        var option;
+        $.each(themes, function(i) {
+            option = new Option(themes[i], themes[i]);
+            if (themes[i]===theme) option.selected = true;
+            if (themes[i]!=='Default') select.append($(option));
+        });
+    });
+</script>
+
 <div id="codepad-inner">
     <br />
     <div id="button" onclick="window.location='/files'" data-l10n-id="index.codepad "><i class="fa fa-files-o"></i> files
     </div>
     <br />Choose your theme!
-    <select id="themesmenu" onchange="setCookie('codepad_theme',this.options[this.selectedIndex].value); window.location.reload();">
+    <select id="themesmenu" onchange="setCookie('codepad_theme',this.options[this.selectedIndex].value);">
         <option value="Default">Default</option>
-        <option value="Eclipse">Eclipse</option>
-        <option value="Cobalt">Cobalt</option>
-        <option value="Bordoux">Bordoux</option>
-        <option value="Ocean">Ocean</option>
-        <option value="Django">Django</option>
-        <option value="Emacs">Emacs</option>
-        <option value="FadeToGrey">FadeToGrey</option>
-        <option value="MDUltra">MDUltra</option>
-        <option value="Midnight">Midnight</option>
-        <option value="RDark">R_Dark</option>
-        <option value="BlackMonday">BlackMonday</option>
-        <option value="New">New</option>
     </select>
-
 </div>
-<script src="/static/plugins/ep_codepad/static/js/jquery.js " type="text/javascript "></script>
-<script src="/static/plugins/ep_codepad/static/js/cookies.js " type="text/javascript "></script>
-<script type="text/javascript">
-    var theme = "<%=theme%>";
-    if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
-    $(document).ready(function() {
-        var thb = document.getElementById("themesmenu");
-        for (var k = 1; k < thb.options.length; k++) {
-            if (theme == thb.options[k].value) thb.options[k].selected = true;
-        }
-    });
-</script>
+
 </div>

@@ -1,0 +1,724 @@
+/*
+colors used are:
+
+#FFFFFF
+#8AA9C1
+#507EA2
+#336993
+#245E8B
+#1D5987
+#195685
+#175584
+
+*/
+
+body {
+    background-color: #001B33;
+    font-family: monospace;
+}
+#outerdocbody {
+    background-color: #001B33;
+}
+#innerdocbody {
+    background-color: #001B33;
+}
+#sidediv {
+    background-color: #111111;
+}
+.sidedivdelayed {
+    color: #8AA9C1 !important;
+}
+.toolbar {
+    background-color: #1D5987;
+}
+/* extracted from pad.css */
+
+#users {
+    background: #1D5987;
+    background: -webkit-linear-gradient(#336993, #245E8B);
+    background: -moz-linear-gradient(#336993, #245E8B);
+    background: -ms-linear-gradient(#336993, #245E8B);
+    background: -o-linear-gradient(#336993, #245E8B);
+    background: linear-gradient(#336993, #245E8B);
+    color: #FFFFFF;
+    border: 1px solid #336993;
+}
+.toolbar {
+    background: #1D5987;
+    background: -webkit-linear-gradient(#336993, #001B33 80%);
+    background: -moz-linear-gradient(#336993, #001B33 80%);
+    background: -o-linear-gradient(#336993, #001B33 80%);
+    background: -ms-linear-gradient(#336993, #001B33 80%);
+    background: linear-gradient(#336993, #001B33 80%);
+    border-bottom: 1px solid #001B33;
+}
+#usericon a #online_count {
+    color: #245E8B;
+}
+#editorloadingbox {
+    color: #336993;
+}
+#myswatchbox {
+    border: 1px solid #175584;
+}
+#mycolorpicker {
+    background: #8AA9C1;
+    border: 1px solid #507EA2;
+}
+#mycolorpickersave,
+#mycolorpickercancel {
+    background: #336993;
+    background: -webkit-linear-gradient(#507EA2, #336993);
+    background: -moz-linear-gradient(#507EA2, #336993);
+    background: -o-linear-gradient(#507EA2, #336993);
+    background: -ms-linear-gradient(#507EA2, #336993);
+    background: linear-gradient(#507EA2, #336993);
+    border: 1px solid #507EA2;
+    color: #FFFFFF;
+}
+#mycolorpickerpreview {
+    color: #FFFFFF;
+}
+#myusernameedit {
+    color: #FFFFFF;
+}
+#myusernameform input.editable {
+    border: 1px solid #1D5987
+}
+#myuser .myusernameedithoverable {
+    background: #175584;
+    color: #FFFFFF;
+}
+#myuser .myusernameedithoverable:hover {
+    background: #FFFFFF;
+    color: #175584;
+}
+#mystatusedit {
+    color: #245E8B;
+    border: 1px solid #507EA2;
+}
+#myusernameform .editactive,
+#myusernameform .editempty {
+    border-left: 1px solid #507EA2;
+    border-top: 1px solid #507EA2;
+    border-right: 1px solid #245E8B;
+    border-bottom: 1px solid #245E8B;
+    color: #175584;
+}
+#myusernameform .editempty {
+    background: #FFFFFF;
+    color: #195685
+}
+#myswatchbox,
+#myusernameedit,
+#otheruserstable .swatch {
+    border: 1px solid #1D5987 !important;
+    color: #195685;
+}
+#nootherusers {
+    color: #245E8B;
+}
+#nootherusers a {
+    color: #245E8B
+}
+#otheruserstable td {
+    color: #FFFFFF;
+}
+#otheruserstable .swatch {
+    border: 1px solid #175584;
+}
+.usertdname {
+    color: #1D5987;
+}
+.usertdstatus {
+    color: #336993;
+}
+.usertdactivity {
+    color: #245E8B;
+}
+.usertdname input {
+    border: 1px solid #507EA2;
+}
+.usertdname input.editactive,
+.usertdname input.editempty {
+    background: #FFFFFF;
+    border-left: 1px solid #507EA2;
+    border-top: 1px solid #507EA2;
+    border-right: 1px solid #245E8B;
+    border-bottom: 1px solid #245E8B;
+}
+.usertdname input.editempty {
+    color: #245E8B;
+}
+#chatbox {
+    background-color: #8AA9C1;
+    border-left: 1px solid #336993;
+    border-right: 1px solid #336993;
+    border-top: 1px solid #336993;
+}
+#chattext {
+    background-color: #245E8B;
+    border: 1px solid #245E8B;
+    color: #FFFFFF;
+}
+#chatlabel {
+    color: #1D5987;
+}
+#chatinput {
+    border: 1px solid #507EA2;
+}
+#chaticon {
+    border-left: 1px solid #336993;
+    border-right: 1px solid #336993;
+    border-top: 1px solid #336993;
+    background-color: #FFFFFF;
+}
+#chatcounter {
+    color: #245E8B;
+}
+#titlebar {
+    color: #1D5987;
+}
+#titlesticky {
+    color: #1D5987;
+}
+#titlecross {
+    color: #1D5987;
+}
+.time {
+    color: #195685;
+}
+.exporttype {
+    color: #8AA9C1;
+}
+#importmessageabiword {
+    color: #336993;
+}
+#chatthrob {
+    background-color: #175584;
+    color: #FFFFFF;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#focusprotector {
+    background-color: #FFFFFF;
+}
+#online_count {
+    color: #245E8B;
+}
+.popup {
+    border: 1px solid #245E8B;
+    background: #1D5987;
+    background: -webkit-linear-gradient(#507EA2, #336993);
+    background: -moz-linear-gradient(#507EA2, #336993);
+    background: -ms-linear-gradient(#507EA2, #336993);
+    background: -o-linear-gradient(#507EA2, #336993);
+    background: linear-gradient(#507EA2, #336993);
+    /* -webkit-box-shadow: 0 0 8px #245E8B;
+  -moz-box-shadow: 0 0 8px #245E8B;*/
+    box-shadow: 0 2px 2px 4px #1D5987;
+    color: #FFFFFF;
+}
+.popup h1 {
+    color: #8AA9C1;
+}
+.popup h2 {
+    color: #8AA9C1;
+}
+.stickyChat {
+    background-color: #336993 !important;
+    border-left: 1px solid #507EA2 !important;
+}
+@media all and (max-width: 400px) {
+    #gritter-notice-wrapper {
+        background-color: #507EA2;
+        color: #175584;
+    }
+    .gritter-item p {
+        color: #175584;
+    }
+    .gritter-title {
+        color: #175584;
+    }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
+    .toolbar ul.menu_right {
+        background: #245E8B;
+        background: -webkit-linear-gradient(#245E8B, #336993 80%);
+        background: -moz-linear-gradient(#245E8B, #336993 80%);
+        background: -o-linear-gradient(#245E8B, #336993 80%);
+        background: -ms-linear-gradient(#245E8B, #336993 80%);
+        background: linear-gradient(#245E8B, #336993 80%);
+        border-top: 1px solid #245E8B;
+    }
+}
+.gritter-item {
+    color: #FFFFFF;
+}
+.gritter-title {
+    text-shadow: 1px 1px 0 #175584;
+    /* Not supported by IE :( */
+}
+.gritter-close {
+    color: #195685;
+}
+.activeButton {
+    background: #245E8B;
+    background: -webkit-linear-gradient(#245E8B, #336993);
+    background: -moz-linear-gradient(#245E8B, #336993);
+    background: -o-linear-gradient(#245E8B, #336993);
+    background: -ms-linear-gradient(#245E8B, #336993);
+    background: linear-gradient(#245E8B, #336993);
+}
+/* colors used are:
+#FFFFFF
+#8AA9C1
+#507EA2
+#336993
+#245E8B
+#1D5987
+#195685
+#175584
+*/
+
+#status {
+    color: #FFFFFF;
+    background-color: #440000;
+    font-size: 2em;
+}
+/* search and replace */
+
+.line {
+    color: #ff7d27;
+}
+.term {
+    color: #FF9D00;
+}
+a:link {
+    color: #D19FDB;
+}
+a:visited {
+    color: #D19FDB;
+}
+a:hover {
+    color: #FFFFFF;
+    background: #000000;
+}
+/* file tree */
+
+UL.jqueryFileTree A {
+    color: #8AA9C1;
+}
+UL.jqueryFileTree A:hover {
+    color: #FFFFFF;
+    background: #000000;
+}
+/* global static additions */
+
+#myusernameform input.editable {
+    font-size: 2em;
+}
+/* hint and curly braces */
+
+.warn {
+    background-color: #511;
+}
+.active {
+    background-color: #008;
+    color: #FFF;
+    font-weight: bold;
+}
+.missing {
+    background-color: #600;
+}
+/* default text color*/
+
+body {
+    color: #DEF;
+}
+/* selection */
+
+::-moz-selection {
+    /* Code for Firefox */
+    /*color: #FFF;*/
+    background: #246;
+    ;
+}
+::selection {
+    /* color: #FFF;*/
+    background: #246;
+    ;
+}
+/* LANGUAGES */
+
+/* Javascript */
+
+.hljs-keyword {
+    color: #FF9D00;
+    font-weight: bold;
+}
+.hljs-keywords {
+    color: #FF9D11;
+}
+.hljs-comment {
+    color: #0088FF;
+}
+.hljs-number {
+    color: #D25252;
+}
+.hljs-literal {
+    color: #D25252;
+    font-weight: bold;
+}
+.hljs-built_in {
+    color: #D197D9;
+}
+.hljs-string {
+    color: #3AD900;
+}
+.hljs-regex {
+    color: #7FB347;
+}
+.hljs-regexp {
+    color: #7FB347;
+}
+.hljs-function {
+    color: #79ABFF;
+}
+.hljs-title {
+    color: #8EEEFF;
+}
+.hljs-params {
+    color: #BFA4A4;
+}
+.hljs-pi {
+    color: #BED6FF;
+}
+/* +html+css */
+
+.hljs-tag {
+    color: #9ECCDD;
+}
+.hljs-id {
+    color: #FFEE80;
+}
+.hljs-class {
+    color: #9EDDFF;
+}
+.hljs-at_rule {
+    color: #9EEEEE;
+}
+.hljs-attr_selector {
+    color: #D7D8D9;
+}
+.hljs-pseudo {
+    color: #79ABFF;
+}
+.hljs-rule {
+    color: #D197D9;
+}
+.hljs-rules {
+    color: #D297DC;
+}
+.hljs-attribute {
+    color: #9EEEEE;
+}
+.hljs-value {
+    color: #3AD900;
+}
+.hljs-hexcolor {
+    color: #FFFF80;
+}
+.hljs-important {
+    color: #F25252;
+}
+.hljs-doctype {
+    color: #0066FF;
+}
+.hljs-cdata {
+    color: #2288EE;
+}
+/* Other languages */
+
+.hljs-addition {
+    color: #888888;
+}
+.hljs-annotation {
+    color: #888888;
+}
+.hljs-argument {
+    color: #888888;
+}
+.hljs-array {
+    color: #888888;
+}
+.hljs-begin-block {
+    color: #888888;
+}
+.hljs-blockquote {
+    color: #888888;
+}
+.hljs-body {
+    color: #888888;
+}
+.hljs-bullet {
+    color: #888888;
+}
+.hljs-cbracket {
+    color: #888888;
+}
+.hljs-cell {
+    color: #888888;
+}
+.hljs-change {
+    color: #888888;
+}
+.hljs-char {
+    color: #888888;
+}
+.hljs-chunk {
+    color: #888888;
+}
+.hljs-code {
+    color: #888888;
+}
+.hljs-collection {
+    color: #888888;
+}
+.hljs-command {
+    color: #888888;
+}
+.hljs-commands {
+    color: #888888;
+}
+.hljs-constant {
+    color: #888888;
+}
+.hljs-container {
+    color: #888888;
+}
+.hljs-dartdoc {
+    color: #888888;
+}
+.hljs-date {
+    color: #888888;
+}
+.hljs-decorator {
+    color: #888888;
+}
+.hljs-default {
+    color: #888888;
+}
+.hljs-deletion {
+    color: #888888;
+}
+.hljs-emphasis {
+    color: #888888;
+}
+.hljs-end-block {
+    color: #888888;
+}
+.hljs-envvar {
+    color: #888888;
+}
+.hljs-expression {
+    color: #888888;
+}
+.hljs-filename {
+    color: #888888;
+}
+.hljs-filter {
+    color: #888888;
+}
+.hljs-flow {
+    color: #888888;
+}
+.hljs-foreign {
+    color: #888888;
+}
+.hljs-formula {
+    color: #888888;
+}
+.hljs-func {
+    color: #888888;
+}
+.hljs-function_name {
+    color: #888888;
+}
+.hljs-generics {
+    color: #888888;
+}
+.hljs-header {
+    color: #888888;
+}
+.hljs-horizontal_rule {
+    color: #888888;
+}
+.hljs-import {
+    color: #888888;
+}
+.hljs-infix {
+    color: #888888;
+}
+.hljs-inheritance {
+    color: #888888;
+}
+.hljs-input {
+    color: #888888;
+}
+.hljs-javadoc {
+    color: #888888;
+}
+.hljs-javadoctag {
+    color: #888888;
+}
+.hljs-label {
+    color: #888888;
+}
+.hljs-link_label {
+    color: #888888;
+}
+.hljs-link_reference {
+    color: #888888;
+}
+.hljs-link_url {
+    color: #888888;
+}
+.hljs-list {
+    color: #888888;
+}
+.hljs-localvars {
+    color: #888888;
+}
+.hljs-long_brackets {
+    color: #888888;
+}
+.hljs-matrix {
+    color: #888888;
+}
+.hljs-module {
+    color: #888888;
+}
+.hljs-operator {
+    color: #888888;
+}
+.hljs-output {
+    color: #888888;
+}
+.hljs-package {
+    color: #888888;
+}
+.hljs-param {
+    color: #888888;
+}
+.hljs-parameter {
+    color: #888888;
+}
+.hljs-parent {
+    color: #888888;
+}
+.hljs-phpdoc {
+    color: #888888;
+}
+.hljs-pod {
+    color: #888888;
+}
+.hljs-pp {
+    color: #888888;
+}
+.hljs-pragma {
+    color: #888888;
+}
+.hljs-preprocessor {
+    color: #888888;
+}
+.hljs-prompt {
+    color: #888888;
+}
+.hljs-property {
+    color: #888888;
+}
+.hljs-quoted {
+    color: #888888;
+}
+.hljs-record_name {
+    color: #888888;
+}
+.hljs-request {
+    color: #888888;
+}
+.hljs-reserved {
+    color: #888888;
+}
+.hljs-rest_arg {
+    color: #888888;
+}
+.hljs-shader {
+    color: #888888;
+}
+.hljs-shading {
+    color: #888888;
+}
+.hljs-shebang {
+    color: #888888;
+}
+.hljs-special {
+    color: #888888;
+}
+.hljs-sqbracket {
+    color: #888888;
+}
+.hljs-status {
+    color: #888888;
+}
+.hljs-stl_container {
+    color: #888888;
+}
+.hljs-stream {
+    color: #888888;
+}
+.hljs-strong {
+    color: #888888;
+}
+.hljs-sub {
+    color: #888888;
+}
+.hljs-subst {
+    color: #888888;
+}
+.hljs-summary {
+    color: #888888;
+}
+.hljs-symbol {
+    color: #888888;
+}
+.hljs-template_comment {
+    color: #888888;
+}
+.hljs-template_tag {
+    color: #888888;
+}
+.hljs-type {
+    color: #888888;
+}
+.hljs-typedef {
+    color: #888888;
+}
+.hljs-typename {
+    color: #888888;
+}
+.hljs-var_expand {
+    color: #888888;
+}
+.hljs-variable {
+    color: #888888;
+}
+.hljs-winutils {
+    color: #888888;
+}
+.hljs-xmlDocTag {
+    color: #888888;
+}
+.hljs-yardoctag {
+    color: #888888;
+}

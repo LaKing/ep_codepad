@@ -7,36 +7,7 @@
     </title>
     <script type="text/javascript" src="/static/plugins/ep_codepad/static/js/jquery.js"></script>
     <script type="text/javascript" src="/static/plugins/ep_codepad/static/js/cookies.js"></script>
-    <script type="text/javascript" src="/static/plugins/ep_codepad/static/js/XRegExp.js"></script>
-    <script type="text/javascript" src="/static/plugins/ep_codepad/static/js/shCore.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushDiff.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushTAP.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushScala.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushGroovy.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushErlang.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushVb.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushJavaFX.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushCSharp.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushPython.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushPhp.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushCss.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushHaxe.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushTypeScript.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushCpp.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushAppleScript.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushAS3.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushBash.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushJava.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushPowerShell.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushPerl.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushJScript.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushSql.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushSass.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushDelphi.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushColdFusion.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushRuby.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushXml.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/shBrushPlain.js"></script>
+    <script src="/static/plugins/ep_codepad/static/js/highlight.pack.js"></script>
     <script type="text/javascript">
         if (document.addEventListener) {
             document.addEventListener('contextmenu', function(e) {
@@ -52,15 +23,23 @@
 
         var theme = '<%=theme%>';
         if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
-        document.write('<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/aceTheme' + theme + '.css">');
-        document.write('<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/shTheme' + theme + '.css">');
+        document.write('<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/' + theme + '.css">');
+        document.write('<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/styles/' + theme + '.css">');
 
-        SyntaxHighlighter.all();
+         //SyntaxHighlighter.all();
+         //hljs.initHighlightingOnLoad();
+
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
     </script>
 </head>
 
 <body>
-    <pre class="brush: <%=brush%>; gutter: false; toolbar: false"><%=code%></pre>
+    <!--<pre class="brush: <%=brush%>; gutter: false; toolbar: false"><%=code%></pre> -->
+    <pre><code class="<%=brush%>"><%=code%></code></pre> 
 </body>
 
 </html>

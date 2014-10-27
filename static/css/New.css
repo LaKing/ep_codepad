@@ -1,0 +1,725 @@
+
+/*
+colors used are:
+#FADCFA
+#93889D
+#5F5E6E
+#454957
+#383E4B
+#323945
+#2F3642
+#2D3541
+*/
+
+body {
+    background-color: #161A20;
+    font-family: monospace;
+}
+
+#outerdocbody {
+    background-color: #161A20;
+}
+
+#innerdocbody {
+    background-color: #161A20;
+}
+
+#sidediv {
+    background-color: #2F3642;
+}
+
+.sidedivdelayed {
+    color: #93889D !important;
+}
+
+.toolbar {
+    background-color: #323945;
+}
+
+/* extracted from pad.css */
+
+#users {
+  background: #323945;
+  background: -webkit-linear-gradient( #454957,#383E4B);
+  background: -moz-linear-gradient( #454957,#383E4B);
+  background: -ms-linear-gradient( #454957,#383E4B);
+  background: -o-linear-gradient( #454957,#383E4B);
+  background: linear-gradient( #454957,#383E4B);
+  color: #FADCFA;
+  border: 1px solid #454957;
+}
+
+.toolbar {
+  background: #323945;
+  background: -webkit-linear-gradient(#454957, #161A20 80%);
+  background: -moz-linear-gradient(#454957, #161A20 80%);
+  background: -o-linear-gradient(#454957, #161A20 80%);
+  background: -ms-linear-gradient(#454957, #161A20 80%);
+  background: linear-gradient(#454957, #161A20 80%);
+  border-bottom: 1px solid #161A20;
+}
+
+#usericon a #online_count {
+  color: #383E4B;
+}
+
+#editorloadingbox {
+  color: #454957;
+}
+
+#myswatchbox {
+  border: 1px solid #2D3541;
+}
+
+#mycolorpicker {
+  background: #93889D;
+  border: 1px solid #5F5E6E;
+}
+
+#mycolorpickersave,
+#mycolorpickercancel {
+  background: #454957;
+  background: -webkit-linear-gradient(#5F5E6E, #454957);
+  background: -moz-linear-gradient(#5F5E6E, #454957);
+  background: -o-linear-gradient(#5F5E6E, #454957);
+  background: -ms-linear-gradient(#5F5E6E, #454957);
+  background: linear-gradient(#5F5E6E, #454957);
+  border: 1px solid #5F5E6E;
+  color: #FADCFA;
+}
+#mycolorpickerpreview {
+  color: #FADCFA;
+}
+
+#myusernameedit {
+  color: #FADCFA;
+}
+#myusernameform input.editable {
+  border: 1px solid #323945
+}
+#myuser .myusernameedithoverable {
+  background: #2D3541;
+  color: #FADCFA;
+}
+#myuser .myusernameedithoverable:hover {
+  background: #FADCFA;
+  color: #2D3541;
+}
+#mystatusedit {
+  color: #383E4B;
+  border: 1px solid #5F5E6E;
+}
+#myusernameform .editactive,
+#myusernameform .editempty {
+  border-left: 1px solid #5F5E6E;
+  border-top: 1px solid #5F5E6E;
+  border-right: 1px solid #383E4B;
+  border-bottom: 1px solid #383E4B;
+  color: #2D3541;
+}
+#myusernameform .editempty {
+  background: #FADCFA;
+  color: #2F3642
+}
+#myswatchbox, #myusernameedit, #otheruserstable .swatch {
+  border: 1px solid #323945 !important;
+  color: #2F3642;
+}
+
+#nootherusers {
+  color: #383E4B;
+}
+#nootherusers a {
+  color: #383E4B
+}
+#otheruserstable td {
+  color: #FADCFA;
+}
+#otheruserstable .swatch {
+  border: 1px solid #2D3541;
+}
+.usertdname {
+  color: #323945;
+}
+.usertdstatus {
+  color: #454957;
+}
+.usertdactivity {
+  color: #383E4B;
+}
+.usertdname input {
+  border: 1px solid #5F5E6E;
+}
+
+.usertdname input.editactive,
+.usertdname input.editempty {
+  background: #FADCFA;
+  border-left: 1px solid #5F5E6E;
+  border-top: 1px solid #5F5E6E;
+  border-right: 1px solid #383E4B;
+  border-bottom: 1px solid #383E4B;
+}
+.usertdname input.editempty {
+  color: #383E4B;
+}
+
+#chatbox {
+  background-color: #93889D;
+  border-left: 1px solid #454957;
+  border-right: 1px solid #454957;
+  border-top: 1px solid #454957;
+}
+#chattext {
+  background-color: #383E4B;
+  border: 1px solid #383E4B;
+  color: #FADCFA;
+}
+
+#chatlabel {
+  color: #323945;
+}
+#chatinput {
+  border: 1px solid #5F5E6E;
+}
+#chaticon {
+  border-left: 1px solid #454957;
+  border-right: 1px solid #454957;
+  border-top: 1px solid #454957;
+  background-color: #FADCFA;
+}
+
+#chatcounter {
+  color: #383E4B;
+}
+#titlebar {
+  color: #323945;
+}
+
+#titlesticky{
+  color: #323945;
+}
+#titlecross {
+  color: #323945;
+}
+.time {
+  color: #2F3642;
+}
+
+.exporttype {
+  color: #FADCFA;
+}
+
+#importmessageabiword {
+  color: #454957;
+}
+
+#chatthrob {
+  background-color: #2D3541;
+  color: #FADCFA;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.7);
+}
+#focusprotector {
+  background-color: #FADCFA;
+}
+#online_count {
+  color: #383E4B;
+}
+
+.popup {
+  border: 1px solid #383E4B;
+  background: #323945;
+  background: -webkit-linear-gradient(#5F5E6E, #454957);
+  background: -moz-linear-gradient(#5F5E6E, #454957);
+  background: -ms-linear-gradient(#5F5E6E, #454957);
+  background: -o-linear-gradient(#5F5E6E, #454957);
+  background: linear-gradient(#5F5E6E, #454957);
+  -webkit-box-shadow: 0 0 8px #383E4B;
+  -moz-box-shadow: 0 0 8px #383E4B;
+  box-shadow: 0 2px 4px #323945;
+  color: #FADCFA;
+}
+
+.popup h1 {
+  color: #93889D;
+}
+.popup h2 {
+  color: #93889D;
+}
+
+.stickyChat {
+  background-color: #454957 !important;
+  border-left: 1px solid #5F5E6E !important;
+}
+
+@media all and (max-width: 400px){
+  #gritter-notice-wrapper{
+    background-color: #5F5E6E;
+    color:#2D3541;
+  } 
+  .gritter-item p{
+    color:#2D3541;
+  }
+  .gritter-title{
+    color:#2D3541;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
+    .toolbar ul.menu_right {
+      background: #383E4B;
+      background: -webkit-linear-gradient(#383E4B, #454957 80%);
+      background: -moz-linear-gradient(#383E4B, #454957 80%);
+      background: -o-linear-gradient(#383E4B, #454957 80%);
+      background: -ms-linear-gradient(#383E4B, #454957 80%);
+      background: linear-gradient(#383E4B, #454957 80%);
+      border-top: 1px solid #383E4B;
+    }
+
+}
+
+.gritter-item {
+  color:#FADCFA;
+}
+.gritter-title {
+  text-shadow:1px 1px 0 #2D3541; /* Not supported by IE :( */
+}
+.gritter-close {
+  color: #2F3642;
+}
+.activeButton{
+  background: #383E4B;
+  background: -webkit-linear-gradient(#383E4B, #454957);
+  background: -moz-linear-gradient(#383E4B, #454957);
+  background: -o-linear-gradient(#383E4B, #454957);
+  background: -ms-linear-gradient(#383E4B, #454957);
+  background: linear-gradient(#383E4B, #454957);
+}
+
+#status {
+ color: #FFFFFF;
+ background-color: #440000;
+ font-size: 2em;
+}
+.line {
+    color: #383E4B;
+}
+.term {
+    color: #93889D;
+}
+a:link {
+    color: #454957;
+}
+a:visited {
+     color: #383E4B;
+}
+a:hover {
+    color: #323945
+    background: #FADCFA;
+}
+
+/* file tree */
+
+UL.jqueryFileTree A {
+    color: #454957;
+}
+
+UL.jqueryFileTree A:hover {
+    color: #323945
+    background: #FADCFA;
+}
+
+/* global static additions */
+
+#myusernameform input.editable {     font-size: 2em; } 
+
+/* hint and curly braces */
+
+.warn {     background-color: #511; } 
+.active {     background-color: #008;     color: #FFF;     font-weight: bold; } 
+.missing {     background-color: #600; } /* default text color*/   
+body {     color: #DEF; }
+
+/* selection */   
+::-moz-selection {     
+    /* Code for Firefox */     
+    /* color: #FFF;*/     
+    background: #246;
+} 
+::selection {     
+    /* color: #FFF;*/     
+    background: #246;
+}
+
+/* LANGUAGES */
+
+/* Javascript */
+
+.hljs-keyword {
+    color: #698FEC;
+    font-weight: bold;
+}
+.hljs-keywords {
+    color: #B077DE;
+}
+.hljs-comment {
+    color: #9E1BF2;
+}
+.hljs-number {
+    color: #4BA84D;
+}
+.hljs-literal {
+    color: #4B6AF5;
+}
+.hljs-built_in {
+    color: #75AFEA;
+}
+.hljs-string {
+    color: #6C9442;
+}
+.hljs-regex {
+    color: #81C187;
+}
+.hljs-regexp {
+    color: #F84BE0;
+}
+.hljs-function {
+    color: #BE8047;
+}
+.hljs-title {
+    color: #73CC9D;
+}
+.hljs-params {
+    color: #B4CF6B;
+}
+.hljs-pi {
+    color: #C6B0FA;
+}
+/* +html+css */
+
+.hljs-tag {
+    color: #4A9375;
+}
+.hljs-id {
+    color: #D1C37C;
+}
+.hljs-class {
+    color: #D87758;
+}
+.hljs-at_rule {
+    color: #D94586;
+}
+.hljs-attr_selector {
+    color: #8CCEF0;
+}
+.hljs-pseudo {
+    color: #8DB9C7;
+}
+.hljs-rule {
+    color: #F0A383;
+}
+.hljs-rules {
+    color: #3D9EB1;
+}
+.hljs-attribute {
+    color: #833236;
+}
+.hljs-value {
+    color: #816CE5;
+}
+.hljs-hexcolor {
+    color: #F87957;
+}
+.hljs-important {
+    color: #BED274;
+}
+.hljs-doctype {
+    color: #44D495;
+}
+.hljs-cdata {
+    color: #F0BD4E;
+}
+/* Other languages */
+
+.hljs-addition {
+    color: #F157BC;
+}
+.hljs-annotation {
+    color: #AA4379;
+}
+.hljs-argument {
+    color: #47C4B8;
+}
+.hljs-array {
+    color: #C76133;
+}
+.hljs-begin-block {
+    color: #8DD5F1;
+}
+.hljs-blockquote {
+    color: #DF83A2;
+}
+.hljs-body {
+    color: #5570ED;
+}
+.hljs-bullet {
+    color: #BC214E;
+}
+.hljs-cbracket {
+    color: #503DE8;
+}
+.hljs-cell {
+    color: #736D38;
+}
+.hljs-change {
+    color: #D0B149;
+}
+.hljs-char {
+    color: #973A50;
+}
+.hljs-chunk {
+    color: #D38AEC;
+}
+.hljs-code {
+    color: #499267;
+}
+.hljs-collection {
+    color: #334B61;
+}
+.hljs-command {
+    color: #CA7E9F;
+}
+.hljs-commands {
+    color: #A5157C;
+}
+.hljs-constant {
+    color: #9788A3;
+}
+.hljs-container {
+    color: #CAA5A6;
+}
+.hljs-dartdoc {
+    color: #967B57;
+}
+.hljs-date {
+    color: #331756;
+}
+.hljs-decorator {
+    color: #3D9AF5;
+}
+.hljs-default {
+    color: #E7C6D6;
+}
+.hljs-deletion {
+    color: #986F94;
+}
+.hljs-emphasis {
+    color: #A8C67D;
+}
+.hljs-end-block {
+    color: #AC8FA7;
+}
+.hljs-envvar {
+    color: #34AD61;
+}
+.hljs-expression {
+    color: #8874FA;
+}
+.hljs-filename {
+    color: #7917DF;
+}
+.hljs-filter {
+    color: #D0A134;
+}
+.hljs-flow {
+    color: #673BCC;
+}
+.hljs-foreign {
+    color: #7A5BE4;
+}
+.hljs-formula {
+    color: #A25D43;
+}
+.hljs-func {
+    color: #F0887C;
+}
+.hljs-function_name {
+    color: #41C68D;
+}
+.hljs-generics {
+    color: #7397D9;
+}
+.hljs-header {
+    color: #9BD484;
+}
+.hljs-horizontal_rule {
+    color: #3FB096;
+}
+.hljs-import {
+    color: #C28B81;
+}
+.hljs-infix {
+    color: #6637C4;
+}
+.hljs-inheritance {
+    color: #BACC5D;
+}
+.hljs-input {
+    color: #893AC1;
+}
+.hljs-javadoc {
+    color: #857384;
+}
+.hljs-javadoctag {
+    color: #4F50BC;
+}
+.hljs-label {
+    color: #355F36;
+}
+.hljs-link_label {
+    color: #E74E3A;
+}
+.hljs-link_reference {
+    color: #B9903C;
+}
+.hljs-link_url {
+    color: #4A2DA1;
+}
+.hljs-list {
+    color: #3E4443;
+}
+.hljs-localvars {
+    color: #954560;
+}
+.hljs-long_brackets {
+    color: #C5B6D3;
+}
+.hljs-matrix {
+    color: #5733F7;
+}
+.hljs-module {
+    color: #A02A9A;
+}
+.hljs-operator {
+    color: #443A59;
+}
+.hljs-output {
+    color: #F591A8;
+}
+.hljs-package {
+    color: #541ED1;
+}
+.hljs-param {
+    color: #C497BF;
+}
+.hljs-parameter {
+    color: #5054A6;
+}
+.hljs-parent {
+    color: #B9CF3B;
+}
+.hljs-phpdoc {
+    color: #C154DD;
+}
+.hljs-pod {
+    color: #B1AFA9;
+}
+.hljs-pp {
+    color: #57B046;
+}
+.hljs-pragma {
+    color: #4570B4;
+}
+.hljs-preprocessor {
+    color: #364A58;
+}
+.hljs-prompt {
+    color: #925A75;
+}
+.hljs-property {
+    color: #E12A67;
+}
+.hljs-quoted {
+    color: #D8BFDC;
+}
+.hljs-record_name {
+    color: #D383E4;
+}
+.hljs-request {
+    color: #921941;
+}
+.hljs-reserved {
+    color: #EF44D7;
+}
+.hljs-rest_arg {
+    color: #9E313E;
+}
+.hljs-shader {
+    color: #717BF6;
+}
+.hljs-shading {
+    color: #61D3C4;
+}
+.hljs-shebang {
+    color: #341BA7;
+}
+.hljs-special {
+    color: #7C7F4C;
+}
+.hljs-sqbracket {
+    color: #3A7ED0;
+}
+.hljs-status {
+    color: #C4DCEB;
+}
+.hljs-stl_container {
+    color: #35D99C;
+}
+.hljs-stream {
+    color: #923560;
+}
+.hljs-strong {
+    color: #A34DF6;
+}
+.hljs-sub {
+    color: #73D540;
+}
+.hljs-subst {
+    color: #A95859;
+}
+.hljs-summary {
+    color: #B06B7A;
+}
+.hljs-symbol {
+    color: #91C5F9;
+}
+.hljs-template_comment {
+    color: #3361E3;
+}
+.hljs-template_tag {
+    color: #7CACF7;
+}
+.hljs-type {
+    color: #599AC9;
+}
+.hljs-typedef {
+    color: #703772;
+}
+.hljs-typename {
+    color: #C1CC5C;
+}
+.hljs-var_expand {
+    color: #3BCBD3;
+}
+.hljs-variable {
+    color: #D61D85;
+}
+.hljs-winutils {
+    color: #83CE71;
+}
+.hljs-xmlDocTag {
+    color: #A571E8;
+}
+.hljs-yardoctag {
+    color: #3C97C0;
+}
+

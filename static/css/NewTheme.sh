@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ## This script should help you to build new themes.
 
 name="New"
@@ -8,25 +7,23 @@ name="New"
 ## make sure you get valid color codes.
 ## By default, we generate darker themes.
 
-## TODO with the syntax-highlighting css files, it seems there are unnecessery dublicates in it.
-
 ## start color - the brightest
-rs=220
-gs=250
-bs=230
+rs=250
+gs=220
+bs=250
 
 ## divider : 1 - no fade 2 - normal fade - 3 - crazy
-d=3
+d=2
 
 #step - min 17 - max ~100
 ra=22
-ga=56
+ga=26
 ba=32
 
 ## random range
-rr=70
-gr=30
-br=70
+rr=200
+gr=200
+br=200
 
 BKG=$(echo "obase=16; $ra"|bc)$(echo "obase=16; $ga"|bc)$(echo "obase=16; $ba"|bc)
 
@@ -87,10 +84,10 @@ echo $colorF
 echo $colorG
 echo $colorH
 echo $BKG" - background"
-ace='
+
+theme='
 /*
 colors used are:
-
 #'$colorA'
 #'$colorB'
 #'$colorC'
@@ -99,12 +96,11 @@ colors used are:
 #'$colorF'
 #'$colorG'
 #'$colorH'
-
 */
 
 body {
     background-color: #'$BKG';
-    color: #'$colorA';
+    font-family: monospace;
 }
 
 #outerdocbody {
@@ -400,53 +396,423 @@ body {
 a:link {
     color: #'$colorD';
 }
+a:visited {
+     color: #'$colorE';
+}
 a:hover {
     color: #'$colorF'
     background: #'$colorA';
 }
+
+/* file tree */
+
 UL.jqueryFileTree A {
     color: #'$colorD';
 }
- 
+
 UL.jqueryFileTree A:hover {
     color: #'$colorF'
     background: #'$colorA';
 }
-'
 
+/* global static additions */
 
-theme='/* ep_codepad theme  */
-body {
-    background-color: #'$BKG';
-    color: #'$colorA';
+#myusernameform input.editable {     font-size: 2em; } 
+
+/* hint and curly braces */
+
+.warn {     background-color: #511; } 
+.active {     background-color: #008;     color: #FFF;     font-weight: bold; } 
+.missing {     background-color: #600; } /* default text color*/   
+body {     color: #DEF; }
+
+/* selection */   
+::-moz-selection {     
+    /* Code for Firefox */     
+    /* color: #FFF;*/     
+    background: #246;
+} 
+::selection {     
+    /* color: #FFF;*/     
+    background: #246;
 }
-.syntaxhighlighter .plain,.syntaxhighlighter .plain a{color:#'$(rc)';}
-.syntaxhighlighter .comments,.syntaxhighlighter .comments a{color:#'$(rc)';}
-.syntaxhighlighter .string,.syntaxhighlighter .string a{color:#'$(rc)';}
-.syntaxhighlighter .keyword{color:#'$(rc)';}
-.syntaxhighlighter .preprocessor{color:#'$(rc)';}
-.syntaxhighlighter .variable{color:#'$(rc)';}
-.syntaxhighlighter .value{color:#'$(rc)';}
-.syntaxhighlighter .functions{color:#'$(rc)';}
-.syntaxhighlighter .constants{color:#'$(rc)';}
-.syntaxhighlighter .script{font-weight:bold;color:#'$(rc)';background-color:none;}
-.syntaxhighlighter .color1,.syntaxhighlighter .color1 a{color:#'$(rc)';}
-.syntaxhighlighter .color2,.syntaxhighlighter .color2 a{color:#'$(rc)';}
-.syntaxhighlighter .color3,.syntaxhighlighter .color3 a{color:#'$(rc)';}
-.syntaxhighlighter .keyword{font-weight:bold;}
-.syntaxhighlighter .xml .keyword{color:#'$(rc)';font-weight:normal;}
-.syntaxhighlighter .xml .color1,.syntaxhighlighter .xml .color1 a{color:#'$(rc)';}
-.syntaxhighlighter .xml .string{font-style:italic;color:#'$(rc)';}
+
+/* LANGUAGES */
+
+/* Javascript */
+
+.hljs-keyword {
+    color: #'$(rc)';
+    font-weight: bold;
+}
+.hljs-keywords {
+    color: #'$(rc)';
+}
+.hljs-comment {
+    color: #'$(rc)';
+}
+.hljs-number {
+    color: #'$(rc)';
+}
+.hljs-literal {
+    color: #'$(rc)';
+    font-weight: bold;
+}
+.hljs-built_in {
+    color: #'$(rc)';
+}
+.hljs-string {
+    color: #'$(rc)';
+}
+.hljs-regex {
+    color: #'$(rc)';
+}
+.hljs-regexp {
+    color: #'$(rc)';
+}
+.hljs-function {
+    color: #'$(rc)';
+}
+.hljs-title {
+    color: #'$(rc)';
+}
+.hljs-params {
+    color: #'$(rc)';
+}
+.hljs-pi {
+    color: #'$(rc)';
+}
+/* +html+css */
+
+.hljs-tag {
+    color: #'$(rc)';
+}
+.hljs-id {
+    color: #'$(rc)';
+}
+.hljs-class {
+    color: #'$(rc)';
+}
+.hljs-at_rule {
+    color: #'$(rc)';
+}
+.hljs-attr_selector {
+    color: #'$(rc)';
+}
+.hljs-pseudo {
+    color: #'$(rc)';
+}
+.hljs-rule {
+    color: #'$(rc)';
+}
+.hljs-rules {
+    color: #'$(rc)';
+}
+.hljs-attribute {
+    color: #'$(rc)';
+}
+.hljs-value {
+    color: #'$(rc)';
+}
+.hljs-hexcolor {
+    color: #'$(rc)';
+}
+.hljs-important {
+    color: #'$(rc)';
+}
+.hljs-doctype {
+    color: #'$(rc)';
+}
+.hljs-cdata {
+    color: #'$(rc)';
+}
+/* Other languages */
+
+.hljs-addition {
+    color: #'$(rc)';
+}
+.hljs-annotation {
+    color: #'$(rc)';
+}
+.hljs-argument {
+    color: #'$(rc)';
+}
+.hljs-array {
+    color: #'$(rc)';
+}
+.hljs-begin-block {
+    color: #'$(rc)';
+}
+.hljs-blockquote {
+    color: #'$(rc)';
+}
+.hljs-body {
+    color: #'$(rc)';
+}
+.hljs-bullet {
+    color: #'$(rc)';
+}
+.hljs-cbracket {
+    color: #'$(rc)';
+}
+.hljs-cell {
+    color: #'$(rc)';
+}
+.hljs-change {
+    color: #'$(rc)';
+}
+.hljs-char {
+    color: #'$(rc)';
+}
+.hljs-chunk {
+    color: #'$(rc)';
+}
+.hljs-code {
+    color: #'$(rc)';
+}
+.hljs-collection {
+    color: #'$(rc)';
+}
+.hljs-command {
+    color: #'$(rc)';
+}
+.hljs-commands {
+    color: #'$(rc)';
+}
+.hljs-constant {
+    color: #'$(rc)';
+}
+.hljs-container {
+    color: #'$(rc)';
+}
+.hljs-dartdoc {
+    color: #'$(rc)';
+}
+.hljs-date {
+    color: #'$(rc)';
+}
+.hljs-decorator {
+    color: #'$(rc)';
+}
+.hljs-default {
+    color: #'$(rc)';
+}
+.hljs-deletion {
+    color: #'$(rc)';
+}
+.hljs-emphasis {
+    color: #'$(rc)';
+}
+.hljs-end-block {
+    color: #'$(rc)';
+}
+.hljs-envvar {
+    color: #'$(rc)';
+}
+.hljs-expression {
+    color: #'$(rc)';
+}
+.hljs-filename {
+    color: #'$(rc)';
+}
+.hljs-filter {
+    color: #'$(rc)';
+}
+.hljs-flow {
+    color: #'$(rc)';
+}
+.hljs-foreign {
+    color: #'$(rc)';
+}
+.hljs-formula {
+    color: #'$(rc)';
+}
+.hljs-func {
+    color: #'$(rc)';
+}
+.hljs-function_name {
+    color: #'$(rc)';
+}
+.hljs-generics {
+    color: #'$(rc)';
+}
+.hljs-header {
+    color: #'$(rc)';
+}
+.hljs-horizontal_rule {
+    color: #'$(rc)';
+}
+.hljs-import {
+    color: #'$(rc)';
+}
+.hljs-infix {
+    color: #'$(rc)';
+}
+.hljs-inheritance {
+    color: #'$(rc)';
+}
+.hljs-input {
+    color: #'$(rc)';
+}
+.hljs-javadoc {
+    color: #'$(rc)';
+}
+.hljs-javadoctag {
+    color: #'$(rc)';
+}
+.hljs-label {
+    color: #'$(rc)';
+}
+.hljs-link_label {
+    color: #'$(rc)';
+}
+.hljs-link_reference {
+    color: #'$(rc)';
+}
+.hljs-link_url {
+    color: #'$(rc)';
+}
+.hljs-list {
+    color: #'$(rc)';
+}
+.hljs-localvars {
+    color: #'$(rc)';
+}
+.hljs-long_brackets {
+    color: #'$(rc)';
+}
+.hljs-matrix {
+    color: #'$(rc)';
+}
+.hljs-module {
+    color: #'$(rc)';
+}
+.hljs-operator {
+    color: #'$(rc)';
+}
+.hljs-output {
+    color: #'$(rc)';
+}
+.hljs-package {
+    color: #'$(rc)';
+}
+.hljs-param {
+    color: #'$(rc)';
+}
+.hljs-parameter {
+    color: #'$(rc)';
+}
+.hljs-parent {
+    color: #'$(rc)';
+}
+.hljs-phpdoc {
+    color: #'$(rc)';
+}
+.hljs-pod {
+    color: #'$(rc)';
+}
+.hljs-pp {
+    color: #'$(rc)';
+}
+.hljs-pragma {
+    color: #'$(rc)';
+}
+.hljs-preprocessor {
+    color: #'$(rc)';
+}
+.hljs-prompt {
+    color: #'$(rc)';
+}
+.hljs-property {
+    color: #'$(rc)';
+}
+.hljs-quoted {
+    color: #'$(rc)';
+}
+.hljs-record_name {
+    color: #'$(rc)';
+}
+.hljs-request {
+    color: #'$(rc)';
+}
+.hljs-reserved {
+    color: #'$(rc)';
+}
+.hljs-rest_arg {
+    color: #'$(rc)';
+}
+.hljs-shader {
+    color: #'$(rc)';
+}
+.hljs-shading {
+    color: #'$(rc)';
+}
+.hljs-shebang {
+    color: #'$(rc)';
+}
+.hljs-special {
+    color: #'$(rc)';
+}
+.hljs-sqbracket {
+    color: #'$(rc)';
+}
+.hljs-status {
+    color: #'$(rc)';
+}
+.hljs-stl_container {
+    color: #'$(rc)';
+}
+.hljs-stream {
+    color: #'$(rc)';
+}
+.hljs-strong {
+    color: #'$(rc)';
+}
+.hljs-sub {
+    color: #'$(rc)';
+}
+.hljs-subst {
+    color: #'$(rc)';
+}
+.hljs-summary {
+    color: #'$(rc)';
+}
+.hljs-symbol {
+    color: #'$(rc)';
+}
+.hljs-template_comment {
+    color: #'$(rc)';
+}
+.hljs-template_tag {
+    color: #'$(rc)';
+}
+.hljs-type {
+    color: #'$(rc)';
+}
+.hljs-typedef {
+    color: #'$(rc)';
+}
+.hljs-typename {
+    color: #'$(rc)';
+}
+.hljs-var_expand {
+    color: #'$(rc)';
+}
+.hljs-variable {
+    color: #'$(rc)';
+}
+.hljs-winutils {
+    color: #'$(rc)';
+}
+.hljs-xmlDocTag {
+    color: #'$(rc)';
+}
+.hljs-yardoctag {
+    color: #'$(rc)';
+}
 '
 
+echo "$theme" > $name.css
+chown -R codepad:codepad styles
 
-echo "$ace" > aceTheme$name.css
-chown codepad:codepad aceTheme$name.css
-
-
-echo "$theme" > shTheme$name.css
-chown codepad:codepad shTheme$name.css
-
-
-echo "$core" > shCore$name.css
-chown codepad:codepad shCore$name.css
+echo "$theme" 

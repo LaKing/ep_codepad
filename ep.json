@@ -41,11 +41,6 @@
             "padCreate": "ep_codepad:padCreate"
         }
     }, {
-        "name": "ep_codepad_editorfixes",
-        "client_hooks": {
-            "aceEditorCSS": "ep_codepad/static/js/ace:aceEditorCSS"
-        }
-    }, {
         "name": "ep_codepad_defaults",
         "client_hooks": {
             "postAceInit": "ep_codepad/static/js/codepad_defaults:postAceInit"
@@ -89,6 +84,7 @@
             "clientVars": "ep_codepad/themes_index:clientVars"
         },
         "client_hooks": {
+            "aceEditEvent": "ep_codepad/static/js/syntax:aceEditEvent",
             "aceKeyEvent": "ep_codepad/static/js/syntax:aceKeyEvent",
             "aceEditorCSS": "ep_codepad/static/js/aceTheme.js",
             "acePostWriteDomLineHTML": "ep_codepad/static/js/syntax:acePostWriteDomLineHTML",

@@ -152,7 +152,6 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
         try {
             fs.exists(path, function(exists) {
                 if (exists) {
-                    console.log("MIME: " + mime.lookup(path) + " " + path);
                     if (!ext.getBrush(path) && mime.lookup(path) !== 'application/octet-stream') {
                         fs.readFile(path, function(err, data) {
                             if (err) throw err;
@@ -334,13 +333,6 @@ function countMatches(search_term, file) {
 */
 exports.expressCreateCodepadServer = function(hook_name, args, cb) {
 
-    args.app.get('/codepad', function(req, res) {
-        res.send(eejs.require("ep_codepad/templates/codepad.ejs", {
-            abs: "abs",
-            theme: theme
-        }));
-    });
-
     args.app.get('/log', function(req, res) {
 
         try {
@@ -362,7 +354,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
                         res_send += 'function toBottom(){window.scrollTo(0, document.body.scrollHeight);}';
                         res_send += 'var theme = "' + theme + '";';
                         res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
-                        res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/aceTheme\'+theme+\'.css">\');';
+                        res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
                         res_send += '</script></head><body>';
                         if (data.length > 50000) res_send += " Truncated ... <br />" + term2html(data.substr(data.length - 50000)).replace(/[\r\n]/g, "<br />");
                         else res_send += term2html(data).replace(/[\r\n]/g, "<br />");
@@ -459,7 +451,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
             res_send += 'function toBottom(){window.scrollTo(0, document.body.scrollHeight);}';
             res_send += 'var theme = "' + theme + '";';
             res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
-            res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/aceTheme\'+theme+\'.css">\');';
+            res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
             res_send += '</script></head><body>';
 
             var lines = data.split('\n');
@@ -554,3 +546,4 @@ exports.padCreate = function(hook, context) {
         console.log(" PadCreate error: " + e);
     }
 };
+

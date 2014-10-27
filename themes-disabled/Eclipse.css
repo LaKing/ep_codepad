@@ -1,0 +1,24 @@
+/*Nothing to do*/
+
+#status {
+    color: #FFFFFF;
+    background-color: #440000;
+    font-size: 2em;
+}
+.line {
+    color: #C7C09F;
+}
+.term {
+    color: #C2AFC6;
+}
+a:link {
+    color: #0000FF;
+}
+a:hover {
+    color: #2222FF;
+    background: #EEEEEE;
+}
+UL.jqueryFileTree A:hover {
+    color: #2222FF;
+    background: #EEEEEE;
+}

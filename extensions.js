@@ -53,7 +53,7 @@ var findExtension = function(ext) {
     // Ruby
     if (['ruby', 'rails', 'ror', 'rb'].indexOf(ext) > -1) return 'ruby';
     // Xml
-    if (['xml', 'xhtml', 'xslt', 'html', 'htm', 'plist', 'ejs'].indexOf(ext) > -1) return 'xml';
+    if (['xml', 'xhtml', 'xslt', 'html', 'htm', 'plist', 'ejs', 'rss', 'atom', 'xsl'].indexOf(ext) > -1) return 'xml';
 
     // plain text
     if (['txt', 'text', 'md', 'htaccess', 'log', 'err', 'nfo', 'bak', "coffee", "npmignore", "gitignore", "yml"].indexOf(ext) > -1) return 'plain';

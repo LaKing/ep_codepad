@@ -1,0 +1,739 @@
+
+/*
+colors used are:
+#FCFAEE
+#9D9D98
+#6D6E6D
+#555757
+#494B4C
+#434547
+#404244
+#3F4143
+*/
+
+body {
+    background-color: #1F2021;
+    font-family: monospace;
+}
+
+#outerdocbody {
+    background-color: #1F2021;
+}
+
+#innerdocbody {
+    background-color: #1F2021;
+}
+
+#sidediv {
+    background-color: #404244;
+}
+
+.sidedivdelayed {
+    color: #9D9D98 !important;
+}
+
+.toolbar {
+    background-color: #434547;
+}
+
+/* extracted from pad.css */
+
+#users {
+  background: #434547;
+  background: -webkit-linear-gradient( #555757,#494B4C);
+  background: -moz-linear-gradient( #555757,#494B4C);
+  background: -ms-linear-gradient( #555757,#494B4C);
+  background: -o-linear-gradient( #555757,#494B4C);
+  background: linear-gradient( #555757,#494B4C);
+  color: #FCFAEE;
+  border: 1px solid #555757;
+}
+
+.toolbar {
+  background: #434547;
+  background: -webkit-linear-gradient(#555757, #1F2021 80%);
+  background: -moz-linear-gradient(#555757, #1F2021 80%);
+  background: -o-linear-gradient(#555757, #1F2021 80%);
+  background: -ms-linear-gradient(#555757, #1F2021 80%);
+  background: linear-gradient(#555757, #1F2021 80%);
+  border-bottom: 1px solid #1F2021;
+}
+
+#usericon a #online_count {
+  color: #494B4C;
+}
+
+#editorloadingbox {
+  color: #555757;
+}
+
+#myswatchbox {
+  border: 1px solid #3F4143;
+}
+
+#mycolorpicker {
+  background: #9D9D98;
+  border: 1px solid #6D6E6D;
+}
+
+#mycolorpickersave,
+#mycolorpickercancel {
+  background: #555757;
+  background: -webkit-linear-gradient(#6D6E6D, #555757);
+  background: -moz-linear-gradient(#6D6E6D, #555757);
+  background: -o-linear-gradient(#6D6E6D, #555757);
+  background: -ms-linear-gradient(#6D6E6D, #555757);
+  background: linear-gradient(#6D6E6D, #555757);
+  border: 1px solid #6D6E6D;
+  color: #FCFAEE;
+}
+#mycolorpickerpreview {
+  color: #FCFAEE;
+}
+
+#myusernameedit {
+  color: #FCFAEE;
+}
+#myusernameform input.editable {
+  border: 1px solid #434547
+}
+#myuser .myusernameedithoverable {
+  background: #3F4143;
+  color: #FCFAEE;
+}
+#myuser .myusernameedithoverable:hover {
+  background: #FCFAEE;
+  color: #3F4143;
+}
+#mystatusedit {
+  color: #494B4C;
+  border: 1px solid #6D6E6D;
+}
+#myusernameform .editactive,
+#myusernameform .editempty {
+  border-left: 1px solid #6D6E6D;
+  border-top: 1px solid #6D6E6D;
+  border-right: 1px solid #494B4C;
+  border-bottom: 1px solid #494B4C;
+  color: #3F4143;
+}
+#myusernameform .editempty {
+  background: #FCFAEE;
+  color: #404244
+}
+#myswatchbox, #myusernameedit, #otheruserstable .swatch {
+  border: 1px solid #434547 !important;
+  color: #404244;
+}
+
+#nootherusers {
+  color: #494B4C;
+}
+#nootherusers a {
+  color: #494B4C
+}
+#otheruserstable td {
+  color: #FCFAEE;
+}
+#otheruserstable .swatch {
+  border: 1px solid #3F4143;
+}
+.usertdname {
+  color: #434547;
+}
+.usertdstatus {
+  color: #555757;
+}
+.usertdactivity {
+  color: #494B4C;
+}
+.usertdname input {
+  border: 1px solid #6D6E6D;
+}
+
+.usertdname input.editactive,
+.usertdname input.editempty {
+  background: #FCFAEE;
+  border-left: 1px solid #6D6E6D;
+  border-top: 1px solid #6D6E6D;
+  border-right: 1px solid #494B4C;
+  border-bottom: 1px solid #494B4C;
+}
+.usertdname input.editempty {
+  color: #494B4C;
+}
+
+#chatbox {
+  background-color: #9D9D98;
+  border-left: 1px solid #555757;
+  border-right: 1px solid #555757;
+  border-top: 1px solid #555757;
+}
+#chattext {
+  background-color: #494B4C;
+  border: 1px solid #494B4C;
+  color: #FCFAEE;
+}
+
+#chatlabel {
+  color: #434547;
+}
+#chatinput {
+  border: 1px solid #6D6E6D;
+}
+#chaticon {
+  border-left: 1px solid #555757;
+  border-right: 1px solid #555757;
+  border-top: 1px solid #555757;
+  background-color: #FCFAEE;
+}
+
+#chatcounter {
+  color: #494B4C;
+}
+#titlebar {
+  color: #434547;
+}
+
+#titlesticky{
+  color: #434547;
+}
+#titlecross {
+  color: #434547;
+}
+.time {
+  color: #404244;
+}
+
+.exporttype {
+  color: #FCFAEE;
+}
+
+#importmessageabiword {
+  color: #555757;
+}
+
+#chatthrob {
+  background-color: #3F4143;
+  color: #FCFAEE;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.7);
+}
+#focusprotector {
+  background-color: #FCFAEE;
+}
+#online_count {
+  color: #494B4C;
+}
+
+.popup {
+  border: 1px solid #494B4C;
+  background: #434547;
+  background: -webkit-linear-gradient(#6D6E6D, #555757);
+  background: -moz-linear-gradient(#6D6E6D, #555757);
+  background: -ms-linear-gradient(#6D6E6D, #555757);
+  background: -o-linear-gradient(#6D6E6D, #555757);
+  background: linear-gradient(#6D6E6D, #555757);
+  -webkit-box-shadow: 0 0 8px #494B4C;
+  -moz-box-shadow: 0 0 8px #494B4C;
+  box-shadow: 0 2px 4px #434547;
+  color: #FCFAEE;
+}
+
+.popup h1 {
+  color: #9D9D98;
+}
+.popup h2 {
+  color: #9D9D98;
+}
+
+.stickyChat {
+  background-color: #555757 !important;
+  border-left: 1px solid #6D6E6D !important;
+}
+
+@media all and (max-width: 400px){
+  #gritter-notice-wrapper{
+    background-color: #6D6E6D;
+    color:#3F4143;
+  } 
+  .gritter-item p{
+    color:#3F4143;
+  }
+  .gritter-title{
+    color:#3F4143;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
+    .toolbar ul.menu_right {
+      background: #494B4C;
+      background: -webkit-linear-gradient(#494B4C, #555757 80%);
+      background: -moz-linear-gradient(#494B4C, #555757 80%);
+      background: -o-linear-gradient(#494B4C, #555757 80%);
+      background: -ms-linear-gradient(#494B4C, #555757 80%);
+      background: linear-gradient(#494B4C, #555757 80%);
+      border-top: 1px solid #494B4C;
+    }
+
+}
+
+.gritter-item {
+  color:#FCFAEE;
+}
+.gritter-title {
+  text-shadow:1px 1px 0 #3F4143; /* Not supported by IE :( */
+}
+.gritter-close {
+  color: #404244;
+}
+.activeButton{
+  background: #494B4C;
+  background: -webkit-linear-gradient(#494B4C, #555757);
+  background: -moz-linear-gradient(#494B4C, #555757);
+  background: -o-linear-gradient(#494B4C, #555757);
+  background: -ms-linear-gradient(#494B4C, #555757);
+  background: linear-gradient(#494B4C, #555757);
+}
+
+#status {
+ color: #FFFFFF;
+ background-color: #440000;
+ font-size: 2em;
+}
+.line {
+    color: #494B4C;
+}
+.term {
+    color: #9D9D98;
+}
+a:link {
+    color: #555757;
+}
+a:visited {
+     color: #494B4C;
+}
+a:hover {
+    color: #434547
+    background: #FCFAEE;
+}
+
+#innerdocbody a:visited {
+    color: #555757;
+}
+
+
+#innerdocbody a:link {
+    color:  #6D6E6D;
+}
+
+/* file tree */
+
+UL.jqueryFileTree A {
+    color: #9D9D98;
+}
+
+UL.jqueryFileTree A:hover {
+    color: #434547
+    background: #FCFAEE;
+}
+
+/* global static additions */
+
+#myusernameform input.editable {     font-size: 2em; } 
+#innerdocbody {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+
+/* hint and curly braces */
+
+.warn {     background-color: #511; } 
+.active {     background-color: #008;     color: #FFF;     font-weight: bold; } 
+.missing {     background-color: #600; } /* default text color*/   
+body {     color: #DEF; }
+
+/* selection */   
+::-moz-selection {     
+    /* Code for Firefox */     
+    /* color: #FFF;*/     
+    background: #434547
+} 
+::selection {     
+    /* color: #FFF;*/     
+    background: #434547
+}
+
+/* LANGUAGES */
+
+/* Javascript */
+
+.hljs-keyword {
+    color: #9F90E1;
+    font-weight: bold;
+}
+.hljs-keywords {
+    color: #9B95B2;
+}
+.hljs-comment {
+    color: #BF9A82;
+}
+.hljs-number {
+    color: #99915D;
+}
+.hljs-literal {
+    color: #BEF6DF;
+}
+.hljs-built_in {
+    color: #A3DC71;
+}
+.hljs-string {
+    color: #DD9EAF;
+}
+.hljs-regex {
+    color: #AD7070;
+}
+.hljs-regexp {
+    color: #F0B66F;
+}
+.hljs-function {
+    color: #A6F6BD;
+}
+.hljs-title {
+    color: #7EDEAA;
+}
+.hljs-params {
+    color: #E4915E;
+}
+.hljs-pi {
+    color: #7473CB;
+}
+/* +html+css */
+
+.hljs-tag {
+    color: #7CC8C7;
+}
+.hljs-id {
+    color: #6B7DC3;
+}
+.hljs-class {
+    color: #D4B187;
+}
+.hljs-at_rule {
+    color: #BB81DE;
+}
+.hljs-attr_selector {
+    color: #7CD1ED;
+}
+.hljs-pseudo {
+    color: #8794BD;
+}
+.hljs-rule {
+    color: #B6B2B9;
+}
+.hljs-rules {
+    color: #90AACE;
+}
+.hljs-attribute {
+    color: #D3DE6A;
+}
+.hljs-value {
+    color: #E7D788;
+}
+.hljs-hexcolor {
+    color: #9BEDD8;
+}
+.hljs-important {
+    color: #7A679B;
+}
+.hljs-doctype {
+    color: #E4A370;
+}
+.hljs-cdata {
+    color: #E982D1;
+}
+/* Other languages */
+
+.hljs-addition {
+    color: #FB97BA;
+}
+.hljs-annotation {
+    color: #BAA983;
+}
+.hljs-argument {
+    color: #6C8F7B;
+}
+.hljs-array {
+    color: #7FE0D0;
+}
+.hljs-begin-block {
+    color: #7FD26E;
+}
+.hljs-blockquote {
+    color: #A78E60;
+}
+.hljs-body {
+    color: #8893A0;
+}
+.hljs-bullet {
+    color: #B49B80;
+}
+.hljs-cbracket {
+    color: #86BCCD;
+}
+.hljs-cell {
+    color: #F5EF76;
+}
+.hljs-change {
+    color: #DBED82;
+}
+.hljs-char {
+    color: #AB6CDF;
+}
+.hljs-chunk {
+    color: #6D7AB1;
+}
+.hljs-code {
+    color: #A38374;
+}
+.hljs-collection {
+    color: #E5EC65;
+}
+.hljs-command {
+    color: #9DEF66;
+}
+.hljs-commands {
+    color: #FBBDB9;
+}
+.hljs-constant {
+    color: #EC7974;
+}
+.hljs-container {
+    color: #8EE878;
+}
+.hljs-dartdoc {
+    color: #D6A07D;
+}
+.hljs-date {
+    color: #D597AA;
+}
+.hljs-decorator {
+    color: #97D375;
+}
+.hljs-default {
+    color: #877DEE;
+}
+.hljs-deletion {
+    color: #E4B87A;
+}
+.hljs-emphasis {
+    color: #EEEFAD;
+}
+.hljs-end-block {
+    color: #9DF659;
+}
+.hljs-envvar {
+    color: #727274;
+}
+.hljs-expression {
+    color: #DC9DE7;
+}
+.hljs-filename {
+    color: #B87FA5;
+}
+.hljs-filter {
+    color: #A0DA76;
+}
+.hljs-flow {
+    color: #ADEAAB;
+}
+.hljs-foreign {
+    color: #BC7AEC;
+}
+.hljs-formula {
+    color: #9389E8;
+}
+.hljs-func {
+    color: #E8F2A5;
+}
+.hljs-function_name {
+    color: #D5A7EE;
+}
+.hljs-generics {
+    color: #A9BF88;
+}
+.hljs-header {
+    color: #936D6D;
+}
+.hljs-horizontal_rule {
+    color: #F9F799;
+}
+.hljs-import {
+    color: #8FE669;
+}
+.hljs-infix {
+    color: #79E6A2;
+}
+.hljs-inheritance {
+    color: #80749A;
+}
+.hljs-input {
+    color: #F9ECC0;
+}
+.hljs-javadoc {
+    color: #B8D763;
+}
+.hljs-javadoctag {
+    color: #BCB26D;
+}
+.hljs-label {
+    color: #6BBC81;
+}
+.hljs-link_label {
+    color: #71D7D7;
+}
+.hljs-link_reference {
+    color: #A9F0E8;
+}
+.hljs-link_url {
+    color: #7DD081;
+}
+.hljs-list {
+    color: #F58DD5;
+}
+.hljs-localvars {
+    color: #BBAC87;
+}
+.hljs-long_brackets {
+    color: #D6A360;
+}
+.hljs-matrix {
+    color: #F4C3CA;
+}
+.hljs-module {
+    color: #C99476;
+}
+.hljs-operator {
+    color: #E2D8A6;
+}
+.hljs-output {
+    color: #9FA5BB;
+}
+.hljs-package {
+    color: #73EDBB;
+}
+.hljs-param {
+    color: #EE796D;
+}
+.hljs-parameter {
+    color: #F3B794;
+}
+.hljs-parent {
+    color: #EDA5CA;
+}
+.hljs-phpdoc {
+    color: #6AA28A;
+}
+.hljs-pod {
+    color: #8882A9;
+}
+.hljs-pp {
+    color: #D1B7BB;
+}
+.hljs-pragma {
+    color: #94A19F;
+}
+.hljs-preprocessor {
+    color: #D4AABF;
+}
+.hljs-prompt {
+    color: #92A8DD;
+}
+.hljs-property {
+    color: #A18795;
+}
+.hljs-quoted {
+    color: #7FBF65;
+}
+.hljs-record_name {
+    color: #68D162;
+}
+.hljs-request {
+    color: #D6AE64;
+}
+.hljs-reserved {
+    color: #D68CE7;
+}
+.hljs-rest_arg {
+    color: #8BE167;
+}
+.hljs-shader {
+    color: #D5825D;
+}
+.hljs-shading {
+    color: #BEADCA;
+}
+.hljs-shebang {
+    color: #FBC96B;
+}
+.hljs-special {
+    color: #D7DE9B;
+}
+.hljs-sqbracket {
+    color: #6CDCE5;
+}
+.hljs-status {
+    color: #9FE06A;
+}
+.hljs-stl_container {
+    color: #CDDEE2;
+}
+.hljs-stream {
+    color: #6E89E3;
+}
+.hljs-strong {
+    color: #E6768E;
+}
+.hljs-sub {
+    color: #F4E6AF;
+}
+.hljs-subst {
+    color: #8B89E2;
+}
+.hljs-summary {
+    color: #B4A1B6;
+}
+.hljs-symbol {
+    color: #C76F78;
+}
+.hljs-template_comment {
+    color: #E8F5BB;
+}
+.hljs-template_tag {
+    color: #DFB9BB;
+}
+.hljs-type {
+    color: #79A791;
+}
+.hljs-typedef {
+    color: #F08C6D;
+}
+.hljs-typename {
+    color: #DE91C6;
+}
+.hljs-var_expand {
+    color: #E5C383;
+}
+.hljs-variable {
+    color: #6DE3D3;
+}
+.hljs-winutils {
+    color: #A4CDC5;
+}
+.hljs-xmlDocTag {
+    color: #8073ED;
+}
+.hljs-yardoctag {
+    color: #76D08B;
+}
+
