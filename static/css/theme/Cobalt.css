@@ -340,13 +340,10 @@ body {
 
 ::-moz-selection {
     /* Code for Firefox */
-    /*color: #FFF;*/
-    background: #246;
-    ;
+    background: #345;
 }
 ::selection {
-    /* color: #FFF;*/
-    background: #246;
+    background: #345;
     ;
 }
 /* LANGUAGES */

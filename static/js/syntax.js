@@ -37,34 +37,32 @@ exports.aceInitInnerdocbodyHead = function(hook_name, args, cb) {
 exports.acePostWriteDomLineHTML = function(hook_name, args, cb) {
     //try { //.. if you want to dev;
 
-        //curLine++;
+    //curLine++;
 
-        // if none, then nothing to do, otherwise lets start! Liny by line.
-        if (typeof shBrush == 'undefined')
-            return;
+    // if none, then nothing to do, otherwise lets start! Liny by line.
+    if (typeof shBrush == 'undefined')
+        return;
 
-        if (!shBrush) return;
+    if (!shBrush) return;
 
 
-        if (shBrush != 'none') {
-            //args.node.className = shBrush;
-        } else return;
+    if (shBrush == 'none' || shBrush == 'plain') return;
 
-        var children = args.node.children;
-        if (typeof children === "undefined") {
-            return;
-        }
-        if (typeof children[0] === "undefined") {
-            return;
-        }
+    var children = args.node.children;
+    if (typeof children === "undefined") {
+        return;
+    }
+    if (typeof children[0] === "undefined") {
+        return;
+    }
 
-        var txt = args.node.textContent;
-        
-        if (txt !== '') {
-            var hl = hljs.highlight(shBrush, args.node.textContent, true, hl_stack);          
-            args.node.innerHTML = hl.value;
-            if (hl.top) hl_stack = hl.top;
-        }
+    var txt = args.node.textContent;
+
+    if (txt !== '') {
+        var hl = hljs.highlight(shBrush, args.node.textContent, true, hl_stack);
+        args.node.innerHTML = hl.value;
+        if (hl.top) hl_stack = hl.top;
+    }
 
     //} catch (err) {
     //    console.log("syntax.js: Something BAD happened " + err);

@@ -23,17 +23,17 @@
 
         var theme = '<%=theme%>';
         if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
+
         document.write('<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/' + theme + '.css">');
-        document.write('<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/styles/' + theme + '.css">');
 
-         //SyntaxHighlighter.all();
-         //hljs.initHighlightingOnLoad();
 
-        $(document).ready(function() {
-            $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
+
+        if ('<%=brush%>' != 'plain')
+            $(document).ready(function() {
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
             });
-        });
     </script>
 </head>
 

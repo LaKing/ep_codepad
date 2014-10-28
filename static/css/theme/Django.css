@@ -328,12 +328,16 @@ body {
 
 ::-moz-selection {
     /* Code for Firefox */
-    /*color: #FFF;*/
+    color: #FFF;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
     background: #262;
     ;
 }
 ::selection {
-    /* color: #FFF;*/
+    color: #FFF;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
     background: #262;
     ;
 }
