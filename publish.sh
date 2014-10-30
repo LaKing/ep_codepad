@@ -70,4 +70,4 @@ git push
 
 npm publish
 
-
+systemctl restart codepad.service
