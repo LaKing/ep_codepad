@@ -426,17 +426,19 @@ UL.jqueryFileTree A:hover {
 .missing {     background-color: #600; } /* default text color*/   
 body {     color: #DEF; }
 
-/* selection */   
-::-moz-selection {     
-    /* Code for Firefox */     
-    /* color: #FFF;*/     
-    background: #246;
-} 
-::selection {     
-    /* color: #FFF;*/     
-    background: #246;
-}
 
+/* selection */
+::-moz-selection {
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
+::-webkit-selection {
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
+::selection {
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
+    
+    
 /* LANGUAGES */
 
 /* Javascript */

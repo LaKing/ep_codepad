@@ -339,13 +339,15 @@ body {
 /* selection */
 
 ::-moz-selection {
-    /* Code for Firefox */
-    background: #345;
-}
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
+::-webkit-selection {
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
 ::selection {
-    background: #345;
-    ;
-}
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
+
 /* LANGUAGES */
 
 /* Javascript */

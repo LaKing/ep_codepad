@@ -7,6 +7,10 @@ var settings = require('ep_etherpad-lite/node/utils/Settings'); // Extend index 
 var fs = require('fs');
 var util = require('util');
 var ext = require('ep_codepad/extensions');
+// used in logview
+var readline = require('readline');
+var stream = require('stream');
+
 
 // abs - absolute part of the files path - the project path
 var abs = '';
@@ -338,13 +342,20 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
         try {
             fs.exists(log_path, function(exists) {
                 if (exists && canRead(log_path)) {
-                    fs.readFile(log_path, {
-                        encoding: 'utf-8'
-                    }, function(err, data) {
-                        if (err) throw err;
-                        console.log(data);
 
-                        // eejs templates encode < & > therefore we assemble the html here and send it directly. 
+                    var instream = fs.createReadStream(log_path);
+                    var outstream = new stream();
+                    var rl = readline.createInterface(instream, outstream);
+                    var data = '';
+
+                    rl.on('line', function(line) {
+                        // process line here 
+                        data += line + '\n';
+                    });
+
+                    rl.on('close', function() { // do something on finish here 
+
+
                         var res_send = '';
                         res_send += '<!DOCTYPE html><head><title>log</title>';
                         res_send += '<script src="/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
@@ -356,7 +367,7 @@ exports.expressCreateCodepadServer = function(hook_name, args, cb) {
                         res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
                         res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
                         res_send += '</script></head><body>';
-                        if (data.length > 50000) res_send += " Truncated ... <br />" + term2html(data.substr(data.length - 50000)).replace(/[\r\n]/g, "<br />");
+                        if (data.length > 50000) res_send += " Truncated ... <br /> ... " + term2html(data.substr(data.length - 50000)).replace(/[\r\n]/g, "<br />");
                         else res_send += term2html(data).replace(/[\r\n]/g, "<br />");
                         res_send += '</body></html>';
                         res.send(res_send);
@@ -546,4 +557,3 @@ exports.padCreate = function(hook, context) {
         console.log(" PadCreate error: " + e);
     }
 };
-

@@ -327,20 +327,14 @@ body {
 /* selection */
 
 ::-moz-selection {
-    /* Code for Firefox */
-    color: #FFF;
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-    background: #262;
-    ;
-}
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
+::-webkit-selection {
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
 ::selection {
-    color: #FFF;
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-    background: #262;
-    ;
-}
+    background:rgba(255, 255, 125, 0.99);
+    color:#032764;}
 /* LANGUAGES */
 
 /* Javascript */
