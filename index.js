@@ -5,8 +5,7 @@ var padManager = require("ep_etherpad-lite/node/db/PadManager");
 var padMessageHandler = require("ep_etherpad-lite/node/handler/PadMessageHandler");
 
 // abs - absolute part of the files path - the project path
-var abs = '';
-
+var abs = '/tmp/';
 
 if (settings.ep_codepad) {
     if (settings.ep_codepad.project_path) {

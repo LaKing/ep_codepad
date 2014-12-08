@@ -7,7 +7,7 @@ var exec = require("child_process").exec;
 var settings = require('ep_etherpad-lite/node/utils/Settings');
 
 // abs - absolute part of the files path - the project path
-var abs = '';
+var abs = '/tmp/';
 // theme from settings
 var theme = 'Default';
 

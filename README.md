@@ -10,8 +10,8 @@ Current features:
 - Adds themes, properly implemented with css, and a theme generator
 - beutify html/css/javascript code with jsBeutify 
 - Syntax-check javascipt with jsHint, and display results
-- Search and replace in pads, and 
-- save/commit/push (F2) and 
+- Search and replace in pads, and in the prject tree
+- save/commit/push (F2) and run custom commands or scripts
 
 - It sets some reasonable defaults and customizes buttons
 - Admin interface based on adminpads
@@ -33,7 +33,8 @@ Currently the following codepad parameters are supported in etherpad's settings.
 - action to perform when pushing files
 - authentication password-hash, custom colors
 
-The use of authentication and https recommended.
+The use of authentication and authorization over https is strongly recommended.
+Unauthorized access to settings.json may expose operating system files, in the name of the user etherpad is run as.
 
 ```
   "ep_codepad": { 
@@ -58,7 +59,7 @@ Codepad is designed to work together with fedora "srvctl", an LXC container and 
 https://githubub.com/LaKing/Fedora-scripts
 
 Known issues:
-- while editing, multiline comments in pads don't get highlighted 
+- while editing, multiline comments in pads don't get highlighted.
 
 Please feel free to send comments, bug-reports, ...
 .. and/or in case of professional, or commercial use please donate to support open source software developers.

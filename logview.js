@@ -6,11 +6,11 @@ var settings = require('ep_etherpad-lite/node/utils/Settings');
 var stream = require('stream');
 var readline = require('readline');
 // abs - absolute part of the files path - the project path
-var abs = '';
+var abs = '/tmp/';
 // theme from settings
 var theme = 'Default';
 // path for logfile
-var log_path = '/var/log/http/error_log';
+var log_path = '/tmp/log';
 
 if (settings.ep_codepad) {
     if (settings.ep_codepad.project_path) {

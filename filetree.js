@@ -6,7 +6,7 @@ var ext = require('ep_codepad/extensions');
 var settings = require('ep_etherpad-lite/node/utils/Settings');
 
 // abs - absolute part of the files path - the project path
-var abs = '';
+var abs = '/tmp/';
 // theme from settings
 var theme = 'Default';
 
@@ -85,4 +85,4 @@ exports.expressCreateFileTreeServer = function(hook_name, args, cb) {
 
         res.send(r);
     });
-};;
+};

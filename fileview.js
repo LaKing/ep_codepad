@@ -6,7 +6,7 @@ var settings = require('ep_etherpad-lite/node/utils/Settings');
 var ext = require('ep_codepad/extensions');
 
 // abs - absolute part of the files path - the project path
-var abs = '';
+var abs = '/tmp/';
 // theme from settings
 var theme = 'Default';
 
