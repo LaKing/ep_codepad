@@ -1,3 +1,5 @@
+// syntax
+
 var padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
 
 var hl_stack = '';
@@ -14,17 +16,14 @@ exports.aceInitInnerdocbodyHead = function(hook_name, args, cb) {
     if (padcookie.getPref("SH_BRUSH")) brush = padcookie.getPref("SH_BRUSH");
     if (brush == 'auto') brush = clientVars.brush;
 
-    //##if (padcookie.getPref("themeName")) theme = padcookie.getPref("themeName");
     if (getCookie("codepad_theme") !== "") theme = getCookie("codepad_theme");
 
     // yes, a global variable on the client. Sorry about that.
     shBrush = brush;
     shTheme = theme;
 
-    //##args.iframeHTML.push(' < link rel = "stylesheet" type = "text/css" href = "/static/plugins/ep_codepad/static/css/shTheme' + theme + '.css" / > ');
-
-    //args.iframeHTML.push('<link rel ="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/shHint.css"/> ');
-    args.iframeHTML.push('<link rel ="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/styles/' + theme + '.css"/>');
+    // TODO - check if this is relevant here - actually I noticed that on a new install the default theme selection is ignored
+    args.iframeHTML.push('<link rel ="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/' + theme + '.css"/>');
 
     // notify user
     var syb = document.getElementById("syntaxes");
@@ -34,10 +33,19 @@ exports.aceInitInnerdocbodyHead = function(hook_name, args, cb) {
 
 };
 
+
+
 exports.acePostWriteDomLineHTML = function(hook_name, args, cb) {
     //try { //.. if you want to dev;
 
-    //curLine++;
+    //console.log("args " + JSON.stringify(args) + " text " + JSON.stringify(args.node.innerHTML));
+
+    //var contents = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").contents();
+    //contents.each(function() {
+    //    console.log("::?");
+
+    //});
+
 
     // if none, then nothing to do, otherwise lets start! Liny by line.
     if (typeof shBrush == 'undefined')
@@ -65,7 +73,7 @@ exports.acePostWriteDomLineHTML = function(hook_name, args, cb) {
     }
 
     //} catch (err) {
-    //    console.log("syntax.js: Something BAD happened " + err);
+    //    console.log("syntax.js: Something MISARABLE happened " + err);
     //}
 };
 
@@ -90,6 +98,7 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
     var type = args.evt.type;
     var keyCode = args.evt.keyCode;
     var charCode = args.evt.charCode;
+
     //var which = args.evt.which;
     var check = "keypress";
 
@@ -98,7 +107,7 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
     // firefox:  "keydown 9 0 9"  "keypress 9 0 0"  "keyup 9 0 9"
     // chrome:  keydown 9 0 9, keyup 9 0 9 
 
-    //if tab was pressed
+    //if tab was pressed 
     if (keyCode === 9 && charCode === 0 && type == check) {
 
         args.evt.preventDefault();
@@ -314,7 +323,6 @@ exports.aceEditEvent = function(hook_name, args, cb) {
                                 }
                             }
 
-                            //}
                             // iterate block
                             if (f) i++;
                             if (!f) i--;
@@ -360,9 +368,3 @@ exports.aceEditEvent = function(hook_name, args, cb) {
     //    }
 
 };
-/*
-  var evt = callstack.evt;
-  var k = evt.keyCode;
-  var rep = callstack.rep;
-  var documentAttributeManager = callstack.documentAttributeManager;
-*/

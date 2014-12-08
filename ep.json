@@ -7,33 +7,38 @@
     }, {
         "name": "ep_codepad_auth",
         "hooks": {
-            "authenticate": "ep_codepad/ep_hash_auth",
-            "handleMessage": "ep_codepad/ep_hash_auth:handleMessage"
+            "authenticate": "ep_codepad/auth",
+            "handleMessage": "ep_codepad/auth:handleMessage"
         }
     }, {
         "name": "ep_codepad_foldersupport",
         "hooks": {
-            "expressCreateServer": "ep_codepad:expressCreateFolderServer"
+            "expressCreateServer": "ep_codepad/foldersupport:expressCreateFolderServer"
         }
     }, {
         "name": "ep_codepad_play",
         "hooks": {
-            "expressCreateServer": "ep_codepad:expressCreatePlayServer"
+            "expressCreateServer": "ep_codepad/playserver:expressCreatePlayServer"
         }
     }, {
         "name": "ep_codepad_filetree",
         "hooks": {
-            "expressCreateServer": "ep_codepad:expressCreateFileTreeServer"
+            "expressCreateServer": "ep_codepad/filetree:expressCreateFileTreeServer"
         }
     }, {
         "name": "ep_codepad_fileview",
         "hooks": {
-            "expressCreateServer": "ep_codepad:expressCreateFileViewServer"
+            "expressCreateServer": "ep_codepad/fileview:expressCreateFileViewServer"
         }
     }, {
-        "name": "ep_codepad_page",
+        "name": "ep_codepad_logview",
         "hooks": {
-            "expressCreateServer": "ep_codepad:expressCreateCodepadServer"
+            "expressCreateServer": "ep_codepad/logview:expressCreateLogViewServer"
+        }
+    }, {
+        "name": "ep_codepad_search",
+        "hooks": {
+            "expressCreateServer": "ep_codepad/search:expressCreateSearchServer"
         }
     }, {
         "name": "ep_codepad_fileload",
@@ -46,12 +51,14 @@
             "postAceInit": "ep_codepad/static/js/codepad_defaults:postAceInit"
         }
     }, {
-        "name": "ep_disable_format_buttons",
+        "name": "ep_padsearch",
         "client_hooks": {
-            "documentReady": "ep_codepad/static/js/disable_format:disableFormat"
+            "postAceInit": "ep_codepad/static/js/padsearch",
+            "documentReady": "ep_codepad/static/js/padsearch",
+            "aceKeyEvent": "ep_codepad/static/js/padsearch"
         }
     }, {
-        "name": "ep_codepad_buttons",
+        "name": "ep_codepad_buttons_feedback",
         "client_hooks": {
             "handleClientMessage_CUSTOM": "ep_codepad/static/js/message:handleClientMessage_CUSTOM"
         },

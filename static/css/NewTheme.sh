@@ -387,6 +387,33 @@ body {
  background-color: #440000;
  font-size: 2em;
 }
+/* search and replace */
+
+.imputs {
+    height: 21px;
+}
+#padsearch,
+#padreplace {
+    vertical-align: top;
+    font-size: 16px;
+    display: inline-block;
+    padding: 3px;
+    border: solid 1px #ccc;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    line-height: 1.25;
+}
+/*multi select language*/
+
+.toolbar ul li select {
+    border-radius: 0;
+    width: 60px;
+}
+/*stuff*/
+
+.buttonicon {
+    background-image: none;
+}
 .line {
     color: #'$colorE';
 }
@@ -417,15 +444,26 @@ UL.jqueryFileTree A:hover {
 
 /* global static additions */
 
-#myusernameform input.editable {     font-size: 2em; } 
+#myusernameform input.editable {     
+    font-size: 2em;
+} 
 
 /* hint and curly braces */
 
-.warn {     background-color: #511; } 
-.active {     background-color: #008;     color: #FFF;     font-weight: bold; } 
-.missing {     background-color: #600; } /* default text color*/   
-body {     color: #DEF; }
-
+.warn {
+    background-color: #511;
+}
+.missing {
+    background-color: #600;
+}
+.padsearch_line {
+    background-color: #008;
+}
+.padsearch_term {
+    background-color: #080;
+    color: #FFF;
+    font-weight: bold;
+}
 
 /* selection */
 ::-moz-selection {

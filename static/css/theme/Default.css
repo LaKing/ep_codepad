@@ -5,6 +5,33 @@
     background-color: #FFAAAA;
     font-size: 2em;
 }
+/* search and replace */
+
+.imputs {
+    height: 21px;
+}
+#padsearch,
+#padreplace {
+    vertical-align: top;
+    font-size: 16px;
+    display: inline-block;
+    padding: 3px;
+    border: solid 1px #ccc;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    line-height: 1.25;
+}
+/*multi select language*/
+
+.toolbar ul li select {
+    border-radius: 0;
+    width: 60px;
+}
+/*stuff*/
+
+.buttonicon {
+    background-image: none;
+}
 .line {
     color: #C7C09F;
 }
@@ -38,22 +65,25 @@ UL.jqueryFileTree A:hover {
 /* hint and curly braces */
 
 .warn {
-    background-color: #FFF0F0;
-}
-.active {
-    background-color: #DEF;
-    color: #000;
-    font-weight: bold;
+    background-color: #511;
 }
 .missing {
-    background-color: #EEF;
+    background-color: #600;
+}
+.padsearch_line {
+    background-color: #008;
+}
+.padsearch_term {
+    background-color: #080;
+    color: #FFF;
+    font-weight: bold;
 }
 /* default text color*/
 
 body {
     color: #111;
 }
-/* LANGUAGES */
+/* LANGUAGES  -- TODO -- these are random colors*/
 
 /* Javascript */
 
@@ -71,10 +101,10 @@ body {
     color: #8F1270;
 }
 .hljs-literal {
-    color: #2405F;
+    color: #24050F;
 }
 .hljs-built_in {
-    color: #9B652;
+    color: #9B6502;
 }
 .hljs-string {
     color: #1B7621;
@@ -100,19 +130,19 @@ body {
 /* +html+css */
 
 .hljs-tag {
-    color: #B22E;
+    color: #0B022E;
 }
 .hljs-id {
-    color: #9C1C;
+    color: #090C1C;
 }
 .hljs-class {
-    color: #7658B;
+    color: #07658B;
 }
 .hljs-at_rule {
-    color: #1EA6E;
+    color: #01EA6E;
 }
 .hljs-attr_selector {
-    color: #31F3;
+    color: #0310F3;
 }
 .hljs-pseudo {
     color: #287B76;
@@ -121,7 +151,7 @@ body {
     color: #2F7A39;
 }
 .hljs-rules {
-    color: #F3C21;
+    color: #F03C21;
 }
 .hljs-attribute {
     color: #11114D;
@@ -144,7 +174,7 @@ body {
 /* Other languages */
 
 .hljs-addition {
-    color: #A24;
+    color: #0A0240;
 }
 .hljs-annotation {
     color: #6F604F;
@@ -264,7 +294,7 @@ body {
     color: #78155D;
 }
 .hljs-inheritance {
-    color: #43953;
+    color: #430953;
 }
 .hljs-input {
     color: #31A128;
@@ -342,10 +372,10 @@ body {
     color: #163417;
 }
 .hljs-quoted {
-    color: #B312B;
+    color: #0B312B;
 }
 .hljs-record_name {
-    color: #21813;
+    color: #210813;
 }
 .hljs-request {
     color: #4C858B;

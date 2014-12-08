@@ -4,22 +4,55 @@
 <li data-type="button" data-key="redo"><a class="grouped-right"><span class=" buttonicon buttonicon-redo" data-l10n-id="pad.toolbar.redo.title"></span></a>
 </li>
 <li class="acl-write separator"></li>
+
+<li id="searchinpad" class="searchinpad">
+    <li class="imputs">
+        <input id="padsearch" style="width: 60px; " class="padsearch" placeholder=".. find" onkeydown="if (event.keyCode == 13 || event.keyCode == 115 || event.keyCode == 118 ) return padSearchAction('S');" type="text">
+    </li>
+    <li class="acl-write" id="button_padsearch_up" onclick="padSearchAction('U')">
+        <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Up">
+            <span class="buttonicon buttonicon-codepad_buttons_prev"></span>
+        </a>
+    </li>
+    <li class="acl-write" id="button_padsearch_down" onclick="padSearchAction('D') ">
+        <a class="grouped-right" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Down F4">
+            <span class="buttonicon buttonicon-codepad_buttons_next"></span>
+        </a>
+    </li>
+
+    <li class="imputs">
+        <input id="padreplace" style="width: 60px; align: top;" class="padreplace" placeholder=".. repl" onkeydown="if (event.keyCode == 13 || event.keyCode == 115 || event.keyCode == 118 ) return padReplaceAction();" type="text">
+    </li>
+    <li class="acl-write" id="button_padsearch_replace">
+        <a class="grouped-right padsearch-replace" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Replace F7">
+            <span class="buttonicon buttonicon-codepad_buttons_replace"></span>
+        </a>
+    </li>
+
+</li>
+
+<li class="separator "></li>
+
 <li class="acl-write" id="button_read" onclick="sendReadMessage()">
     <a class="grouped-left" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Read">
         <span class="buttonicon buttonicon-codepad_buttons_read"></span>
     </a>
 </li>
 <li class="acl-write" id="button_write" onclick="sendWriteMessage()">
-    <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Write">
+    <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Write F2">
         <span class="buttonicon buttonicon-codepad_buttons_write"></span>
     </a>
 </li>
 <li class="acl-write" id="button_push" onclick="sendPushMessage() ">
-    <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Push">
+    <a class="grouped-right" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Push">
         <span class="buttonicon buttonicon-codepad_buttons_push"></span>
     </a>
 </li>
 <li class="acl-write separator"></li>
+
+</li>
+<li class="separator "></li>
+
 <li id="status" class="status"><span></span>
 </li>
 <li class="acl-write separator"></li>

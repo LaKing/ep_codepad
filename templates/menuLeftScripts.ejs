@@ -3,25 +3,22 @@
         var message = {};
         message.type = 'PUSH_TO_FILESYSTEM';
         message.padId = pad.getPadId();
-        if (message) {
-            pad.collabClient.sendMessage(message);
-        }
+        pad.collabClient.sendMessage(message);
+        push_by_this_user = true;
+
     };
     var sendWriteMessage = function() {
         var message = {};
         message.type = 'WRITE_TO_FILESYSTEM';
         message.padId = pad.getPadId();
-        if (message) {
-            pad.collabClient.sendMessage(message);
-        }
+        pad.collabClient.sendMessage(message);
+
     };
     var sendReadMessage = function() {
+
         var message = {};
         message.type = 'READ_FROM_FILESYSTEM';
         message.padId = pad.getPadId();
-        if (message) {
-            pad.collabClient.sendMessage(message);
-        }
+        pad.collabClient.sendMessage(message);
     };
 </script>
-

@@ -1,4 +1,3 @@
-
 /*
 colors used are:
 #FCFAEE
@@ -15,290 +14,291 @@ body {
     background-color: #1F2021;
     font-family: monospace;
 }
-
 #outerdocbody {
     background-color: #1F2021;
 }
-
 #innerdocbody {
     background-color: #1F2021;
 }
-
 #sidediv {
     background-color: #404244;
 }
-
 .sidedivdelayed {
     color: #9D9D98 !important;
 }
-
 .toolbar {
     background-color: #434547;
 }
-
 /* extracted from pad.css */
 
 #users {
-  background: #434547;
-  background: -webkit-linear-gradient( #555757,#494B4C);
-  background: -moz-linear-gradient( #555757,#494B4C);
-  background: -ms-linear-gradient( #555757,#494B4C);
-  background: -o-linear-gradient( #555757,#494B4C);
-  background: linear-gradient( #555757,#494B4C);
-  color: #FCFAEE;
-  border: 1px solid #555757;
+    background: #434547;
+    background: -webkit-linear-gradient(#555757, #494B4C);
+    background: -moz-linear-gradient(#555757, #494B4C);
+    background: -ms-linear-gradient(#555757, #494B4C);
+    background: -o-linear-gradient(#555757, #494B4C);
+    background: linear-gradient(#555757, #494B4C);
+    color: #FCFAEE;
+    border: 1px solid #555757;
 }
-
 .toolbar {
-  background: #434547;
-  background: -webkit-linear-gradient(#555757, #1F2021 80%);
-  background: -moz-linear-gradient(#555757, #1F2021 80%);
-  background: -o-linear-gradient(#555757, #1F2021 80%);
-  background: -ms-linear-gradient(#555757, #1F2021 80%);
-  background: linear-gradient(#555757, #1F2021 80%);
-  border-bottom: 1px solid #1F2021;
+    background: #434547;
+    background: -webkit-linear-gradient(#555757, #1F2021 80%);
+    background: -moz-linear-gradient(#555757, #1F2021 80%);
+    background: -o-linear-gradient(#555757, #1F2021 80%);
+    background: -ms-linear-gradient(#555757, #1F2021 80%);
+    background: linear-gradient(#555757, #1F2021 80%);
+    border-bottom: 1px solid #1F2021;
 }
-
 #usericon a #online_count {
-  color: #494B4C;
+    color: #494B4C;
 }
-
 #editorloadingbox {
-  color: #555757;
+    color: #555757;
 }
-
 #myswatchbox {
-  border: 1px solid #3F4143;
+    border: 1px solid #3F4143;
 }
-
 #mycolorpicker {
-  background: #9D9D98;
-  border: 1px solid #6D6E6D;
+    background: #9D9D98;
+    border: 1px solid #6D6E6D;
 }
-
 #mycolorpickersave,
 #mycolorpickercancel {
-  background: #555757;
-  background: -webkit-linear-gradient(#6D6E6D, #555757);
-  background: -moz-linear-gradient(#6D6E6D, #555757);
-  background: -o-linear-gradient(#6D6E6D, #555757);
-  background: -ms-linear-gradient(#6D6E6D, #555757);
-  background: linear-gradient(#6D6E6D, #555757);
-  border: 1px solid #6D6E6D;
-  color: #FCFAEE;
+    background: #555757;
+    background: -webkit-linear-gradient(#6D6E6D, #555757);
+    background: -moz-linear-gradient(#6D6E6D, #555757);
+    background: -o-linear-gradient(#6D6E6D, #555757);
+    background: -ms-linear-gradient(#6D6E6D, #555757);
+    background: linear-gradient(#6D6E6D, #555757);
+    border: 1px solid #6D6E6D;
+    color: #FCFAEE;
 }
 #mycolorpickerpreview {
-  color: #FCFAEE;
+    color: #FCFAEE;
 }
-
 #myusernameedit {
-  color: #FCFAEE;
+    color: #FCFAEE;
 }
 #myusernameform input.editable {
-  border: 1px solid #434547
+    border: 1px solid #434547
 }
 #myuser .myusernameedithoverable {
-  background: #3F4143;
-  color: #FCFAEE;
+    background: #3F4143;
+    color: #FCFAEE;
 }
 #myuser .myusernameedithoverable:hover {
-  background: #FCFAEE;
-  color: #3F4143;
+    background: #FCFAEE;
+    color: #3F4143;
 }
 #mystatusedit {
-  color: #494B4C;
-  border: 1px solid #6D6E6D;
+    color: #494B4C;
+    border: 1px solid #6D6E6D;
 }
 #myusernameform .editactive,
 #myusernameform .editempty {
-  border-left: 1px solid #6D6E6D;
-  border-top: 1px solid #6D6E6D;
-  border-right: 1px solid #494B4C;
-  border-bottom: 1px solid #494B4C;
-  color: #3F4143;
+    border-left: 1px solid #6D6E6D;
+    border-top: 1px solid #6D6E6D;
+    border-right: 1px solid #494B4C;
+    border-bottom: 1px solid #494B4C;
+    color: #3F4143;
 }
 #myusernameform .editempty {
-  background: #FCFAEE;
-  color: #404244
+    background: #FCFAEE;
+    color: #404244
 }
-#myswatchbox, #myusernameedit, #otheruserstable .swatch {
-  border: 1px solid #434547 !important;
-  color: #404244;
+#myswatchbox,
+#myusernameedit,
+#otheruserstable .swatch {
+    border: 1px solid #434547 !important;
+    color: #404244;
 }
-
 #nootherusers {
-  color: #494B4C;
+    color: #494B4C;
 }
 #nootherusers a {
-  color: #494B4C
+    color: #494B4C
 }
 #otheruserstable td {
-  color: #FCFAEE;
+    color: #FCFAEE;
 }
 #otheruserstable .swatch {
-  border: 1px solid #3F4143;
+    border: 1px solid #3F4143;
 }
 .usertdname {
-  color: #434547;
+    color: #434547;
 }
 .usertdstatus {
-  color: #555757;
+    color: #555757;
 }
 .usertdactivity {
-  color: #494B4C;
+    color: #494B4C;
 }
 .usertdname input {
-  border: 1px solid #6D6E6D;
+    border: 1px solid #6D6E6D;
 }
-
 .usertdname input.editactive,
 .usertdname input.editempty {
-  background: #FCFAEE;
-  border-left: 1px solid #6D6E6D;
-  border-top: 1px solid #6D6E6D;
-  border-right: 1px solid #494B4C;
-  border-bottom: 1px solid #494B4C;
+    background: #FCFAEE;
+    border-left: 1px solid #6D6E6D;
+    border-top: 1px solid #6D6E6D;
+    border-right: 1px solid #494B4C;
+    border-bottom: 1px solid #494B4C;
 }
 .usertdname input.editempty {
-  color: #494B4C;
+    color: #494B4C;
 }
-
 #chatbox {
-  background-color: #9D9D98;
-  border-left: 1px solid #555757;
-  border-right: 1px solid #555757;
-  border-top: 1px solid #555757;
+    background-color: #9D9D98;
+    border-left: 1px solid #555757;
+    border-right: 1px solid #555757;
+    border-top: 1px solid #555757;
 }
 #chattext {
-  background-color: #494B4C;
-  border: 1px solid #494B4C;
-  color: #FCFAEE;
+    background-color: #494B4C;
+    border: 1px solid #494B4C;
+    color: #FCFAEE;
 }
-
 #chatlabel {
-  color: #434547;
+    color: #434547;
 }
 #chatinput {
-  border: 1px solid #6D6E6D;
+    border: 1px solid #6D6E6D;
 }
 #chaticon {
-  border-left: 1px solid #555757;
-  border-right: 1px solid #555757;
-  border-top: 1px solid #555757;
-  background-color: #FCFAEE;
+    border-left: 1px solid #555757;
+    border-right: 1px solid #555757;
+    border-top: 1px solid #555757;
+    background-color: #FCFAEE;
 }
-
 #chatcounter {
-  color: #494B4C;
+    color: #494B4C;
 }
 #titlebar {
-  color: #434547;
+    color: #434547;
 }
-
-#titlesticky{
-  color: #434547;
+#titlesticky {
+    color: #434547;
 }
 #titlecross {
-  color: #434547;
+    color: #434547;
 }
 .time {
-  color: #404244;
+    color: #404244;
 }
-
 .exporttype {
-  color: #FCFAEE;
+    color: #FCFAEE;
 }
-
 #importmessageabiword {
-  color: #555757;
+    color: #555757;
 }
-
 #chatthrob {
-  background-color: #3F4143;
-  color: #FCFAEE;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.7);
+    background-color: #3F4143;
+    color: #FCFAEE;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 #focusprotector {
-  background-color: #FCFAEE;
+    background-color: #FCFAEE;
 }
 #online_count {
-  color: #494B4C;
+    color: #494B4C;
 }
-
 .popup {
-  border: 1px solid #494B4C;
-  background: #434547;
-  background: -webkit-linear-gradient(#6D6E6D, #555757);
-  background: -moz-linear-gradient(#6D6E6D, #555757);
-  background: -ms-linear-gradient(#6D6E6D, #555757);
-  background: -o-linear-gradient(#6D6E6D, #555757);
-  background: linear-gradient(#6D6E6D, #555757);
-  -webkit-box-shadow: 0 0 8px #494B4C;
-  -moz-box-shadow: 0 0 8px #494B4C;
-  box-shadow: 0 2px 4px #434547;
-  color: #FCFAEE;
+    border: 1px solid #494B4C;
+    background: #434547;
+    background: -webkit-linear-gradient(#6D6E6D, #555757);
+    background: -moz-linear-gradient(#6D6E6D, #555757);
+    background: -ms-linear-gradient(#6D6E6D, #555757);
+    background: -o-linear-gradient(#6D6E6D, #555757);
+    background: linear-gradient(#6D6E6D, #555757);
+    -webkit-box-shadow: 0 0 8px #494B4C;
+    -moz-box-shadow: 0 0 8px #494B4C;
+    box-shadow: 0 2px 4px #434547;
+    color: #FCFAEE;
 }
-
 .popup h1 {
-  color: #9D9D98;
+    color: #9D9D98;
 }
 .popup h2 {
-  color: #9D9D98;
+    color: #9D9D98;
 }
-
 .stickyChat {
-  background-color: #555757 !important;
-  border-left: 1px solid #6D6E6D !important;
+    background-color: #555757 !important;
+    border-left: 1px solid #6D6E6D !important;
 }
-
-@media all and (max-width: 400px){
-  #gritter-notice-wrapper{
-    background-color: #6D6E6D;
-    color:#3F4143;
-  } 
-  .gritter-item p{
-    color:#3F4143;
-  }
-  .gritter-title{
-    color:#3F4143;
-  }
+@media all and (max-width: 400px) {
+    #gritter-notice-wrapper {
+        background-color: #6D6E6D;
+        color: #3F4143;
+    }
+    .gritter-item p {
+        color: #3F4143;
+    }
+    .gritter-title {
+        color: #3F4143;
+    }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 720px) {
     .toolbar ul.menu_right {
-      background: #494B4C;
-      background: -webkit-linear-gradient(#494B4C, #555757 80%);
-      background: -moz-linear-gradient(#494B4C, #555757 80%);
-      background: -o-linear-gradient(#494B4C, #555757 80%);
-      background: -ms-linear-gradient(#494B4C, #555757 80%);
-      background: linear-gradient(#494B4C, #555757 80%);
-      border-top: 1px solid #494B4C;
+        background: #494B4C;
+        background: -webkit-linear-gradient(#494B4C, #555757 80%);
+        background: -moz-linear-gradient(#494B4C, #555757 80%);
+        background: -o-linear-gradient(#494B4C, #555757 80%);
+        background: -ms-linear-gradient(#494B4C, #555757 80%);
+        background: linear-gradient(#494B4C, #555757 80%);
+        border-top: 1px solid #494B4C;
     }
-
 }
-
 .gritter-item {
-  color:#FCFAEE;
+    color: #FCFAEE;
 }
 .gritter-title {
-  text-shadow:1px 1px 0 #3F4143; /* Not supported by IE :( */
+    text-shadow: 1px 1px 0 #3F4143;
+    /* Not supported by IE :( */
 }
 .gritter-close {
-  color: #404244;
+    color: #404244;
 }
-.activeButton{
-  background: #494B4C;
-  background: -webkit-linear-gradient(#494B4C, #555757);
-  background: -moz-linear-gradient(#494B4C, #555757);
-  background: -o-linear-gradient(#494B4C, #555757);
-  background: -ms-linear-gradient(#494B4C, #555757);
-  background: linear-gradient(#494B4C, #555757);
+.activeButton {
+    background: #494B4C;
+    background: -webkit-linear-gradient(#494B4C, #555757);
+    background: -moz-linear-gradient(#494B4C, #555757);
+    background: -o-linear-gradient(#494B4C, #555757);
+    background: -ms-linear-gradient(#494B4C, #555757);
+    background: linear-gradient(#494B4C, #555757);
 }
-
 #status {
- color: #FFFFFF;
- background-color: #440000;
- font-size: 2em;
+    color: #FFFFFF;
+    background-color: #440000;
+    font-size: 2em;
+}
+/* search and replace */
+
+.imputs {
+    height: 21px;
+}
+#padsearch,
+#padreplace {
+    vertical-align: top;
+    font-size: 16px;
+    display: inline-block;
+    padding: 3px;
+    border: solid 1px #ccc;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    line-height: 1.25;
+}
+/*multi select language*/
+
+.toolbar ul li select {
+    border-radius: 0;
+    width: 60px;
+}
+/*stuff*/
+
+.buttonicon {
+    background-image: none;
 }
 .line {
     color: #494B4C;
@@ -310,61 +310,71 @@ a:link {
     color: #555757;
 }
 a:visited {
-     color: #494B4C;
+    color: #494B4C;
 }
 a:hover {
-    color: #434547
+    color: #434547;
     background: #FCFAEE;
 }
-
 #innerdocbody a:visited {
     color: #555757;
 }
-
-
 #innerdocbody a:link {
-    color:  #6D6E6D;
+    color: #6D6E6D;
 }
-
 /* file tree */
 
 UL.jqueryFileTree A {
     color: #9D9D98;
 }
-
 UL.jqueryFileTree A:hover {
-    color: #434547
+    color: #434547;
     background: #FCFAEE;
 }
-
 /* global static additions */
 
-#myusernameform input.editable {     font-size: 2em; } 
+#myusernameform input.editable {
+    font-size: 2em;
+}
 #innerdocbody {
     font-size: 14px;
     line-height: 18px;
 }
-
-
 /* hint and curly braces */
 
-.warn {     background-color: #511; } 
-.active {     background-color: #008;     color: #FFF;     font-weight: bold; } 
-.missing {     background-color: #600; } /* default text color*/   
-body {     color: #DEF; }
+.warn {
+    background-color: #511;
+}
+.missing {
+    background-color: #600;
+}
+.padsearch_line {
+    background-color: #008;
+}
+.padsearch_term {
+    background-color: #080;
+    color: #FFF;
+    font-weight: bold;
+}
+/* default text color*/
 
+body {
+    color: #DEF;
+}
 /* selection */
 
 ::-moz-selection {
-    background:rgba(255, 255, 125, 0.99);
-    color:#032764;}
+    background: rgba(255, 255, 125, 0.99);
+    color: #032764;
+}
 ::-webkit-selection {
-    background:rgba(255, 255, 125, 0.99);
-    color:#032764;}
+    background: rgba(255, 255, 125, 0.99);
+    color: #032764;
+}
 ::selection {
-    background:rgba(255, 255, 125, 0.99);
-    color:#032764;}
-
+    background: rgba(255, 255, 125, 0.99);
+    color: #032764;
+}
 /* LANGUAGES */
 
 /* Javascript */
@@ -456,285 +466,284 @@ body {     color: #DEF; }
 /* Other languages */
 
 .hljs-addition {
-    color: #FB97BA;
+    color: #F157BC;
 }
 .hljs-annotation {
-    color: #BAA983;
+    color: #AA4379;
 }
 .hljs-argument {
-    color: #6C8F7B;
+    color: #47C4B8;
 }
 .hljs-array {
-    color: #7FE0D0;
+    color: #C76133;
 }
 .hljs-begin-block {
-    color: #7FD26E;
+    color: #8DD5F1;
 }
 .hljs-blockquote {
-    color: #A78E60;
+    color: #DF83A2;
 }
 .hljs-body {
-    color: #8893A0;
+    color: #5570ED;
 }
 .hljs-bullet {
-    color: #B49B80;
+    color: #BC214E;
 }
 .hljs-cbracket {
-    color: #86BCCD;
+    color: #503DE8;
 }
 .hljs-cell {
-    color: #F5EF76;
+    color: #736D38;
 }
 .hljs-change {
-    color: #DBED82;
+    color: #D0B149;
 }
 .hljs-char {
-    color: #AB6CDF;
+    color: #973A50;
 }
 .hljs-chunk {
-    color: #6D7AB1;
+    color: #D38AEC;
 }
 .hljs-code {
-    color: #A38374;
+    color: #499267;
 }
 .hljs-collection {
-    color: #E5EC65;
+    color: #334B61;
 }
 .hljs-command {
-    color: #9DEF66;
+    color: #CA7E9F;
 }
 .hljs-commands {
-    color: #FBBDB9;
+    color: #A5157C;
 }
 .hljs-constant {
-    color: #EC7974;
+    color: #9788A3;
 }
 .hljs-container {
-    color: #8EE878;
+    color: #CAA5A6;
 }
 .hljs-dartdoc {
-    color: #D6A07D;
+    color: #967B57;
 }
 .hljs-date {
-    color: #D597AA;
+    color: #331756;
 }
 .hljs-decorator {
-    color: #97D375;
+    color: #3D9AF5;
 }
 .hljs-default {
-    color: #877DEE;
+    color: #E7C6D6;
 }
 .hljs-deletion {
-    color: #E4B87A;
+    color: #986F94;
 }
 .hljs-emphasis {
-    color: #EEEFAD;
+    color: #A8C67D;
 }
 .hljs-end-block {
-    color: #9DF659;
+    color: #AC8FA7;
 }
 .hljs-envvar {
-    color: #727274;
+    color: #34AD61;
 }
 .hljs-expression {
-    color: #DC9DE7;
+    color: #8874FA;
 }
 .hljs-filename {
-    color: #B87FA5;
+    color: #7917DF;
 }
 .hljs-filter {
-    color: #A0DA76;
+    color: #D0A134;
 }
 .hljs-flow {
-    color: #ADEAAB;
+    color: #673BCC;
 }
 .hljs-foreign {
-    color: #BC7AEC;
+    color: #7A5BE4;
 }
 .hljs-formula {
-    color: #9389E8;
+    color: #A25D43;
 }
 .hljs-func {
-    color: #E8F2A5;
+    color: #F0887C;
 }
 .hljs-function_name {
-    color: #D5A7EE;
+    color: #41C68D;
 }
 .hljs-generics {
-    color: #A9BF88;
+    color: #7397D9;
 }
 .hljs-header {
-    color: #936D6D;
+    color: #9BD484;
 }
 .hljs-horizontal_rule {
-    color: #F9F799;
+    color: #3FB096;
 }
 .hljs-import {
-    color: #8FE669;
+    color: #C28B81;
 }
 .hljs-infix {
-    color: #79E6A2;
+    color: #6637C4;
 }
 .hljs-inheritance {
-    color: #80749A;
+    color: #BACC5D;
 }
 .hljs-input {
-    color: #F9ECC0;
+    color: #893AC1;
 }
 .hljs-javadoc {
-    color: #B8D763;
+    color: #857384;
 }
 .hljs-javadoctag {
-    color: #BCB26D;
+    color: #4F50BC;
 }
 .hljs-label {
-    color: #6BBC81;
+    color: #355F36;
 }
 .hljs-link_label {
-    color: #71D7D7;
+    color: #E74E3A;
 }
 .hljs-link_reference {
-    color: #A9F0E8;
+    color: #B9903C;
 }
 .hljs-link_url {
-    color: #7DD081;
+    color: #4A2DA1;
 }
 .hljs-list {
-    color: #F58DD5;
+    color: #3E4443;
 }
 .hljs-localvars {
-    color: #BBAC87;
+    color: #954560;
 }
 .hljs-long_brackets {
-    color: #D6A360;
+    color: #C5B6D3;
 }
 .hljs-matrix {
-    color: #F4C3CA;
+    color: #5733F7;
 }
 .hljs-module {
-    color: #C99476;
+    color: #A02A9A;
 }
 .hljs-operator {
-    color: #E2D8A6;
+    color: #443A59;
 }
 .hljs-output {
-    color: #9FA5BB;
+    color: #F591A8;
 }
 .hljs-package {
-    color: #73EDBB;
+    color: #541ED1;
 }
 .hljs-param {
-    color: #EE796D;
+    color: #C497BF;
 }
 .hljs-parameter {
-    color: #F3B794;
+    color: #5054A6;
 }
 .hljs-parent {
-    color: #EDA5CA;
+    color: #B9CF3B;
 }
 .hljs-phpdoc {
-    color: #6AA28A;
+    color: #C154DD;
 }
 .hljs-pod {
-    color: #8882A9;
+    color: #B1AFA9;
 }
 .hljs-pp {
-    color: #D1B7BB;
+    color: #57B046;
 }
 .hljs-pragma {
-    color: #94A19F;
+    color: #4570B4;
 }
 .hljs-preprocessor {
-    color: #D4AABF;
+    color: #36FF58;
 }
 .hljs-prompt {
-    color: #92A8DD;
+    color: #925A75;
 }
 .hljs-property {
-    color: #A18795;
+    color: #E12A67;
 }
 .hljs-quoted {
-    color: #7FBF65;
+    color: #D8BFDC;
 }
 .hljs-record_name {
-    color: #68D162;
+    color: #D383E4;
 }
 .hljs-request {
-    color: #D6AE64;
+    color: #921941;
 }
 .hljs-reserved {
-    color: #D68CE7;
+    color: #EF44D7;
 }
 .hljs-rest_arg {
-    color: #8BE167;
+    color: #9E313E;
 }
 .hljs-shader {
-    color: #D5825D;
+    color: #717BF6;
 }
 .hljs-shading {
-    color: #BEADCA;
+    color: #61D3C4;
 }
 .hljs-shebang {
-    color: #FBC96B;
+    color: #341BA7;
 }
 .hljs-special {
-    color: #D7DE9B;
+    color: #7C7F4C;
 }
 .hljs-sqbracket {
-    color: #6CDCE5;
+    color: #3A7ED0;
 }
 .hljs-status {
-    color: #9FE06A;
+    color: #C4DCEB;
 }
 .hljs-stl_container {
-    color: #CDDEE2;
+    color: #35D99C;
 }
 .hljs-stream {
-    color: #6E89E3;
+    color: #923560;
 }
 .hljs-strong {
-    color: #E6768E;
+    color: #A34DF6;
 }
 .hljs-sub {
-    color: #F4E6AF;
+    color: #73D540;
 }
 .hljs-subst {
-    color: #8B89E2;
+    color: #A95859;
 }
 .hljs-summary {
-    color: #B4A1B6;
+    color: #B06B7A;
 }
 .hljs-symbol {
-    color: #C76F78;
+    color: #91C5F9;
 }
 .hljs-template_comment {
-    color: #E8F5BB;
+    color: #3361E3;
 }
 .hljs-template_tag {
-    color: #DFB9BB;
+    color: #7CACF7;
 }
 .hljs-type {
-    color: #79A791;
+    color: #599AC9;
 }
 .hljs-typedef {
-    color: #F08C6D;
+    color: #703772;
 }
 .hljs-typename {
-    color: #DE91C6;
+    color: #C1CC5C;
 }
 .hljs-var_expand {
-    color: #E5C383;
+    color: #3BCBD3;
 }
 .hljs-variable {
-    color: #6DE3D3;
+    color: #D61D85;
 }
 .hljs-winutils {
-    color: #A4CDC5;
+    color: #83CE71;
 }
 .hljs-xmlDocTag {
-    color: #8073ED;
+    color: #A571E8;
 }
 .hljs-yardoctag {
-    color: #76D08B;
+    color: #3C97C0;
 }
-

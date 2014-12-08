@@ -29,9 +29,6 @@ exports.eejsBlock_styles = function(hook_name, args, cb) {
     res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
     res_send += '</script>';
 
-    // highlight.js
-    res_send += '<link rel="stylesheet" href="/static/plugins/ep_codepad/static/css/styles/atelier-dune.dark.css">';
-
     args.content = args.content + res_send;
     return cb();
 
@@ -51,7 +48,9 @@ exports.eejsBlock_timesliderStyles = function(hook_name, args, cb) {
 };
 
 exports.eejsBlock_editbarMenuLeft = function(hook_name, args, cb) {
-    args.content = eejs.require("ep_codepad/templates/menuLeft.ejs", {toolbar: ''});
+    args.content = eejs.require("ep_codepad/templates/menuLeft.ejs", {
+        toolbar: ''
+    });
 };
 
 exports.eejsBlock_editbarMenuRight = function(hook_name, args, cb) {
@@ -76,4 +75,3 @@ exports.clientVars = function(hook, context, callback) {
     });
 
 };
-

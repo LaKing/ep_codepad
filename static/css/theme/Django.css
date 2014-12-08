@@ -276,6 +276,33 @@ body {
     background-color: #440000;
     font-size: 2em;
 }
+/* search and replace */
+
+.imputs {
+    height: 21px;
+}
+#padsearch,
+#padreplace {
+    vertical-align: top;
+    font-size: 16px;
+    display: inline-block;
+    padding: 3px;
+    border: solid 1px #ccc;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    line-height: 1.25;
+}
+/*multi select language*/
+
+.toolbar ul li select {
+    border-radius: 0;
+    width: 60px;
+}
+/*stuff*/
+
+.buttonicon {
+    background-image: none;
+}
 .fileTree {
     color: #C8FEC8;
 }
@@ -295,6 +322,8 @@ a:visited {
 a:hover {
     background: #425F4A
 }
+/* file tree */
+
 UL.jqueryFileTree A {
     color: #C8FEC8;
 }
@@ -311,13 +340,16 @@ UL.jqueryFileTree A:hover {
 .warn {
     background-color: #511;
 }
-.active {
+.missing {
+    background-color: #600;
+}
+.padsearch_line {
+    background-color: #008;
+}
+.padsearch_term {
     background-color: #080;
     color: #FFF;
     font-weight: bold;
-}
-.missing {
-    background-color: #060;
 }
 /* default text color*/
 
@@ -327,14 +359,17 @@ body {
 /* selection */
 
 ::-moz-selection {
-    background:rgba(255, 255, 125, 0.99);
-    color:#032764;}
+    background: rgba(255, 255, 125, 0.99);
+    color: #032764;
+}
 ::-webkit-selection {
-    background:rgba(255, 255, 125, 0.99);
-    color:#032764;}
+    background: rgba(255, 255, 125, 0.99);
+    color: #032764;
+}
 ::selection {
-    background:rgba(255, 255, 125, 0.99);
-    color:#032764;}
+    background: rgba(255, 255, 125, 0.99);
+    color: #032764;
+}
 /* LANGUAGES */
 
 /* Javascript */
