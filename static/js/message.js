@@ -16,7 +16,9 @@ function scrollToPadLine(lineNumber) {
             $outerdoc.animate({
                 scrollTop: newY
             });
-            if ($.browser.mozilla) $outerdocHTML.animate({
+
+            // browser.mozilla is obsolete
+            if (browser.mozilla || browser.firefox) $outerdocHTML.animate({
                 scrollTop: newY
             }); // needed for FF     
             return false;
@@ -59,7 +61,7 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
                         div = idb.find("div:nth-child(" + err.line + ")");
                         div.addClass("warn");
                         if (typeof div.attr("title") == "undefined") div.attr("title", err.reason);
-                    }, 100);
+                    }, 1000);
 
                     // setTimeout(function() {
                     // clear
@@ -85,6 +87,17 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
         if (context.payload.errors) {
             console.log(context.payload.padid + " exec: Error! " + JSON.stringify(context.payload.errors));
             hint += 'Push action failed! ' + JSON.stringify(context.payload.errors);
+        }
+    }
+
+    if (context.payload.from == 'push') {
+        if (context.payload.errors) {
+            console.log(context.payload.padid + " push: Blocked by " + context.payload.errors);
+            if (context.payload.user == pad.getUserId()) hint += 'Push blocked by ' + context.payload.errors;
+            else {
+                if (context.payload.name) hint += 'Push attempt by ' + context.payload.name;
+                else hint += 'Push attempt from ' + context.payload.user;
+            }
         }
     }
 

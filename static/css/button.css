@@ -1,3 +1,21 @@
+.buttonicon-codepad_buttons_toggletree:before {
+    content: "\f0db";
+    font-family: FontAwesome;
+    color: #666;
+    font-size: 14px;
+}
+.buttonicon-codepad_buttons_raw:before {
+    content: "\f01d";
+    font-family: FontAwesome;
+    color: #666;
+    font-size: 16px;
+}
+.buttonicon-codepad_buttons_run:before {
+    content: "\f01d";
+    font-family: FontAwesome;
+    color: #F66;
+    font-size: 16px;
+}
 .buttonicon-codepad_buttons_prev:before {
     content: "\f0aa";
     font-family: FontAwesome;

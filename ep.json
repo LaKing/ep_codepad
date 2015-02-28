@@ -1,102 +1,117 @@
 {
     "parts": [{
-        "name": "ep_codepad_index_page",
-        "hooks": {
-            "eejsBlock_indexWrapper": "ep_codepad/index_page"
+            "name": "ep_codepad_index_page",
+            "hooks": {
+                "eejsBlock_indexWrapper": "ep_codepad/index_page"
+            }
+        }, {
+            "name": "ep_codepad_auth",
+            "hooks": {
+                "authenticate": "ep_codepad/auth",
+                "handleMessage": "ep_codepad/auth:handleMessage"
+            }
+        }, {
+            "name": "ep_codepad_foldersupport",
+            "hooks": {
+                "expressCreateServer": "ep_codepad/foldersupport:expressCreateFolderServer"
+            }
+        }, {
+            "name": "ep_codepad_play",
+            "hooks": {
+                "expressCreateServer": "ep_codepad/playserver:expressCreatePlayServer"
+            }
+        }, {
+            "name": "ep_codepad_filetree",
+            "hooks": {
+                "expressCreateServer": "ep_codepad/filetree:expressCreateFileTreeServer"
+            }
+        }, {
+            "name": "ep_codepad_filestaticview",
+            "hooks": {
+                "expressCreateServer": "ep_codepad/filestatic:expressCreateFileStaticViewServer"
+            }
+        }, {
+            "name": "ep_codepad_filerunner",
+            "hooks": {
+                "expressCreateServer": "ep_codepad/filerunner:expressCreateFileRunServer"
+            }
+        }, {
+            "name": "ep_codepad_fileview",
+            "hooks": {
+                "expressCreateServer": "ep_codepad/fileview:expressCreateFileViewServer"
+            }
+        }, {
+            "name": "ep_codepad_logview",
+            "hooks": {
+                "expressCreateServer": "ep_codepad/logview:expressCreateLogViewServer"
+            }
+        }, {
+            "name": "ep_codepad_search",
+            "hooks": {
+                "expressCreateServer": "ep_codepad/search:expressCreateSearchServer"
+            }
+        }, {
+            "name": "ep_codepad_fileload",
+            "hooks": {
+                "padCreate": "ep_codepad:padCreate"
+            }
+        }, {
+            "name": "ep_codepad_defaults",
+            "client_hooks": {
+                "postAceInit": "ep_codepad/static/js/codepad_defaults:postAceInit"
+            }
+        }, {
+            "name": "ep_padsearch",
+            "client_hooks": {
+                "postAceInit": "ep_codepad/static/js/padsearch",
+                "documentReady": "ep_codepad/static/js/padsearch",
+                "aceKeyEvent": "ep_codepad/static/js/padsearch"
+            }
+        }, {
+            "name": "ep_codepad_buttons_feedback",
+            "client_hooks": {
+                "handleClientMessage_CUSTOM": "ep_codepad/static/js/message:handleClientMessage_CUSTOM"
+            },
+            "hooks": {
+                "handleMessage": "ep_codepad/handleButtonMessage",
+                "eejsBlock_scripts": "ep_codepad/buttons",
+                "eejsBlock_styles": "ep_codepad/buttons"
+            }
+
+        }, {
+            "name": "ep_codepad_themed_syntaxhighlighting",
+            "hooks": {
+                "eejsBlock_scripts": "ep_codepad/themes_index:eejsBlock_scripts",
+                "eejsBlock_styles": "ep_codepad/themes_index:eejsBlock_styles",
+                "eejsBlock_timesliderStyles": "ep_codepad/themes_index:eejsBlock_timesliderStyles",
+                "eejsBlock_editbarMenuRight": "ep_codepad/themes_index:eejsBlock_editbarMenuRight",
+                "eejsBlock_editbarMenuLeft": "ep_codepad/themes_index:eejsBlock_editbarMenuLeft",
+                "eejsBlock_mySettings.dropdowns": "ep_codepad/themes_index:eejsBlock_mySettings_dropdowns",
+                "clientVars": "ep_codepad/themes_index:clientVars"
+            },
+            "client_hooks": {
+                "aceInitInnerdocbodyHead": "ep_codepad/static/js/syntax:aceInitInnerdocbodyHead",
+                "acePostWriteDomLineHTML": "ep_codepad/static/js/syntax:acePostWriteDomLineHTML",
+                "disableAuthorColorsForThisLine": "ep_codepad/static/js/syntax:disableAuthorColorsForThisLine",
+                "aceKeyEvent": "ep_codepad/static/js/syntax:aceKeyEvent"
+            }
+        }, {
+            "name": "ep_codepad_trace_braces",
+            "client_hooks": {
+                "aceEditEvent": "ep_codepad/static/js/tracebraces:aceEditEvent"
+            }
+        }, {
+            "name": "ep_codepad_keypress_handler",
+            "client_hooks": {
+                "aceKeyEvent": "ep_codepad/static/js/keypress:aceKeyEvent"
+            }
+        }, {
+            "name": "ep_codepad_themes",
+            "client_hooks": {
+                "aceEditorCSS": "ep_codepad/static/js/themes:aceEditorCSS",
+                "aceInitInnerdocbodyHead": "ep_codepad/static/js/themes:aceInitInnerdocbodyHead"
+            }
         }
-    }, {
-        "name": "ep_codepad_auth",
-        "hooks": {
-            "authenticate": "ep_codepad/auth",
-            "handleMessage": "ep_codepad/auth:handleMessage"
-        }
-    }, {
-        "name": "ep_codepad_foldersupport",
-        "hooks": {
-            "expressCreateServer": "ep_codepad/foldersupport:expressCreateFolderServer"
-        }
-    }, {
-        "name": "ep_codepad_play",
-        "hooks": {
-            "expressCreateServer": "ep_codepad/playserver:expressCreatePlayServer"
-        }
-    }, {
-        "name": "ep_codepad_filetree",
-        "hooks": {
-            "expressCreateServer": "ep_codepad/filetree:expressCreateFileTreeServer"
-        }
-    }, {
-        "name": "ep_codepad_fileview",
-        "hooks": {
-            "expressCreateServer": "ep_codepad/fileview:expressCreateFileViewServer"
-        }
-    }, {
-        "name": "ep_codepad_logview",
-        "hooks": {
-            "expressCreateServer": "ep_codepad/logview:expressCreateLogViewServer"
-        }
-    }, {
-        "name": "ep_codepad_search",
-        "hooks": {
-            "expressCreateServer": "ep_codepad/search:expressCreateSearchServer"
-        }
-    }, {
-        "name": "ep_codepad_fileload",
-        "hooks": {
-            "padCreate": "ep_codepad:padCreate"
-        }
-    }, {
-        "name": "ep_codepad_defaults",
-        "client_hooks": {
-            "postAceInit": "ep_codepad/static/js/codepad_defaults:postAceInit"
-        }
-    }, {
-        "name": "ep_padsearch",
-        "client_hooks": {
-            "postAceInit": "ep_codepad/static/js/padsearch",
-            "documentReady": "ep_codepad/static/js/padsearch",
-            "aceKeyEvent": "ep_codepad/static/js/padsearch"
-        }
-    }, {
-        "name": "ep_codepad_buttons_feedback",
-        "client_hooks": {
-            "handleClientMessage_CUSTOM": "ep_codepad/static/js/message:handleClientMessage_CUSTOM"
-        },
-        "hooks": {
-            "handleMessage": "ep_codepad/handleButtonMessage",
-            "eejsBlock_scripts": "ep_codepad/buttons",
-            "eejsBlock_styles": "ep_codepad/buttons"
-        }
-    }, {
-        "name": "ep_codepad_admin",
-        "hooks": {
-            "expressCreateServer": "ep_codepad/admin_index:registerRoute",
-            "socketio": "ep_codepad/admin_index:socketio",
-            "padRemove": "ep_codepad/admin_index:updatePads",
-            "padCreate": "ep_codepad/admin_index:updatePads",
-            "eejsBlock_adminMenu": "ep_codepad/admin_index"
-        },
-        "client_hooks": {
-            "documentReady": "ep_codepad/static/js/admin/pads"
-        }
-    }, {
-        "name": "ep_codepad_themed_syntaxhighlighting",
-        "hooks": {
-            "eejsBlock_scripts": "ep_codepad/themes_index:eejsBlock_scripts",
-            "eejsBlock_styles": "ep_codepad/themes_index:eejsBlock_styles",
-            "eejsBlock_timesliderStyles": "ep_codepad/themes_index:eejsBlock_timesliderStyles",
-            "eejsBlock_editbarMenuRight": "ep_codepad/themes_index:eejsBlock_editbarMenuRight",
-            "eejsBlock_editbarMenuLeft": "ep_codepad/themes_index:eejsBlock_editbarMenuLeft",
-            "eejsBlock_mySettings.dropdowns": "ep_codepad/themes_index:eejsBlock_mySettings_dropdowns",
-            "clientVars": "ep_codepad/themes_index:clientVars"
-        },
-        "client_hooks": {
-            "aceEditEvent": "ep_codepad/static/js/syntax:aceEditEvent",
-            "aceKeyEvent": "ep_codepad/static/js/syntax:aceKeyEvent",
-            "aceEditorCSS": "ep_codepad/static/js/aceTheme.js",
-            "acePostWriteDomLineHTML": "ep_codepad/static/js/syntax:acePostWriteDomLineHTML",
-            "aceInitInnerdocbodyHead": "ep_codepad/static/js/syntax:aceInitInnerdocbodyHead",
-            "disableAuthorColorsForThisLine": "ep_codepad/static/js/syntax:disableAuthorColorsForThisLine"
-        }
-    }]
+
+    ]
 }

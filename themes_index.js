@@ -1,10 +1,7 @@
 var eejs = require('ep_etherpad-lite/node/eejs');
 var settings = require('ep_etherpad-lite/node/utils/Settings');
 
-function getExtension(filename) {
-    var i = filename.lastIndexOf('.');
-    return (i < 0) ? '' : filename.substr(i + 1);
-}
+var ext = require('ep_codepad/extensions');
 
 var theme = "Default";
 if (settings.ep_codepad)
@@ -62,16 +59,20 @@ exports.eejsBlock_mySettings_dropdowns = function(hook_name, args, cb) {
     return cb();
 };
 
-var ext = require('ep_codepad/extensions');
 
 exports.clientVars = function(hook, context, callback) {
 
     var brush = ext.getBrush(context.pad.id);
     if (!brush) brush = 'none';
 
+    var rundef = {};
+
+    if (settings.ep_codepad_run) rundef = settings.ep_codepad_run;
+
     return callback({
         "theme": theme,
-        "brush": brush
+        "brush": brush,
+        "rundef": rundef
     });
 
 };

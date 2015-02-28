@@ -1,24 +1,41 @@
 <script>
+    var showTree = function() {
+        if (window.name == "fileView") {
+            window.top.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search;
+        } else {
+            window.location = window.location.protocol + "//" + window.location.host + "/files#" + window.location.pathname + window.location.search;
+        }
+    }
+    var rawView = function() {
+        window.open(window.location.protocol + '//' + window.location.host + '/s' + window.location.pathname.substring(2), '_blank');
+    }
+    var runFile = function() {
+        if (window.name == "fileView") {
+            window.open(window.location.protocol + '//' + window.location.host + '/r' + window.location.pathname.substring(2), '_self');
+        } else {
+            window.open(window.location.protocol + '//' + window.location.host + '/r' + window.location.pathname.substring(2), '_blank');
+        }
+    }
     var sendPushMessage = function() {
         var message = {};
         message.type = 'PUSH_TO_FILESYSTEM';
         message.padId = pad.getPadId();
+        message.userId = pad.getUserId();
         pad.collabClient.sendMessage(message);
         push_by_this_user = true;
-
     };
     var sendWriteMessage = function() {
         var message = {};
         message.type = 'WRITE_TO_FILESYSTEM';
         message.padId = pad.getPadId();
+        message.userId = pad.getUserId();
         pad.collabClient.sendMessage(message);
-
     };
     var sendReadMessage = function() {
-
         var message = {};
         message.type = 'READ_FROM_FILESYSTEM';
         message.padId = pad.getPadId();
+        message.userId = pad.getUserId();
         pad.collabClient.sendMessage(message);
     };
 </script>

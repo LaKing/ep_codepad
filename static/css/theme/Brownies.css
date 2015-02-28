@@ -348,6 +348,11 @@ UL.jqueryFileTree A:hover {
 .missing {
     background-color: #600;
 }
+.active {
+    background-color: #070;
+    color: #FFA;
+    font-weight: bold;
+}
 .padsearch_line {
     background-color: #008;
 }
@@ -625,7 +630,7 @@ body {
     color: #A02A9A;
 }
 .hljs-operator {
-    color: #443A59;
+    color: #9B95B2;
 }
 .hljs-output {
     color: #F591A8;
@@ -736,7 +741,7 @@ body {
     color: #3BCBD3;
 }
 .hljs-variable {
-    color: #D61D85;
+    color: #70E3AB;
 }
 .hljs-winutils {
     color: #83CE71;

@@ -49,7 +49,9 @@ function scrollToPadLine(lineNumber) {
             $outerdoc.animate({
                 scrollTop: newY
             });
-            if ($.browser.mozilla) $outerdocHTML.animate({
+
+            // browser.mozilla is obsolete
+            if (browser.mozilla || browser.firefox) $outerdocHTML.animate({
                 scrollTop: newY
             }); // needed for FF     
             return false;
@@ -66,12 +68,50 @@ var padSearchReset = function() {
 
 };
 
-// This is how I get the context for the button
+
 exports.postAceInit = function(hook, context) {
 
+    // This is how I get the context for the button
     $('.padsearch-replace').click(function() {
         padsearchReplaceAction(context);
     });
+
+    // here we scroll and highlight to the line if we get it on a get parameter    
+    if (window.location.search !== '') {
+
+        var line = 0;
+        var tmp = [];
+
+        // substract the linenumber info
+        var items = location.search.substr(1).split("&");
+        for (var index = 0; index < items.length; index++) {
+            tmp = items[index].split("=");
+            if (tmp[0] === 'line') line = Number(tmp[1]); //decodeURIComponent(tmp[1]);
+        }
+
+        if (line === 0) return false;
+
+        // action!
+        scrollToPadLine(line);
+
+        // and put some highlight on it - with a delay
+        setTimeout(function() {
+
+            var count = 1;
+            var contents = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").contents();
+
+            // need to find it through the lines
+            contents.each(function() {
+                if (line == count) {
+                    $(this).addClass("padsearch_line");
+                    return false;
+                }
+                count++;
+            });
+
+        }, 1000);
+    }
+
 };
 
 // This function returns false if some pre-condition fails for the replace action
@@ -136,7 +176,6 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
     // TODO check if this is necessery in here, eg search and replace for non-code?
     if (shBrush == 'none') return false;
 
-    var browser = $.browser;
     var type = args.evt.type;
     var key = args.evt.key;
     var keyCode = args.evt.keyCode;
@@ -168,6 +207,11 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
 
 // the main search function will be exposed here
 exports.documentReady = function() {
+
+    // import values from main codepad search - if they are set
+    pse.value = decodeURIComponent(getCookie("codepad_search"));
+    pre.value = decodeURIComponent(getCookie("codepad_replace"));
+
 
     getCurrentMachcount = function() {
         // look only forward, count all occurences till the cursor position
@@ -278,14 +322,14 @@ exports.documentReady = function() {
                     // line visualization
                     $(this).addClass("padsearch_line");
 
-                    // word visualisation - simple reformatted text -- BIG TODO here
+                    // word visualisation - simple reformatted text -- BIG TODO here !!
                     var newtext = lineText.substring(0, pscc) + '<span class="padsearch_term">' + ps + '</span>' + lineText.substring(pscc + ps.length);
 
                     // Apply the new higlighting - BIG TODO - no idea yet how to restore
                     $(this).html('<!-- padsearch-highlighted -->' + newtext);
 
                     // determine current and do a status report
-                    $('#status').html(getCurrentMachcount() + "/" + total + " @ " + pslc + ":" + pscc + " // " + Key);
+                    $('#status').html(getCurrentMachcount() + "/" + total + " @ " + pslc + ":" + pscc);
 
                     if (fw) pscc += ps.length;
 
@@ -307,7 +351,7 @@ exports.documentReady = function() {
                         padSearchReset();
                     }
                     // little bug here, this is never reached, it toggles between maches on the first line
-                    if (!fw && pslc < 1) {
+                    if (!fw && pslc <= 1) {
                         $('#status').html('Beginning of file reached.');
 
                         padSearchReset();

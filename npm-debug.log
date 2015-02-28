@@ -1,0 +1,123 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/bin/npm', 'publish' ]
+2 info using npm@1.4.26
+3 info using node@v0.10.30
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /root/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/root/.npm/ep_codepad/1.0.3/package.tgz', '.' ]
+11 verbose tarball /root/.npm/ep_codepad/1.0.3/package.tgz
+12 verbose folder .
+13 info prepublish ep_codepad@1.0.3
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /root/.npm/1f1177db-tar.lock
+16 silly lockFile 6a9de62f-npm-ep-codepad-1-0-3-package-tgz tar:///root/.npm/ep_codepad/1.0.3/package.tgz
+17 verbose lock tar:///root/.npm/ep_codepad/1.0.3/package.tgz /root/.npm/6a9de62f-npm-ep-codepad-1-0-3-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 6a9de62f-npm-ep-codepad-1-0-3-package-tgz tar:///root/.npm/ep_codepad/1.0.3/package.tgz
+21 silly lockFile 6a9de62f-npm-ep-codepad-1-0-3-package-tgz tar:///root/.npm/ep_codepad/1.0.3/package.tgz
+22 silly lockFile 88c2b981-oot-npm-ep-codepad-1-0-3-package /root/.npm/ep_codepad/1.0.3/package
+23 verbose lock /root/.npm/ep_codepad/1.0.3/package /root/.npm/88c2b981-oot-npm-ep-codepad-1-0-3-package.lock
+24 silly lockFile 88c2b981-oot-npm-ep-codepad-1-0-3-package /root/.npm/ep_codepad/1.0.3/package
+25 silly lockFile 88c2b981-oot-npm-ep-codepad-1-0-3-package /root/.npm/ep_codepad/1.0.3/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { name: 'ep_codepad',
+28 silly publish   description: 'Turn etherpad-lite into a realtime collaborative development environment',
+28 silly publish   keywords:
+28 silly publish    [ 'sourcecode',
+28 silly publish      'edit',
+28 silly publish      'javascript',
+28 silly publish      'html',
+28 silly publish      'css',
+28 silly publish      'php',
+28 silly publish      'bash',
+28 silly publish      'code',
+28 silly publish      'syntaxhighlight',
+28 silly publish      'jsHint',
+28 silly publish      'beautify',
+28 silly publish      'IDE' ],
+28 silly publish   author: { name: 'István Király', email: 'LaKing@D250.hu' },
+28 silly publish   version: '1.0.3',
+28 silly publish   dependencies:
+28 silly publish    { 'js-beautify': '>=1.5.0',
+28 silly publish      jshint: '>= 2.5.0',
+28 silly publish      log4js: '>= 0.5.x',
+28 silly publish      'regexp-quote': '*',
+28 silly publish      mime: '>= 1.2.11' },
+28 silly publish   peerDependencies: { ep_adminpads: '>=0.0.9', ep_cursortrace: '>=2.0.14' },
+28 silly publish   devDependencies: {},
+28 silly publish   optionalDependencies: {},
+28 silly publish   engines: { node: '*' },
+28 silly publish   repository: { type: 'git', url: 'https://github.com/LaKing/ep_codepad' },
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   dist: { shasum: 'a8f8e9afb5f219265ffb696ca5cf4cf9c1d778c8' },
+28 silly publish   readme: 'Turn etherpad into codepad, a collaborative online development enviroment. \nhttp://codepad.etherpad.org\n\nStatus: 1.x Feel free to test - bug reports welcome.\n\nThis etherpad-lite plugin merges functionality of a few simple plugins, and adds tons of functionality on its own.\nCurrent features:\n    \n- File Tree view, open files into pads and save them back\n- Search in project files, replace all instances file by file\n- Syntaxhighlighting for 92 popular languages - based on highlight.js\n- Adds themes, properly implemented with css, and a theme generator\n- beutify html/css/javascript code with jsBeutify \n- Syntax-check javascipt with jsHint, and display results\n- Search and replace in pads in a javascript implementation\n- save/commit/push (F2) and run custom commands or scripts\n\n- It sets some reasonable defaults and customizes buttons\n- Admin interface based on adminpads\n- Can use a hash instead of a password in the users section of settings.json (ep_hash_auth)\n- Authentication username to etherpad-username, and custom colors defined in settings.json\n\nSpecial URI\'s:\n\n- /files[#URI] - filetree\n- /log - logview\n- /v[/folder(s)]/file - quick view-only with syntaxhighlighting\n- /s[/folder(s)]/file - raw static view-only without anything\n- /p[/folder(s)]/file - open pad for editing\n\nCurrently the following codepad parameters are supported in etherpad\'s settings.json:\n- default theme\n- project_path to save files (needs to be writeable by codepad)\n- log_path for displaying logs (parent dir needs execute right)\n- customize the button to open a browser to the project\n- action to perform when pushing files\n- authentication password-hash and the custom colors\n\nThe use of authentication and authorization over https is strongly recommended.\nUnauthorized access to settings.json may expose operating system files, in the name of the user etherpad is run as.\nInstall with npm or git, create your settings.json and restart etherpad after installation.\n\n```\n  "ep_codepad": { \n    "theme": "Cobalt",\n    "project_path": "/srv/project",\n    "log_path": "/var/log/codepad/log",\n    "play_url": "http://project.local",\n    "push_action": "cd /srv/project && git add . && git commit -m 2.x"\n  },\n  "ep_hash_auth": {\n    "hash_typ": "sha512",\n    "hash_digest": "hex",\n    "allow_namechange": "true"\n  },\n  "users": {\n    "Bud": {"hash": "6c98..66d2","is_admin": true, color: "#ff2222"},\n    "Al":  {"hash": "c7r2..b72c","is_admin": true, color: "#2244ff"}\n  },\n```\nCodpad is NOT tested on and not designed for non-linux operating systems, functionality is partially dependant on linux commands and filesystem properties.\nEtherpad / mariadb has limitations on folder/file length. Error messages might show up, and might be hard to see with the tree-view on a dark-backgrounded theme.\n\nCodepad is designed to work together with fedora srvctl utility, an LXC container and virtual server farm managment tool. It is recommended to run codepad on a VE or VM.\nhttps://github.com/LaKing/srvctl\n\nPlease feel free to send comments, bug-reports, ...\n.. and/or in case of professional, or commercial use please donate to support open source software developers, or hire them.\n',
+28 silly publish   gitHead: '1dbb9a638b6260e900c79a8ecac8e6a3ebaca2b4',
+28 silly publish   bugs: { url: 'https://github.com/LaKing/ep_codepad/issues' },
+28 silly publish   homepage: 'https://github.com/LaKing/ep_codepad',
+28 silly publish   _id: 'ep_codepad@1.0.3',
+28 silly publish   scripts: {},
+28 silly publish   _shasum: '2c5735a9ed36b8a1996047d8db222365734c1282',
+28 silly publish   _from: '.' }
+29 verbose request where is /ep_codepad
+30 verbose request registry https://registry.npmjs.org/
+31 verbose request id d076cf6a8122b975
+32 verbose url raw /ep_codepad
+33 verbose url resolving [ 'https://registry.npmjs.org/', './ep_codepad' ]
+34 verbose url resolved https://registry.npmjs.org/ep_codepad
+35 verbose request where is https://registry.npmjs.org/ep_codepad
+36 info trying registry request attempt 1 at 10:49:19
+37 http PUT https://registry.npmjs.org/ep_codepad
+38 http 403 https://registry.npmjs.org/ep_codepad
+39 verbose headers { date: 'Sat, 28 Feb 2015 09:49:22 GMT',
+39 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+39 verbose headers   'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=60',
+39 verbose headers   'content-length': '6579',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   'x-served-by': 'cache-ams4124-AMS',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1425116959.679161,VS0,VE2757',
+39 verbose headers   'keep-alive': 'timeout=10, max=50',
+39 verbose headers   connection: 'Keep-Alive' }
+40 error publish Failed PUT 403
+41 error Error: forbidden cannot modify pre-existing version: 1.0.3
+41 error old={"name":"ep_codepad","description":"Turn etherpad-lite into a realtime collaborative development environment","keywords":["sourcecode","edit","javascript","html","css","php","bash","code","syntaxhighlight","jsHint","beautify","IDE"],"author":{"name":"István Király","email":"LaKing@D250.hu"},"version":"1.0.3","dependencies":{"js-beautify":">=1.5.0","jshint":">= 2.5.0","log4js":">= 0.5.x","regexp-quote":"*","mime":">= 1.2.11"},"peerDependencies":{"ep_adminpads":">=0.0.9","ep_cursortrace":">=2.0.14"},"devDependencies":{},"optionalDependencies":{},"engines":{"node":"*"},"repository":{"type":"git","url":"https://github.com/LaKing/ep_codepad"},"dist":{"shasum":"b924fec9a7bccc1254c63927663be7292ea8ae5c","tarball":"http://registry.npmjs.org/ep_codepad/-/ep_codepad-1.0.3.tgz"},"gitHead":"1d098e430b11408b4bb23b8791fc606ca93908bf","bugs":{"url":"https://github.com/LaKing/ep_codepad/issues"},"homepage":"https://github.com/LaKing/ep_codepad","_id":"ep_codepad@1.0.3","scripts":{},"_shasum":"b924fec9a7bccc1254c63927663be7292ea8ae5c","_from":".","_npmVersion":"1.4.26","_npmUser":{"name":"laking","email":"LaKing@D250.hu"},"maintainers":[{"name":"laking","email":"LaKing@D250.hu"}]}
+41 error new={"name":"ep_codepad","description":"Turn etherpad-lite into a realtime collaborative development environment","keywords":["sourcecode","edit","javascript","html","css","php","bash","code","syntaxhighlight","jsHint","beautify","IDE"],"author":{"name":"István Király","email":"LaKing@D250.hu"},"version":"1.0.3","dependencies":{"js-beautify":">=1.5.0","jshint":">= 2.5.0","log4js":">= 0.5.x","regexp-quote":"*","mime":">= 1.2.11"},"peerDependencies":{"ep_adminpads":">=0.0.9","ep_cursortrace":">=2.0.14"},"devDependencies":{},"optionalDependencies":{},"engines":{"node":"*"},"repository":{"type":"git","url":"https://github.com/LaKing/ep_codepad"},"readmeFilename":"README.md","dist":{"shasum":"2c5735a9ed36b8a1996047d8db222365734c1282","tarball":"http://registry.npmjs.org/ep_codepad/-/ep_codepad-1.0.3.tgz"},"readme":"Turn etherpad into codepad, a collaborative online development enviroment. \u000ahttp://codepad.etherpad.org\u000a\u000aStatus: 1.x Feel free to test - bug reports welcome.\u000a\u000aThis etherpad-lite plugin merges functionality of a few simple plugins, and adds tons of functionality on its own.\u000aCurrent features:\u000a    \u000a- File Tree view, open files into pads and save them back\u000a- Search in project files, replace all instances file by file\u000a- Syntaxhighlighting for 92 popular languages - based on highlight.js\u000a- Adds themes, properly implemented with css, and a theme generator\u000a- beutify html/css/javascript code with jsBeutify \u000a- Syntax-check javascipt with jsHint, and display results\u000a- Search and replace in pads in a javascript implementation\u000a- save/commit/push (F2) and run custom commands or scripts\u000a\u000a- It sets some reasonable defaults and customizes buttons\u000a- Admin interface based on adminpads\u000a- Can use a hash instead of a password in the users section of settings.json (ep_hash_auth)\u000a- Authentication username to etherpad-username, and custom colors defined in settings.json\u000a\u000aSpecial URI's:\u000a\u000a- /files[#URI] - filetree\u000a- /log - logview\u000a- /v[/folder(s)]/file - quick view-only with syntaxhighlighting\u000a- /s[/folder(s)]/file - raw static view-only without anything\u000a- /p[/folder(s)]/file - open pad for editing\u000a\u000aCurrently the following codepad parameters are supported in etherpad's settings.json:\u000a- default theme\u000a- project_path to save files (needs to be writeable by codepad)\u000a- log_path for displaying logs (parent dir needs execute right)\u000a- customize the button to open a browser to the project\u000a- action to perform when pushing files\u000a- authentication password-hash and the custom colors\u000a\u000aThe use of authentication and authorization over https is strongly recommended.\u000aUnauthorized access to settings.json may expose operating system files, in the name of the user etherpad is run as.\u000aInstall with npm or git, create your settings.json and restart etherpad after installation.\u000a\u000a```\u000a  \"ep_codepad\": { \u000a    \"theme\": \"Cobalt\",\u000a    \"project_path\": \"/srv/project\",\u000a    \"log_path\": \"/var/log/codepad/log\",\u000a    \"play_url\": \"http://project.local\",\u000a    \"push_action\": \"cd /srv/project && git add . && git commit -m 2.x\"\u000a  },\u000a  \"ep_hash_auth\": {\u000a    \"hash_typ\": \"sha512\",\u000a    \"hash_digest\": \"hex\",\u000a    \"allow_namechange\": \"true\"\u000a  },\u000a  \"users\": {\u000a    \"Bud\": {\"hash\": \"6c98..66d2\",\"is_admin\": true, color: \"#ff2222\"},\u000a    \"Al\":  {\"hash\": \"c7r2..b72c\",\"is_admin\": true, color: \"#2244ff\"}\u000a  },\u000a```\u000aCodpad is NOT tested on and not designed for non-linux operating systems, functionality is partially dependant on linux commands and filesystem properties.\u000aEtherpad / mariadb has limitations on folder/file length. Error messages might show up, and might be hard to see with the tree-view on a dark-backgrounded theme.\u000a\u000aCodepad is designed to work together with fedora srvctl utility, an LXC container and virtual server farm managment tool. It is recommended to run codepad on a VE or VM.\u000ahttps://github.com/LaKing/srvctl\u000a\u000aPlease feel free to send comments, bug-reports, ...\u000a.. and/or in case of professional, or commercial use please donate to support open source software developers, or hire them.\u000a","gitHead":"1dbb9a638b6260e900c79a8ecac8e6a3ebaca2b4","bugs":{"url":"https://github.com/LaKing/ep_codepad/issues"},"homepage":"https://github.com/LaKing/ep_codepad","_id":"ep_codepad@1.0.3","scripts":{},"_shasum":"2c5735a9ed36b8a1996047d8db222365734c1282","_from":".","_npmVersion":"1.4.26","_npmUser":{"name":"laking","email":"LaKing@D250.hu"},"maintainers":[{"name":"laking","email":"LaKing@D250.hu"}]}: ep_codepad
+41 error     at RegClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+41 error     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+41 error     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:123:22)
+41 error     at Request.emit (events.js:98:17)
+41 error     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:893:14)
+41 error     at Request.emit (events.js:117:20)
+41 error     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:844:12)
+41 error     at IncomingMessage.emit (events.js:117:20)
+41 error     at _stream_readable.js:938:16
+41 error     at process._tickCallback (node.js:419:13)
+42 error If you need help, you may report this *entire* log,
+42 error including the npm and node versions, at:
+42 error     <http://github.com/npm/npm/issues>
+43 error System Linux 3.18.7-100.fc20.x86_64
+44 error command "node" "/usr/bin/npm" "publish"
+45 error cwd /srv/etherpad-lite/node_modules/ep_codepad
+46 error node -v v0.10.30
+47 error npm -v 1.4.26
+48 verbose exit [ 1, true ]

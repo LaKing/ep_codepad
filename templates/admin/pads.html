@@ -1,109 +1,119 @@
 <html>
-  <head>
+
+<head>
     <title>Pad administration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="stylesheet" href="../static/css/admin.css">
-    
-    <% e.begin_block("scripts"); %>
-    <script src="../static/js/jquery.js"></script>
-    <script src="../socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="../static/js/require-kernel.js"></script>
-    <script type="text/javascript" src="../socket.io/socket.io.js"></script>
 
-    <!-- Include base packages manually (this help with debugging) -->
-    <script type="text/javascript" src="../javascripts/lib/ep_etherpad-lite/static/js/ace2_common.js?callback=require.define"></script>
+    <% e.begin_block( "scripts"); %>
+        <script src="../static/js/jquery.js"></script>
+        <script src="../socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="../static/js/require-kernel.js"></script>
+        <script type="text/javascript" src="../socket.io/socket.io.js"></script>
 
-    <!-- Bootstrap page -->
-    <script type="text/javascript">
-      var clientVars = {};
-      (function () {
-        var pathComponents = location.pathname.split('/');
-              
-        // Strip 'p' and the padname from the pathname and set as baseURL
-        var baseURL = pathComponents.slice(0,pathComponents.length-2).join('/') + '/';
+        <!-- Include base packages manually (this help with debugging) -->
+        <script type="text/javascript" src="../javascripts/lib/ep_etherpad-lite/static/js/ace2_common.js?callback=require.define"></script>
 
-        require.setRootURI(baseURL + "javascripts/src");
-        require.setLibraryURI(baseURL + "javascripts/lib");
-        require.setGlobalKeyPath("require");
+        <!-- Bootstrap page -->
+        <script type="text/javascript">
+            var clientVars = {};
+            (function() {
+                var pathComponents = location.pathname.split('/');
 
-        $ = jQuery = require('ep_etherpad-lite/static/js/rjquery').jQuery; // Expose jQuery #HACK
+                // Strip 'p' and the padname from the pathname and set as baseURL
+                var baseURL = pathComponents.slice(0, pathComponents.length - 2).join('/') + '/';
 
-        if ((!$.browser.msie) && (!($.browser.mozilla && $.browser.version.indexOf("1.8.") == 0))) {
-          document.domain = document.domain; // for comet
-        }
+                require.setRootURI(baseURL + "javascripts/src");
+                require.setLibraryURI(baseURL + "javascripts/lib");
+                require.setGlobalKeyPath("require");
 
-        var plugins = require('ep_etherpad-lite/static/js/pluginfw/client_plugins');
-        var hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks');
+                $ = jQuery = require('ep_etherpad-lite/static/js/rjquery').jQuery; // Expose jQuery #HACK
 
-        plugins.baseURL = baseURL;
-        plugins.update(function () {
-          hooks.plugins = plugins;
+                if ((!browser.msie) && (!((browser.mozilla || browser.firefox) && browser.version.indexOf("1.8.") == 0))) {
+                    document.domain = document.domain; // for comet
+                }
 
-          // Call documentReady hook
-          $(function() {
-            hooks.aCallAll('documentReady','admin/pads');
-          });
-        });
-      }());
-    </script>
-    <% e.end_block(); %>
-  </head>
-  <body>
+                var plugins = require('ep_etherpad-lite/static/js/pluginfw/client_plugins');
+                var hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks');
+
+                plugins.baseURL = baseURL;
+                plugins.update(function() {
+                    hooks.plugins = plugins;
+
+                    // Call documentReady hook
+                    $(function() {
+                        hooks.aCallAll('documentReady', 'admin/pads');
+                    });
+                });
+            }());
+        </script>
+        <% e.end_block(); %>
+</head>
+
+<body>
     <div id="wrapper">
 
-      <% if (errors.length) { %>
-        <div class="errors">
-          <% errors.forEach(function (item) { %>
-            <div class="error"><%= item.toString() %></div>
-          <% }) %>
-        </div>
-      <% } %>
+        <% if (errors.length) { %>
+            <div class="errors">
+                <% errors.forEach(function (item) { %>
+                    <div class="error">
+                        <%=i tem.toString() %>
+                    </div>
+                    <% }) %>
+            </div>
+            <% } %>
 
-      <div class="menu">
-        <h1>Etherpad lite</h1>
-        <ul> 
-          <% e.begin_block("adminMenu"); %>
-          <li><a href="plugins">Plugin manager</a> </li>
-          <li><a href="settings">Settings</a> </li>
-          <li><a href="plugins/info">Troubleshooting information</a> </li>
-          <% e.end_block(); %>
-        </ul>
-        <div id="progress"><img src="../static/img/loading.gif" alt=""/>&nbsp;&nbsp;<span class="message"></span></div>
-      </div>
+                <div class="menu">
+                    <h1>Etherpad lite</h1>
+                    <ul>
+                        <% e.begin_block( "adminMenu"); %>
+                            <li><a href="plugins">Plugin manager</a> 
+                            </li>
+                            <li><a href="settings">Settings</a> 
+                            </li>
+                            <li><a href="plugins/info">Troubleshooting information</a> 
+                            </li>
+                            <% e.end_block(); %>
+                    </ul>
+                    <div id="progress">
+                        <img src="../static/img/loading.gif" alt="" />&nbsp;&nbsp;<span class="message"></span>
+                    </div>
+                </div>
 
-      <div class="innerwrapper">
-        <div class="paged listing search-results">
-        <h2>Search for pads</h2>
-        <form name="search-form" id="search-form">
-          <input type="text" name="search" placeholder="Search term" id="search-query">
-          <input type="button" value="Search" id="do-search">
-        </form>
-        <input type="checkbox" name="autoupdate" id="results-autoupdate" title="Enables or disables automatic updates for the current query."><label for="autoupdate">Automatic updates</label>
-        <table>
-          <thead>
-            <tr>
-              <th>Padname</th>
-              <th>Last edited</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody class="template">
-            <tr>
-              <td class="padname"></td>
-              <td class="last-edited"></td>
-              <td class="actions">
-                <input type="button" value="Delete" class="do-delete">
-             </td>
-            </tr>
-          </tbody>
-          <tbody class="results">
-          </tbody>
-        </table>
-        <input type="button" value="&lt;&lt;" class="do-prev-page">
-        <span class="offset"></span>..<span class="limit"></span> of <span class="total"></span>.
-        <input type="button" value="&gt;&gt;" class="do-next-page">
-      </div>
-    </div>
-  </body>
-  
+                <div class="innerwrapper">
+                    <div class="paged listing search-results">
+                        <h2>Search for pads</h2>
+                        <form name="search-form" id="search-form">
+                            <input type="text" name="search" placeholder="Search term" id="search-query">
+                            <input type="button" value="Search" id="do-search">
+                        </form>
+                        <input type="checkbox" name="autoupdate" id="results-autoupdate" title="Enables or disables automatic updates for the current query.">
+                        <label for="autoupdate">Automatic updates</label>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Padname</th>
+                                    <th>Last edited</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="template">
+                                <tr>
+                                    <td class="padname"></td>
+                                    <td class="last-edited"></td>
+                                    <td class="actions">
+                                        <input type="button" value="Delete" class="do-delete">
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody class="results">
+                            </tbody>
+                        </table>
+                        <input type="button" value="&lt;&lt;" class="do-prev-page">
+                        <span class="offset"></span>..<span class="limit"></span> of <span class="total"></span>.
+                        <input type="button" value="&gt;&gt;" class="do-next-page">
+                    </div>
+                </div>
+</body>
+
 </html>

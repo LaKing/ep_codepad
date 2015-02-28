@@ -22,18 +22,15 @@ if (settings.ep_codepad) {
 
 //https://github.com/broofa/node-mime
 var mime = require('mime');
-exports.expressCreateFileViewServer = function(hook_name, args, cb) {
+exports.expressCreateFileStaticViewServer = function(hook_name, args, cb) {
 
-    args.app.get('/v/*', function(req, res) {
+    args.app.get('/s/*', function(req, res) {
         // file path slice     
         var fps = req.url.slice(3, 250);
-
-        // TODO remove GET params
-
         // file path urlencoded     
         var fpu = encodeURIComponent(fps);
         // file path read url
-        var fpr = '/v/' + fpu;
+        var fpr = '/s/' + fpu;
 
         var file = decodeURIComponent(fps);
         var path = abs + '/' + file;
@@ -53,13 +50,7 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
                             encoding: 'utf-8'
                         }, function(err, data) {
                             if (err) throw err;
-                            res.send(eejs.require("ep_codepad/templates/view.ejs", {
-                                uri: '/p/' + fpu,
-                                code: data,
-                                file: file,
-                                theme: theme,
-                                brush: ext.getBrush(file)
-                            }));
+                            res.send(data);
                         });
                     }
 
@@ -76,10 +67,9 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
             });
         } catch (e) {
             console.log("FileViewServer error: " + e);
-
             res.send(eejs.require("ep_codepad/templates/view.ejs", {
                 uri: "#",
-                code: "FileViewServer - Error! " + e,
+                code: "FileStaticViewServer - Error! " + e,
                 file: file,
                 theme: theme,
                 brush: "plain"

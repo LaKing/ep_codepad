@@ -5,6 +5,7 @@
         <%=abs%>
     </title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script src="/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>
     <script src="/static/plugins/ep_codepad/static/js/jquery.js" type="text/javascript"></script>
     <script src="/static/plugins/ep_codepad/static/js/jquery.easing.js" type="text/javascript"></script>
     <script src="/static/plugins/ep_codepad/static/js/jqueryFileTree.js" type="text/javascript"></script>
@@ -12,25 +13,6 @@
     <link href="/static/plugins/ep_codepad/static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="/static/css/pad.css" rel="stylesheet" type="text/css" media="screen" />
     <script type="text/javascript">
-        function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + "; " + expires;
-        }
-
-        function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1);
-                if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
-            }
-            return "";
-        }
-
-
         var theme = '<%=theme%>';
         if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
         document.write('<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/' + theme + '.css">');
@@ -39,25 +21,70 @@
             $('#fileTree').fileTree({}, function(param) {
                 document.getElementById("fileView").src = param;
             });
+
+            // read-back from has, and display as it is
             var hash = window.location.hash;
             if (hash) {
-                var v = '/v';
-                var s = hash.substring(1).trim();
-                if (s.charAt(0) != '/') v += '/';
 
-                $('#fileView').attr('src', v + s);
+                var s = hash.substring(1).trim();
+                $('#fileView').attr('src', s);
 
             } else $('#fileView').attr('src', '/log');
+
+
+            $('#search').val(decodeURIComponent(getCookie("codepad_search")));
+            $('#offer').val(decodeURIComponent(getCookie("codepad_replace")));
         });
+
+         // trick to display path's via hash
+        var last = "";
+        var loc = "";
+        var lol = window.location.origin.length;
+        var uri = "";
+
+        setInterval(function() {
+            //fram = $('#fileView').contents().find("title").text();
+            loc = document.getElementById("fileView").src; //contentWindow.location;
+            if (last == loc) return;
+            last = loc;
+            uri = decodeURIComponent(loc.toString().substr(lol));
+
+            //do stuff with 'window.location.hash'
+            window.location.hash = uri;
+
+            if (uri.substring(0, 11) == "/sr?search=") {
+                // the special seach page
+                if (uri.indexOf('&') > 0) document.title = uri.substring(11, uri.indexOf('&')) + " - SEARCH";
+                else document.title = uri.substring(11) + " - SEARCH";
+            } else {
+                // special log page
+                if (uri == "/log") document.title = "LOG"
+
+                // truncate GET parameters
+                if (uri.lastIndexOf('?') > -1) uri = uri.substring(0, uri.lastIndexOf('?'));
+
+                // normal pages                
+                if (uri.substring(0, 3) == "/v/") document.title = uri.substring(2) + " - VIEW";
+                if (uri.substring(0, 3) == "/p/") document.title = uri.substring(2) + " - EDIT";
+                if (uri.substring(0, 3) == "/s/") document.title = uri.substring(2) + " - PREVIEW";
+                if (uri.substring(uri.lastIndexOf('/')) == "/timeslider") document.title = uri.substring(2, uri.length - 11) + " - TIMESLIDER";
+
+            }
+            //document.title = loc.toString().substr(lol);
+        }, 1000);
 
         function searchAction() {
             var sr = encodeURIComponent(document.getElementById("search").value);
             var of = encodeURIComponent(document.getElementById("offer").value);
-            console.log(sr + of);
-            if (sr != '')
+            //console.log(sr + of);
+            if (sr != '') {
                 if (of != '') $('#fileView').attr('src', '/sr?search=' + sr + '&offer=' + of);
                 else $('#fileView').attr('src', '/sr?search=' + sr);
-            else alert('Please enter a search term, and hit [ENTER]');
+
+                setCookie("codepad_search", sr, 1);
+                setCookie("codepad_replace", of, 1);
+
+            } else alert('Please enter a search term, and hit [ENTER]');
 
         }
          //<button onclick="return searchAction();">s</button><input id="search" type="text" class="srs" placeholder="  replace to" onkeydown="if (event.keyCode == 13) return replaceAction();">
@@ -68,8 +95,8 @@
 <body id="filebody">
     <div id="bal" class="bal">
         <div id='nav' class="nav">
-            <div id='toolbar' class='toolbar enabledtoolbar'>
-                <ul class="menu_left">
+            <div id='codepad_toolbar' class='toolbar enabledtoolbar'>
+                <ul class="codepad_menu_left">
                     <li class="acl-write" id="button_home" onclick="window.location.href='/'">
                         <a class="grouped-left" data-l10n-id="pad.toolbar.codepad_nav_home.title" title="Home">
                             <span class="buttonicon buttonicon-codepad_nav_home"></span>
@@ -107,7 +134,7 @@
             <input id="offer" type="text" class="offer" placeholder=".. replace offer" onkeydown="if (event.keyCode == 13) return searchAction();">
         </div>
     </div>
-    <iframe id="fileView" class="fileView"></iframe>
+    <iframe name="fileView" id="fileView" class="fileView"></iframe>
 
 </html>
 

@@ -13,8 +13,6 @@ if (settings.ep_codepad) {
     }
 }
 
-
-
 //var padManager = require("../ep_etherpad-lite/node/db/PadManager");
 
 exports.padCreate = function(hook, context) {
@@ -34,9 +32,7 @@ exports.padCreate = function(hook, context) {
                     // update client(s)
                     padManager.getPad(context.pad.id, null, function(err, value) {
                         if (err) throw err;
-                        padMessageHandler.updatePadClients(value, function() {
-                            console.log("padCreate - callback");
-                        });
+                        padMessageHandler.updatePadClients(value, function() {});
                     });
                 });
             }
