@@ -54,8 +54,8 @@ Install with npm or git, create your settings.json and restart etherpad after in
     "allow_namechange": "true"
   },
   "users": {
-    "Bud": {"hash": "6c98..66d2","is_admin": true, color: "#ff2222"},
-    "Al":  {"hash": "c7r2..b72c","is_admin": true, color: "#2244ff"}
+    "Bud": {"hash": "6c98..66d2","is_admin": true, "color": "#ff2222"},
+    "Al":  {"hash": "c7r2..b72c","is_admin": true, "color": "#2244ff"}
   },
 ```
 Codpad is NOT tested on and not designed for non-linux operating systems, functionality is partially dependant on linux commands and filesystem properties.
