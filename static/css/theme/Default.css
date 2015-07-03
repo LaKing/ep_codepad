@@ -70,6 +70,11 @@ UL.jqueryFileTree A:hover {
 .missing {
     background-color: #600;
 }
+.active {
+    background-color: #000;
+    color: #FFA;
+    font-weight: bold;
+}
 .padsearch_line {
     background-color: #008;
 }
@@ -454,4 +459,7 @@ body {
 }
 .hljs-yardoctag {
     color: #23247C;
+}
+.hljs-doctag {
+    color: #FF8C00;
 }

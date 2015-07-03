@@ -5,28 +5,28 @@
     <title>
         <%=file%>
     </title>
-    <script type="text/javascript" src="/static/plugins/ep_codepad/static/js/jquery.js"></script>
-    <script type="text/javascript" src="/static/plugins/ep_codepad/static/js/cookies.js"></script>
-    <script src="/static/plugins/ep_codepad/static/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="../static/plugins/ep_codepad/static/js/jquery.js"></script>
+    <script type="text/javascript" src="../static/plugins/ep_codepad/static/js/cookies.js"></script>
+    <script src="../static/plugins/ep_codepad/static/js/highlight.codepad.js"></script>
     <script type="text/javascript">
-        if (document.addEventListener) {
-            document.addEventListener('contextmenu', function(e) {
-                window.location.assign("<%=uri%>");
-                e.preventDefault();
-            }, false);
-        } else {
-            document.attachEvent('oncontextmenu', function() {
-                window.location.assign("<%=uri%>");
-                window.event.returnValue = false;
-            });
+        if ('<%=uri%>' != '#') {
+            if (document.addEventListener) {
+                document.addEventListener('contextmenu', function(e) {
+                    window.location.assign("<%=uri%>");
+                    e.preventDefault();
+                }, false);
+            } else {
+                document.attachEvent('oncontextmenu', function() {
+                    window.location.assign("<%=uri%>");
+                    window.event.returnValue = false;
+                });
+            }
         }
 
         var theme = '<%=theme%>';
         if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
 
-        document.write('<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/' + theme + '.css">');
-
-
+        document.write('<link rel="stylesheet" type="text/css" href="../static/plugins/ep_codepad/static/css/theme/' + theme + '.css">');
 
         if ('<%=brush%>' != 'plain')
             $(document).ready(function() {
@@ -38,7 +38,6 @@
 </head>
 
 <body>
-    <!--<pre class="brush: <%=brush%>; gutter: false; toolbar: false"><%=code%></pre> -->
     <pre><code class="<%=brush%>"><%=code%></code></pre> 
 </body>
 

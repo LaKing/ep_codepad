@@ -22,7 +22,7 @@ if (settings.ep_codepad) {
 
 function zeroPad(num, places) {
     var zero = places - num.toString().length + 1;
-    return Array(+(zero > 0 && zero)).join("&nbsp;") + num;
+    return Array(+(zero > 0 && zero)).join("&nbsp;") + '#' + num;
 }
 
 exports.expressCreateSearchServer = function(hook_name, args, cb) {
@@ -79,7 +79,7 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
         if (doReplace) execterm = "sed -i 's/" + search_term + "/" + replace_term + "/g' " + abs + "/" + replace_file + " && ";
         execterm += "cd " + abs + " && find . | grep -irnF '" + search_term + "' *";
 
-        console.log("/sr $ " + execterm);
+        console.log("CODEPAD SEARCH " + execterm);
         exec(execterm, function(err, data, stderr) {
             //exec(' grep -rnw ' + abs + ' -e "' + search_term + '"', function(err, data, stderr) {
 
@@ -98,14 +98,14 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
             // we assemble the html here and send it directly. 
             var res_send = ''; //'
             res_send += '<!DOCTYPE html><head><title>log</title>';
-            res_send += '<script src="/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
-            res_send += '<link href="/static/plugins/ep_codepad/static/css/logcolors.css" rel="stylesheet" type="text/css" media="screen" />';
+            res_send += '<script src="../static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
+            res_send += '<link href="../static/plugins/ep_codepad/static/css/logcolors.css" rel="stylesheet" type="text/css" media="screen" />';
             res_send += '<script type="text/javascript">';
             res_send += 'window.onload=toBottom;';
             res_send += 'function toBottom(){window.scrollTo(0, document.body.scrollHeight);}';
             res_send += 'var theme = "' + theme + '";';
             res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
-            res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
+            res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="../static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
             res_send += '</script></head><body>';
 
             var lines = data.split('\n');
@@ -133,16 +133,18 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
                 // skip binary files (where line number is NaN)
                 if (isNaN(parseInt(l.substring(v + 1, v + w + 2)))) continue;
 
+                // actual folder+file
+                var ff = l.substring(0, v);
+                // actual linenumber
+                var no = parseInt(l.substring(v + 1, v + w + 2));
+
                 // line indicator
-                var tt = '<b><span class="line">' + zeroPad(parseInt(l.substring(v + 1, v + w + 2)), 5) + ': </span></b>';
+                var tt = '<b><a href="/p/' + ff + '?line=' + no + '" style="text-decoration: none">' + zeroPad(no, 5) + '</a> </b>';
 
                 //current text
                 var re = new RegExp(search_term, 'g');
                 var sw = '<b><span class="term">' + search_term + '</span></b>';
                 var t = l.substring(v + w + 2, 250).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(re, sw);
-
-                // actual folder+file
-                var ff = l.substring(0, v);
 
                 if (c !== ff) {
                     res_send += '<br /><a href="/v/' + ff + '">' + ff.substring(0, g) + '<b>' + ff.substring(g) + '</b></a> - ' + sw;

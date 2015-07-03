@@ -3,3 +3,5 @@
 highlight.js
 themes-disabled
 publish.sh
+dev.sh
+import.sh

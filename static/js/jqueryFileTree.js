@@ -38,7 +38,7 @@ if (jQuery)(function($) {
     $.extend($.fn, {
         fileTree: function(o, h) {
             // Defaults
-            if (!o) var o = {};
+            //if (!o) var o = {};
 
             o.root = '/';
             o.script = '/files_connector';
@@ -100,7 +100,7 @@ if (jQuery)(function($) {
                             $('#fileTree').find('LI A').css("text-decoration", "none").css("font-weight", "normal");
                             $(this).css("text-decoration", "underline").css("font-weight", "bold");
                             // make the changes trackable
-                            parent.location.hash = v;
+                            //parent.location.hash = v;
                             document.title = v.substr(v.lastIndexOf('/') + 1);
                         }
                         return false;

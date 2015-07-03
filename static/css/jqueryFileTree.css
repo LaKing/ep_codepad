@@ -97,15 +97,6 @@
      display: block;
      padding: 0px 2px;
  }
- /* Core Styles */
- /* .jqueryFileTree LI.directory {
-     background: url(/static/plugins/ep_codepad/static/img/directory.png) left top no-repeat;
- }
-  .jqueryFileTree LI.expanded {
-     background: url(/static/plugins/ep_codepad/static/img/folder_open.png) left top no-repeat;
- }
- 
-*/
  .jqueryFileTree LI:before {
      font-family: FontAwesome;
      font-size: 14px;

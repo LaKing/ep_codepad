@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-# Last update:2014.09.20-16:00:00 
+# Last update:2015.01.02
 # 
 # DEV ep_codepad publishing script. 
 # 
@@ -9,8 +9,10 @@
 # LaKing@D250.hu 
 # 
 
+## file to work with
 g='package.json'
-
+## etherpad version
+version="1.5.6"
 
 NOW=$(date +%Y.%m.%d-%H:%M:%S) 
 echo $NOW  
@@ -21,7 +23,7 @@ echo $cv" > "$nv
 
 echo '{
     "name": "ep_codepad",
-    "description": "Turn etherpad-lite into a realtime collaborative development environment",
+    "description": "Turn etherpad '$version' into a realtime collaborative development environment",
     "keywords": [
         "sourcecode",
             "edit",
@@ -49,6 +51,10 @@ echo '{
         "regexp-quote": "*",
         "mime": ">= 1.2.11"
     },
+     "peerDependencies": {    
+         "ep_adminpads": ">=0.0.9",
+         "ep_cursortrace": ">=2.0.14"         
+    },
     "devDependencies": {},
     "optionalDependencies": {},
     "engines": {
@@ -64,10 +70,9 @@ echo '{
     }
 }' > $g
             
-git add .
+git add . -A
 git commit -m $nv
-git push
+git push -f
 
 npm publish
 
-systemctl restart codepad.service

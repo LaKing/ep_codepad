@@ -1,24 +1,46 @@
 <script>
+    var cif = '<%=cif%>';
+
+    var showTree = function() {
+        if (window.name == "fileView") {
+            window.top.location.href = window.location.protocol + "//" + window.location.host + window.location.pathname + window.location.search;
+        } else {
+            window.location = window.location.protocol + "//" + window.location.host + cif + "/files#" + window.location.pathname + window.location.search;
+        }
+    }
+    var rawView = function() {
+        window.open(window.location.protocol + '//' + window.location.host + cif + '/s' + window.location.pathname.substring(2), '_blank');
+    }
+    var runFile = function() {
+        if (window.name == "fileView") {
+            window.open(window.location.protocol + '//' + window.location.host + cif + '/r' + window.location.pathname.substring(2), '_self');
+        } else {
+            window.open(window.location.protocol + '//' + window.location.host + cif + '/r' + window.location.pathname.substring(2), '_blank');
+        }
+    }
     var sendPushMessage = function() {
         var message = {};
         message.type = 'PUSH_TO_FILESYSTEM';
         message.padId = pad.getPadId();
+        message.userId = pad.getUserId();
         pad.collabClient.sendMessage(message);
+        hl_stack = '';
         push_by_this_user = true;
-
     };
     var sendWriteMessage = function() {
         var message = {};
         message.type = 'WRITE_TO_FILESYSTEM';
         message.padId = pad.getPadId();
+        message.userId = pad.getUserId();
         pad.collabClient.sendMessage(message);
-
+        hl_stack = '';
     };
     var sendReadMessage = function() {
-
         var message = {};
         message.type = 'READ_FROM_FILESYSTEM';
         message.padId = pad.getPadId();
+        message.userId = pad.getUserId();
         pad.collabClient.sendMessage(message);
+        hl_stack = '';
     };
 </script>

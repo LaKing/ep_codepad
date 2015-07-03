@@ -188,14 +188,14 @@ exports.expressCreateLogViewServer = function(hook_name, args, cb) {
 
                         var res_send = '';
                         res_send += '<!DOCTYPE html><head><title>log</title>';
-                        res_send += '<script src="/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
-                        res_send += '<link href="/static/plugins/ep_codepad/static/css/logcolors.css" rel="stylesheet" type="text/css" media="screen" />';
+                        res_send += '<script src="../static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
+                        res_send += '<link href="../static/plugins/ep_codepad/static/css/logcolors.css" rel="stylesheet" type="text/css" media="screen" />';
                         res_send += '<script type="text/javascript">';
                         res_send += 'window.onload=toBottom;';
                         res_send += 'function toBottom(){window.scrollTo(0, document.body.scrollHeight);}';
                         res_send += 'var theme = "' + theme + '";';
                         res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
-                        res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="/static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
+                        res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="../static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
                         res_send += '</script></head><body>';
                         if (data.length > 50000) res_send += " Truncated ... <br /> ... " + term2html(data.substr(data.length - 50000)).replace(/[\r\n]/g, "<br />");
                         else res_send += term2html(data).replace(/[\r\n]/g, "<br />");

@@ -1,61 +1,86 @@
 <li class="acl-write separator"></li>
+<li class="acl-write" id="button_tree" onclick="showTree()">
+    <a class="" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Toggle fileTree">
+        <span class="buttonicon buttonicon-codepad_buttons_toggletree"></span>
+    </a>
+</li>
+
+<li class="acl-write separator"></li>
 <li data-type="button" data-key="undo"><a class="grouped-left"><span class=" buttonicon buttonicon-undo" data-l10n-id="pad.toolbar.undo.title"></span></a>
 </li>
 <li data-type="button" data-key="redo"><a class="grouped-right"><span class=" buttonicon buttonicon-redo" data-l10n-id="pad.toolbar.redo.title"></span></a>
 </li>
 <li class="acl-write separator"></li>
 
-<li id="searchinpad" class="searchinpad">
+<li id="searchinpad" class="searchinpad" title="Search and replace">
     <li class="imputs">
-        <input id="padsearch" style="width: 60px; " class="padsearch" placeholder=".. find" onkeydown="if (event.keyCode == 13 || event.keyCode == 115 || event.keyCode == 118 ) return padSearchAction('S');" type="text">
+        <input id="padsearch" style="width: 60px; " class="padsearch" placeholder=".. find" type="text" title="Search (F4)">
     </li>
-    <li class="acl-write" id="button_padsearch_up" onclick="padSearchAction('U')">
-        <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Up">
+    <li class="acl-write" id="button_padsearch_up">
+        <a class="grouped-middle padsearch-up" title="Search backwards">
             <span class="buttonicon buttonicon-codepad_buttons_prev"></span>
         </a>
     </li>
-    <li class="acl-write" id="button_padsearch_down" onclick="padSearchAction('D') ">
-        <a class="grouped-right" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Down F4">
+    <li class="acl-write" id="button_padsearch_down">
+        <a class="grouped-right padsearch-down" title="Search (F4)">
             <span class="buttonicon buttonicon-codepad_buttons_next"></span>
         </a>
     </li>
 
     <li class="imputs">
-        <input id="padreplace" style="width: 60px; align: top;" class="padreplace" placeholder=".. repl" onkeydown="if (event.keyCode == 13 || event.keyCode == 115 || event.keyCode == 118 ) return padReplaceAction();" type="text">
+        <input id="padreplace" style="width: 60px; align: top;" class="padreplace" placeholder=".. replace" type="text" title="Replace (F7)">
     </li>
     <li class="acl-write" id="button_padsearch_replace">
-        <a class="grouped-right padsearch-replace" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Replace F7">
+        <a class="grouped-right padsearch-replace" title="Replace (F7)">
             <span class="buttonicon buttonicon-codepad_buttons_replace"></span>
         </a>
     </li>
 
 </li>
 
-<li class="separator "></li>
+<li class="separator" title="Read / Write"></li>
 
 <li class="acl-write" id="button_read" onclick="sendReadMessage()">
-    <a class="grouped-left" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Read">
+    <a class="grouped-left" title="Read">
         <span class="buttonicon buttonicon-codepad_buttons_read"></span>
     </a>
 </li>
 <li class="acl-write" id="button_write" onclick="sendWriteMessage()">
-    <a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Write F2">
+    <a class="grouped-middle" title="Write F2">
         <span class="buttonicon buttonicon-codepad_buttons_write"></span>
     </a>
 </li>
 <li class="acl-write" id="button_push" onclick="sendPushMessage() ">
-    <a class="grouped-right" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Push">
+    <a class="grouped-right" title="Push">
         <span class="buttonicon buttonicon-codepad_buttons_push"></span>
     </a>
 </li>
 <li class="acl-write separator"></li>
-
+<li class="acl-write" id="button_raw" onclick="rawView()">
+    <a class="" title="Raw">
+        <span class="buttonicon buttonicon-codepad_buttons_raw"></span>
+    </a>
+</li>
+<!-- grouped-left UNDER CONSTRUCTION 
+<li class="acl-write" id="button_run" onclick="runProject()" disabled>
+<a class="grouped-middle" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Run">
+    <span class="buttonicon buttonicon-codepad_buttons_run"></span>
+</a>
+</li>
+<li class="acl-write" id="button_run" onclick="runFile()">
+    <a class="grouped-right" data-l10n-id="pad.toolbar.codepad_buttons.title" title="Run">
+        <span class="buttonicon buttonicon-codepad_buttons_run"></span>
+    </a>
+</li>
+-->
 </li>
 <li class="separator "></li>
-
-<li id="status" class="status"><span></span>
+<li id="status" class="status">
+    <span></span>
 </li>
 <li class="acl-write separator"></li>
+
+
 
 
 

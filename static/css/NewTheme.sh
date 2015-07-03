@@ -850,6 +850,9 @@ UL.jqueryFileTree A:hover {
 .hljs-yardoctag {
     color: #'$(rc)';
 }
+.hljs-doctag {
+    color: #FFFF00;
+}
 '
 
 echo "$theme" > $name.css

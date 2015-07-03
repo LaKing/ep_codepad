@@ -13,35 +13,54 @@ if (settings.ep_codepad) {
     }
 }
 
-
+var err_msg = {};
 
 //var padManager = require("../ep_etherpad-lite/node/db/PadManager");
 
 exports.padCreate = function(hook, context) {
 
     // get the full path
-    var path = abs + '/' + context.pad.id; //'
+    var path = abs + '/' + context.pad.id;
 
     try {
-        fs.exists(path, function(exists) {
-            if (exists) {
-                fs.readFile(path, {
-                    encoding: 'utf-8'
-                }, function(err, data) {
-                    if (err) throw err;
-                    // load file to pad
-                    context.pad.setText(data);
-                    // update client(s)
-                    padManager.getPad(context.pad.id, null, function(err, value) {
-                        if (err) throw err;
-                        padMessageHandler.updatePadClients(value, function() {
-                            console.log("padCreate - callback");
-                        });
-                    });
+        //fs.exists(path, function(exists) {
+        //    if (exists) {
+        fs.readFile(path, {
+            encoding: 'utf-8'
+        }, function(err, data) {
+            if (!err) {
+                console.log("CODEPAD - INIT PAD - read: " + path);
+                // load file to pad
+                context.pad.setText(data);
+                // update client(s)
+                padManager.getPad(context.pad.id, null, function(error, value) {
+                    if (error) throw error;
+                    padMessageHandler.updatePadClients(value, function() {});
                 });
+            } else {
+                console.log("CODEPAD ERR - INIT PAD FAILED to read: " + path);
+                var cb = function() {};
+                err_msg = {
+                    type: 'COLLABROOM',
+                    data: {
+                        type: "CUSTOM",
+                        payload: {
+                            padId: context.pad.id,
+                            from: "fs",
+                            errors: err
+                        }
+                    }
+                };
+                padMessageHandler.handleCustomObjectMessage(err_msg, undefined, cb);
+
+                //throw err;
             }
         });
+        //}
+        //});
     } catch (e) {
         console.log(" PadCreate error: " + e);
     }
 };
+
+//EOF
