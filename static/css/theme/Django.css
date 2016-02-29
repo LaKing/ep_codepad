@@ -23,6 +23,7 @@ body {
 }
 #innerdocbody {
     background-color: #0A2B1D;
+    color: #EEE;
 }
 #sidediv {
     background-color: #162B20;
@@ -273,8 +274,13 @@ body {
 }
 #status {
     color: #FFFFFF;
-    background-color: #440000;
     font-size: 2em;
+}
+.ok {
+    background-color: #004400;
+}
+.error {
+    background-color: #440000;
 }
 /* search and replace */
 
@@ -355,6 +361,26 @@ UL.jqueryFileTree A:hover {
     background-color: #080;
     color: #FFF;
     font-weight: bold;
+}
+#syntaxes {
+    background-color: #DDD;
+    color: #000;
+}
+#padsearch {
+    background-color: #DDD;
+    color: #000;
+}
+#padreplace {
+    background-color: #DDD;
+    color: #000;
+}
+#search {
+    background-color: #DDD;
+    color: #000;
+}
+#offer {
+    background-color: #DDD;
+    color: #000;
 }
 /* default text color*/
 

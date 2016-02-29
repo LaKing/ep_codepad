@@ -9,7 +9,8 @@ var settings = require('ep_etherpad-lite/node/utils/Settings');
 var abs = '/tmp/';
 // theme from settings
 var theme = 'Default';
-
+var cif = '';
+var play_url = '/play';
 
 if (settings.ep_codepad) {
     if (settings.ep_codepad.project_path) {
@@ -17,6 +18,12 @@ if (settings.ep_codepad) {
     }
     if (settings.ep_codepad.theme) {
         theme = settings.ep_codepad.theme;
+    }
+    if (settings.ep_codepad.installation_folder) {
+        cif = settings.ep_codepad.installation_folder;
+    }
+    if (settings.ep_codepad.play_url) {
+        play_url = settings.ep_codepad.play_url;
     }
 }
 
@@ -49,6 +56,8 @@ exports.expressCreateFileTreeServer = function(hook_name, args, cb) {
     args.app.get('/files', function(req, res) {
         res.send(eejs.require("ep_codepad/templates/filetree.ejs", {
             abs: abs,
+            cif: cif,
+            play_url: play_url,
             theme: theme
         }));
     });
@@ -64,14 +73,14 @@ exports.expressCreateFileTreeServer = function(hook_name, args, cb) {
                 var files = fs.readdirSync(abs + dir);
                 files.forEach(function(f) {
                     var ff = dir + f;
-                    if (canRead(abs + ff)) {
+                    if (canRead(abs + ff) && f.charAt(0) !== '.') {
                         var stats = fs.statSync(abs + ff);
                         var ft = f;
                         if (ft.length > 25) ft = f.substring(0, 22) + "...";
                         if (stats.isDirectory()) {
-                            r += '<li class="directory collapsed"><a href="/files" rel="' + ff + '/" title="' + ff + '">' + ft + '</a></li>';
+                            r += '<li class="directory collapsed"><a href="' + cif + '/files" rel="' + ff + '/" title="' + ff + '">' + ft + '</a></li>';
                         } else {
-                            r += '<li class="file ext_' + ext.getBrush(f) + '"><a href="/v' + ff + '" rel=' + ff + ' title="' + ff + '">' + ft + '</a></li>';
+                            r += '<li class="file ext_' + ext.getBrush(f) + '"><a href="' + cif + '/v' + ff + '" rel=' + ff + ' title="' + ff + '">' + ft + '</a></li>';
                         }
                     }
                 });
@@ -86,3 +95,4 @@ exports.expressCreateFileTreeServer = function(hook_name, args, cb) {
         res.send(r);
     });
 };
+// --

@@ -10,12 +10,17 @@ var abs = '/tmp/';
 // theme from settings
 var theme = 'Default';
 
+var cif = '';
+
 if (settings.ep_codepad) {
     if (settings.ep_codepad.project_path) {
         abs = settings.ep_codepad.project_path;
     }
     if (settings.ep_codepad.theme) {
         theme = settings.ep_codepad.theme;
+    }
+    if (settings.ep_codepad.installation_folder) {
+        cif = settings.ep_codepad.installation_folder;
     }
 }
 
@@ -60,6 +65,7 @@ exports.expressCreateFileStaticViewServer = function(hook_name, args, cb) {
                         code: "Error! No such file.",
                         file: file,
                         theme: theme,
+                        cif: cif,
                         brush: "plain"
 
                     }));
@@ -72,6 +78,7 @@ exports.expressCreateFileStaticViewServer = function(hook_name, args, cb) {
                 code: "FileStaticViewServer - Error! " + e,
                 file: file,
                 theme: theme,
+                cif: cif,
                 brush: "plain"
             }));
         }

@@ -48,7 +48,10 @@ Install with npm or git, create your settings.json and restart etherpad after in
   },
   "ep_hash_auth": {
     "hash_typ": "sha512",
-    "hash_digest": "hex",
+    "hash_dig": "hex",
+    "hash_dir": "/var/codepad/users",
+    "hash_ext": "/.hash",
+    "hash_adm": true,
     "allow_namechange": "true"
   },
   "users": {
@@ -56,15 +59,16 @@ Install with npm or git, create your settings.json and restart etherpad after in
     "Al":  {"hash": "c7r2..b72c","is_admin": true, "color": "#2244ff"}
   },
 ```
-An optional parameter, installation_folder has been added to support etherpad installations in a subfolder-path in the URI.  
+It is recommended to run codepad on a VE or VM, with its own subdomain.
+An optional parameter, installation_folder has been added to support etherpad installations in a subfolder-path in the URI, but this feature has not been tested at all.
+Please refer to issue #6 on https://github.com/LaKing/ep_codepad
 
-Codpad is NOT tested on and not designed for non-linux operating systems, functionality is partially dependant on linux commands and filesystem properties.
+Codepad is NOT tested on and not designed for non-linux operating systems, functionality is partially dependant on linux commands and filesystem properties.
 Etherpad / mariadb has limitations on folder/file length - there is a patch to double the allowed 50 characters if you insist on using long path and filenames. 
-Edit etherpad-lite/src/node/db/PadManager.js change '{1,50}$/.test(padId);' to '{1,100}$/.test(padId);'
+Patch etherpad-lite/src/node/db/PadManager.js change '{1,50}$/.test(padId);' to '{1,100}$/.test(padId);'
 
-Error messages from pads might be hard to see with the tree-view on a dark-backgrounded theme.
-
-Codepad is designed to work together with fedora srvctl utility, an LXC container and virtual server farm managment tool. It is recommended to run codepad on a VE or VM.
+Author notes:
+Codepad is designed to work together with my fedora srvctl utility, an LXC container and virtual server farm managment tool. 
 https://github.com/LaKing/srvctl
 
 Please feel free to send comments, bug-reports, ...

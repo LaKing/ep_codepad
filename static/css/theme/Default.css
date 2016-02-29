@@ -2,8 +2,13 @@
 
 #status {
     color: #000;
-    background-color: #FFAAAA;
     font-size: 2em;
+}
+.ok {
+    background-color: #AAFFAA;
+}
+.error {
+    background-color: #FFAAAA;
 }
 /* search and replace */
 
@@ -65,23 +70,43 @@ UL.jqueryFileTree A:hover {
 /* hint and curly braces */
 
 .warn {
-    background-color: #511;
+    background-color: #FAA;
 }
 .missing {
-    background-color: #600;
+    background-color: #FAA;
 }
 .active {
     background-color: #000;
-    color: #FFA;
+    color: #004;
     font-weight: bold;
 }
 .padsearch_line {
-    background-color: #008;
+    background-color: #AAF;
 }
 .padsearch_term {
-    background-color: #080;
-    color: #FFF;
+    background-color: #AFA;
+    color: #000;
     font-weight: bold;
+}
+#syntaxes {
+    background-color: #DDD;
+    color: #000;
+}
+#padsearch {
+    background-color: #DDD;
+    color: #000;
+}
+#padreplace {
+    background-color: #DDD;
+    color: #000;
+}
+#search {
+    background-color: #DDD;
+    color: #000;
+}
+#offer {
+    background-color: #DDD;
+    color: #000;
 }
 /* default text color*/
 

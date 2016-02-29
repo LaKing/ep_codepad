@@ -1,6 +1,7 @@
 // to quick-run files a single click on a filetree element
-exports.expressCreateFileRunServer = function(hook_name, args, cb) {};
-/*  -- UNDER CONSTRUCTION --
+//exports.expressCreateFileRunServer = function(hook_name, args, cb) {};
+//  -- UNDER CONSTRUCTION --
+/*
 var eejs = require('ep_etherpad-lite/node/eejs');
 var fs = require('fs');
 var settings = require('ep_etherpad-lite/node/utils/Settings');
@@ -19,6 +20,7 @@ var theme = 'Default';
 var run_cmd_prefix = '';
 var run_cmd_postfix = '';
 
+var cif = '';
 
 if (settings.ep_codepad) {
     if (settings.ep_codepad.project_path) {
@@ -27,15 +29,18 @@ if (settings.ep_codepad) {
     if (settings.ep_codepad.theme) {
         theme = settings.ep_codepad.theme;
     }
+    if (settings.ep_codepad.installation_folder) {
+        cif = settings.ep_codepad.installation_folder;
+    }
 }
 
 
 //https://github.com/broofa/node-mime
 var mime = require('mime');
-
+*/
 
 exports.expressCreateFileRunServer = function(hook_name, args, cb) {
-
+    /*
     args.app.get('/r/*', function(req, res) {
 
         // file path slice last character index
@@ -53,38 +58,7 @@ exports.expressCreateFileRunServer = function(hook_name, args, cb) {
         var file = decodeURIComponent(fps);
         var path = abs + '/' + file;
 
-        /*     // SSH val más user nevén?
-        var Client = require('ssh2').Client;
-        var conn = new Client();
-        conn.on('ready', function() {
-            console.log('Client :: ready');
-            conn.exec('echo ' + path, function(err, stream) {
-                if (err) throw err;
-                stream.on('close', function(code, signal) {
-                    console.log('Stream :: close :: code: ' + code + ', signal: ' + signal);
-                    conn.end();
-                }).on('data', function(data) {
-                    console.log('STDOUT: ' + data);
-                }).stderr.on('data', function(data) {
-                    console.log('STDERR: ' + data);
-                });
-            });
-        }).connect({
-            host: 'localhost',
-            port: 22,
-            username: 'test',
-            privateKey: require('fs').readFileSync('/srv/id_rsa')
-        });
-        
-        res.send(eejs.require("ep_codepad/templates/view.ejs", {
-            uri: "/p/" + req.url.substring(3),
-            code: "This function might be available in the next release,..",
-            file: file + " ERROR " + cmd + " " + path,
-            theme: theme,
-            brush: "plain"
-        }));
-        //Vagy node nevében?
-        /*  -- UNDER CONSTRUCTION -- 
+        //  -- UNDER CONSTRUCTION -- 
 
         try {
             fs.exists(path, function(exists) {
@@ -119,6 +93,7 @@ exports.expressCreateFileRunServer = function(hook_name, args, cb) {
                                         code: display,
                                         file: file + " OK",
                                         theme: theme,
+                                        cif: cif,
                                         brush: "plain"
                                     }));
                                 } else {
@@ -127,6 +102,7 @@ exports.expressCreateFileRunServer = function(hook_name, args, cb) {
                                         code: display,
                                         file: file + " ERROR " + cmd + " " + path,
                                         theme: theme,
+                                        cif: cif,
                                         brush: "plain"
                                     }));
                                 }
@@ -137,6 +113,7 @@ exports.expressCreateFileRunServer = function(hook_name, args, cb) {
                                 code: "Error! No interpreter assigned for " + fxt,
                                 file: file,
                                 theme: theme,
+                                cif: cif,
                                 brush: "plain"
                             }));
                         }
@@ -155,6 +132,7 @@ exports.expressCreateFileRunServer = function(hook_name, args, cb) {
                         code: "Error! No such file.",
                         file: file,
                         theme: theme,
+                        cif: cif,
                         brush: "plain"
                     }));
                 }
@@ -166,10 +144,13 @@ exports.expressCreateFileRunServer = function(hook_name, args, cb) {
                 code: "FileRunServer - Error! " + e,
                 file: file,
                 theme: theme,
+                cif: cif,
                 brush: "plain"
             }));
         }
-    });
-};
 
-*/
+    });
+    */
+};
+//
+//

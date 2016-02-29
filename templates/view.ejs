@@ -5,40 +5,87 @@
     <title>
         <%=file%>
     </title>
-    <script type="text/javascript" src="../static/plugins/ep_codepad/static/js/jquery.js"></script>
-    <script type="text/javascript" src="../static/plugins/ep_codepad/static/js/cookies.js"></script>
-    <script src="../static/plugins/ep_codepad/static/js/highlight.codepad.js"></script>
+    <script type="text/javascript" src="<%=cif%>/static/plugins/ep_codepad/static/js/jquery.js"></script>
+    <script type="text/javascript" src="<%=cif%>/static/plugins/ep_codepad/static/js/cookies.js"></script>
+    <script src="<%=cif%>/static/plugins/ep_codepad/static/js/highlight.codepad.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=cif%>/static/plugins/ep_codepad/static/css/view.css">
     <script type="text/javascript">
+        function getSelectionHtml() {
+            var html = "";
+            if (typeof window.getSelection != "undefined") {
+                var sel = window.getSelection();
+                if (sel.rangeCount) {
+                    var container = document.createElement("div");
+                    for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+                        container.appendChild(sel.getRangeAt(i).cloneContents());
+                    }
+                    html = container.innerHTML;
+                }
+            } else if (typeof document.selection != "undefined") {
+                if (document.selection.type == "Text") {
+                    html = document.selection.createRange().htmlText;
+                }
+            }
+            return html;
+        }
+
         if ('<%=uri%>' != '#') {
             if (document.addEventListener) {
                 document.addEventListener('contextmenu', function(e) {
-                    window.location.assign("<%=uri%>");
-                    e.preventDefault();
+                    console.log(e.target.innerHTML);
+                    console.log(getSelectionHtml());
+                    // if there is no selection right click just opens the document for editing
+                    if (getSelectionHtml().length === 0) {
+                        window.location.assign("<%=uri%>");
+                        e.preventDefault();
+                    }
                 }, false);
             } else {
                 document.attachEvent('oncontextmenu', function() {
-                    window.location.assign("<%=uri%>");
-                    window.event.returnValue = false;
+                    if (getSelectionHtml().length === 0) {
+                        window.location.assign("<%=uri%>");
+                        window.event.returnValue = false;
+                    }
                 });
             }
         }
 
         var theme = '<%=theme%>';
-        if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
+        if (getCookie("codepad_theme") !== '') theme = getCookie("codepad_theme");
 
-        document.write('<link rel="stylesheet" type="text/css" href="../static/plugins/ep_codepad/static/css/theme/' + theme + '.css">');
+        document.write('<link rel="stylesheet" type="text/css" href="<%=cif%>/static/plugins/ep_codepad/static/css/theme/' + theme + '.css">');
 
         if ('<%=brush%>' != 'plain')
             $(document).ready(function() {
-                $('pre code').each(function(i, block) {
-                    hljs.highlightBlock(block);
+
+                // turn lines into pre blocks
+                document.getElementById('view').innerHTML = '<pre>' + document.getElementById('view').innerHTML.replace(/(?:\r\n|\r|\n)/g, '</pre><pre>') + '</pre>';
+
+                // highlight all lines - line by line
+                var hl;
+                var hl_stack = '';
+                $('pre').each(function(i, block) {
+                    hl = hljs.highlight('<%=brush%>', $(this).text(), true, hl_stack);
+                    if (hl.top) hl_stack = hl.top;
+                    $(this).html(hl.value);
+                });
+
+                // bind the click event to each line
+                var i = 1;
+                var lines = $("#view").contents();
+                $.each(lines, function(n, elem) {
+                    $(this).bind("click", {
+                        line: n
+                    }, function(event) {
+                        window.location.assign("<%=uri%>?line=" + (event.data.line + 1));
+                    });
                 });
             });
     </script>
 </head>
 
 <body>
-    <pre><code class="<%=brush%>"><%=code%></code></pre> 
+    <code id='view' class="<%=brush%>" style="'margin': 0, 'padding': 0"><%=code%></code>
 </body>
 
 </html>

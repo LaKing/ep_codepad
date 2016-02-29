@@ -1,5 +1,6 @@
-/// padsearch variables
+// /static/plugins/ep_codepad/static/js/padsearch.js
 
+/// padsearch variables
 // padsearch linecount - use read-only outside of this file
 pslc = 0;
 // padsearch charactercount - use read-only outside of this file
@@ -224,6 +225,12 @@ function padsearchReplaceAction(ace) {
     lpslinetext = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").contents().eq(pslc - 1).text();
     padsearchAction(ace, true);
 
+    var message = {};
+    message.type = 'EDIT';
+    message.padId = pad.getPadId();
+    message.userId = pad.getUserId();
+    message.line = pslc;
+    pad.collabClient.sendMessage(message);
 
 }
 

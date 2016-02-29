@@ -96,6 +96,8 @@ colors used are:
 #'$colorF'
 #'$colorG'
 #'$colorH'
+background
+#'$BKG'
 */
 
 body {
@@ -383,9 +385,14 @@ body {
 }
 
 #status {
- color: #FFFFFF;
- background-color: #440000;
- font-size: 2em;
+    color: #FFFFFF;
+    font-size: 2em;
+}
+.ok {
+    background-color: #004400;
+}
+.error {
+    background-color: #440000;
 }
 /* search and replace */
 
@@ -463,6 +470,19 @@ UL.jqueryFileTree A:hover {
     background-color: #080;
     color: #FFF;
     font-weight: bold;
+}
+
+#syntaxes {
+    background-color: #'$BKG';
+    color: #'$colorA';
+}
+#padsearch {
+    background-color: #'$BKG';
+    color: #'$colorA';
+}
+#padreplace {
+    background-color: #'$BKG';
+    color: #'$colorA';
 }
 
 /* selection */

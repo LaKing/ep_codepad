@@ -23,7 +23,7 @@ echo $cv" > "$nv
 
 echo '{
     "name": "ep_codepad",
-    "description": "Turn etherpad '$version' into a realtime collaborative development environment",
+    "description": "Turn etherpad into a realtime collaborative development environment",
     "keywords": [
         "sourcecode",
             "edit",
@@ -49,12 +49,9 @@ echo '{
         "jshint": ">= 2.5.0",
         "log4js": ">= 0.5.x",
         "regexp-quote": "*",
-        "mime": ">= 1.2.11"
-    },
-     "peerDependencies": {    
-         "ep_adminpads": ">=0.0.9",
-         "ep_cursortrace": ">=2.0.14"         
-    },
+        "mime": ">= 1.2.11",
+        "bcrypt": "*"
+    }
     "devDependencies": {},
     "optionalDependencies": {},
     "engines": {

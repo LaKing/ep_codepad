@@ -27,7 +27,7 @@ exports.aceEditEvent = function(hook_name, args, cb) {
     if (typeof args.callstack.observedSelection === 'undefined') {
 
         // Trace Curly Braces
-        if (shBrush === 'js')
+        if (shBrush === 'js' || shBrush === 'xml')
         // this delay is necessery to get the really CURRENT current-caret-position, after the edit, and not the previous state.
             setTimeout(function() {
             // Current caret line and Curent caret character

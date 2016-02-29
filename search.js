@@ -10,6 +10,7 @@ var settings = require('ep_etherpad-lite/node/utils/Settings');
 var abs = '/tmp/';
 // theme from settings
 var theme = 'Default';
+var cif = '';
 
 if (settings.ep_codepad) {
     if (settings.ep_codepad.project_path) {
@@ -17,6 +18,9 @@ if (settings.ep_codepad) {
     }
     if (settings.ep_codepad.theme) {
         theme = settings.ep_codepad.theme;
+    }
+    if (settings.ep_codepad.installation_folder) {
+        cif = settings.ep_codepad.installation_folder;
     }
 }
 
@@ -71,6 +75,18 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
                 value.setText(text.replace(rex, replace_term));
 
                 padMessageHandler.updatePadClients(value, cb);
+                var msg = {
+                    type: 'COLLABROOM',
+                    data: {
+                        type: "CUSTOM",
+                        payload: {
+                            padId: replace_file,
+                            from: "codepad",
+                            errors: "Replaced " + search_term + " to " + replace_term
+                        }
+                    }
+                };
+                padMessageHandler.handleCustomObjectMessage(msg, undefined, cb);
             });
 
         var execterm = '';
@@ -84,7 +100,7 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
             //exec(' grep -rnw ' + abs + ' -e "' + search_term + '"', function(err, data, stderr) {
 
             if (err) {
-                //console.log('sr-err: ', err);
+                console.log('CODEPAD SEARCH sr-err: ', err);
 
             }
 
@@ -98,14 +114,14 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
             // we assemble the html here and send it directly. 
             var res_send = ''; //'
             res_send += '<!DOCTYPE html><head><title>log</title>';
-            res_send += '<script src="../static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
-            res_send += '<link href="../static/plugins/ep_codepad/static/css/logcolors.css" rel="stylesheet" type="text/css" media="screen" />';
+            res_send += '<script src="' + cif + '/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
+            res_send += '<link href="' + cif + '/static/plugins/ep_codepad/static/css/logcolors.css" rel="stylesheet" type="text/css" media="screen" />';
             res_send += '<script type="text/javascript">';
             res_send += 'window.onload=toBottom;';
             res_send += 'function toBottom(){window.scrollTo(0, document.body.scrollHeight);}';
             res_send += 'var theme = "' + theme + '";';
             res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
-            res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="../static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
+            res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="' + cif + '/static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
             res_send += '</script></head><body>';
 
             var lines = data.split('\n');
@@ -118,6 +134,7 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
 
             // current folder+file
             var c = '';
+            var link = '';
 
             for (var i = i_s; i < lines.length; i++) {
                 // current line
@@ -139,7 +156,8 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
                 var no = parseInt(l.substring(v + 1, v + w + 2));
 
                 // line indicator
-                var tt = '<b><a href="/p/' + ff + '?line=' + no + '" style="text-decoration: none">' + zeroPad(no, 5) + '</a> </b>';
+                link = cif + '/p/' + ff + '?line=' + no;
+                var tt = '<b><a href="' + link + '" onclick="JavaScript:top.document.getElementById(\'fileView\').src=\'' + link + '\'" style="text-decoration: none">' + zeroPad(no, 5) + '</a> </b>';
 
                 //current text
                 var re = new RegExp(search_term, 'g');
@@ -147,10 +165,11 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
                 var t = l.substring(v + w + 2, 250).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(re, sw);
 
                 if (c !== ff) {
-                    res_send += '<br /><a href="/v/' + ff + '">' + ff.substring(0, g) + '<b>' + ff.substring(g) + '</b></a> - ' + sw;
+                    link = cif + '/v/' + ff;
+                    res_send += '<br /><a href="' + link + '" onclick="JavaScript:top.document.getElementById(\'fileView\').src=\'' + link + '\'">' + ff.substring(0, g) + '<b>' + ff.substring(g) + '</b></a> - ' + sw;
 
                     // offer_term the replace action
-                    if (hasOffer) res_send += ' - <a href="/sr?&search=' + search_term + '&replace=' + offer_term + '&file=' + ff + '">REPLACE ALL TO:</a> <span class="term">' + offer_term + '</span>';
+                    if (hasOffer) res_send += ' - <a href="' + cif + '/sr?&search=' + search_term + '&replace=' + offer_term + '&file=' + ff + '">REPLACE ALL TO:</a> <span class="term">' + offer_term + '</span>';
 
                     res_send += '<br /><br />' + tt + t + '<br />';
                     c = ff;
@@ -164,6 +183,8 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
             if (lines.length > 350) {
                 res_send += " Truncated.";
             }
+            // ITT TARTUNK EZ A JÓ ... erre kell cserélni a sima herefeket
+            //res_send += '<a href="/p/test.html" onclick="JavaScript:top.document.getElementById(\'fileView\').src=\'/p/test.html\'">TEST</a>';
 
             res_send += '</div></body></html>';
             res.send(res_send);

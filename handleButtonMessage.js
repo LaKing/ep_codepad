@@ -54,6 +54,8 @@ var send_ok = function(padid) {
     padMessageHandler.handleCustomObjectMessage(ok_msg, undefined, cb);
 };
 
+
+
 exports.handleMessage = function(hook_name, context, callback) {
 
     if (context.message && context.message.data) {
@@ -67,13 +69,34 @@ exports.handleMessage = function(hook_name, context, callback) {
                 console.log("CODEPAD MSG: " + msg + " " + uid + " " + name);
             } else console.log("CODEPAD MSG: " + msg + " " + uid + " ERR getting name.");
         });
+        // proxy for editing events - for highlighting lines of other users
+        if (msg == "EDIT") {
+
+            console.log("EDIT EVENT RECIEVED " + context.message.data.line);
+
+            var replymsg = {
+                type: 'COLLABROOM',
+                data: {
+                    type: "CUSTOM",
+                    payload: {
+                        padId: padid,
+                        userId: uid,
+                        line: context.message.data.line,
+                        from: "ace"
+                    }
+                }
+            };
+            padMessageHandler.handleCustomObjectMessage(replymsg, undefined, cb);
+
+        }
 
         if (msg == msg_read) {
             padManager.getPad(padid, null, function(gperr, pmpad) {
                 if (gperr === null) {
                     var path = project_path + padid;
                     // remove newline character from the end of the string.
-                    var text = pmpad.atext.text.slice(0, -1);
+                    //var text = pmpad.atext.text.slice(0, -1);
+                    var text = pmpad.atext.text;
 
                     fs.readFile(path, function(frerr, data) {
                         if (frerr) {
@@ -95,7 +118,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                         } else {
                             var adat = data.toString();
                             if (adat !== text) {
-                        	console.log("READ from filesystem. " + path);
+                                console.log("READ from filesystem. " + path);
                                 pmpad.setText(adat);
                                 padMessageHandler.updatePadClients(pmpad, cb);
                             }
@@ -193,7 +216,9 @@ exports.handleMessage = function(hook_name, context, callback) {
 
                             // the beutified or the raw text of the pad
                             // remove newline character from the end of the string.
-                            var text = pmpad.atext.text.slice(0, -1);
+                            //var text = pmpad.atext.text.slice(0, -1);
+                            var text = pmpad.atext.text;
+
                             var beat = text;
 
                             // if .js file beautify
@@ -225,7 +250,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                                     var lines = text.split('\n');
                                     beat = '';
 
-                                    for (var j = 0; j < lines.length - 1; j++) {
+                                    for (var j = 0; j < lines.length; j++) {
                                         //code here using lines[i] which will give you each line
                                         if (check(jshint.errors, j, lines[j].length))
                                             beat += lines[j] + ';' + '\n';
@@ -287,13 +312,27 @@ exports.handleMessage = function(hook_name, context, callback) {
                                 padMessageHandler.updatePadClients(pmpad, cb);
                             }
 
-                            // If we write an empty file -- we actually will delete the file
-                            if (beat === '') {
+                            // If we write an empty file -- we actually will delete the file // but not delete pad
+                            if (text.length <= 1 && text.charCodeAt(0) == 10) {
+
                                 if (fs.existsSync(path)) {
                                     fs.unlinkSync(path);
                                     console.log("CODEPAD delete file " + path);
+
+                                    err_msg = {
+                                        type: 'COLLABROOM',
+                                        data: {
+                                            type: "CUSTOM",
+                                            payload: {
+                                                padId: padid,
+                                                from: "codepad",
+                                                errors: "File deleted."
+                                            }
+                                        }
+                                    };
+                                    padMessageHandler.handleCustomObjectMessage(err_msg, undefined, cb);
                                 }
-                                send_ok(padid);
+
                             } else
                             // WRITE to the FILE
                                 fs.writeFile(path, beat, function(err) {
@@ -362,5 +401,6 @@ exports.handleMessage = function(hook_name, context, callback) {
                     "character": 5,
                     "scope": "(main)",
                     "reason": "Missing semicolon."
-
-           *****/
+*/
+// 
+//

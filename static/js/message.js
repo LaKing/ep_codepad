@@ -34,10 +34,11 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
 
     var hint = '';
     var hint_title = '';
+    var cls = '';
 
     if (context.payload.from == 'jshint') {
         if (context.payload.errors) {
-
+            cls = "error";
             var status = false;
             var idb = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody');
 
@@ -78,6 +79,7 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
 
     if (context.payload.from == 'fs') {
         if (context.payload.errors) {
+            cls = "error";
             console.log(context.payload.padid + " fs: Error! " + JSON.stringify(context.payload.errors));
 
             if (context.payload.errors.errno === 34) {
@@ -91,6 +93,7 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
 
     if (context.payload.from == 'exec') {
         if (context.payload.errors) {
+            cls = "error";
             console.log(context.payload.padid + " exec: Error! " + JSON.stringify(context.payload.errors));
             hint += 'Push action failed! ' + JSON.stringify(context.payload.errors);
         }
@@ -98,6 +101,7 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
 
     if (context.payload.from == 'push') {
         if (context.payload.errors) {
+            cls = "error";
             console.log(context.payload.padid + " push: Blocked by " + context.payload.errors);
             if (context.payload.user == pad.getUserId()) hint += 'Push blocked by ' + context.payload.errors;
             else {
@@ -108,9 +112,15 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
     }
 
     if (context.payload.from == 'codepad') {
-        hint = "OK!";
-        $('#status').addClass("ok");
 
+
+        if (context.payload.errors !== null) {
+            hint = "OK - " + context.payload.errors;
+            cls = "error";
+        } else {
+            hint = "OK!";
+            cls = "ok";
+        }
         setTimeout(function() {
             $("#status").html('');
             $("#status").removeClass("ok");
@@ -118,10 +128,8 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
         }, 5000);
 
 
-    } else $('#status').addClass("error");
-
+    } //else $('#status').addClass("error");
+    if (cls !== '') $('#status').addClass(cls);
     if (hint !== '') $('#status').html(hint);
     if (hint_title !== '') $('#status').prop('title', hint_title);
-
-    push_by_this_user = false;
 };

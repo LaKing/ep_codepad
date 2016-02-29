@@ -1,6 +1,6 @@
 {
     "name": "ep_codepad",
-    "description": "Turn etherpad 1.5.6 into a realtime collaborative development environment",
+    "description": "Turn etherpad into a realtime collaborative development environment",
     "keywords": [
         "sourcecode",
             "edit",
@@ -20,18 +20,15 @@
     "email": "LaKing@D250.hu",
     "homepage": "http://www.D250.hu"
     },
-    "version": "1.0.7",
+    "version": "1.1.9",
     "dependencies": {
         "js-beautify": ">=1.5.0",
         "jshint": ">= 2.5.0",
         "log4js": ">= 0.5.x",
         "regexp-quote": "*",
-        "mime": ">= 1.2.11"
-    },
-     "peerDependencies": {    
-         "ep_adminpads": ">=0.0.9",
-         "ep_cursortrace": ">=2.0.14"         
-    },
+        "mime": ">= 1.2.11",
+        "bcrypt": "*"
+    }
     "devDependencies": {},
     "optionalDependencies": {},
     "engines": {

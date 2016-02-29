@@ -112,6 +112,13 @@
                 "aceEditorCSS": "ep_codepad/static/js/themes:aceEditorCSS",
                 "aceInitInnerdocbodyHead": "ep_codepad/static/js/themes:aceInitInnerdocbodyHead"
             }
+        }, {
+            "name": "ep_codepad_cursortrace",
+            "client_hooks": {
+                "handleClientMessage_CUSTOM": "ep_codepad/static/js/cursortrace:handleClientMessage_CUSTOM",
+                "aceKeyEvent": "ep_codepad/static/js/cursortrace:aceKeyEvent"
+            }
+
         }
 
     ]
