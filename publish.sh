@@ -51,7 +51,7 @@ echo '{
         "regexp-quote": "*",
         "mime": ">= 1.2.11",
         "bcrypt": "*"
-    }
+    },
     "devDependencies": {},
     "optionalDependencies": {},
     "engines": {
