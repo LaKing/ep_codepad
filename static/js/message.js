@@ -64,20 +64,21 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
                         if (typeof div.attr("title") == "undefined") div.attr("title", err.reason);
                     }, 1000);
 
-                    // setTimeout(function() {
-                    // clear
-                    //  $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody').find("*").removeClass('warn');
-                    //  // and remove the attr title
-                    // }, 10000);
-
                     // more detailed if you wish
                     //console.info(" ! " + padid + ":" + err.line + ":" + err.character + " " + err.reason + " !" + err.scope + "|" + err.evidence + "|" + err.id + "|" + err.code + "|" + err.raw);
                 }
             });
         }
     }
+    if (context.payload.from === 'check') {
+        if (context.payload.errors) {
+            cls = "ok";
+            console.log(JSON.stringify(context.payload.errors));
+            hint += JSON.stringify(context.payload.errors);
+        }
+    }
 
-    if (context.payload.from == 'fs') {
+    if (context.payload.from === 'fs') {
         if (context.payload.errors) {
             cls = "error";
             console.log(context.payload.padid + " fs: Error! " + JSON.stringify(context.payload.errors));
@@ -91,7 +92,7 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
         }
     }
 
-    if (context.payload.from == 'exec') {
+    if (context.payload.from === 'exec') {
         if (context.payload.errors) {
             cls = "error";
             console.log(context.payload.padid + " exec: Error! " + JSON.stringify(context.payload.errors));
@@ -99,7 +100,7 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
         }
     }
 
-    if (context.payload.from == 'push') {
+    if (context.payload.from === 'push') {
         if (context.payload.errors) {
             cls = "error";
             console.log(context.payload.padid + " push: Blocked by " + context.payload.errors);
@@ -111,7 +112,7 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
         }
     }
 
-    if (context.payload.from == 'codepad') {
+    if (context.payload.from === 'codepad') {
 
 
         if (context.payload.errors !== null) {
@@ -128,8 +129,11 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
         }, 5000);
 
 
-    } //else $('#status').addClass("error");
+    }
+
     if (cls !== '') $('#status').addClass(cls);
     if (hint !== '') $('#status').html(hint);
     if (hint_title !== '') $('#status').prop('title', hint_title);
+
+    push_by_this_user = false;
 };

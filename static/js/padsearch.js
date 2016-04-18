@@ -1,5 +1,3 @@
-// /static/plugins/ep_codepad/static/js/padsearch.js
-
 /// padsearch variables
 // padsearch linecount - use read-only outside of this file
 pslc = 0;
@@ -139,14 +137,19 @@ exports.postAceInit = function(hook, context) {
     // here we scroll and highlight the line if we get it on a get-parameter    
     if (window.location.search !== '') {
 
+        var params = window.location.search.replace("amp;", "");
+
         var line = 0;
+        var char = 0;
         var tmp = [];
 
         // substract the linenumber info
-        var items = location.search.substr(1).split("&");
+        var items = params.substr(1).split("&");
         for (var index = 0; index < items.length; index++) {
             tmp = items[index].split("=");
             if (tmp[0] === 'line') line = Number(tmp[1]); //decodeURIComponent(tmp[1]);
+            if (tmp[0] === 'char') char = Number(tmp[1]);
+            //if (tmp[0] === 'amp;char') char = Number(tmp[1]);
         }
 
         if (line === 0) return false;
@@ -157,6 +160,13 @@ exports.postAceInit = function(hook, context) {
         // and put some highlight on it - with a delay
         setTimeout(function() {
             $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").contents().eq(line - 1).addClass("padsearch_line");
+
+            if (char !== 0)
+                context.ace.callWithAce(function(ace) {
+                    // Set the caret position
+                    ace.ace_performSelectionChange([line - 1, char], [line - 1, char], false);
+                }, 'padsearch_callstack', true);
+
         }, 1000);
     }
 

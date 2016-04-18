@@ -27,33 +27,6 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
         return true;
     }
 
-    // firefox:  "keydown 113 0 113" "keypress 113 0 0" "keyup 113 0 113"
-    // chrome: keydown 113 0 113 keyup 113 0 113 
-
-    ///////// experimenting here - how to set caret to a position ??????
-    if (keyCode === 120 && charCode === 0 && type == check) {
-
-        line = args.editorInfo.ace_caretLine();
-        char = args.editorInfo.ace_caretColumn();
-
-        var rep = args.editorInfo.ace_getRep();
-        rep.selStart = [10, 10];
-        rep.selEnd = [10, 11];
-        rep.selFocusAtStart = true;
-
-
-        console.log("F9 keypress @ " + line + ':' + char + ' rep: ' + JSON.stringify(rep));
-
-        //args.editorInfo.ace_performSelectionChange([10, 10], [10, 10], true);
-
-        //args.editorInfo.ace_setProperty('caretLine', 10);
-        //args.editorInfo.ace_callWithAce(function(ace) {
-        //    console.log('callwithace');
-        //    ace.ace_performSelectionChange([10, 10], [10, 11]);
-        //});
-
-    }
-    //////////
 
     // if F2 was pressed
     if (keyCode === 113 && charCode === 0 && type == check) {
@@ -63,7 +36,7 @@ exports.aceKeyEvent = function(hook_name, args, cb) {
         message.type = 'WRITE_TO_FILESYSTEM';
         message.padId = pad.getPadId();
         pad.collabClient.sendMessage(message);
-
+        push_by_this_user = true;
         return true;
     }
 

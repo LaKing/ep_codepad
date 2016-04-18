@@ -102,7 +102,7 @@ body {
     border-top: 1px solid #6D6E6D;
     border-right: 1px solid #494B4C;
     border-bottom: 1px solid #494B4C;
-    color: #3F4143;
+    color: #FFF !important;
 }
 #myusernameform .editempty {
     background: #FCFAEE;

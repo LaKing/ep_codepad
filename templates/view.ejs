@@ -32,8 +32,8 @@
         if ('<%=uri%>' != '#') {
             if (document.addEventListener) {
                 document.addEventListener('contextmenu', function(e) {
-                    console.log(e.target.innerHTML);
-                    console.log(getSelectionHtml());
+                    //console.log(e.target.innerHTML);
+                    //console.log(getSelectionHtml());
                     // if there is no selection right click just opens the document for editing
                     if (getSelectionHtml().length === 0) {
                         window.location.assign("<%=uri%>");
@@ -65,20 +65,24 @@
                 var hl;
                 var hl_stack = '';
                 $('pre').each(function(i, block) {
-                    hl = hljs.highlight('<%=brush%>', $(this).text(), true, hl_stack);
-                    if (hl.top) hl_stack = hl.top;
-                    $(this).html(hl.value);
+                    if ($(this).text().length === 0) $(this).replaceWith('<br>');
+                    else {
+                        hl = hljs.highlight('<%=brush%>', $(this).text(), true, hl_stack);
+                        if (hl.top) hl_stack = hl.top;
+                        $(this).html(hl.value);
+                    }
                 });
 
                 // bind the click event to each line
                 var i = 1;
                 var lines = $("#view").contents();
-                $.each(lines, function(n, elem) {
+                $.each(lines, function(n, ln) {
                     $(this).bind("click", {
                         line: n
                     }, function(event) {
-                        window.location.assign("<%=uri%>?line=" + (event.data.line + 1));
+                        window.location.assign("<%=uri%>?line=" + (event.data.line + 1) + "&char=" + Math.floor((event.pageX - 30) / 7));
                     });
+
                 });
             });
     </script>

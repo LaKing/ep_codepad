@@ -21,6 +21,7 @@ if (!settings.ep_codepad) {
 var msg_push = 'PUSH_TO_FILESYSTEM';
 var msg_write = 'WRITE_TO_FILESYSTEM';
 var msg_read = 'READ_FROM_FILESYSTEM';
+var msg_check = 'CHECK_ON_FILESYSTEM';
 
 var err_msg = {};
 
@@ -70,7 +71,7 @@ exports.handleMessage = function(hook_name, context, callback) {
             } else console.log("CODEPAD MSG: " + msg + " " + uid + " ERR getting name.");
         });
         // proxy for editing events - for highlighting lines of other users
-        if (msg == "EDIT") {
+        if (msg === "EDIT") {
 
             console.log("EDIT EVENT RECIEVED " + context.message.data.line);
 
@@ -89,8 +90,45 @@ exports.handleMessage = function(hook_name, context, callback) {
             padMessageHandler.handleCustomObjectMessage(replymsg, undefined, cb);
 
         }
+        if (msg === msg_check) {
+            padManager.getPad(padid, null, function(gperr, pmpad) {
+                if (gperr === null) {
+                    var path = project_path + padid;
+                    // remove newline character from the end of the string.
+                    //var text = pmpad.atext.text.slice(0, -1);
+                    var text = pmpad.atext.text;
 
-        if (msg == msg_read) {
+                    fs.readFile(path, function(frerr, data) {
+                        if (frerr) {
+                            // notify user about the read error
+                            console.log("CODEPAD NTC - file doesent exist " + path);
+                            //callback(null);
+                        } else {
+                            var adat = data.toString();
+                            if (adat !== text.slice(0, -1)) {
+                                console.log("READ from filesystem. " + path);
+                                err_msg = {
+                                    type: 'COLLABROOM',
+                                    data: {
+                                        type: "CUSTOM",
+                                        payload: {
+                                            padId: padid,
+                                            from: "check",
+                                            errors: "File inconsistent with pad content " + adat.length + "/" + (text.length - 1)
+                                        }
+                                    }
+                                };
+                                padMessageHandler.handleCustomObjectMessage(err_msg, undefined, cb);
+
+                            } else
+                                send_ok(padid);
+                        }
+                    });
+                } else console.log("CODEPAD ERR - getPad failed!");
+            });
+            //callback(null);
+        }
+        if (msg === msg_read) {
             padManager.getPad(padid, null, function(gperr, pmpad) {
                 if (gperr === null) {
                     var path = project_path + padid;
@@ -129,7 +167,7 @@ exports.handleMessage = function(hook_name, context, callback) {
             });
             //callback(null);
         }
-        if (msg == msg_write || msg == msg_push) {
+        if (msg === msg_write || msg === msg_push) {
 
             padManager.getPad(padid, null, function(err, pmpad) {
 
@@ -222,7 +260,7 @@ exports.handleMessage = function(hook_name, context, callback) {
                             var beat = text;
 
                             // if .js file beautify
-                            if (ext == 'js') {
+                            if (ext === 'js') {
                                 //check for missing semiciolons forst
                                 if (msg == msg_push && !jshint(text)) {
 
@@ -293,18 +331,20 @@ exports.handleMessage = function(hook_name, context, callback) {
                             }
 
                             // if .css file beautify
-                            if (ext == 'css' && msg == msg_push) {
+                            if (ext === 'css' && msg == msg_push) {
                                 beat = beautify_css(text, {
                                     indent_size: 4
                                 });
                             }
 
                             // if .html file beautify
-                            if (ext == 'xml' && msg == msg_push) {
+                            if (ext === 'xml' && msg == msg_push) {
                                 beat = beautify_html(text, {
                                     indent_size: 4
                                 });
                             }
+
+                            // TODO add bash beautifier and syntax checker here
 
                             // text and beat may be different, depending on jsHint and the beutifier
                             if (text !== beat) {
