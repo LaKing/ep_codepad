@@ -1,0 +1,120 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/bin/npm', 'publish' ]
+2 info using npm@1.4.26
+3 info using node@v0.10.36
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /root/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/root/.npm/ep_codepad/1.2.6/package.tgz', '.' ]
+11 verbose tarball /root/.npm/ep_codepad/1.2.6/package.tgz
+12 verbose folder .
+13 info prepublish ep_codepad@1.2.6
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /root/.npm/1f1177db-tar.lock
+16 silly lockFile 76013738-npm-ep-codepad-1-2-6-package-tgz tar:///root/.npm/ep_codepad/1.2.6/package.tgz
+17 verbose lock tar:///root/.npm/ep_codepad/1.2.6/package.tgz /root/.npm/76013738-npm-ep-codepad-1-2-6-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 76013738-npm-ep-codepad-1-2-6-package-tgz tar:///root/.npm/ep_codepad/1.2.6/package.tgz
+21 silly lockFile 76013738-npm-ep-codepad-1-2-6-package-tgz tar:///root/.npm/ep_codepad/1.2.6/package.tgz
+22 silly lockFile c5f9e179-oot-npm-ep-codepad-1-2-6-package /root/.npm/ep_codepad/1.2.6/package
+23 verbose lock /root/.npm/ep_codepad/1.2.6/package /root/.npm/c5f9e179-oot-npm-ep-codepad-1-2-6-package.lock
+24 silly lockFile c5f9e179-oot-npm-ep-codepad-1-2-6-package /root/.npm/ep_codepad/1.2.6/package
+25 silly lockFile c5f9e179-oot-npm-ep-codepad-1-2-6-package /root/.npm/ep_codepad/1.2.6/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { name: 'ep_codepad',
+28 silly publish   description: 'Turn etherpad into a realtime collaborative development environment',
+28 silly publish   keywords:
+28 silly publish    [ 'sourcecode',
+28 silly publish      'edit',
+28 silly publish      'javascript',
+28 silly publish      'html',
+28 silly publish      'css',
+28 silly publish      'php',
+28 silly publish      'bash',
+28 silly publish      'code',
+28 silly publish      'syntaxhighlight',
+28 silly publish      'jsHint',
+28 silly publish      'beautify',
+28 silly publish      'IDE' ],
+28 silly publish   author: { name: 'István Király', email: 'LaKing@D250.hu' },
+28 silly publish   version: '1.2.6',
+28 silly publish   dependencies:
+28 silly publish    { 'js-beautify': '>=1.5.0',
+28 silly publish      jshint: '>= 2.5.0',
+28 silly publish      log4js: '>= 0.5.x',
+28 silly publish      'regexp-quote': '*',
+28 silly publish      mime: '>= 1.2.11',
+28 silly publish      bcrypt: '*' },
+28 silly publish   devDependencies: {},
+28 silly publish   optionalDependencies: {},
+28 silly publish   engines: { node: '*' },
+28 silly publish   repository: { type: 'git', url: 'https://github.com/LaKing/ep_codepad' },
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   dist: { shasum: 'a8f8e9afb5f219265ffb696ca5cf4cf9c1d778c8' },
+28 silly publish   readme: 'Turn etherpad into codepad, a collaborative online development enviroment. \nhttp://codepad.etherpad.org\n\nThis etherpad-lite plugin merges functionality of a few simple plugins, and adds tons of functionality on its own.\nCurrent features:\n    \n- File Tree view, open files into pads and save them, push them to the server filesystem\n- Search in project files, replace all instances file by file\n- Syntaxhighlighting for 92+ popular languages - based on highlight.js\n- Adds themes, properly implemented with css, and a theme generator\n- beutify html/css/javascript code with jsBeutify \n- Syntax-check javascipt with jsHint, and display results\n- Search and replace in pads in a javascript implementation\n- save/commit/push (F2) and run custom commands or scripts\n\n- It sets some reasonable defaults and customizes buttons\n- Admin interface based on adminpads\n- Can use a hash instead of a password in the users section of settings.json (ep_hash_auth)\n- Authentication username to etherpad-username, and custom colors defined in settings.json\n\nSpecial URI\'s:\n\n- /files[#URI] - filetree\n- /log - logview\n- /v[/folder(s)]/file - quick view-only with syntaxhighlighting\n- /s[/folder(s)]/file - raw static view-only without anything\n- /p[/folder(s)]/file - open pad for editing\n\nCurrently the following codepad parameters are supported in etherpad\'s settings.json:\n- default theme\n- project_path to save files (needs to be writeable by codepad)\n- log_path for displaying logs (parent dir needs execute right)\n- customize the button to open a browser to the project\n- action to perform when pushing files\n- authentication password-hash and the custom colors\n\nThe use of authentication and authorization over https is strongly recommended.\nUnauthorized access to settings.json may expose operating system files, in the name of the user etherpad is run as.\nInstall with npm or git, create your settings.json and restart etherpad after installation.\n\n```\n  "ep_codepad": { \n    "theme": "Cobalt",\n    "project_path": "/srv/project",\n    "log_path": "/var/log/codepad/log",\n    "play_url": "http://project.local",\n    "push_action": "cd /srv/project && git add . && git commit -m 2.x"\n  },\n  "ep_hash_auth": {\n    "hash_typ": "sha512",\n    "hash_dig": "hex",\n    "hash_dir": "/var/codepad/users",\n    "hash_ext": "/.hash",\n    "hash_adm": true,\n    "allow_namechange": "true"\n  },\n  "users": {\n    "Bud": {"hash": "6c98..66d2","is_admin": true, "color": "#ff2222"},\n    "Al":  {"hash": "c7r2..b72c","is_admin": true, "color": "#2244ff"}\n  },\n```\nIt is recommended to run codepad on a VE or VM, with its own subdomain.\nAn optional parameter, installation_folder has been added to support etherpad installations in a subfolder-path in the URI, but this feature has not been tested at all.\nPlease refer to issue #6 on https://github.com/LaKing/ep_codepad\n\nCodepad is NOT tested on and not designed for non-linux operating systems, functionality is partially dependant on linux commands and filesystem properties.\nEtherpad / mariadb has limitations on folder/file length - there is a patch to double the allowed 50 characters if you insist on using long path and filenames. \nPatch etherpad-lite/src/node/db/PadManager.js change \'{1,50}$/.test(padId);\' to \'{1,100}$/.test(padId);\'\n\nAuthor notes:\nCodepad is designed to work together with my fedora srvctl utility, an LXC container and virtual server farm managment tool. \nhttps://github.com/LaKing/srvctl\n\nPlease feel free to send comments, bug-reports, ...\n.. and/or in case of professional, or commercial use please donate to support open source software developers, or hire them.\n',
+28 silly publish   gitHead: 'c63f86e27301c3085da0c569c12493af5f9ec89c',
+28 silly publish   bugs: { url: 'https://github.com/LaKing/ep_codepad/issues' },
+28 silly publish   homepage: 'https://github.com/LaKing/ep_codepad',
+28 silly publish   _id: 'ep_codepad@1.2.6',
+28 silly publish   scripts: {},
+28 silly publish   _shasum: '2e3a4d3938bb87dc4b7d36be2a6ed33058159cf4',
+28 silly publish   _from: '.' }
+29 verbose request where is /ep_codepad
+30 verbose request registry https://registry.npmjs.org/
+31 verbose request id e66c86c94d1f02b6
+32 verbose url raw /ep_codepad
+33 verbose url resolving [ 'https://registry.npmjs.org/', './ep_codepad' ]
+34 verbose url resolved https://registry.npmjs.org/ep_codepad
+35 verbose request where is https://registry.npmjs.org/ep_codepad
+36 info trying registry request attempt 1 at 00:35:34
+37 http PUT https://registry.npmjs.org/ep_codepad
+38 http 403 https://registry.npmjs.org/ep_codepad
+39 verbose headers { 'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=300',
+39 verbose headers   'content-length': '95',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   date: 'Mon, 18 Apr 2016 22:35:38 GMT',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   connection: 'keep-alive',
+39 verbose headers   'x-served-by': 'cache-fra1235-FRA',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1461018936.183688,VS0,VE2064',
+39 verbose headers   vary: 'Accept-Encoding' }
+40 error publish Failed PUT 403
+41 error Error: "You cannot publish over the previously published version 1.2.6." : ep_codepad
+41 error     at RegClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+41 error     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+41 error     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:123:22)
+41 error     at Request.emit (events.js:98:17)
+41 error     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:893:14)
+41 error     at Request.emit (events.js:117:20)
+41 error     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:844:12)
+41 error     at IncomingMessage.emit (events.js:117:20)
+41 error     at _stream_readable.js:944:16
+41 error     at process._tickCallback (node.js:442:13)
+42 error If you need help, you may report this *entire* log,
+42 error including the npm and node versions, at:
+42 error     <http://github.com/npm/npm/issues>
+43 error System Linux 4.4.6-301.fc23.x86_64
+44 error command "node" "/usr/bin/npm" "publish"
+45 error cwd /srv/etherpad-lite/node_modules/ep_codepad
+46 error node -v v0.10.36
+47 error npm -v 1.4.26
+48 verbose exit [ 1, true ]
