@@ -2,7 +2,7 @@
 
 Actually, this is my first codepad implementation, and we reference it now as ep_codepad.
 This project is now outdated by another implementation: 
-[codepad](https://github.com/LaKing/codepad) has a 
+[the new codepad](https://github.com/LaKing/codepad) has a 
 [demo](https://codepad-demo.d250.hu:9001)
 
 # ep_codepad archive
