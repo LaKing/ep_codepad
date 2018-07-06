@@ -1,3 +1,12 @@
+# Welcome to codepad
+
+Actually, this is my first codepad implementation, and we reference it now as ep_codepad.
+This project is now outdated by another implementation: 
+[codepad](https://github.com/LaKing/codepad)
+[codepad-demo](https://codepad-demo.d250.hu:9001)
+
+# ep_codepad archive
+
 Turn etherpad into codepad, a collaborative online development enviroment. 
 http://codepad.etherpad.org
 
@@ -66,10 +75,3 @@ Please refer to issue #6 on https://github.com/LaKing/ep_codepad
 Codepad is NOT tested on and not designed for non-linux operating systems, functionality is partially dependant on linux commands and filesystem properties.
 Etherpad / mariadb has limitations on folder/file length - there is a patch to double the allowed 50 characters if you insist on using long path and filenames. 
 Patch etherpad-lite/src/node/db/PadManager.js change '{1,50}$/.test(padId);' to '{1,100}$/.test(padId);'
-
-Author notes:
-Codepad is designed to work together with my fedora srvctl utility, an LXC container and virtual server farm managment tool. 
-https://github.com/LaKing/srvctl
-
-Please feel free to send comments, bug-reports, ...
-.. and/or in case of professional, or commercial use please donate to support open source software developers, or hire them.
