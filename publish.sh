@@ -50,7 +50,7 @@ echo '{
         "log4js": ">= 0.5.x",
         "regexp-quote": "*",
         "mime": ">= 1.2.11",
-        "bcrypt": "*"
+        "bcrypt-nodejs": "*"
     },
     "devDependencies": {},
     "optionalDependencies": {},
