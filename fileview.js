@@ -28,12 +28,12 @@ var mime = require('mime');
 exports.expressCreateFileViewServer = function(hook_name, args, cb) {
 
     args.app.get('/v/*', function(req, res) {
-        // file path slice     
+        // file path slice
         var fps = req.url.slice(3, 250);
 
         // TODO remove GET params
 
-        // file path urlencoded     
+        // file path urlencoded
         var fpu = encodeURIComponent(fps);
         // file path read url
         var fpr = '/v/' + fpu;
@@ -44,10 +44,10 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
         try {
             fs.exists(path, function(exists) {
                 if (exists) {
-                    if (!ext.getBrush(path) && mime.getType(path) !== 'application/octet-stream') {
+                    if (!ext.getBrush(path) && mime.lookup(path) !== 'application/octet-stream') {
                         fs.readFile(path, function(err, data) {
                             if (err) throw err;
-                            res.set('Content-Type', mime.getType(path));
+                            res.set('Content-Type', mime.getType(path) || ".txt");
                             res.send(data);
                         });
 
