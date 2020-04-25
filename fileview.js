@@ -47,7 +47,7 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
                     if (!ext.getBrush(path) && mime.lookup(path) !== 'application/octet-stream') {
                         fs.readFile(path, function(err, data) {
                             if (err) throw err;
-                            res.set('Content-Type', mime.getType(path) || ".txt");
+                            res.set('Content-Type', mime.lookup(path) || ".txt");
                             res.send(data);
                         });
 
