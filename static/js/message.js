@@ -131,9 +131,16 @@ exports.handleClientMessage_CUSTOM = function(hook, context) {
 
     }
 
-    if (cls !== '') $('#status').addClass(cls);
-    if (hint !== '') $('#status').html(hint);
-    if (hint_title !== '') $('#status').prop('title', hint_title);
+    if(hint){
+      $.gritter.add({
+        // (string | mandatory) the heading of the notification
+        title: hint_title || "",
+        // (string | mandatory) the text inside the notification
+        text: hint || "",
+        // (bool | optional) if you want it to fade out on its own or just sit there
+        sticky: false
+      });
+    }
 
     push_by_this_user = false;
 };
