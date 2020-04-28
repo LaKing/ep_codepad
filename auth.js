@@ -9,7 +9,7 @@ var sessionManager = require('ep_etherpad-lite/node/db/SessionManager');
 var crypto = require('crypto');
 
 // npm install bcrypt
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 // ocrypt-relevant options
 var hash_typ = "sha512";
