@@ -57,7 +57,7 @@ function scrollToPadLine(lineNumber) {
             // browser.mozilla is obsolete
             if (browser.mozilla || browser.firefox) $outerdocHTML.animate({
                 scrollTop: newY
-            }); // needed for FF     
+            }); // needed for FF
             return false;
         }
         count++;
@@ -134,7 +134,7 @@ exports.postAceInit = function(hook, context) {
         }, 'padsearch_callstack', true);
     });
 
-    // here we scroll and highlight the line if we get it on a get-parameter    
+    // here we scroll and highlight the line if we get it on a get-parameter
     if (window.location.search !== '') {
 
         var params = window.location.search.replace("amp;", "");
@@ -231,7 +231,7 @@ function padsearchReplaceAction(ace) {
 
     ace.ace_replaceRange([pslc - 1, pscc], [pslc - 1, pscc + pse.value.length], pre.value);
 
-    // the line lenght propably changed 
+    // the line lenght propably changed
     lpslinetext = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").contents().eq(pslc - 1).text();
     padsearchAction(ace, true);
 
@@ -247,8 +247,9 @@ function padsearchReplaceAction(ace) {
 exports.documentReady = function() {
 
     // import values from main codepad search - if they are set
-    pse.value = decodeURIComponent(getCookie("codepad_search"));
-    pre.value = decodeURIComponent(getCookie("codepad_replace"));
+    // TODO CAKE NEED TO SUPPORT THIS!
+    //pse.value = decodeURIComponent(getCookie("codepad_search"));
+    //pre.value = decodeURIComponent(getCookie("codepad_replace"));
 
 };
 
@@ -376,7 +377,7 @@ padsearchAction = function(ace, fw) {
 
                 ace.ace_performSelectionChange([pslc - 1, pscc], [pslc - 1, pscc + ps.length]);
 
-                //if (fw) 
+                //if (fw)
                 //pscc++;
 
                 return false;

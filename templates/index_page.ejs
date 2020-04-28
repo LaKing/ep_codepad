@@ -10,21 +10,6 @@
 
 <script src="../static/plugins/ep_codepad/static/js/jquery.js " type="text/javascript "></script>
 <script src="../static/plugins/ep_codepad/static/js/cookies.js " type="text/javascript "></script>
-<script type="text/javascript">
-    var theme = "<%=theme%>";
-    var themes = "<%= themes %>".split(',');;
-    if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
-
-    $(document).ready(function() {
-        var select = $('#themesmenu');
-        var option;
-        $.each(themes, function(i) {
-            option = new Option(themes[i], themes[i]);
-            if (themes[i] === theme) option.selected = true;
-            if (themes[i] !== 'Default') select.append($(option));
-        });
-    });
-</script>
 
 <div id="codepad-inner">
     <br />

@@ -3,22 +3,22 @@
     "description": "Turn etherpad into a realtime collaborative development environment",
     "keywords": [
         "sourcecode",
-            "edit",
-            "javascript",
-            "html",
-            "css",
-            "php",
-            "bash",
-            "code",
-            "syntaxhighlight",
-            "jsHint",
-            "beautify",
-            "IDE"
-        ],
+        "edit",
+        "javascript",
+        "html",
+        "css",
+        "php",
+        "bash",
+        "code",
+        "syntaxhighlight",
+        "jsHint",
+        "beautify",
+        "IDE"
+    ],
     "author": {
-    "name": "István Király",
-    "email": "LaKing@D250.hu",
-    "homepage": "http://www.D250.hu"
+        "name": "István Király",
+        "email": "LaKing@D250.hu",
+        "homepage": "http://www.D250.hu"
     },
     "version": "1.3.0",
     "dependencies": {
@@ -36,7 +36,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/LaKing/ep_codepad"   
+        "url": "https://github.com/LaKing/ep_codepad"
     },
     "readmeFilename": "README.md",
     "dist": {

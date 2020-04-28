@@ -1,10 +1,6 @@
 {
-    "parts": [{
-            "name": "ep_codepad_index_page",
-            "hooks": {
-                "eejsBlock_indexWrapper": "ep_codepad/index_page"
-            }
-        }, {
+    "parts": [
+        {
             "name": "ep_codepad_auth",
             "hooks": {
                 "authenticate": "ep_codepad/auth",
@@ -29,11 +25,6 @@
             "name": "ep_codepad_filestaticview",
             "hooks": {
                 "expressCreateServer": "ep_codepad/filestatic:expressCreateFileStaticViewServer"
-            }
-        }, {
-            "name": "ep_codepad_filerunner",
-            "hooks": {
-                "expressCreateServer": "ep_codepad/filerunner:expressCreateFileRunServer"
             }
         }, {
             "name": "ep_codepad_fileview",
@@ -82,9 +73,6 @@
         }, {
             "name": "ep_codepad_themed_syntaxhighlighting",
             "hooks": {
-                "eejsBlock_scripts": "ep_codepad/themes_index:eejsBlock_scripts",
-                "eejsBlock_styles": "ep_codepad/themes_index:eejsBlock_styles",
-                "eejsBlock_timesliderStyles": "ep_codepad/themes_index:eejsBlock_timesliderStyles",
                 "eejsBlock_editbarMenuRight": "ep_codepad/themes_index:eejsBlock_editbarMenuRight",
                 "eejsBlock_editbarMenuLeft": "ep_codepad/themes_index:eejsBlock_editbarMenuLeft",
                 "eejsBlock_mySettings.dropdowns": "ep_codepad/themes_index:eejsBlock_mySettings_dropdowns",
@@ -105,12 +93,6 @@
             "name": "ep_codepad_keypress_handler",
             "client_hooks": {
                 "aceKeyEvent": "ep_codepad/static/js/keypress:aceKeyEvent"
-            }
-        }, {
-            "name": "ep_codepad_themes",
-            "client_hooks": {
-                "aceEditorCSS": "ep_codepad/static/js/themes:aceEditorCSS",
-                "aceInitInnerdocbodyHead": "ep_codepad/static/js/themes:aceInitInnerdocbodyHead"
             }
         }, {
             "name": "ep_codepad_cursortrace",

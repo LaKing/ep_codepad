@@ -7,17 +7,12 @@ var ext = require('ep_codepad/extensions');
 
 // abs - absolute part of the files path - the project path
 var abs = '/tmp/';
-// theme from settings
-var theme = 'Default';
 
 var cif = '';
 
 if (settings.ep_codepad) {
     if (settings.ep_codepad.project_path) {
         abs = settings.ep_codepad.project_path;
-    }
-    if (settings.ep_codepad.theme) {
-        theme = settings.ep_codepad.theme;
     }
     if (settings.ep_codepad.installation_folder) {
         cif = settings.ep_codepad.installation_folder;
@@ -30,9 +25,9 @@ var mime = require('mime');
 exports.expressCreateFileStaticViewServer = function(hook_name, args, cb) {
 
     args.app.get('/s/*', function(req, res) {
-        // file path slice     
+        // file path slice
         var fps = req.url.slice(3, 250);
-        // file path urlencoded     
+        // file path urlencoded
         var fpu = encodeURIComponent(fps);
         // file path read url
         var fpr = '/s/' + fpu;
@@ -64,7 +59,6 @@ exports.expressCreateFileStaticViewServer = function(hook_name, args, cb) {
                         uri: "#",
                         code: "Error! No such file.",
                         file: file,
-                        theme: theme,
                         cif: cif,
                         brush: "plain"
 
@@ -77,7 +71,6 @@ exports.expressCreateFileStaticViewServer = function(hook_name, args, cb) {
                 uri: "#",
                 code: "FileStaticViewServer - Error! " + e,
                 file: file,
-                theme: theme,
                 cif: cif,
                 brush: "plain"
             }));

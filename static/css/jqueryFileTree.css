@@ -2,13 +2,25 @@
  #filebody {
      padding: 0;
      margin: 0;
+     display:block;
  }
  .bal {
-     float: left;
-     width: 13%;
+     display: block;
+     position:relative;
+     float:left;
+     width: 20%;
      height: 100%;
      margin: 0;
      padding: 0;
+ }
+ .fileView {
+     display:block;
+     position:relative;
+     width: 80%;
+     float:right;
+     height: 100%;
+     border: none;
+     padding: 0px 0px 0px 0px;
  }
  .nav {
      height: 36px;
@@ -39,13 +51,6 @@
  .sr .offer {
      float: right;
      width: 40%;
- }
- .fileView {
-     float: right;
-     width: 87%;
-     height: 100%;
-     border: none;
-     padding: 0px 0px 0px 0px;
  }
  .buttonicon-codepad_nav_home:before {
      content: "\f015";

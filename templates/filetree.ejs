@@ -13,10 +13,6 @@
     <link href="<%=cif%>/static/plugins/ep_codepad/static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="<%=cif%>/static/css/pad.css" rel="stylesheet" type="text/css" media="screen" />
     <script type="text/javascript">
-        var theme = '<%=theme%>';
-        if (getCookie("codepad_theme") != '') theme = getCookie("codepad_theme");
-        document.write('<link rel="stylesheet" type="text/css" href="<%=cif%>/static/plugins/ep_codepad/static/css/theme/' + theme + '.css">');
-
         $(document).ready(function() {
             $('#fileTree').fileTree({}, function(param) {
                 document.getElementById("fileView").src = param;
@@ -31,9 +27,9 @@
 
             } else $('#fileView').attr('src', '<%=cif%>/log');
 
-
-            $('#search').val(decodeURIComponent(getCookie("codepad_search")));
-            $('#offer').val(decodeURIComponent(getCookie("codepad_replace")));
+//DOH CAKE TODO
+//            $('#search').val(decodeURIComponent(getCookie("codepad_search")));
+//            $('#offer').val(decodeURIComponent(getCookie("codepad_replace")));
         });
 
          // trick to display path's via hash
@@ -65,7 +61,7 @@
                 // truncate GET parameters
                 if (uri.lastIndexOf('?') > -1) uri = uri.substring(0, uri.lastIndexOf('?'));
 
-                // normal pages                
+                // normal pages
                 if (uri.substring(0, 3) == "/v/") document.title = uri.substring(2) + " - VIEW";
                 if (uri.substring(0, 3) == "/p/") document.title = uri.substring(2) + " - EDIT";
                 if (uri.substring(0, 3) == "/s/") document.title = uri.substring(2) + " - PREVIEW";
@@ -136,6 +132,13 @@
             <input id="offer" type="text" class="offer" placeholder=".. replace offer" onkeydown="if (event.keyCode == 13) return searchAction();">
         </div>
     </div>
-    <iframe name="fileView" id="fileView" class="fileView"></iframe>
+    <!--
+    <div id="fileViewContainer">
+    -->
 
+      <iframe name="fileView" id="fileView" class="fileView"></iframe>
+    <!--
+  </div>
+-->
+<span width=200px">
 </html>

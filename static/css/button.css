@@ -1,54 +1,45 @@
 .buttonicon-codepad_buttons_toggletree:before {
     content: "\f0db";
     font-family: FontAwesome;
-    color: #666;
     font-size: 14px;
 }
 .buttonicon-codepad_buttons_raw:before {
     content: "\f01d";
     font-family: FontAwesome;
-    color: #666;
     font-size: 16px;
 }
 .buttonicon-codepad_buttons_run:before {
     content: "\f01d";
     font-family: FontAwesome;
-    color: #F66;
     font-size: 16px;
 }
 .buttonicon-codepad_buttons_prev:before {
     content: "\f0aa";
     font-family: FontAwesome;
-    color: #666;
     font-size: 14px;
 }
 .buttonicon-codepad_buttons_next:before {
     content: "\f0ab";
     font-family: FontAwesome;
-    color: #666;
     font-size: 14px;
 }
 .buttonicon-codepad_buttons_replace:before {
     content: "\f058";
     font-family: FontAwesome;
-    color: #666;
     font-size: 14px;
 }
 .buttonicon-codepad_buttons_read:before {
     content: "\f093";
     font-family: FontAwesome;
-    color: #666;
     font-size: 14px;
 }
 .buttonicon-codepad_buttons_write:before {
     content: "\f019";
     font-family: FontAwesome;
-    color: #666;
     font-size: 14px;
 }
 .buttonicon-codepad_buttons_push:before {
     content: "\f019";
     font-family: FontAwesome;
-    color: #66F;
     font-size: 14px;
 }

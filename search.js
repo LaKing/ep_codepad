@@ -111,7 +111,7 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
             //res.end();
 
 
-            // we assemble the html here and send it directly. 
+            // we assemble the html here and send it directly.
             var res_send = ''; //'
             res_send += '<!DOCTYPE html><head><title>log</title>';
             res_send += '<script src="' + cif + '/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>';
@@ -119,9 +119,6 @@ exports.expressCreateSearchServer = function(hook_name, args, cb) {
             res_send += '<script type="text/javascript">';
             res_send += 'window.onload=toBottom;';
             res_send += 'function toBottom(){window.scrollTo(0, document.body.scrollHeight);}';
-            res_send += 'var theme = "' + theme + '";';
-            res_send += 'if (getCookie("codepad_theme") != "") theme = getCookie("codepad_theme");';
-            res_send += 'document.write(\'<link rel="stylesheet" type="text/css" href="' + cif + '/static/plugins/ep_codepad/static/css/theme/\'+theme+\'.css">\');';
             res_send += '</script></head><body>';
 
             var lines = data.split('\n');
