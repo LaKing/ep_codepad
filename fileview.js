@@ -4,6 +4,7 @@ var eejs = require('ep_etherpad-lite/node/eejs');
 var fs = require('fs');
 var settings = require('ep_etherpad-lite/node/utils/Settings');
 var ext = require('ep_codepad/extensions');
+var pathX = require('path')
 
 // abs - absolute part of the files path - the project path
 var abs = '/tmp/';
@@ -40,7 +41,8 @@ exports.expressCreateFileViewServer = function(hook_name, args, cb) {
 
         var file = decodeURIComponent(fps);
         var path = abs + '/' + file;
-
+        path = pathX.normalize(path);
+console.warn("normalized path", path);
         try {
             fs.exists(path, function(exists) {
                 if (exists) {

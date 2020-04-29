@@ -3,12 +3,10 @@
      padding: 0;
      margin: 0;
      display:block;
+     background-color:pink;
  }
  .bal {
-     display: block;
-     position:relative;
-     float:left;
-     width: 20%;
+     flex:1;
      height: 100%;
      margin: 0;
      padding: 0;
@@ -16,11 +14,16 @@
  .fileView {
      display:block;
      position:relative;
-     width: 80%;
-     float:right;
      height: 100%;
+     width: 100%;
      border: none;
      padding: 0px 0px 0px 0px;
+ }
+ .flexFileView{
+   width:25%
+ }
+ .flexiFrame{
+   width:75%;
  }
  .nav {
      height: 36px;
@@ -239,4 +242,44 @@
  .jqueryFileTree LI.ext_plain:before {
      content: "\f15c";
      color: #999;
+ }
+
+ flex {
+     display: flex;
+ }
+
+ flex-item > flex {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+ }
+
+flex.h{
+  height:100%;
+}
+
+ flex.v {
+   height:100%;
+     -ms-flex-direction: column;
+     flex-direction: column;
+ }
+
+ flex-item {
+     display: flex;
+     position: relative;
+     overflow: hidden;
+ }
+
+ flex > flex-resizer {
+     -ms-flex: 0 0 8px;
+     flex: 0 0 8px;
+     background: pink;
+ }
+
+ flex.h > flex-resizer {
+     cursor: ew-resize;
+ }
+
+ flex.v > flex-resizer {
+     cursor: ns-resize;
  }

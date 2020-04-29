@@ -1,144 +1,227 @@
 <html>
 
 <head>
-    <title>Project files @
-        <%=abs%>
-    </title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <script src="<%=cif%>/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>
-    <script src="<%=cif%>/static/plugins/ep_codepad/static/js/jquery.js" type="text/javascript"></script>
-    <script src="<%=cif%>/static/plugins/ep_codepad/static/js/jquery.easing.js" type="text/javascript"></script>
-    <script src="<%=cif%>/static/plugins/ep_codepad/static/js/jqueryFileTree.js" type="text/javascript"></script>
-    <link href="<%=cif%>/static/plugins/ep_codepad/static/css/jqueryFileTree.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="<%=cif%>/static/plugins/ep_codepad/static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="<%=cif%>/static/css/pad.css" rel="stylesheet" type="text/css" media="screen" />
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#fileTree').fileTree({}, function(param) {
-                document.getElementById("fileView").src = param;
-            });
+  <title>Project files @
+    <%=abs%>
+  </title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <script src="<%=cif%>/static/plugins/ep_codepad/static/js/cookies.js" type="text/javascript"></script>
+  <script src="<%=cif%>/static/plugins/ep_codepad/static/js/jquery.js" type="text/javascript"></script>
+  <script src="<%=cif%>/static/plugins/ep_codepad/static/js/jquery.easing.js" type="text/javascript"></script>
+  <script src="<%=cif%>/static/plugins/ep_codepad/static/js/jqueryFileTree.js" type="text/javascript"></script>
+  <link href="<%=cif%>/static/plugins/ep_codepad/static/css/jqueryFileTree.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="<%=cif%>/static/plugins/ep_codepad/static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="<%=cif%>/static/css/pad.css" rel="stylesheet" type="text/css" media="screen" />
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#fileTree').fileTree({}, function(param) {
+      document.getElementById("fileView").src = param;
+    });
 
-            // read-back from has, and display as it is
-            var hash = window.location.hash;
-            if (hash) {
+    // read-back from has, and display as it is
+    var hash = window.location.hash;
+    if (hash) {
 
-                var s = hash.substring(1).trim();
-                $('#fileView').attr('src', s);
+      var s = hash.substring(1).trim();
+      $('#fileView').attr('src', s);
 
-            } else $('#fileView').attr('src', '<%=cif%>/log');
+    } else $('#fileView').attr('src', '<%=cif%>/log');
 
-//DOH CAKE TODO
-//            $('#search').val(decodeURIComponent(getCookie("codepad_search")));
-//            $('#offer').val(decodeURIComponent(getCookie("codepad_replace")));
-        });
+    //DOH CAKE TODO
+    //            $('#search').val(decodeURIComponent(getCookie("codepad_search")));
+    //            $('#offer').val(decodeURIComponent(getCookie("codepad_replace")));
+  });
 
-         // trick to display path's via hash
-        var cif = "<%=cif%>";
-        var last = "";
-        var loc = "";
-        var lol = window.location.origin.length;
-        var uri = "";
+  // trick to display path's via hash
+  var cif = "<%=cif%>";
+  var last = "";
+  var loc = "";
+  var lol = window.location.origin.length;
+  var uri = "";
 
-        setInterval(function() {
-            //fram = $('#fileView').contents().find("title").text();
-            loc = document.getElementById("fileView").src; //contentWindow.location;
-            if (last == loc) return;
+  setInterval(function() {
+    //fram = $('#fileView').contents().find("title").text();
+    loc = document.getElementById("fileView").src; //contentWindow.location;
+    if (last == loc) return;
 
-            last = loc;
-            uri = decodeURIComponent(loc.toString().substr(lol));
+    last = loc;
+    uri = decodeURIComponent(loc.toString().substr(lol));
 
-            //do stuff with 'window.location.hash'
-            window.location.hash = uri;
+    //do stuff with 'window.location.hash'
+    window.location.hash = uri;
 
-            if (uri.substring(0, 11) == "/sr?search=") {
-                // the special seach page
-                if (uri.indexOf('&') > 0) document.title = uri.substring(11, uri.indexOf('&')) + " - SEARCH";
-                else document.title = uri.substring(11) + " - SEARCH";
-            } else {
-                // special log page
-                if (uri == "/log") document.title = "LOG"
+    if (uri.substring(0, 11) == "/sr?search=") {
+      // the special seach page
+      if (uri.indexOf('&') > 0) document.title = uri.substring(11, uri.indexOf('&')) + " - SEARCH";
+      else document.title = uri.substring(11) + " - SEARCH";
+    } else {
+      // special log page
+      if (uri == "/log") document.title = "LOG"
 
-                // truncate GET parameters
-                if (uri.lastIndexOf('?') > -1) uri = uri.substring(0, uri.lastIndexOf('?'));
+      // truncate GET parameters
+      if (uri.lastIndexOf('?') > -1) uri = uri.substring(0, uri.lastIndexOf('?'));
 
-                // normal pages
-                if (uri.substring(0, 3) == "/v/") document.title = uri.substring(2) + " - VIEW";
-                if (uri.substring(0, 3) == "/p/") document.title = uri.substring(2) + " - EDIT";
-                if (uri.substring(0, 3) == "/s/") document.title = uri.substring(2) + " - PREVIEW";
-                if (uri.substring(uri.lastIndexOf('/')) == "/timeslider") document.title = uri.substring(2, uri.length - 11) + " - TIMESLIDER";
+      // normal pages
+      if (uri.substring(0, 3) == "/v/") document.title = uri.substring(2) + " - VIEW";
+      if (uri.substring(0, 3) == "/p/") document.title = uri.substring(2) + " - EDIT";
+      if (uri.substring(0, 3) == "/s/") document.title = uri.substring(2) + " - PREVIEW";
+      if (uri.substring(uri.lastIndexOf('/')) == "/timeslider") document.title = uri.substring(2, uri.length - 11) + " - TIMESLIDER";
 
-            }
-            //document.title = loc.toString().substr(lol);
-        }, 1000);
+    }
+    //document.title = loc.toString().substr(lol);
+  }, 1000);
 
-        function searchAction() {
-            var sr = encodeURIComponent(document.getElementById("search").value);
-            var of = encodeURIComponent(document.getElementById("offer").value);
-            //console.log(sr + of);
-            if (sr != '') {
-                if (of != '') $('#fileView').attr('src', '/sr?search=' + sr + '&offer=' + of);
-                else $('#fileView').attr('src', '/sr?search=' + sr);
+  function searchAction() {
+    var sr = encodeURIComponent(document.getElementById("search").value);
+    var of = encodeURIComponent(document.getElementById("offer").value);
+    //console.log(sr + of);
+    if (sr != '') {
+      if (of != '') $('#fileView').attr('src', '/sr?search=' + sr + '&offer=' + of);
+      else $('#fileView').attr('src', '/sr?search=' + sr);
 
-                setCookie("codepad_search", sr, 1);
-                setCookie("codepad_replace", of, 1);
+      setCookie("codepad_search", sr, 1);
+      setCookie("codepad_replace", of, 1);
 
-            } else alert('Please enter a search term, and hit [ENTER]');
+    } else alert('Please enter a search term, and hit [ENTER]');
 
-        }
-         //<button onclick="return searchAction();">s</button><input id="search" type="text" class="srs" placeholder="  replace to" onkeydown="if (event.keyCode == 13) return replaceAction();">
-    </script>
+  }
+  //<button onclick="return searchAction();">s</button><input id="search" type="text" class="srs" placeholder="  replace to" onkeydown="if (event.keyCode == 13) return replaceAction();">
+  function manageResize(md, sizeProp, posProp)
+  {
+    var r = md.target;
+
+    var prev = r.previousElementSibling;
+    var next = r.nextElementSibling;
+    if (!prev || !next) {
+      return;
+    }
+
+    md.preventDefault();
+
+    var prevSize = prev[sizeProp];
+    var nextSize = next[sizeProp];
+    var sumSize = prevSize + nextSize;
+    var prevGrow = Number(prev.style.flexGrow);
+    var nextGrow = Number(next.style.flexGrow);
+    var sumGrow = prevGrow + nextGrow;
+    var lastPos = md[posProp];
+
+    function onMouseMove(mm)
+    {
+      var pos = mm[posProp];
+      var d = pos - lastPos;
+      prevSize += d;
+      nextSize -= d;
+      if (prevSize < 0) {
+        nextSize += prevSize;
+        pos -= prevSize;
+        prevSize = 0;
+      }
+      if (nextSize < 0) {
+        prevSize += nextSize;
+        pos += nextSize;
+        nextSize = 0;
+      }
+
+      var prevGrowNew = sumGrow * (prevSize / sumSize);
+      var nextGrowNew = sumGrow * (nextSize / sumSize);
+
+      prev.style.flexGrow = prevGrowNew;
+      next.style.flexGrow = nextGrowNew;
+
+      lastPos = pos;
+    }
+
+    function onMouseUp(mu)
+    {
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    }
+
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+  }
+
+  function setupResizerEvents()
+  {
+    window.addEventListener("mousedown", function (md) {
+      var target = md.target;
+      if (target.nodeType !== 1 || target.tagName !== "FLEX-RESIZER") {
+        return;
+      }
+      var parent = target.parentNode;
+      var h = parent.classList.contains("h");
+      var v = parent.classList.contains("v");
+      if (h && v) {
+        return;
+      } else if (h) {
+        manageResize(md, "scrollWidth", "pageX");
+      } else if (v) {
+        manageResize(md, "scrollHeight", "pageY");
+      }
+    });
+  }
+
+  setupResizerEvents();
+
+  </script>
 
 </head>
 
 <body id="filebody">
-    <div id="bal" class="bal">
-        <div id='nav' class="nav">
+  <flex class="v">
+    <flex class="h">
+      <flex-item style="flex: 1" class="fileFileView">
+        <div id="bal" class="bal">
+          <div id='nav' class="nav">
             <div id='codepad_toolbar' class='toolbar enabledtoolbar'>
-                <ul class="codepad_menu_left">
-                    <li class="acl-write" id="button_home" onclick="window.location.href='<%=cif%>/'">
-                        <a class="grouped-left" data-l10n-id="pad.toolbar.codepad_nav_home.title" title="Home">
-                            <span class="buttonicon buttonicon-codepad_nav_home"></span>
-                        </a>
-                    </li>
-                    <li class="acl-write" id="button_play" onclick="window.open('<%=play_url%>')">
-                        <a class="grouped-middle" title="Play">
-                            <span class="buttonicon buttonicon-codepad_nav_play"></span>
-                        </a>
-                    </li>
-                    <li class="acl-write" id="button_log" onclick="$('#fileView').attr('src', '<%=cif%>/log');">
-                        <a class="grouped-middle" title="Log">
-                            <span class="buttonicon buttonicon-codepad_nav_log"></span>
-                        </a>
-                    </li>
-                    <li class="acl-write" id="button_pads" onclick="$('#fileView').attr('src', '<%=cif%>/admin');">
-                        <a class="grouped-middle" title="Admin">
-                            <span class="buttonicon buttonicon-codepad_nav_padmin"></span>
-                        </a>
-                    </li>
-                    <li class="acl-write" id="button_search" onclick="searchAction() ">
-                        <a class="grouped-right" title="Search">
-                            <span class="buttonicon buttonicon-codepad_nav_search"></span>
-                        </a>
-                    </li>
+              <ul class="codepad_menu_left">
+                <li class="acl-write" id="button_home" onclick="window.location.href='<%=cif%>/'">
+                  <a class="grouped-left" data-l10n-id="pad.toolbar.codepad_nav_home.title" title="Home">
+                    <span class="buttonicon buttonicon-codepad_nav_home"></span>
+                  </a>
+                </li>
+                <li class="acl-write" id="button_play" onclick="window.open('<%=play_url%>')">
+                  <a class="grouped-middle" title="Play">
+                    <span class="buttonicon buttonicon-codepad_nav_play"></span>
+                  </a>
+                </li>
+                <li class="acl-write" id="button_log" onclick="$('#fileView').attr('src', '<%=cif%>/log');">
+                  <a class="grouped-middle" title="Log">
+                    <span class="buttonicon buttonicon-codepad_nav_log"></span>
+                  </a>
+                </li>
+                <li class="acl-write" id="button_pads" onclick="$('#fileView').attr('src', '<%=cif%>/admin');">
+                  <a class="grouped-middle" title="Admin">
+                    <span class="buttonicon buttonicon-codepad_nav_padmin"></span>
+                  </a>
+                </li>
+                <li class="acl-write" id="button_search" onclick="searchAction() ">
+                  <a class="grouped-right" title="Search">
+                    <span class="buttonicon buttonicon-codepad_nav_search"></span>
+                  </a>
+                </li>
 
-                </ul>
+              </ul>
             </div>
-        </div>
+          </div>
 
-        <div id="fileTree" class="fileTree"></div>
+          <div id="fileTree" class="fileTree"></div>
 
-        <div id="sr" class="sr">
+          <div id="sr" class="sr">
             <input id="search" type="text" class="search" placeholder=".. find in files" onkeydown="if (event.keyCode == 13) return searchAction();">
             <input id="offer" type="text" class="offer" placeholder=".. replace offer" onkeydown="if (event.keyCode == 13) return searchAction();">
+          </div>
         </div>
-    </div>
-    <!--
-    <div id="fileViewContainer">
-    -->
 
-      <iframe name="fileView" id="fileView" class="fileView"></iframe>
-    <!--
-  </div>
--->
-<span width=200px">
-</html>
+      </flex-item>
+
+      <flex-resizer></flex-resizer>
+
+      <flex-item style="flex" class="flexiFrame">
+        <iframe name="fileView" id="fileView" class="fileView"></iframe>
+      </flex-item>
+    </flex>
+  </flex>
+
+  </html>
