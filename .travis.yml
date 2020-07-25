@@ -33,12 +33,12 @@ jobs:
   include:
     - name: "Run the Backend tests"
       install:
-        - "mkdir [plugin_name]"
-        - "mv !([plugin_name]) [plugin_name]"
+        - "mkdir ep_codepad"
+        - "mv !(ep_codepad) ep_codepad"
         - "git clone https://github.com/ether/etherpad-lite.git etherpad"
         - "cd etherpad"
         - "mkdir node_modules"
-        - "mv ../[plugin_name] node_modules"
+        - "mv ../ep_codepad node_modules"
         - "bin/installDeps.sh"
         - "export GIT_HASH=$(git rev-parse --verify --short HEAD)"
         - "cd src && npm install && cd -"
@@ -46,12 +46,12 @@ jobs:
         - "tests/frontend/travis/runnerBackend.sh"
     - name: "Test the Frontend"
       install:
-        - "mkdir [plugin_name]"
-        - "mv !([plugin_name]) [plugin_name]"
+        - "mkdir ep_codepad"
+        - "mv !(ep_codepad) ep_codepad"
         - "git clone https://github.com/ether/etherpad-lite.git etherpad"
         - "cd etherpad"
         - "mkdir node_modules"
-        - "mv ../[plugin_name] node_modules"
+        - "mv ../ep_codepad node_modules"
         - "bin/installDeps.sh"
         - "export GIT_HASH=$(git rev-parse --verify --short HEAD)"
       script:
@@ -62,4 +62,4 @@ notifications:
     channels:
       - "irc.freenode.org#etherpad-lite-dev"
 
-##ETHERPAD_TRAVIS_V=1
+##ETHERPAD_TRAVIS_V=2
