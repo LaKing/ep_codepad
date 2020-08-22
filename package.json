@@ -20,7 +20,7 @@
         "email": "LaKing@D250.hu",
         "homepage": "http://www.D250.hu"
     },
-    "version": "1.3.4",
+    "version": "1.3.5",
     "dependencies": {
         "js-beautify": ">=1.5.0",
         "jshint": ">= 2.5.0",
