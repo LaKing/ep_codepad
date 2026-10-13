@@ -1,9 +1,8 @@
 # Welcome to codepad
 
 Actually, this is my first codepad implementation, and we reference it now as ep_codepad.
-This project is now outdated by another implementation: 
-[the new codepad](https://github.com/LaKing/codepad) has a 
-[demo](https://codepad-demo.d250.hu:9001)
+This project is superceded by another implementation: 
+[the new codepad](https://github.com/LaKing/codepad)
 
 # ep_codepad archive
 
